@@ -1,0 +1,11 @@
+@startuml
+actor Alice as alice
+participant Mixer as mixer
+actor Bob as bob
+
+bob -> bob : 生成随机数sk
+bob -> alice : cmt=mimc7(sk)
+alice -> mixer :deposit(cmt,1 ether)
+bob -> bob : 利用sk，Merkle tree path,PK\nnullifiers生成proof
+bob -> mixer : withdraw(merklePath,nullifiers,proof)\n取回1 ether
+@enduml

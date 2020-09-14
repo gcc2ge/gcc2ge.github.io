@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="content {:toc}  17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zkRollup介绍 原理篇 ">
+<meta property="og:url" content="http://www.whatsblockchain.com/2020/06/29/zkRollup-introduction/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="content {:toc}  17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.whatsblockchain.com/assets/2020-06-29/op_state.png">
+<meta property="og:image" content="http://www.whatsblockchain.com/assets/2020-06-29/chain.png">
+<meta property="og:image" content="http://www.whatsblockchain.com/assets/2020-06-29/tx.png">
+<meta property="article:published_time" content="2020-06-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-14T09:48:43.176Z">
+<meta property="article:author" content="吴寿鹤">
+<meta property="article:tag" content="零知识证明 以太坊 区块链">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.whatsblockchain.com/assets/2020-06-29/op_state.png">
+
+
+<link rel="canonical" href="http://www.whatsblockchain.com/2020/06/29/zkRollup-introduction/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>zkRollup介绍 原理篇  | Hexo</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145440251-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9af0452214522472f44968f5a652e2f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zkrollup%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">zkRollup是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zkrollup%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">zkRollup工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zkrollup%E6%80%A7%E8%83%BD"><span class="nav-number">3.</span> <span class="nav-text">zkRollup性能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#eip-1108"><span class="nav-number">3.1.</span> <span class="nav-text">EIP-1108</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eip-2028"><span class="nav-number">3.2.</span> <span class="nav-text">EIP-2028</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%BB%E9%93%BE"><span class="nav-number">3.3.</span> <span class="nav-text">当前以太坊主链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkrollup-%E4%BC%8A%E6%96%AF%E5%9D%A6%E5%B8%83%E5%B0%94%E5%88%86%E5%8F%89%E5%89%8D"><span class="nav-number">3.4.</span> <span class="nav-text">ZkRollup (伊斯坦布尔分叉前)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkrollup-%E4%BC%8A%E6%96%AF%E5%9D%A6%E5%B8%83%E5%B0%94%E5%88%86%E5%8F%89%E5%90%8E"><span class="nav-number">3.5.</span> <span class="nav-text">ZkRollup (伊斯坦布尔分叉后)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E5%AF%B9%E6%AF%94"><span class="nav-number">3.6.</span> <span class="nav-text">表格对比</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴寿鹤</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2020/06/29/zkRollup-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          zkRollup介绍 原理篇 
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-29T00:00:00+08:00">2020-06-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" itemprop="url" rel="index"><span itemprop="name">零知识证明</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>content {:toc}</li>
+</ul>
+<p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
+<h2 id="zkrollup是什么">zkRollup是什么</h2>
+<p><code>zkRollup</code>就是基于零知识证明的二层扩容方案(<code>layer2</code>)， <code>zkRollup</code>方案起源于18年下半年，由<code>Barry Whitehat</code>和<code>Vitalik</code>先后提出。<code>Rollup</code>顾名思义有“卷起”和“汇总”的意思，将大量的交易“卷起/汇总”打包成一个交易，<code>zkRollup</code>的原理一句话就可以讲清楚：链下进行复杂的计算和证明的生成，链上进行证明的校验并存储部分数据保证数据可用性。<code>zkRollup</code>数据可用性可以让任何人都能根据链上存储的交易数据，还原出账户的全局状态，从而消除由于数据可用性带来的安全风险（这里的数据可用性对比<code>Plasma</code>，<code>Plasma</code>之所以不能称为主流的扩容方案，在于<code>Plasma</code>的数据并没有提交到链上，所以在<code>Plasma</code>上退出一笔资产的周期会长达一周左右（争议期），如果在争议期间没有人提交欺诈证明，那么资产才可以安全退出到主链）</p>
+<h2 id="zkrollup工作原理">zkRollup工作原理</h2>
+<p><code>zkRollup</code>在链下利用<code>Merkle tree</code>存储账户状态，由<code>Operator</code>收集用户的交易，交易收集完成后<code>Operator</code>会执行每个交易（校验余额，校验nonce，校验签名，执行状态转换），当交易执行完成后会产生一个新的<code>Merkle tree Root</code>，为了证明链下状态转移是正确的，<code>Operator</code>会在交易执行完成后生成一个零知识证明的<code>proof</code>。</p>
+<p>下图表示<code>Operator</code>工作过程，黄色的表示用户发送的交易，绿色的表示<code>Operator</code>中维护的<code>merkle tree</code>，<code>Operator</code>执行交易后本地的<code>merkle tree root</code>会由<code>prev state root</code>转换成<code>post state root</code>，图中蓝色的表示<code>Operator</code>生成证明账户状态转移有效的零知识证明。</p>
+<figure>
+<img src="/assets/2020-06-29/op_state.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p><code>Operator</code>把<code>prev state root</code>，<code>post state root</code>，交易数据和<code>proof</code>证明提交至链上合约，合约校验<code>proof</code>通过后会将来新的状态写入到链上，合约不需要单独校验每笔交易的合法性，只需要校验<code>proof</code>是否有效，降低了链上<code>gas</code>消耗，其中交易数据是存储在较便宜的位置<code>CALLDATA</code>上。链下每一次的状态转变都需要提供零知识证明，由主链上的合约进行验证，只有验证通过才能更改状态。即每一次状态转变都严格依赖密码学证明。</p>
+<p><code>zkRollup</code>生成的证明大小（很小），验证时间（很快基本上是常数），不会随着交易数量的增长而变大，所以<code>zkRollup</code>可以极大地提高TPS。影响<code>zkRollup</code>链上性能的只有链上<code>CALLDATA</code>存储数据的成本,随着以太坊<code>Istanbul</code>升级，<code>CALLDATA</code>使用成本降为原来的<code>1/4</code>，<code>zkRollup</code>的性能则获得<code>4</code>倍提升，<code>TPS</code>可达到近<code>2000</code>左右。</p>
+<figure>
+<img src="/assets/2020-06-29/chain.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>上链的数据中<code>prve state root</code>，<code>post state root</code>与<code>proof</code>基本上是不会随着交易增长变化的，只有上图中黄色交易部分会随着交易增长变大，所以为了能在一个区块链中容纳更多的交易，需要对上链的交易进行压缩。<code>zkRollup</code>使用<code>merkle tree</code>来记录地址，这样地址就可以表示成<code>merkle tree</code>的索引值，地址数据的大小就从原本的<code>20 bytes</code>减少到<code>3 bytes</code>，在以太坊上金额用<code>32</code>个字节<code>256</code>位的大整型来表示，这里压缩到<code>6</code>个字节，货币最小单位从<code>wei</code>变成<code>Mwei=10^6 wei</code>，手续费压缩到<code>1</code>个字节，<code>nonce</code>压缩到<code>2</code>个字节，<code>nonce</code>的范围<code>0~65535</code>，也就是说一个账户最多可以发送<code>65535</code>笔交易，交易的签名直接删除了，不出现交易中，因为每笔交易的合法性在链下都通过零知识证明的电路约束校验过了。</p>
+<p>下图是压缩后<code>zkRollup</code>每笔交易数据的格式：</p>
+<figure>
+<img src="/assets/2020-06-29/tx.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h2 id="zkrollup性能">zkRollup性能</h2>
+<p>2019年12月7号发生的伊斯坦布尔硬分叉中有两个降低在链上执行零知识证明运算<code>gas</code>费用的提案：<a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-1108">EIP-1108</a>与<a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-2028">EIP-2028</a></p>
+<h3 id="eip-1108">EIP-1108</h3>
+<p>下面是引用<code>EIP-1108</code>提案中的部分原文：</p>
+<blockquote>
+<p>The elliptic curve arithmetic precompiles are currently overpriced. Re-pricing the precompiles would greatly assist a number of privacy solutions and scaling solutions on Ethereum.</p>
+</blockquote>
+<p>目前，椭圆曲线运算所需的<code>gas</code>费用太高，为了帮助隐私方案以及扩容方案在以太坊上的大规模应用，<code>EIP-1108</code>对椭圆曲线运算的<code>gas</code>费用进行了降价。</p>
+<p>以下是伊斯坦布尔分叉前后的椭圆曲线运算的<code>gas</code>费用对比</p>
+<table>
+<thead>
+<tr class="header">
+<th>Contract</th>
+<th>Address</th>
+<th>Current Gas Cost</th>
+<th>Updated Gas Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ECADD</code></td>
+<td><code>0x06</code></td>
+<td>500</td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td><code>ECMUL</code></td>
+<td><code>0x07</code></td>
+<td>40,000</td>
+<td>6,000</td>
+</tr>
+<tr class="odd">
+<td><code>Pairing check</code></td>
+<td><code>0x08</code></td>
+<td>80,000 * k + 100,000</td>
+<td>34,000 * k + 45,000</td>
+</tr>
+</tbody>
+</table>
+<p><code>ECADD</code>表示椭圆曲线加法运算，<code>ECMUL</code>表示椭圆曲线乘法运算，<code>Pairing check</code>表示椭圆曲线双线性映射运算。</p>
+<h3 id="eip-2028">EIP-2028</h3>
+<p>下面是引用<code>EIP-2028</code>提案中的部分原文：</p>
+<blockquote>
+<p>We propose to reduce the gas cost of Calldata (GTXDATANONZERO) from its current value of 68 gas per byte to 16 gas per byte, to be backed by mathematical modeling and empirical estimates. The mathematical model is the one used in the works of Sompolinsky and Zohar [1] and Pass, Seeman and Shelat [2], which relates network security to network delay. We shall (1) evaluate the theoretical impact of lower Calldata gas cost on network delay using this model, (2) validate the model empirically, and (3) base the proposed gas cost on our findings.</p>
+</blockquote>
+<p><code>EIP-2028</code>将<code>calldata</code>的存储成本从每字节<code>68 gas</code>降低到每字节<code>16 gas</code>，<code>zkRollup</code>的交易数据是存储在<code>calldata</code>上，这意味着我们可以在<code>calldata</code>上存储更多的交易数据，极大提高了吞吐率。</p>
+<p>现在我们已经了解了<code>EIP-1108</code>,<code>EIP-2028</code>两个提案为<code>zkRollup</code>扩容带来的好处，下面我们具体分下一下<code>zkRollup</code>的TPS。</p>
+<h3 id="当前以太坊主链">当前以太坊主链</h3>
+<ul>
+<li>当前以太坊区块最大的<code>gas limit</code>为10,000,000 gas</li>
+<li>以太坊是一个最简单交易的gas费用为：21,000 gas</li>
+<li>以太坊每个区块产生的时间为15s</li>
+</ul>
+<p>根据上面的数据，我们可以计算出以太坊主链的最大吞吐量：</p>
+<ul>
+<li>一个区块中可最多容纳的交易数量：10M / 21k = 476 tx</li>
+<li>计算TPS：476 tx / 15s = 32 tx/s</li>
+</ul>
+<h3 id="zkrollup-伊斯坦布尔分叉前">ZkRollup (伊斯坦布尔分叉前)</h3>
+<ul>
+<li>每个交易的大小为：from（3 bytes) + to（3 bytes）+ value（6 bytes）+ fee（1 bytes）+ nonce（2 bytes）= 15 bytes</li>
+<li>伊斯坦布尔分叉前<code>calldata</code>的gas为每字节68 gas，所以给个交易的成本为：15 bytes * 68 gas/byte = 1020 gas</li>
+<li>零知识证明校验的gas费用计算公式为：</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+VerificationGas =  n &amp; * ScalarMulGas \\
+                + &amp; PairingBaseGas   \\
+                + &amp; 4 ∗  PairingPerPointGas \\
+\end{aligned}
+\]</span></p>
+<p><code>ScalarMulGas</code>表示一个椭圆曲线乘法消耗的gas，如果涉及到多个椭圆曲线乘法运算那么消耗的gas为：<code>n  * ScalarMulGas</code>，<code>PairingBaseGas</code>表示椭圆曲线双线性映射运算基础gas费用，<code>PairingPerPointGas</code>表示每个椭圆曲线双线性映射运算gas费用。</p>
+<p>在<code>zkRollup</code>中零知识证明算法使用的是<code>groth16</code>，下方是<code>groth16</code>校验证明的公式：</p>
+<p><span class="math display">\[
+[A]_1 \cdot [B]_2=[\alpha]_1 \cdot [\beta]_2 + \displaystyle \sum ^l _{i=0} a_i \lbrack \frac{\beta u_i(x) + \alpha v_i(x) + w_i(x)}{\gamma} \rbrack _1 \cdot \gamma _2 + [C]_1 \cdot [\delta]_2
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
+\]</span></p>
+<p><code>e(x,x)</code>表示一个椭圆曲线双线性映射运算，所以在<code>groth16</code>校验中一共涉及到4次椭圆曲线双线性映射运算。</p>
+<p>下表是伊斯坦布尔分叉前椭圆曲线运算消耗的gas详情：</p>
+<table>
+<thead>
+<tr class="header">
+<th>Contract</th>
+<th>Address</th>
+<th>伊斯坦布尔分叉前</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ECADD</code></td>
+<td><code>0x06</code></td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td><code>ECMUL</code></td>
+<td><code>0x07</code></td>
+<td>40,000</td>
+</tr>
+<tr class="odd">
+<td><code>Pairing check</code></td>
+<td><code>0x08</code></td>
+<td>80,000 * k + 100,000</td>
+</tr>
+</tbody>
+</table>
+<p><code>80,000 * k + 100,000</code>中的<code>k</code>表示有几个椭圆曲线双线性映射运算，<code>100,000</code>表示椭圆曲线双线性映射运算基础gas费用。</p>
+<ul>
+<li>计算零知识证明校验gas消耗：公式：<code>VerificationGas =  n  * ScalarMulGas +  PairingBaseGas  +  4 ∗  PairingPerPointGas</code>，其中：<code>PairingBaseGas =  100,000 gas</code>，<code>PairingPerPointGas=80,000</code>，<code>ScalarMulGas=40,000</code> ，假设<code>zkRollup</code>只涉及到一个<code>public input</code>，所以<code>n=1</code>。VerificationGas = 1 * 40,000 + 100,000 + 80,000 * 4 = 460,000 gas</li>
+<li>计算区块中可用于容纳交易的空间：10,000,000 - 460,000 = 9,540,000 gas</li>
+<li>计算<code>zkRollup</code>单个交易gas成本：15 byte * 68 gas/byte = 1020 gas</li>
+<li>计算单个区块可容纳交易个数：9,540,000 gas / 1020 gas = 9,000 tx</li>
+<li>计算TPS：9,000 tx / 15s = 600 tx/s</li>
+</ul>
+<h3 id="zkrollup-伊斯坦布尔分叉后">ZkRollup (伊斯坦布尔分叉后)</h3>
+<ul>
+<li>每个交易的大小为：from（3 bytes) + to（3 bytes）+ value（6 bytes）+ fee（1 bytes）+ nonce（2 bytes）= 15 bytes</li>
+<li>伊斯坦布尔分叉后<code>calldata</code>的gas为每字节16 gas，所以给个交易的成本为：15 bytes * 16 gas/byte = 240 gas</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Contract</th>
+<th>Address</th>
+<th>伊斯坦布尔分叉后</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ECADD</code></td>
+<td><code>0x06</code></td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td><code>ECMUL</code></td>
+<td><code>0x07</code></td>
+<td>6,000</td>
+</tr>
+<tr class="odd">
+<td><code>Pairing check</code></td>
+<td><code>0x08</code></td>
+<td>34,000 * k + 45,000</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>计算零知识证明校验gas消耗：公式：<code>VerificationGas =  n  * ScalarMulGas +  PairingBaseGas  +  4 ∗  PairingPerPointGas</code>，其中：<code>PairingBaseGas =  45,000 gas</code>，<code>PairingPerPointGas=34,000</code>，<code>ScalarMulGas=6,000</code> ，假设<code>zkRollup</code>只涉及到一个<code>public input</code>，所以<code>n=1</code>。VerificationGas = 1 * 6,000 + 45,000 + 34,000 * 4 = 187,000 gas</li>
+<li>计算区块中可用于容纳交易的空间：10,000,000 - 187,000 = 9,813,000 gas</li>
+<li>计算<code>zkRollup</code>单个交易gas成本：15 byte * 16 gas/byte = 240 gas</li>
+<li>计算单个区块可容纳交易个数：9,813,000 gas / 240 gas = 40,000 tx</li>
+<li>计算TPS：40,000 tx / 15s = 2,666 tx/s</li>
+</ul>
+<h3 id="表格对比">表格对比</h3>
+<p>从下图可以<code>zkRollup</code>吞吐量的提升与单个交易成本降低有直接的关系。</p>
+<table>
+<thead>
+<tr class="header">
+<th>Blockchain</th>
+<th>单个交易gas成本</th>
+<th>单个区块最大交易数量</th>
+<th>TPS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>主链</td>
+<td>21,000</td>
+<td>476</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td>zkRollup（分叉前）</td>
+<td>1,020</td>
+<td>9,000</td>
+<td>600</td>
+</tr>
+<tr class="odd">
+<td>zkRollup（分叉后）</td>
+<td>240</td>
+<td>40,000</td>
+<td>2,666</td>
+</tr>
+</tbody>
+</table>
+<p>上面我们计算出伊斯坦布尔升级后<code>zkRollup</code>的TPS可以达到<code>2,666</code>，但这只是理论值，我们并没有将生成零知识证明的时间计算在里面，实际上生成零知识证明是非常昂贵的事情，通常生成一个包含大量交易的零知识证明需要花费几分钟时间，显然生成零知识证明的时间将是限制TPS达到理论值的瓶颈。目前可以通过并行化生成证明，这可以将证明生成时间从几分钟减少到几秒钟。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E-%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag"># 零知识证明 以太坊 区块链</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/10/%E7%A7%91%E6%99%AE-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BB%A5%E5%A4%AA%E5%9D%8A/" rel="prev" title="科普：什么是以太坊">
+                  <i class="fa fa-chevron-left"></i> 科普：什么是以太坊
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/06/30/zkp-introduction/" rel="next" title="零知识证明介绍 ">
+                  零知识证明介绍  <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴寿鹤</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">88k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:20</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

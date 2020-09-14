@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://www.whatsblockchain.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale">
+<meta property="article:author" content="吴寿鹤">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://www.whatsblockchain.com/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>Hexo</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145440251-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9af0452214522472f44968f5a652e2f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴寿鹤</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2020/09/11/master-uniswap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/11/master-uniswap/" class="post-title-link" itemprop="url">精通 Uniswap</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-11T00:00:00+08:00">2020-09-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DeFi/" itemprop="url" rel="index"><span itemprop="name">DeFi</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p><code>Uniswap</code>是<code>DeFi</code>中最著名的协议之一，<code>Uniswap</code>本质是一个自动化做市商（<code>AMM</code>），它舍弃了传统订单薄的撮合方式，采用流动池加恒定乘积公式算法(<span class="math inline">\(x \times y=k\)</span>)为不同加密资产提供即时报价和兑换服务。</p>
+<h2 id="什么是uniswap">什么是Uniswap</h2>
+<p>关于什么是<code>Uniswap</code>，先看一下<code>Uniswap</code>白皮书中的定义：</p>
+<blockquote>
+<p>Uniswap is a protocol for automated token exchange on Ethereum. It is designed around ease-of-use, gas efficiency, censorship resistance, and zero rent extraction.</p>
+</blockquote>
+<p><code>Uniswap</code>是一个基于以太坊的自动代币交换协议，它的设计目标是：易用性、<code>gas</code>高利用率、抗审查性和零抽租。</p>
+<ul>
+<li>ease-of-use（易用性）：<code>Token A</code>换<code>Token B</code>，在<code>Uniswap</code>也只要发出一笔交易就能完成兑换，在其它交易所中可能需要发两笔交易：第一笔将<code>Token A</code>换成某种媒介货币，如<code>ETH</code>, <code>DAI</code> 等，然后再发第二笔交易换成<code>Token B</code>。</li>
+<li><code>gas efficiency</code>（<code>gas</code>高利用率）：在<code>Uniswap</code>上消耗的<code>gas</code>量是以太坊上的几家主流去中化交易所中最低的，也就代表在Uniswap交易要付的矿工费最少。 <img src="/assets/2020-09-11/2.jpg" alt="img" /></li>
+<li><code>censorship resistance</code>（抗审查性）：抗审查性体现在<code>Uniswap</code>上架新<code>Token</code>没有门槛，任何人都能在<code>Uniswap</code>上架任何<code>Token</code>。这在去中心交易所中很少见，虽然大多数的去中心化交易所不会像中心化交易所那样向你收取上币费，但还是需要提交上币申请，通过审查后运营团队才会让你的<code>Token</code>可以在他们的交易所上交易。下面是各去中心化交易所上币规则的详情：
+<ul>
+<li><code>KyberSwap</code>上币规则：<a target="_blank" rel="noopener" href="https://developer.kyber.network/docs/Reserves-ListingProcess/">https://developer.kyber.network/docs/Reserves-ListingProcess/</a></li>
+<li><code>EtherDelta</code>上币规则：<span class="citation" data-cites="mindseye69/new-etherdelta-coin-listing-rules">[https://steemit.com/cryptocurrency/@mindseye69/new-etherdelta-coin-listing-rules]</span>(https://steemit.com/cryptocurrency/<span class="citation" data-cites="mindseye69/new-etherdelta-coin-listing-rules">@mindseye69/new-etherdelta-coin-listing-rules</span>)</li>
+<li><code>IDEX</code>上币规则：<span class="citation" data-cites="forrestwhaling/idex-token-listing-guidelines-eae00785fdd2">[https://medium.com/@forrestwhaling/idex-token-listing-guidelines-eae00785fdd2]</span>(https://medium.com/<span class="citation" data-cites="forrestwhaling/idex-token-listing-guidelines-eae00785fdd2">@forrestwhaling/idex-token-listing-guidelines-eae00785fdd2</span>)</li>
+<li><code>Uniswap</code>上币规则：<a target="_blank" rel="noopener" href="https://uniswap.org/docs/v1/frontend-integration/token-listing/">https://uniswap.org/docs/v1/frontend-integration/token-listing/</a></li>
+</ul></li>
+<li><code>zero rent extraction</code>（零抽租）:在<code>Uniswap</code>协议设计中，开发团队不会从交易中抽取费用，交易中的所有费用都归还给流动性提供者。</li>
+</ul>
+<h2 id="自动化做市商amm">自动化做市商（AMM）</h2>
+<p>传统的交易所有一个订单薄(Order Book)，订单薄上记录着买卖方向，数量和出价，交易所负责对买卖双方进行配对，一旦订单薄中最高价格低于或等于最低价格，就会促成交易，同时会产生一个新的成交价，传统交易所有以下特点：</p>
+<ul>
+<li>市场上必须要有用户进行挂单，要有一定量的订单（市场流动）。</li>
+<li>订单必须重叠才能成交，即买价高于或等于卖价。</li>
+<li>需要将资产存储在交易所。</li>
+</ul>
+<figure>
+<img src="/assets/2020-09-11/3.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>在订单薄模型市场中，买家期望用最低的价格买到想要的资产，而卖家则是期望用最高价格卖出同一项资产，如果交易要成立，买卖双方必须要在价格上达成共识，一是买家提高出价，而是卖家降低出价，如果双方都不要改变出价，这时候就要依靠做市商的参与，简单来说，做市商是一个促进交易的实体，它会在买卖两个方向上挂单，让想要交易的参与方只要跟做市商的订单撮合就能完成交易，而不需要等待对手方出现才能交易，极大的提高了市场的流动性。</p>
+<p>为什么<code>Uniswap</code>不采用订单薄模型？</p>
+<p><code>Uniswap</code>部署在以太坊上，而以太坊每秒可以出来<code>15</code>笔左右的交易，这对于订单薄交易所来不可行，主要原因是：“订单薄模型依赖一个或多个外部做市商对某项资产一直不断的做市，而以太坊的<code>TPS</code>过低不支持做市商高频的交易，如果缺少了做市商，那么交易所的流动性立刻会降低，对于用户来说这样的交易所体验很差。”</p>
+<p><code>Uniswap</code>采用流动池加恒定乘法公式这种自动化做市商（AMM）模式实现了资产的交换，自动化做市商模式方式不需要买卖双方进行挂单，也不要买卖双方的订单重叠，可以进行自由买卖。</p>
+<ul>
+<li>流动池：使用流动池来提供买卖双方交易，做市商只要把资金放入流动池即可</li>
+<li>恒定乘法公式：按照流动池中<code>Token</code>的数量，自动计算买卖价格</li>
+</ul>
+<h3 id="流动池">流动池</h3>
+<p>流动池就是锁定在智能合约中所有的代币以及资金的总称，流动是资金转为代币，或代币转为资金的意思。</p>
+<p>一个完整的流动池分为2个部份，分别表示不同的货币，成为一个交易对，在<code>Uniswap V1</code>中就是<code>ETH</code>及<code>ERC20</code>代币，在<code>Uniswap V2</code>中是支持不同<code>ERC20</code>代币直接交换，所以在<code>Uniswap V2</code>中的流动池可以允许两边是不相同的<code>ERC20</code>代币，其中<code>ETH</code>会自动转换成以<code>WETH</code>代币。为了简化，直接以<code>ETH-ERC20</code>交易对作为例子。</p>
+<p>如下图所示，<code>Uniswap</code>将所有做市商的<code>ETH</code>集合在一起放在流动池左边， 将所有<code>ERC20</code>集合在一起放在流动池的右边。如果有用户要买<code>ERC20</code>代币，就从流动池的右边将<code>ERC20</code>代币转给用户，同时将用户支付的<code>ETH</code>添加的流动池的左边，然后重新计算流动池中的价格，等待下次交易。</p>
+<figure>
+<img src="/assets/2020-09-11/4.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p><code>Uniswap</code>是无法自己变出钱来，因此需要依赖外部资金向合约中提供流动性，向<code>Uniswap</code>流动池中提供流动性的用户被称为流动性提供者，当流动性提供者向<code>Uniswap</code>中注入流动性的时候，<code>Uniswap</code>会铸造出一个流动性代币(<code>LP</code>)，铸出<code>LP</code>代币数量是与用户注入的资金所占流动池中的资金比例相关,动性提供者可以选择在任何时间销毁自己持有的流动性代币。为了鼓励用于向<code>Uniswap</code>的流动池中提供更多的流动性，<code>Uniswap</code>会从每笔交易总额中抽取<code>0.3%</code>当成交易手续费，并将手续费全额交给那些将注资金到<code>Uniswap</code>资金池提供流动性的流动性提供者。</p>
+<h3 id="恒定乘积公式">恒定乘积公式</h3>
+<p>假设在<code>Uniswap</code>中存在一个<code>ETH-DAI</code>交易对的流动池，用户在使用<code>DAI</code>与<code>ETH</code>兑换时需要一个方法来决定交易价格。</p>
+<p><code>Uniswap</code>定价模型非常简洁，它的核心思想是一个恒定乘积公式<span class="math inline">\(x \times y = k\)</span> 。其中<code>x</code>和 <code>y</code>分别代表流动池中两种资产的数量，<code>k</code>是两种资产数量的乘积。</p>
+<p><span class="math inline">\(x \times y = k\)</span>的函数图像如下：</p>
+<figure>
+<img src="/assets/2020-09-11/5.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>假设乘积<code>k</code>是一个固定不变的常量，当用户使用<code>x</code>资产从流动池中兑换<code>y</code>资产时，流动池中<code>x</code>资产的数量会增加，<code>y</code>资产的数量会减少。由于<code>k</code>是恒定的，所以当<code>x</code>增长<span class="math inline">\(\Delta X\)</span> 时，需要将<code>y</code>减少<span class="math inline">\(\Delta Y\)</span>才能保持等式的恒定。</p>
+<p><span class="math display">\[
+(x+\Delta X ) \times (y - \Delta Y) =k
+\]</span></p>
+<p>这里没有考虑到手续费的问题，如果要计算手续费的话，公式如下：</p>
+<p><span class="math display">\[
+(x+\Delta X \gamma) \times (y - \Delta Y) =k‘
+\]</span></p>
+<p><span class="math display">\[
+k&#39; \gt k
+\]</span></p>
+<p>其中：$= 0.3% <span class="math inline">\(，\)</span>= 1- $</p>
+<p><span class="math inline">\(\Delta X \gamma\)</span>表示扣除手续费后加入到流动池中的资产。由于在流动池中增加了手续费所以计算出来的<code>k'</code>会大于<code>k</code>，详细过程会在后面推导。</p>
+<p>接下来会有一些数学公式的推导，为了方便理解，我们先对不含手续费的情况进行推导，包含手续费的推导过程放在最后。</p>
+<h4 id="不含手续费">不含手续费</h4>
+<h5 id="交易价格计算">交易价格计算</h5>
+<p>交易价格的计算分成两种： - InputPrice：向流动池中放入<span class="math inline">\(\Delta X\)</span>个<code>Token</code>可以兑换出多少个<span class="math inline">\(\Delta Y\)</span><code>Token</code> - OutputPrice：从流动池中取出<span class="math inline">\(\Delta Y\)</span>个<code>Token</code>，需要向流动池中放入多少个<span class="math inline">\(\Delta X\)</span><code>Token</code></p>
+<p><span class="math display">\[
+x^{&#39;}=x+ \Delta x =(1+ \alpha)x= \frac {1} {1 - \beta} x
+\]</span></p>
+<p><span class="math display">\[
+y^{&#39;}=y- \Delta y = \frac {1} {1+\alpha} y = (1 - \beta)y
+\]</span></p>
+<p><span class="math display">\[
+xy=x&#39;y&#39;=k
+\]</span></p>
+<p>其中：<span class="math inline">\(\alpha = \frac {\Delta x} {x}\)</span>，<span class="math inline">\(\beta = \frac {\Delta y} {y}\)</span></p>
+<p><span class="math display">\[
+\Delta x= \alpha x
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+{x&#39;}&amp;=(1+\alpha)x=\frac {1} {1-\beta} x \\
+&amp; \implies
+1+\alpha=\frac {1} {1-\beta} \\
+&amp; \implies
+\alpha=\frac {\beta} {1-\beta} \\
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\Delta x = \frac {\beta} {1 - \beta} x \tag{Output price}
+\]</span></p>
+<p><span class="math display">\[
+\Delta y = \frac {\alpha} {1 + \alpha} y \tag{Input price}
+\]</span></p>
+<p>下面是<code>Input price</code>的函数图像：</p>
+<figure>
+<img src="/assets/2020-09-11/6.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>从上图可以看出向流动池中注入的<span class="math inline">\(\Delta X\)</span>越多，可以从流动池中取出的<span class="math inline">\(\Delta Y\)</span>也会越多，但是<span class="math inline">\(\Delta Y\)</span>只会不断地逼近流动池中现有的<span class="math inline">\(y\)</span>代币数量，并不会超过，也就是说你永远无法一次性买断流动池中所有的<span class="math inline">\(y\)</span>。可以看出，恒等乘积公式可以提供无限的流动性，只要你想买就一定可以买到。</p>
+<h5 id="交易滑点">交易滑点</h5>
+<p>交易滑点是指：“在买卖<span class="math inline">\(Token\)</span>时，实际支付的价格和期望的交易价格之间的差别，称为交易滑点”。</p>
+<p>从流动池中购买<span class="math inline">\(\Delta Y\)</span><code>Token</code>需要支付<span class="math inline">\(\Delta X\)</span>，所以本次购买的价格为：<span class="math inline">\(P=\frac {\Delta X} {\Delta Y}\)</span></p>
+<p><span class="math display">\[
+P=\frac {\Delta X} {\Delta Y} = \frac {\alpha x} {\frac {\alpha} {1 + \alpha} y}= ({1 + \alpha}){\frac x y}
+\]</span></p>
+<p><span class="math display">\[
+{P&#39;}=\frac x y
+\]</span></p>
+<p><span class="math display">\[
+滑点=P-P&#39;=(1+\alpha){P&#39;} -{P&#39;}=\alpha {P&#39;}
+\]</span></p>
+<p>其中：<span class="math inline">\({P&#39;}=\frac x y\)</span>表示当前流动池中的价格</p>
+<p>从公式可以看出交易的滑点是与<span class="math inline">\(\alpha = \frac {\Delta X} x\)</span>成线性关系。</p>
+<p>下图是滑点的函数图像：</p>
+<figure>
+<img src="/assets/2020-09-11/7.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>滑点(偏离幅度)取决于<span class="math inline">\(\frac {\Delta X} {x}\)</span>, 当资金池中<span class="math inline">\(x\)</span>足够大时，滑点越小，资金池固定时，一个区块时间内净交易量越小，滑点越小，一个区块时间内的净交易量又与两个因素相关，一个是区块确认速度，一个是市场价格波动率，因此<code>Uniswap</code>恒定乘积做市的滑点与下面三个因素高度相关：</p>
+<ul>
+<li>资金池的大小</li>
+<li>区块确认速度</li>
+<li>市场波动率</li>
+</ul>
+<h5 id="流动池币价">流动池币价</h5>
+<p>当从流动池中购买<span class="math inline">\(\Delta Y\)</span>代币后一定会引起当前流动池中的价格波动：</p>
+<p><span class="math display">\[
+P=\frac {x&#39;} {y&#39;} = \frac {(1+\alpha)x} {\frac {1} {1+\alpha} y}= {(1+\alpha)(1+\alpha)} \frac x y
+\]</span></p>
+<p>其中：<span class="math inline">\(P\)</span>是购买<span class="math inline">\(\Delta\)</span>代币后流动池中的币价</p>
+<p>从公式可以看出流动池中的币价与<span class="math inline">\(\alpha\)</span>成二次函数关系</p>
+<p>下图是价格的函数图像：</p>
+<figure>
+<img src="/assets/2020-09-11/8.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>当流动池中的价格与外部市场价格不一致时就会有套利者出现，套利者监控全球各家交易所的价格，一旦发现两家交易所存在价差，就会同时在两边低买高卖赚取中间差价。由于套利者的存在，才使得<code>Uniswap</code>币价不会与全球市场脱节。</p>
+<ul>
+<li><code>Uniswap</code>中的价格高于外部市场时，套利者从外部市场低价买入<span class="math inline">\(Y\)</span> ，然后高价卖给<code>Uniswap</code></li>
+<li><code>Uniswap</code>中的价格低于外部市场时，套利者从<code>Uniswap</code>低价买入<span class="math inline">\(Y\)</span>，然后高价卖给外部市场</li>
+</ul>
+<h5 id="表格">表格</h5>
+<p>对于不理解上面公式的同学，可以参考以下表格中的数据自己在<code>excel</code>中手动演算一遍，可以更直观的理解<code>Uniswap</code>的工作原理。</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>购买ETH数量 （ΔY）</th>
+<th>单个ETH价格 (DAI)</th>
+<th>滑点</th>
+<th>购买时消耗的DAI （ΔX）</th>
+<th>DAI流动量 （x）</th>
+<th>ETH流动量 （y）</th>
+<th>常数 （K）</th>
+<th>x/y</th>
+<th>alpha （ΔX/x）</th>
+<th>beta （ΔY/y）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>100000</td>
+<td>1000</td>
+<td>100000000</td>
+<td>100</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>100.1001001</td>
+<td>0.10%</td>
+<td>100.1001001</td>
+<td>100100.1001</td>
+<td>999</td>
+<td>100000000</td>
+<td>100.2003004</td>
+<td>0.001001001</td>
+<td>0.001</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>101.010101</td>
+<td>1.01%</td>
+<td>1010.10101</td>
+<td>101010.101</td>
+<td>990</td>
+<td>100000000</td>
+<td>102.0304051</td>
+<td>0.01010101</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>105.2631579</td>
+<td>5.26%</td>
+<td>5263.157895</td>
+<td>105263.1579</td>
+<td>950</td>
+<td>100000000</td>
+<td>110.8033241</td>
+<td>0.052631579</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td>100</td>
+<td>111.1111111</td>
+<td>11.11%</td>
+<td>11111.11111</td>
+<td>111111.1111</td>
+<td>900</td>
+<td>100000000</td>
+<td>123.4567901</td>
+<td>0.111111111</td>
+<td>0.1</td>
+</tr>
+<tr class="even">
+<td>200</td>
+<td>125</td>
+<td>25.00%</td>
+<td>25000</td>
+<td>125000</td>
+<td>800</td>
+<td>100000000</td>
+<td>156.25</td>
+<td>0.25</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td>500</td>
+<td>200</td>
+<td>100.00%</td>
+<td>100000</td>
+<td>200000</td>
+<td>500</td>
+<td>100000000</td>
+<td>400</td>
+<td>1</td>
+<td>0.5</td>
+</tr>
+<tr class="even">
+<td>800</td>
+<td>500</td>
+<td>400.00%</td>
+<td>400000</td>
+<td>500000</td>
+<td>200</td>
+<td>100000000</td>
+<td>2500</td>
+<td>4</td>
+<td>0.8</td>
+</tr>
+<tr class="odd">
+<td>999</td>
+<td>100000</td>
+<td>99900.00%</td>
+<td>99900000</td>
+<td>100000000</td>
+<td>1</td>
+<td>100000000</td>
+<td>100000000</td>
+<td>999</td>
+<td>0.999</td>
+</tr>
+</tbody>
+</table>
+<h4 id="加入手续费的恒定乘积公式">加入手续费的恒定乘积公式</h4>
+<p>以下过程是在计算手续费的情况下，将上面的公式重新推导了一遍。</p>
+<h5 id="计算交易价格">计算交易价格</h5>
+<p><span class="math display">\[
+x_{\rho}^{&#39;}=x + \Delta x=(1+\alpha)x=\frac {1 + \beta(\frac 1 \gamma -1)} {1-\beta} x
+\]</span></p>
+<p><span class="math display">\[
+y_{\rho} ^{&#39;} = y - \Delta y = \frac {1} {1+\alpha \gamma} y =(1 - \beta) y
+\]</span></p>
+<p><span class="math display">\[
+{k&#39;} \gt x^{&#39;} _{\rho} y^{&#39;} _{\rho}=(1+\beta(\frac {1} {\gamma} -1))xy \gt k \quad \tag{加入手续费后计算出的k&#39;&gt;k}
+\]</span></p>
+<blockquote>
+<p><code>k</code>除了在有交易手续费的情况会变大，还有一个情况也会使<code>k</code>值产生变化，当向流动池中增加流动性的时候<code>k</code>会变大，当从流动池中取回流动资金时<code>k</code>会变小。具体变化比例可以参考<code>Uniswap</code>白皮书，这里就不做推导了。</p>
+</blockquote>
+<p>其中：<span class="math inline">\(\alpha=\frac {\Delta x} {x}\)</span>，<span class="math inline">\(\beta = \frac {\Delta y} {y}\)</span>，<span class="math inline">\(0 \le \rho \lt 1\)</span>，<span class="math inline">\(\gamma = 1 - \rho\)</span>，目前交易费为：<span class="math inline">\(\rho= 0.3\%\)</span></p>
+<p><span class="math display">\[
+\Delta x= \frac {\beta} {1-\beta} \cdot \frac {1} {\gamma} \cdot x
+\]</span></p>
+<p><span class="math display">\[
+\Delta y = \frac {\alpha \gamma} {1+\alpha \gamma} \cdot y
+\]</span></p>
+<h5 id="交易滑点-1">交易滑点</h5>
+<p><span class="math display">\[
+P=\frac {\Delta x} {\Delta y} = \frac {\alpha x} {\frac {\alpha \gamma} {1+\alpha \gamma} \cdot y }= \frac {1+\alpha \gamma} {\gamma} \frac x y
+\]</span></p>
+<p><span class="math display">\[
+{P&#39;}=\frac x y
+\]</span></p>
+<p><span class="math display">\[
+滑点=P-{P&#39;}={ \frac {1+\alpha \gamma} {\gamma} \frac x y} - {\frac x y}= {\frac {1+(\alpha - 1)\gamma} {\gamma}}{\frac x y}
+\]</span></p>
+<h5 id="流动池的币价">流动池的币价</h5>
+<p><span class="math display">\[
+\frac {x^{&#39;} _{\rho}} {y^{&#39;} _ {\rho}} = \frac {(1+\alpha)x } {\frac 1 {1+\alpha \gamma} y} = (1+\alpha)(1+\alpha \gamma) \frac x y
+\]</span></p>
+<h2 id="流动池收益与风险">流动池收益与风险</h2>
+<p>在<code>Uniswap</code>中流动性提供者的收益主要来自于交易抽成，<code>Uniswap</code>会从每笔交易中抽取<code>0.3%</code>的手续费，并将手续费按流动性提供者所占流动池的比例分配给流动性提供者。</p>
+<h3 id="impermanent-loss">impermanent loss</h3>
+<p>向<code>Uniswap</code>中提供流动性的人会发现一个现象：“目前在流动池中资金的价值比放入流动池之前的资金价值少了，也就是资金缩水了”，这种现象被称为“impermanent loss”，<code>impermanent loss</code>中文翻译成“无常损失”，简单来说<code>impermanent loss</code>是指你将加密货币放入<code>uniswap</code>中赚取的收益与你将加密货币放入钱包中的收益之间的差，公式为：<span class="math inline">\(L={profit}_{lp}- {profit}_{hodl}\)</span></p>
+<blockquote>
+<p>hodl指不看币价涨跌长期持有某种加密货币（hold on for dear life）</p>
+</blockquote>
+<p><code>impermanent loss</code>通常是由于流动池中的价格发生波动引起的，下面看一个例子：</p>
+<p><span class="math display">\[
+\begin{aligned}
+e \times t = k \\
+p=\frac t e \\
+e=\sqrt{\frac k p} \\
+t=\sqrt{k \times p} \\
+\end{aligned}
+\]</span></p>
+<p>其中：<span class="math inline">\(e\)</span>表示流动池中<code>ETH</code>数量，<span class="math inline">\(T\)</span>表示流动池中<code>DAI</code>数量，<span class="math inline">\(p\)</span>表示流动池中的价格</p>
+<p>开始用户向流动池中注入<span class="math inline">\(e=100\)</span>，<span class="math inline">\(t=10000\)</span>，当前市场的价格：<span class="math inline">\(p=\frac t e=100\)</span></p>
+<p><span class="math display">\[
+k=et=100 * 10000=1000000
+\]</span></p>
+<p>假设现在外部市场价格发生了变化，价格变成：<span class="math inline">\(p&#39;=120\)</span>，由于发生价格差，这时套利者开始工作，套利者通过搬砖将流动池中的价格维持与外部是市场一致。这时流动池中最新的<span class="math inline">\(e\)</span>，<span class="math inline">\(t\)</span>数量为：</p>
+<p><span class="math inline">\(e’=\sqrt{\frac k p}=\sqrt{\frac {1000000} {120}}=91.28709291752769\)</span></p>
+<p><span class="math inline">\(t&#39;=\sqrt{k \times p}=\sqrt{ 1000000 \times 120}=10954.451150103323\)</span></p>
+<p>计算<code>HODL</code>时的资金 :</p>
+<p><span class="math inline">\(v0=e \times p&#39; + t=100 \times 120 + 10000=22000\)</span></p>
+<p>计算放入流动池后的资金:</p>
+<p><span class="math inline">\(v1=e&#39; \times p&#39; + t&#39;= 91.28709291752769 * 120 + 10954.451150103323 = 21908.902300206646\)</span></p>
+<p>计算<code>impermanent loss</code>:</p>
+<p><span class="math inline">\(L=\frac {v1} {v0}=\frac {21908.902300206646} {22000} =0.9958591954639384 \approx 99.59 \%\)</span></p>
+<p>可以看出价格从<code>100</code>变成<code>120</code>后我们的资金只有之前的<code>99.59%</code>，损失了<code>4%</code>左右。只要这时候我们不将资金从流动池中取出，一旦流动池中的币价回到<code>100</code>时，我们是没有损失的，这是为什么叫<code>impermanent loss</code>无常损失的原因。</p>
+<p>下图演示<code>impermanant loss</code>的比率与当前价格变化的关系，<code>O</code>列表示资金刚放入流动池的情况，<code>O-&gt;H</code>表示价格上涨时<code>impermanent loss</code>的变化，<code>A&lt;-O</code>表示价格下跌时<code>impermanent loss</code>的变化。</p>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>O</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+<th>H</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>p1/p0</td>
+<td>0.00%</td>
+<td>25.00%</td>
+<td>50.30%</td>
+<td>75.61%</td>
+<td>100.00%</td>
+<td>156.25%</td>
+<td>204.08%</td>
+<td>400.00%</td>
+<td>493.83%</td>
+</tr>
+<tr class="even">
+<td>ETH</td>
+<td>e</td>
+<td>3162278</td>
+<td>200</td>
+<td>141</td>
+<td>115</td>
+<td>100</td>
+<td>80</td>
+<td>70</td>
+<td>50</td>
+<td>45</td>
+</tr>
+<tr class="odd">
+<td>DAI</td>
+<td>t</td>
+<td>0.316227732</td>
+<td>5000</td>
+<td>7092.198582</td>
+<td>8695.652174</td>
+<td>10000</td>
+<td>12500</td>
+<td>14285.71429</td>
+<td>20000</td>
+<td>22222.22222</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>k</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+<td>1000000</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>p</td>
+<td>1E-07</td>
+<td>25</td>
+<td>50.29928072</td>
+<td>75.61436673</td>
+<td>100</td>
+<td>156.25</td>
+<td>204.0816327</td>
+<td>400</td>
+<td>493.8271605</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>v0</td>
+<td>10000.00001</td>
+<td>12500</td>
+<td>15029.92807</td>
+<td>17561.43667</td>
+<td>20000</td>
+<td>25625</td>
+<td>30408.16327</td>
+<td>50000</td>
+<td>59382.71605</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>v1</td>
+<td>1</td>
+<td>10000</td>
+<td>14184</td>
+<td>17391</td>
+<td>20000</td>
+<td>25000</td>
+<td>28571</td>
+<td>40000</td>
+<td>44444</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>L</td>
+<td>0.01%</td>
+<td>80.00%</td>
+<td>94.37%</td>
+<td>99.03%</td>
+<td>100.00%</td>
+<td>97.56%</td>
+<td>93.96%</td>
+<td>80.00%</td>
+<td>74.84%</td>
+</tr>
+</tbody>
+</table>
+<p>下图是根据上面数据画出的函数图像，蓝色的曲线是不包含手续费的，黄色的图像包含手续费，红色的线条是我手动添加上去的为了方便说明。</p>
+<p>先看蓝色曲线，当不计算手续费收益的情况下，无论币价上涨或下跌，流动性提供者<code>100%</code>会有损失。</p>
+<p>再看黄色的曲线，由于黄色曲线是计算手续费收益的，所以只要币价在一个范围内波动，流动性提供者可以稳赚手续费收益。</p>
+<figure>
+<img src="/assets/2020-09-11/9.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>由此可以得出一个结论要介绍<code>impermanent loss</code>对流动性提供者的影响，可以为两个币价之间波动小的流动池提供流动性。</p>
+<figure>
+<img src="/assets/2020-09-11/10.jpg" alt="" /><figcaption>img</figcaption>
+</figure>
+<ul>
+<li><code>mean-reverting pairs</code>：均值回归的交易对，比如稳定币交易对两者波动是最小的，可以最大程度减少<code>impermanent loss</code></li>
+<li><code>correlated pairs</code>：有正相关性的交易对，例如<code>ETH/ZRX</code>，这两个币的波动方向基本上是一致的，同涨同跌，两者之间的相对波动小</li>
+<li><code>Uncorrelated pairs</code>：非相关性的交易对，如<code>ETH/DAI</code>，为这种交易对提供流动性，赚取的交易费有可能会覆盖<code>impermanent loss</code></li>
+<li><code>Inverse correlated pairs</code>：负相关的交易对，是最危险的，他们之间波动方向相反，两者之间的相对波动范围最大。</li>
+</ul>
+<p>下面是计算<code>impermanent loss</code>的公式</p>
+<p><span class="math display">\[
+impermanent\_loss=\frac {2 \times \sqrt {price\_ratio}} {1+price\_ratio} -1
+\]</span></p>
+<p>其中：<span class="math inline">\(price\_ratio\)</span>是价格变化比例</p>
+<p>以下是不计算手续费情况下推导过程：</p>
+<p><span class="math inline">\(et={e&#39;}{t&#39;}=k\)</span></p>
+<p><span class="math inline">\(\frac e t= P\)</span>，<span class="math inline">\(\frac {e&#39;} {t&#39;}=P&#39;\)</span>，<span class="math inline">\(\frac {e&#39;} e = \sqrt{\frac {P&#39;} P}\)</span>，<span class="math inline">\(\frac {t&#39;} {t}=\sqrt{\frac {P} {P&#39;}}\)</span>，$price_ratio =  {P} $</p>
+<p><span class="math display">\[
+\begin{aligned}
+V_0 &amp;=e {P&#39;} + t \\
+&amp;=e \frac {t&#39;} {e&#39;} + t \\
+&amp;=\frac {e{t&#39;} + {e&#39;}t} {e&#39;}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+V_1 &amp;={e&#39;}{P&#39;} + {t&#39;} \\
+&amp;={e&#39;}{\frac {t&#39;} {e&#39;} } + {t&#39;} \\
+&amp;=2{t&#39;}
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+L &amp;=\frac {V_1 - V_0} {V_0} \\
+&amp;=\frac {V_1} {V_0} -1 \\
+&amp;=\frac {2{t&#39;}} {\frac {e{t&#39;} + {e&#39;}t} {e&#39;}} -1 \\
+&amp;=\frac {2{e&#39;}{t&#39;}} {e{t&#39;}+{e&#39;}t} -1 \\
+&amp;=\frac {\frac {2{e&#39;}{t&#39;}} {et&#39;}} {\frac {et&#39;} {et&#39;}+ \frac {e&#39;t} {et&#39;}} -1 \\
+&amp;=\frac {\frac {2e&#39;} {e}} {1 + \frac {e&#39;t} {et&#39;}} -1 \\
+&amp;=\frac {2 \sqrt{\frac {P&#39;} {p}}} {1 + \frac {P&#39;} {P}} -1 \\
+&amp;=\frac {2 \sqrt{price\_ratio }} {1 + {price\_ratio }}-1
+\end{aligned}
+\]</span></p>
+<h2 id="总结">总结</h2>
+<h3 id="优点">优点</h3>
+<ul>
+<li>完全去中心化，不依赖第三方，任何人都可以基于<code>uniswap</code>构建自己的应用</li>
+<li>可以自由地创建任何<code>ERC20</code>交易对</li>
+<li>与其他去中心化交易所相比<code>gas</code>费用更低</li>
+<li>任何人都可以向<code>uniswap</code>流动池中提供流动性，人人都可以是做市商</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>需要依赖套利者去平衡<code>uniswap</code>与外部交易所之间的汇率</li>
+<li>对大户不友好，进行大额的交易会造成很大的滑点</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2020/06/30/zkp-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/zkp-introduction/" class="post-title-link" itemprop="url">零知识证明介绍 </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-30T00:00:00+08:00">2020-06-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" itemprop="url" rel="index"><span itemprop="name">零知识证明</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>6.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>关于零知识证明是什么，也许你不一定很了解，但说到应用零知识证明技术的区块链产品，你也许并不陌生。zcash就是使用零知识证明技术的隐私币，以太坊上的混币合约也是零知识证明技术的一个应用，还有在今年比较热门的链下扩容技术<code>zkRollup</code>也是零知识证明技术的一个应用。这时你也许会很好奇零知识证明究竟是一个什么样的技术，为什么既可以用在隐私方面，也可以用于扩容。在接下来一个系列的文章中将为你一一介绍，从零知识证明的概念一直到零知识证明背后的密码学实现。</p>
+<h2 id="什么是零知识证明">什么是零知识证明</h2>
+<p>零知识证明的定义为：证明者（<code>prover</code>）能够在不向验证者（<code>verifier</code>）提供任何有用的信息的情况下，使验证者（<code>verifier</code>）相信某个论断是正确的。</p>
+<p>为了理解上面这段话的含义，接下来给出一个有关零知识证明的非常经典的例子：</p>
+<h3 id="交互式零知识证明---色盲游戏">交互式零知识证明---色盲游戏</h3>
+<p><code>Alice</code>是色盲，<code>Bob</code>不是色盲，在<code>Bob</code>手上有两个大小，形状完全一样的球，但这两个球的颜色不一样，一个球是蓝色的，另一个球是红色的，由于<code>Alice</code>是色盲，所以<code>Alice</code>无法分辨这两个球是否是一样的，<code>Bob</code>需要向<code>Alice</code>证明这两个球是不一样的。在这里，<code>Alice</code>被称为验证者，他需要验证<code>Bob</code>的陈述正确与否，<code>Bob</code>被称为证明者，他需要证明自己的陈述（存在两个颜色不一样的球），<code>Bob</code>需要在<code>Alice</code>不能获得两个球的颜色的情况下，向<code>Alice</code>证明这两个球的颜色是不一样的这个事实，这与零知识证明的定义是相符合的。</p>
+<p><code>Alice</code>当<code>Bob</code>的面拿起两个球，左手拿蓝球，右手拿红球，然后将双手放到背后，这样<code>Bob</code>就看不到<code>Alice</code>手上的球了，<code>Alice</code>在背后随机交换左右手上的球，交换完成后<code>Alice</code>将手伸出，并询问<code>Bob</code>两个球是否交换过位置，如果<code>Bob</code>能看到球上的颜色，那么每次<code>Alice</code>换过球的位置后，<code>Bob</code>都能正确回答出<code>Alice</code>的问题。</p>
+<figure>
+<img src="/assets/2020-06-30/1.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>第一次，<code>Alice</code>偷偷交换了手中球的位置，然后<code>Alice</code>问<code>Bob</code>是否交换了球的位置，如果<code>Bob</code>回答Yes，那么<code>Alice</code>有50%的概率相信<code>Bob</code>是可以区分这两个球的颜色，因为<code>Bob</code>有1/2的概率蒙对，所以<code>Alice</code>可以在进行一次测试。如果<code>Bob</code>回答No，那么<code>Alice</code>可以肯定<code>Bob</code>不能区分两个球的颜色。</p>
+<figure>
+<img src="/assets/2020-06-30/2.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>第二次，<code>Alice</code>没有交换手中球的位置，然后<code>Alice</code>问<code>Bob</code>是否交换了球的位置。如果<code>Bob</code>回答No，那么<code>Alice</code>有75%的概率相信<code>Bob</code>是可以区分两个球的颜色。</p>
+<figure>
+<img src="/assets/2020-06-30/3.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>这是上述情况的概率树：</p>
+<figure>
+<img src="/assets/2020-06-30/4.png" alt="" /><figcaption>概率树</figcaption>
+</figure>
+<p>第一次迭代后，<code>Alice</code>可以说<code>Bob</code>陈述的断言为真的概率为50％。如果<code>Bob</code>第二次回答正确，那么<code>Alice</code>可以说<code>Bob</code>陈述为真的概率达75％。在第三次迭代后，它将是87.5％。如果连续<code>n</code>次<code>Bob</code>都通过了检查，则<code>Alice</code>有<code>1-(1/2)^n</code> 的概率可以认为 <code>Bob</code> 说的是真的，这两个球的确是有红蓝两种颜色。</p>
+<p>零知识证明是一种基于概率的验证方式，验证者（<code>verifier</code>）基于一定的随机性向证明者（<code>prover</code>)提出问题，如果证明者都能给出正确回答，则说明证明者大概率拥有他所声称的“知识”。零知识证明并不是数学意义上的证明，因为它存在小概率的误差，欺骗的证明者有可能通过虚假的陈诉骗过验证者。换句话说，零知识证明是概率证明而不是确定性证明，但是也存在技术能将误差降低到可以忽略的值。</p>
+<p>根据零知识证明的定义可以得知零知识证明具有以下三个重要的性质：</p>
+<ol type="1">
+<li>完备性（<code>Completeness</code>）：只要证明者拥有相应的知识，那么就能通过验证者的验证，即证明者有足够大的概率使验证者确信。；</li>
+<li>可靠性（<code>Soundness</code>）：如果证明者没有相应的知识，则无法通过验证者的验证，即证明者欺骗验证者的概率可以忽略。</li>
+<li>零知识性（<code>Zero-Knowledge</code>）：证明者在交互过程中仅向验证者透露是否拥有相应知识的陈述，不会泄露任何关于知识的额外信息。</li>
+</ol>
+<p>在此示例中，如果<code>Bob</code>的拥有分别球颜色的知识，则<code>Bob</code>每次都会正确回答。这称为完备性。如果<code>Bob</code>不具备分别球颜色的相关知识，则<code>Bob</code>无法分辨<code>Alice</code>是否调换了球。这称为可靠性。在此协议中，<code>Alice</code>无法看到球的颜色。这称为零知识性。</p>
+<h3 id="非交互零知识证明---数独游戏">非交互零知识证明---数独游戏</h3>
+<p>交互式零知识证明协议依赖于验证者的随机尝试，需要证明者和验证者进行多次交互才能完成。非交互式零知识证明（<code>Non-Interactive Zero-Knowledge, NIZK</code>）将交互次数减少到一次，可实现离线证明和公开验证。在区块链等零知识证明应用场景中，非交互的性质是必须的，因为在区块链系统中，不能假设双方一直在线进行交互，在区块链网络上，证明者只要向全网广播一条证明交易，网络上的矿工在将这条交易打包到区块中的时候就帮验证者完成了零知识证明的校验。</p>
+<h4 id="数独游戏题目">数独游戏题目</h4>
+<p>数独是源自18世纪瑞士的一种数学游戏，是一种运用纸、笔进行演算的逻辑游戏。玩家需要根据9×9盘面上的已知数字，推理出所有剩余空格的数字，并满足每一行、每一列、每一个粗线宫（3*3）内的数字均含1-9，不重复。</p>
+<figure>
+<img src="/assets/2020-06-30/5.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p><code>Alice</code>为了向<code>Bob</code>证明他已经解决了一个数独难题，为此<code>Alice</code>创建了一个防篡改的机器。<code>Alice</code>将生成好的数独答案放入到机器中，机器可以向<code>Bob</code>发送证明。<code>Alice</code>的机器遵循以下公开可验证的协议：</p>
+<p>首先，<code>Alice</code>在机器中放入尚未被解决的原始数独题目，数独中的谜题卡片三张正面朝上，例如，单元格C3具有3张正面朝上的9号卡片。</p>
+<figure>
+<img src="/assets/2020-06-30/6.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>接下来，<code>Alice</code>上机器将他的答案正面朝下放置在相应的单元格上，同样也是每个单元格放三张。</p>
+<figure>
+<img src="/assets/2020-06-30/7.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>最后<code>Bob</code>向机器获取证明，机器返回给<code>Bob</code>27个袋子： - 机器将数独中每一行9张卡片取出，并分别混淆后放入一个袋子中，一共有9行，所以9个袋子 - 机器将数独中每一列9张卡片取出，并分别混淆后放入一个袋子中，一共有9列，所以9个袋子 - 机器将数独中每个粗线宫（3*3）内卡片取出，并分别混淆后放入一个袋子中，一共有9个，所以9个袋子</p>
+<figure>
+<img src="/assets/2020-06-30/8.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p><code>Bob</code>分别对这27个袋子进行检查，如果每个袋子中的卡片都包含数字1到9，而且没有任何数字丢失或重复，那么<code>Bob</code>可以确认<code>Alice</code>的确解开了数独，并且<code>Bob</code>并没有从机器返回的证明中获取任何关于数独解的知识，因为机器返回给<code>Bob</code>袋子中的数据是被随机打乱的。</p>
+<figure>
+<img src="/assets/2020-06-30/9.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h2 id="零知识证明应用场景">零知识证明应用场景</h2>
+<p>零知识证明的定义为：证明者（<code>prover</code>）能够在不向验证者（<code>verifier</code>）提供任何有用的信息的情况下，使验证者（<code>verifier</code>）相信某个论断是正确的。</p>
+<p>从零知识证明定义中可以提取到两个关键词：“不泄露信息”，“证明论断有效”，基于这两个特点扩展出零知识证明在区块链上的两大应用场景： - 隐私：在隐私场景中，我们可以借助零知识证明的“不泄露信息”特性，在不泄漏交易的细节（接收方，发送方，交易余额）的情况下证明区块链上的资产转移是有效的。 - 扩容：在扩容场景中，我们不太需要关注零知识证明技术的“不泄露信息”这个特性，我们的关注重点是它的“证明论断有效”这个特性，由于链上资源是有限的，所以我们需要把大量的计算迁移到链下进行，因此需要有一种技术能够证明这些在链下发生的动作是可信的，零知识证明正好可以帮助我们做链下可信计算的背书。</p>
+<h3 id="隐私">隐私</h3>
+<p>在目前主流的公链，如比特币、以太坊上，从创世块开始，每个账号之间的交易信息都是公开记录在区块链上，这样做的好处是可以有效解决加密货币双花的问题，矿工可以溯源，校验每笔交易的余额是否足够。坏处是一旦某个账号的身份暴露了，那么第三方就可以追踪到这个账号的以往所有历史交易，甚至还可以反推出这个账号可能控制的其他账号，从这一点来说是相当缺乏隐私的。</p>
+<p>要让交易在不泄漏交易相关细节的情况下可以被验证，这正是零知识证明解决的问题。要了解零知识证明是如何解决链上交易隐私的问题，可以参考以下两篇文章。</p>
+<p>混币的原理参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/_IrI8SJLo1Ht51nJfI4V_Q">10分钟开发混币原理篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8OkwqNXIkUz2PBURoghRJQ">10分钟开发混币实操篇</a></li>
+</ul>
+<h3 id="扩容">扩容</h3>
+<p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
+<h4 id="链下扩容">链下扩容</h4>
+<p>ZK-Rollup就是基于零知识证明的二层扩容方案， ZK-Rollup方案起源于18年下半年，由<code>Barry Whitehat</code>和<code>Vitalik</code>先后提出。关于<code>zkRollup</code>介绍参考下面这篇文章：</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Si6JorP4WWnMm-c3fIX1mA">zkRollup介绍 原理篇</a></p>
+<h4 id="链上压缩">链上压缩</h4>
+<p>运行过以太坊全节点的人都会有这样的感受：“同步以太坊全节点的过程太痛苦了”，往往同步以太坊全节点需要花费几天的时间，目前以太坊全节点已经达到<code>399,45Gb</code>。全节点对存储资源要求这样高，以至于很多个人电脑的硬盘空间和带宽都达不到运行全节点的要求，所以全节点变成了只有少部分实体能够运行的，区块链逐渐从去中心化变成了中心化运行。 <a target="_blank" rel="noopener" href="https://etherscan.io/chartsync/chaindefault">etherscan以太坊全节点统计网址</a></p>
+<figure>
+<img src="/assets/2020-06-30/10.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>全节点同步时间长的原因如下： - 全节点数据量太大，下载几百GB的数据需要很长时间。 - 验证同步到本地的区块是否正确需要花费时间，因为有恶意节点会发送无效的区块。</p>
+<p>在同步全节点过程中，为了验证链的正确性，需要从创世区块开始依次重放每个交易，然后验证计算出的账户状态是否与同步的状态相同。这不仅耗时，同时也是一种资源浪费，因为在你之前已有无数节点重复了相同的计算工作。我们之所以要重放每个区块的原因是：“我们目前判断一个计算是否正确执行的方法只有重新做一次这个计算，然后比较两者的结果是否相等”。有了零知识证明我们就不需要重复计算区块每个交易了，因为零知识证明可以帮助我们校验每个区块中的交易是否被正确执行。</p>
+<p>目前有一个项目<code>Coda</code>，它采用零知识证明的方式将区块大小控制在<code>22kB</code>，且<code>Coda</code>的区块大小是固定的，不会随着时间增长而变大（递归零知识证明），从安全性角度来说，<code>Coda</code>的安全性不会低于传统区块链。</p>
+<figure>
+<img src="/assets/2020-06-30/11.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>零知识证明压缩链上数据的好处：</p>
+<ul>
+<li>不需要做重复的计算验证区块状态，减少计算资源浪费</li>
+<li>区块链大小只有<code>22k</code>方便存储，同步，验证</li>
+<li>由于运行<code>Coda</code>全节点的需要的资源少，所以区块链网络将有更多活跃节点，提升了去中心化程度</li>
+</ul>
+<h4 id="递归零知识证明">递归零知识证明</h4>
+<p>递归零知识证明生成：使用前一个状态的<code>proof</code>以及当前交易作为输入，接下来验证前一个状态的<code>proof</code>以及当前交易是否有效，如果全部验证通过，程序会输出一个新的状态及一个<code>proof</code>，过程如下图所示：</p>
+<figure>
+<img src="/assets/2020-06-30/12.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>递归零知识证明验证：只要验证前一个状态的<code>proof</code>就可以验证整个链的状态，比如：当验证<code>proof #5</code>状态是正确的，相当于递归验证了<code>proof #4</code>，<code>proof #3</code>。</p>
+<h2 id="零知识证明协议">零知识证明协议</h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>zk-Snark</th>
+<th>Zk-Stark</th>
+<th>Bbulletproofs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>介绍</td>
+<td>简明非交互零知识证明</td>
+<td>简洁透明的零知识证明</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>关键特性</td>
+<td>生成的证明小<br />验证速度快</td>
+<td>没有可信设置过程<br />生成证明时间快<br />抗量子攻击</td>
+<td>没有可信设置过程</td>
+</tr>
+<tr class="odd">
+<td>项目应用</td>
+<td>zcash<br />coda</td>
+<td>StarkDEX</td>
+<td>Monero</td>
+</tr>
+</tbody>
+</table>
+<h3 id="零知识证明协议特性对比">零知识证明协议特性对比</h3>
+<ul>
+<li><code>Trusted Set-up（可信设置）</code>：是否需要可信设置</li>
+<li><code>Speed（Verifier + prover）</code>：证明者生成证明和验证者验证证明所花费的时间总和。</li>
+<li><code>Proof Size</code>：生成零知识证明的大小</li>
+<li><code>Quantum Resistant（抗量子）</code>：是否抗量子攻击，在未来量子计算可能会对现有的加密算法带来威胁，</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Trusted Set-Up</th>
+<th>Speed<br />(Verifier + Prover)</th>
+<th>Proof Size</th>
+<th>Quantun<br />Resistant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Zk-Snark</td>
+<td>Yes</td>
+<td>Middle</td>
+<td>Smallest</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>Zk-Stark</td>
+<td>No</td>
+<td>Fastest</td>
+<td>Biggest</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Bulletproofs</td>
+<td>No</td>
+<td>Slowest</td>
+<td>Middle</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="发展历史">发展历史</h2>
+<ul>
+<li>1985 年，零知识证明<code>Zero-Knowledge Proof</code> - 由 <code>S.Goldwasser</code>、 <code>S.Micali</code> 及 <code>C.Rackoff</code> 首次提出。</li>
+<li>2010年，<code>Groth</code>实现了首个基于椭圆曲线双线性映射全能的，常数大小的非交互式零知识证明协议。后来这个协议经过不断优化，最终成为区块链著名的零知识证明协议<code>SNARKs</code>。</li>
+<li>2013年，<code>Pinocchio</code>协议实现了分钟级别证明，毫秒级别验证，证明大小不到<code>300</code>字节，将零知识证明从理论带到了应用。后来<code>Zcash</code>使用的<code>SNARKs</code>正是基于<code>Pinocchio</code>的改进版。</li>
+<li>2014 年，名为<code>Zerocash</code>的加密货币则使用了一种特殊的零知识证明工具<code>zk-SNARKs</code> （ <code>Zero-Knowledge Succinct Non-interactive Arguments of Knowledge</code> ) 实现了对交易金额、交易双方的完全隐藏，更注重于隐私，以及对交易透明的可控性。</li>
+<li>2017 年， <code>Zerocash</code> 团队提出将 <code>zk-SNARKs</code> 与智能合约相互结合的方案，使交易能在众目睽睽下隐身，打造保护隐私的智能合约。</li>
+</ul>
+<h2 id="零知识证明开发工具">零知识证明开发工具</h2>
+<p>目前，为了解决零知识证明技术的广泛应用需求，产生了多个用于实现<code>zk-SNARK</code> 零知识证明协议工程化的开源算法库，包括 <code>libsnark</code>、<code>bellman</code>、<code>ZoKrates</code> 等等。</p>
+<h3 id="libsnark">libsnark</h3>
+<p><code>libsnark</code>是一个基于<code>C++</code>语言的<code>zk-SNARK</code>工程开发算法库，由<code>SCIPR Lab</code>开发和维护，开发者中包含参与多篇<code>zk-SNARK</code>学术论文的共同作者。<code>libsnark</code>实现了近年来多个主流的<code>zk-SNARK</code>论文方案，其中最为常用的包括<code>BCTV14a</code>和<code>Groth16</code>方案。</p>
+<p><code>libsnark</code>实现了<code>zk-SNARK</code>算法的黑盒化，提供高度抽象的编程接口，使开发者无需掌握算法细节即可直接进行工程开发。此外，<code>libsnark</code>还提供了实际应用中的常见基础功能库，可辅助开发者进行复杂证明的组合实现。以在匿名数字货币<code>Zcash</code>中的应用为开端，<code>libsnark</code>奠定了零知识证明技术从理论研究到大规模工程应用的基础。</p>
+<h3 id="bellman">bellman</h3>
+<p>在<code>Zcash</code>项目中，最初采用<code>libsnark</code>算法库实现<code>zk-SNARK</code>零知识证明。在<code>2018</code>年升级到<code>Sapling</code>版本时，由于之前采用的<code>libsnark</code>版本较老，其中关于椭圆曲线和<code>zk-SNARK</code>方案的选择都已不是当时的最优选项，<code>Zcash</code>改为使用自研的<code>bellman</code>算法库。<code>bellman</code>是<code>Zcash</code>团队基于<code>Rust</code>语言实现的<code>zk-SNARK</code>算法库，支持<code>Groth16</code>论文方案，目前主要在<code>Zcash</code>项目中应用。</p>
+<h3 id="zokrates">ZoKrates</h3>
+<p><code>ZoKrates</code>是一个部分基于<code>libsnark</code>、部分采用<code>Rust</code>语言重写的<code>zk-SNARK</code>实现工具，默认支持<code>Groth16</code>方案，开发者需要使用一种自建的脚本语言进行代码编写，目前在实际工程中仅用于在以太坊智能合约上部署支持零知识证明的应用。</p>
+<h2 id="零知识证明的优缺点">零知识证明的优缺点</h2>
+<p><strong>优点</strong> - 在使用零知识证明时，不会降低安全性； - 具有完整隐秘性； - 安全性依赖于未解决的数学难题（如离散对数、大整数因子分解、平方根等等）；</p>
+<p><strong>缺点</strong> - 生成零知识证明需要大量的算力 - 部分协议需要可信设置 - 部分协议不能抗量子计算</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2020/06/29/zkRollup-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/29/zkRollup-introduction/" class="post-title-link" itemprop="url">zkRollup介绍 原理篇 </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-29T00:00:00+08:00">2020-06-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" itemprop="url" rel="index"><span itemprop="name">零知识证明</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
+<h2 id="zkrollup是什么">zkRollup是什么</h2>
+<p><code>zkRollup</code>就是基于零知识证明的二层扩容方案(<code>layer2</code>)， <code>zkRollup</code>方案起源于18年下半年，由<code>Barry Whitehat</code>和<code>Vitalik</code>先后提出。<code>Rollup</code>顾名思义有“卷起”和“汇总”的意思，将大量的交易“卷起/汇总”打包成一个交易，<code>zkRollup</code>的原理一句话就可以讲清楚：链下进行复杂的计算和证明的生成，链上进行证明的校验并存储部分数据保证数据可用性。<code>zkRollup</code>数据可用性可以让任何人都能根据链上存储的交易数据，还原出账户的全局状态，从而消除由于数据可用性带来的安全风险（这里的数据可用性对比<code>Plasma</code>，<code>Plasma</code>之所以不能称为主流的扩容方案，在于<code>Plasma</code>的数据并没有提交到链上，所以在<code>Plasma</code>上退出一笔资产的周期会长达一周左右（争议期），如果在争议期间没有人提交欺诈证明，那么资产才可以安全退出到主链）</p>
+<h2 id="zkrollup工作原理">zkRollup工作原理</h2>
+<p><code>zkRollup</code>在链下利用<code>Merkle tree</code>存储账户状态，由<code>Operator</code>收集用户的交易，交易收集完成后<code>Operator</code>会执行每个交易（校验余额，校验nonce，校验签名，执行状态转换），当交易执行完成后会产生一个新的<code>Merkle tree Root</code>，为了证明链下状态转移是正确的，<code>Operator</code>会在交易执行完成后生成一个零知识证明的<code>proof</code>。</p>
+<p>下图表示<code>Operator</code>工作过程，黄色的表示用户发送的交易，绿色的表示<code>Operator</code>中维护的<code>merkle tree</code>，<code>Operator</code>执行交易后本地的<code>merkle tree root</code>会由<code>prev state root</code>转换成<code>post state root</code>，图中蓝色的表示<code>Operator</code>生成证明账户状态转移有效的零知识证明。</p>
+<figure>
+<img src="/assets/2020-06-29/op_state.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p><code>Operator</code>把<code>prev state root</code>，<code>post state root</code>，交易数据和<code>proof</code>证明提交至链上合约，合约校验<code>proof</code>通过后会将来新的状态写入到链上，合约不需要单独校验每笔交易的合法性，只需要校验<code>proof</code>是否有效，降低了链上<code>gas</code>消耗，其中交易数据是存储在较便宜的位置<code>CALLDATA</code>上。链下每一次的状态转变都需要提供零知识证明，由主链上的合约进行验证，只有验证通过才能更改状态。即每一次状态转变都严格依赖密码学证明。</p>
+<p><code>zkRollup</code>生成的证明大小（很小），验证时间（很快基本上是常数），不会随着交易数量的增长而变大，所以<code>zkRollup</code>可以极大地提高TPS。影响<code>zkRollup</code>链上性能的只有链上<code>CALLDATA</code>存储数据的成本,随着以太坊<code>Istanbul</code>升级，<code>CALLDATA</code>使用成本降为原来的<code>1/4</code>，<code>zkRollup</code>的性能则获得<code>4</code>倍提升，<code>TPS</code>可达到近<code>2000</code>左右。</p>
+<figure>
+<img src="/assets/2020-06-29/chain.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>上链的数据中<code>prve state root</code>，<code>post state root</code>与<code>proof</code>基本上是不会随着交易增长变化的，只有上图中黄色交易部分会随着交易增长变大，所以为了能在一个区块链中容纳更多的交易，需要对上链的交易进行压缩。<code>zkRollup</code>使用<code>merkle tree</code>来记录地址，这样地址就可以表示成<code>merkle tree</code>的索引值，地址数据的大小就从原本的<code>20 bytes</code>减少到<code>3 bytes</code>，在以太坊上金额用<code>32</code>个字节<code>256</code>位的大整型来表示，这里压缩到<code>6</code>个字节，货币最小单位从<code>wei</code>变成<code>Mwei=10^6 wei</code>，手续费压缩到<code>1</code>个字节，<code>nonce</code>压缩到<code>2</code>个字节，<code>nonce</code>的范围<code>0~65535</code>，也就是说一个账户最多可以发送<code>65535</code>笔交易，交易的签名直接删除了，不出现交易中，因为每笔交易的合法性在链下都通过零知识证明的电路约束校验过了。</p>
+<p>下图是压缩后<code>zkRollup</code>每笔交易数据的格式：</p>
+<figure>
+<img src="/assets/2020-06-29/tx.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h2 id="zkrollup性能">zkRollup性能</h2>
+<p>2019年12月7号发生的伊斯坦布尔硬分叉中有两个降低在链上执行零知识证明运算<code>gas</code>费用的提案：<a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-1108">EIP-1108</a>与<a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-2028">EIP-2028</a></p>
+<h3 id="eip-1108">EIP-1108</h3>
+<p>下面是引用<code>EIP-1108</code>提案中的部分原文：</p>
+<blockquote>
+<p>The elliptic curve arithmetic precompiles are currently overpriced. Re-pricing the precompiles would greatly assist a number of privacy solutions and scaling solutions on Ethereum.</p>
+</blockquote>
+<p>目前，椭圆曲线运算所需的<code>gas</code>费用太高，为了帮助隐私方案以及扩容方案在以太坊上的大规模应用，<code>EIP-1108</code>对椭圆曲线运算的<code>gas</code>费用进行了降价。</p>
+<p>以下是伊斯坦布尔分叉前后的椭圆曲线运算的<code>gas</code>费用对比</p>
+<table>
+<thead>
+<tr class="header">
+<th>Contract</th>
+<th>Address</th>
+<th>Current Gas Cost</th>
+<th>Updated Gas Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ECADD</code></td>
+<td><code>0x06</code></td>
+<td>500</td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td><code>ECMUL</code></td>
+<td><code>0x07</code></td>
+<td>40,000</td>
+<td>6,000</td>
+</tr>
+<tr class="odd">
+<td><code>Pairing check</code></td>
+<td><code>0x08</code></td>
+<td>80,000 * k + 100,000</td>
+<td>34,000 * k + 45,000</td>
+</tr>
+</tbody>
+</table>
+<p><code>ECADD</code>表示椭圆曲线加法运算，<code>ECMUL</code>表示椭圆曲线乘法运算，<code>Pairing check</code>表示椭圆曲线双线性映射运算。</p>
+<h3 id="eip-2028">EIP-2028</h3>
+<p>下面是引用<code>EIP-2028</code>提案中的部分原文：</p>
+<blockquote>
+<p>We propose to reduce the gas cost of Calldata (GTXDATANONZERO) from its current value of 68 gas per byte to 16 gas per byte, to be backed by mathematical modeling and empirical estimates. The mathematical model is the one used in the works of Sompolinsky and Zohar [1] and Pass, Seeman and Shelat [2], which relates network security to network delay. We shall (1) evaluate the theoretical impact of lower Calldata gas cost on network delay using this model, (2) validate the model empirically, and (3) base the proposed gas cost on our findings.</p>
+</blockquote>
+<p><code>EIP-2028</code>将<code>calldata</code>的存储成本从每字节<code>68 gas</code>降低到每字节<code>16 gas</code>，<code>zkRollup</code>的交易数据是存储在<code>calldata</code>上，这意味着我们可以在<code>calldata</code>上存储更多的交易数据，极大提高了吞吐率。</p>
+<p>现在我们已经了解了<code>EIP-1108</code>,<code>EIP-2028</code>两个提案为<code>zkRollup</code>扩容带来的好处，下面我们具体分下一下<code>zkRollup</code>的TPS。</p>
+<h3 id="当前以太坊主链">当前以太坊主链</h3>
+<ul>
+<li>当前以太坊区块最大的<code>gas limit</code>为10,000,000 gas</li>
+<li>以太坊是一个最简单交易的gas费用为：21,000 gas</li>
+<li>以太坊每个区块产生的时间为15s</li>
+</ul>
+<p>根据上面的数据，我们可以计算出以太坊主链的最大吞吐量：</p>
+<ul>
+<li>一个区块中可最多容纳的交易数量：10M / 21k = 476 tx</li>
+<li>计算TPS：476 tx / 15s = 32 tx/s</li>
+</ul>
+<h3 id="zkrollup-伊斯坦布尔分叉前">ZkRollup (伊斯坦布尔分叉前)</h3>
+<ul>
+<li>每个交易的大小为：from（3 bytes) + to（3 bytes）+ value（6 bytes）+ fee（1 bytes）+ nonce（2 bytes）= 15 bytes</li>
+<li>伊斯坦布尔分叉前<code>calldata</code>的gas为每字节68 gas，所以给个交易的成本为：15 bytes * 68 gas/byte = 1020 gas</li>
+<li>零知识证明校验的gas费用计算公式为：</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+VerificationGas =  n &amp; * ScalarMulGas \\
+                + &amp; PairingBaseGas   \\
+                + &amp; 4 ∗  PairingPerPointGas \\
+\end{aligned}
+\]</span></p>
+<p><code>ScalarMulGas</code>表示一个椭圆曲线乘法消耗的gas，如果涉及到多个椭圆曲线乘法运算那么消耗的gas为：<code>n  * ScalarMulGas</code>，<code>PairingBaseGas</code>表示椭圆曲线双线性映射运算基础gas费用，<code>PairingPerPointGas</code>表示每个椭圆曲线双线性映射运算gas费用。</p>
+<p>在<code>zkRollup</code>中零知识证明算法使用的是<code>groth16</code>，下方是<code>groth16</code>校验证明的公式：</p>
+<p><span class="math display">\[
+[A]_1 \cdot [B]_2=[\alpha]_1 \cdot [\beta]_2 + \displaystyle \sum ^l _{i=0} a_i \lbrack \frac{\beta u_i(x) + \alpha v_i(x) + w_i(x)}{\gamma} \rbrack _1 \cdot \gamma _2 + [C]_1 \cdot [\delta]_2
+\]</span></p>
+<p><span class="math display">\[
+\Downarrow
+\]</span></p>
+<p><span class="math display">\[
+e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
+\]</span></p>
+<p><code>e(x,x)</code>表示一个椭圆曲线双线性映射运算，所以在<code>groth16</code>校验中一共涉及到4次椭圆曲线双线性映射运算。</p>
+<p>下表是伊斯坦布尔分叉前椭圆曲线运算消耗的gas详情：</p>
+<table>
+<thead>
+<tr class="header">
+<th>Contract</th>
+<th>Address</th>
+<th>伊斯坦布尔分叉前</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ECADD</code></td>
+<td><code>0x06</code></td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td><code>ECMUL</code></td>
+<td><code>0x07</code></td>
+<td>40,000</td>
+</tr>
+<tr class="odd">
+<td><code>Pairing check</code></td>
+<td><code>0x08</code></td>
+<td>80,000 * k + 100,000</td>
+</tr>
+</tbody>
+</table>
+<p><code>80,000 * k + 100,000</code>中的<code>k</code>表示有几个椭圆曲线双线性映射运算，<code>100,000</code>表示椭圆曲线双线性映射运算基础gas费用。</p>
+<ul>
+<li>计算零知识证明校验gas消耗：公式：<code>VerificationGas =  n  * ScalarMulGas +  PairingBaseGas  +  4 ∗  PairingPerPointGas</code>，其中：<code>PairingBaseGas =  100,000 gas</code>，<code>PairingPerPointGas=80,000</code>，<code>ScalarMulGas=40,000</code> ，假设<code>zkRollup</code>只涉及到一个<code>public input</code>，所以<code>n=1</code>。VerificationGas = 1 * 40,000 + 100,000 + 80,000 * 4 = 460,000 gas</li>
+<li>计算区块中可用于容纳交易的空间：10,000,000 - 460,000 = 9,540,000 gas</li>
+<li>计算<code>zkRollup</code>单个交易gas成本：15 byte * 68 gas/byte = 1020 gas</li>
+<li>计算单个区块可容纳交易个数：9,540,000 gas / 1020 gas = 9,000 tx</li>
+<li>计算TPS：9,000 tx / 15s = 600 tx/s</li>
+</ul>
+<h3 id="zkrollup-伊斯坦布尔分叉后">ZkRollup (伊斯坦布尔分叉后)</h3>
+<ul>
+<li>每个交易的大小为：from（3 bytes) + to（3 bytes）+ value（6 bytes）+ fee（1 bytes）+ nonce（2 bytes）= 15 bytes</li>
+<li>伊斯坦布尔分叉后<code>calldata</code>的gas为每字节16 gas，所以给个交易的成本为：15 bytes * 16 gas/byte = 240 gas</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Contract</th>
+<th>Address</th>
+<th>伊斯坦布尔分叉后</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ECADD</code></td>
+<td><code>0x06</code></td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td><code>ECMUL</code></td>
+<td><code>0x07</code></td>
+<td>6,000</td>
+</tr>
+<tr class="odd">
+<td><code>Pairing check</code></td>
+<td><code>0x08</code></td>
+<td>34,000 * k + 45,000</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>计算零知识证明校验gas消耗：公式：<code>VerificationGas =  n  * ScalarMulGas +  PairingBaseGas  +  4 ∗  PairingPerPointGas</code>，其中：<code>PairingBaseGas =  45,000 gas</code>，<code>PairingPerPointGas=34,000</code>，<code>ScalarMulGas=6,000</code> ，假设<code>zkRollup</code>只涉及到一个<code>public input</code>，所以<code>n=1</code>。VerificationGas = 1 * 6,000 + 45,000 + 34,000 * 4 = 187,000 gas</li>
+<li>计算区块中可用于容纳交易的空间：10,000,000 - 187,000 = 9,813,000 gas</li>
+<li>计算<code>zkRollup</code>单个交易gas成本：15 byte * 16 gas/byte = 240 gas</li>
+<li>计算单个区块可容纳交易个数：9,813,000 gas / 240 gas = 40,000 tx</li>
+<li>计算TPS：40,000 tx / 15s = 2,666 tx/s</li>
+</ul>
+<h3 id="表格对比">表格对比</h3>
+<p>从下图可以<code>zkRollup</code>吞吐量的提升与单个交易成本降低有直接的关系。</p>
+<table>
+<thead>
+<tr class="header">
+<th>Blockchain</th>
+<th>单个交易gas成本</th>
+<th>单个区块最大交易数量</th>
+<th>TPS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>主链</td>
+<td>21,000</td>
+<td>476</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<td>zkRollup（分叉前）</td>
+<td>1,020</td>
+<td>9,000</td>
+<td>600</td>
+</tr>
+<tr class="odd">
+<td>zkRollup（分叉后）</td>
+<td>240</td>
+<td>40,000</td>
+<td>2,666</td>
+</tr>
+</tbody>
+</table>
+<p>上面我们计算出伊斯坦布尔升级后<code>zkRollup</code>的TPS可以达到<code>2,666</code>，但这只是理论值，我们并没有将生成零知识证明的时间计算在里面，实际上生成零知识证明是非常昂贵的事情，通常生成一个包含大量交易的零知识证明需要花费几分钟时间，显然生成零知识证明的时间将是限制TPS达到理论值的瓶颈。目前可以通过并行化生成证明，这可以将证明生成时间从几分钟减少到几秒钟。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2020/05/10/%E7%A7%91%E6%99%AE-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BB%A5%E5%A4%AA%E5%9D%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/10/%E7%A7%91%E6%99%AE-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BB%A5%E5%A4%AA%E5%9D%8A/" class="post-title-link" itemprop="url">科普：什么是以太坊</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-05-10 12:00:00" itemprop="dateCreated datePublished" datetime="2020-05-10T12:00:00+08:00">2020-05-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">以太坊</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>你也许听说过比特币，2009年一个叫中本聪（satoshi nakamoto）的神秘人物或组织将比特币推向了世界，随着比特币的流行，加密货币，区块链这些词汇也渐渐的走进了大众的视野中，如果你已经非常熟悉加密货币世界，那么你可能听说过以太坊，它是全球第二大加密货币，即使你听说过以太坊，那么在解释它与比特币区别时，你也可能会感到困惑。</p>
+<h3 id="以太坊的诞生">以太坊的诞生</h3>
+<p>以太坊是由加拿大人维塔利克·布特林(Vitalik Buterin)发明的,他出生在俄罗斯，十几岁就开始接触比特币，2013年，布特林发表了以太坊白皮书，为以太坊奠定了基础。发表白皮书时布特林只有19岁，这就是为什么布特林被誉为天才少年。</p>
+<p>2014年，布特林主持了一场众筹，为以太坊的推出众筹资金，并通过他的瑞士公司--以太坊瑞士股份有限公司（ethereum Switzerland GmbH)众筹了1800万美元。2015年7月30日，在区块链上创建了第一个创世区块，以太坊网络诞生了。</p>
+<h3 id="以太坊与比特币的区别">以太坊与比特币的区别</h3>
+<p>比特币的诞生的目的是为了成为一种去中心化货币，替代中央银行系统和各国政府的法定货币。以太坊的目的是成为“世界计算机”，让开发者可以在以太坊上开发各种去中心应用（Dapps）。以太坊和比特币都是基于区块链技术，都具有自己的货币，以太坊上的货币叫以太币（ether）。</p>
+<h3 id="什么是以太币">什么是以太币</h3>
+<p>以太坊上的原生货币叫以太币（ether），ether的缩写为“ETH”，以太币是用户在以太坊上用来支付的货币，与比特币类似以太币也具有匿名性，以太坊上的身份是通过密码地址来识别的（公钥），而不是双方在真实世界上的名字，所以交易双方在进行转账的时候，第三方只能看到一些公钥地址之间的转账，除非交易双方在网络上公开他们的真实身份，否则没有人会知道谁执行了哪些交易。如果你想要知道在以太坊网络上发生的所有交易，零可以通过一个<a target="_blank" rel="noopener" href="http://etherscan.io">Etherscan</a>网站查看所有用户在以太坊网络上的交易行为。</p>
+<figure>
+<img src="/assets/2020-05-10/etherscan.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h3 id="怎么获得以太币">怎么获得以太币</h3>
+<h4 id="钱包">钱包</h4>
+<p>在获取以太币之前你需要先有一个钱包，在以太坊网络上钱包是用来持有，支付以太币。以太坊中的钱包与现实生活中的钱包有点区别，在现实生活中钱包是用来装现金的，但在加密货币中的钱包不包含任何现金，它只是一个地址，当你需要在以太坊网络中进行交易的时候，你只需要通过钱包生成一个签名，向以太坊网络证明你拥有一些货币的使用权即可。</p>
+<p>当你需要创建一个以太坊钱包的时候，你真正需要做的是创建一个随机私钥，私钥是只能自己知道，不可以泄漏出去，一旦泄漏出去那么你的资产将会被其他人盗走，然后这个私钥会生成一个公钥地址，这个公钥地址就是你的钱包地址，钱包地址一般长成这样“0xa994db3ce7ad829617a2fa337aa34079d2b98304”，钱包的地址是可以公开的，如果你需要和另外一个人发生交易，你可以将你的钱包地址给他，这样其他人就可以向你的钱包地址发送以太币了。</p>
+<p>在以太坊上我们可以通过<a target="_blank" rel="noopener" href="https://www.myetherwallet.com">myetherwallet</a>网站创建钱包</p>
+<figure>
+<img src="/assets/2020-05-10/wallet.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>我们可以通过myertherwallet创建一个助记词钱包，助记词类似于前面所说的私钥，用户可以将生成的助记词记录在纸上，或打印到纸上保存起来。还有一种更加安全的钱包是像Nano Ledger或Trezor这样的硬件钱包，硬件钱包可以让你离线存储私钥，远离黑客。</p>
+<blockquote>
+<p>警告：如果你不小心丢失了存储助记词的纸张或硬件钱包，那么你将丢失你的私钥，这将意味着你永远失去了钱包里面的资产，并且一旦私钥丢失并没有方法来恢复。</p>
+</blockquote>
+<figure>
+<img src="/assets/2020-05-10/wallet_1.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<h4 id="获取以太币">获取以太币</h4>
+<p>获取以太坊有两种方式： - 运行一个以太坊全节点，成为一个矿工参与到以太坊网络中，这种方式需要很大的投入，如果你只是想获取一点以太币，可以采取第二种方式 - 在加密货币中一个称为“交易所”的网站上通过真金白银来购买以太币。</p>
+<p>加密货币中的交易所类似于我们现实生活中的股票市场，在股票市场中你可以购买各个公司的股票，同样在加密货币的交易所中你可以购买各种加密货币。在选择交易所中建议尽量选择一些合规，规模大的交易所，这里就不对具体的交易所进行推荐了。</p>
+<p>在交易所上，你可以不需要关注私钥的问题，你只要记住你的电子邮箱与密码就可以。这听起来很容易使用，非常符合我们平常使用网站的习惯，但这也包含一定的风险性，因为交易所实际上是存储你的私钥，如果有黑客侵入了交易所的系统，那么你的资产就可能被盗走，对你造成损失，比如之前的门头沟交易所被盗。</p>
+<h3 id="什么是以太坊智能合约">什么是以太坊智能合约</h3>
+<p>以太坊通常被称为，“世界计算机”，这句话的含义是，以太坊是创建去中心化应用的平台（Dapps），Dapps是使用智能合约开发的应用，智能合约是一段代码，在满足特点条件后会自动执行操作，比如，在到达预定日期的时候将Dapps中的一部分利润发送给投资者。虽然比特币也有类似的功能，但以太坊让智能合约非常容易使用，因为智能合约已经融入到以太坊的系统设计中。以太坊中的智能合约是具备图灵完备的，所谓的图灵完备是指智能合约程序具备我们一般编程语言（C语言）上的<code>For</code>循环，<code>If</code>条件判断和顺序执行等指令，图灵完备意味着我们可以使用智能合约作出许多复杂的逻辑。那么智能合约是什么地方执行？首先以太坊是一个公共账簿，智能合约代码需要先部署在以太坊网络上，也就是记录在以太坊的公共账簿中，所有记录在公共账簿上的数据都是认为是可信的，这些数据经过了以太坊上的51%以上的节点的共识，在执行智能合约时，以太坊网络中的所有节点都会执行一遍智能合约中的代码，这样看起来所有节点执行同样的代码似乎是一种资源的浪费，但如果其他节点不执行一遍智能合约中的代码的话，节点无法确认其他节点提交的智能合约结果是否是正确的。以太坊在之后的版本中会考虑采用零知识证明，将智能合约执行的结果以零知识证明的形式提交到区块中，这样其他节点就不需要在执行一次智能合约，它们只要验证零知识证明是否正确即可。</p>
+<h3 id="什么是燃料">什么是燃料</h3>
+<p>燃料在以太坊上被称为<code>gas</code>，智能合约上所做的每个步骤都需要支付燃料，燃料的价值是由以太坊网络中计算成本决定的，基本上智能合约消耗的CPU，存储越多那么需要支付的燃料就越多。设置燃料的目的有以下几个： - 矿工运行智能合约是有成本的，所以燃料费用是用来弥补矿工运行合约的成本 - 可以让开发者优化代码，避免低效，冗余的代码 - 防止黑客攻击，由于智能合约每个步骤都需要燃料，那么可以防止黑客部署类似死循环的合约无限消耗矿工资源，同时也可以增加黑客攻击智能合约的成本。</p>
+<p>以太坊中的燃料是用以太币支付的。</p>
+<figure>
+<img src="/assets/2020-05-10/tx.png" alt="" /><figcaption>img</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/12/02/%E5%8D%81%E5%88%86%E9%92%9F%E5%BC%80%E5%8F%91%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E%E4%B9%8B%E6%B7%B7%E5%B8%81-%E5%AE%9E%E6%93%8D%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/02/%E5%8D%81%E5%88%86%E9%92%9F%E5%BC%80%E5%8F%91%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E%E4%B9%8B%E6%B7%B7%E5%B8%81-%E5%AE%9E%E6%93%8D%E7%AF%87/" class="post-title-link" itemprop="url">十分钟开发零知识证明之混币-实操篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-02 12:00:00" itemprop="dateCreated datePublished" datetime="2019-12-02T12:00:00+08:00">2019-12-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" itemprop="url" rel="index"><span itemprop="name">零知识证明</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>16k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>14 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>上一篇我们梳理了一下混币的基本原理，在这一篇中我们开始动手实现一个混币。</p>
+<p>混币中最主要的数据结构就是<code>Merkle tree</code>，现在还是借助功德箱来分析如何利用<code>Merkle tree</code>来实现混币功能的。</p>
+<p>首先回顾一下功德箱的第一个特点：“所有游客向功德箱中放入都是同一年份的一元硬币”，这个特性保证了在功德箱中的硬币都是一模一样的并且无法区分，这一特性是如何在<code>Merkle tree</code>中体现的？先看一下下面这张图，这张图中展示了所有与混币相关的操作，首先看一下如何让游客投入的硬币全部变成一模一样无法区分的硬币，这里用到的是<code>hash</code>算法，<code>hash</code>算法是不可逆的，也就是任何人都无法通过hash后的值推算出原始值是什么。利用<code>hash</code>函数的这一特点就可以将不同的硬币变成无法分辨的同质硬币了。具体操作看下面的图，图中最后一行是原始货币（游客要捐的香火钱），接下来原始货币会被<code>hash</code>函数进行处理变成<code>commitment</code>（混淆之后的货币），<code>commitment</code>会被添加到<code>Merkle tree</code>的叶子节点中，至此利用<code>Merkle tree</code>已经完成了功德箱的第一个特点。</p>
+<figure>
+<img src="/assets/2019-12-02/mt.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>接下来是功德箱的第二个特性：“使用零知识证明解决在不暴露相关信息的情况下，证明加密货币所有权的问题”。先看第一个问题如何证明加密货币所有权的问题，由于功德箱是通过<code>Merkle tree</code>实现，所以证明是否有某个货币所有权的问题就转化成是否可以证明你拥有<code>Merkle tree</code>上某个叶子节点的<code>preimage</code>（原始货币）同时能给出从这个叶子节点到<code>Merkle tree</code>根之间的路径也就是<code>Merkle path</code>。为了便于理解，接下来通过一个例子来说明，请看下图：</p>
+<figure>
+<img src="/assets/2019-12-02/mt_proof.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>当小沙弥来到功德箱前，并想取走图中绿色方块（<code>cmt2</code>）中的钱，那么他首先需要提供<code>cmt2</code>的<code>preimage</code>也就是图中的黄色小方块（<code>sk2</code>)，同时要提供一个从<code>cmt2</code>到<code>root</code>之间的<code>Merkle path</code>也就是图中标红的小方块（<code>cmt1</code>,<code>h2</code>)，还有一个<code>Merkle path索引(1,0)</code>索引是<code>(cmt1,h2)</code>在<code>Merkle tree</code>中的位置，索引看用于计算<code>nullifier</code>以及从<code>merkle path</code>计算<code>merkle root</code>。</p>
+<p>接下来需要解决的是如何在不暴露隐私的情况下能向他人证明我们拥有<code>cmt2</code>的<code>preimage</code>(<code>sk2</code>)，要解决这个问题就需要零知识证明。请看下面这张图，这张图的作用在上一篇中已经介绍过，这张图演示了零知识证明生成以及校验的过程，在生成零知识证明的时候需要有输入即：<code>Private input</code>，<code>Public Input</code>，然后经过电路运算后会产生一个<code>proof</code>，接下来将<code>proof</code>交给<code>verify</code>校验即可。</p>
+<figure>
+<img src="/assets/2019-12-02/zkp_input.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>有关电路如何编写将在下个章节中介绍，这里先明确哪些是可以作为<code>public input</code>参数可以公开的，哪些是可以作为<code>private input</code>需要隐藏的。</p>
+<p>首先<code>sk2</code>是不能公开的，一旦公开其他人也可以利用<code>sk2</code>进行<code>hash</code>运算生成<code>cmt2</code>并且构造出一个<code>merkle path</code>，然后进行提款。第二个不能公开的是<code>merkle path</code>，因为一旦公开了<code>merkle path</code>，其他人就知道你在<code>merkle tree</code>上的某个叶子节点(<code>cmt2</code>)上取了钱，在结合之前的充钱记录，就可以将发送方与接收方联系起来了，因为向功德箱中放入钱是可以知道谁向<code>Merkle tree</code>上添加了哪个叶子节点的。</p>
+<p>所以取款方的<code>Private input</code>为：</p>
+<ul>
+<li>sk</li>
+<li>Merkle path</li>
+<li>Merkle path index</li>
+</ul>
+<p>小沙弥利用<code>Private input</code>结合<code>zk-snark</code>生成的<code>proof</code>可以向公德箱提款了，这里有个问题由于公德箱并没有记录提款记录，那么同一个<code>proof</code>就可以多次提款，为了防止重复提币，还需要<code>nullifier</code>，<code>nullifier</code>是通过<code>sk</code>与<code>Merkle path index</code>进行<code>hash</code>运算产生的，<code>nullifier=hash(sk,merkle_path_index)</code>。另外<code>Merkle tree</code>的<code>root</code>需要公开，不然功德箱没办法校验小沙弥用的<code>Merkle path</code>是不是确实存在于功德箱里的<code>Merkle tree</code>上，小沙弥用一个假的<code>Merkle path</code>也能校验通过。</p>
+<p>提款方的<code>public input</code>为：</p>
+<ul>
+<li>nullifier</li>
+<li>root</li>
+</ul>
+<p>到目前为止，我们利用<code>Merkle tree</code>实现了功德箱的两个特性，接下来就是电路的设计，电路设计使用的<code>Circom</code>。</p>
+<h2 id="circom">Circom</h2>
+<p><code>Circom</code>是一种用于编写零知识证明的算术电路的语言，<code>Circom</code>简化了创建<code>zk-snark</code>电路的复杂度。<code>Circom</code>有个<code>template</code>关键字，<code>template</code>类似于<code>java</code>面向对象语言中的<code>class</code>，与<code>class</code>一样定义好的模板可以在不同的电路或其他的项目中重用。</p>
+<p>下面就是一个模板的<code>example</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">template NAND() &#123;</span><br><span class="line">    signal private input a; <span class="comment">// Private input 隐私输入</span></span><br><span class="line">    signal input b; <span class="comment">// public input  公开输入</span></span><br><span class="line">    signal output out;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 约束</span></span><br><span class="line">    out &lt;== <span class="number">1</span> - a*b;</span><br><span class="line">    a*(a<span class="number">-1</span>) === <span class="number">0</span>;</span><br><span class="line">    b*(b<span class="number">-1</span>) === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">component main = NAND();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>circom</code>的语法类似于<code>javascript</code>，所以学习的门槛并不是很高，同时<code>circom</code>提供5个额外的操作符用于定义约束。</p>
+<p><code>&lt;==,==&gt;</code>操作符用于给<code>signal</code>赋值，同时会生成一个等于约束。</p>
+<p><code>&lt;--,--&gt;</code>操作为赋值符号，用于给<code>signal</code>赋值，但不生成任何约束。通常为了强制约束，可以与操作符<code>===</code>一起使用。</p>
+<p><code>===</code>操作符定义了等于约束，约束必须简化为<code>a*b+c=0</code>的形式，其中<code>a</code>、<code>b</code>和<code>c</code>是<code>signal</code>的线性组合。</p>
+<p>如上面例子中<code>a*(a-1) === 0</code>，<code>b(b-1) === 0</code>强制所有的<code>input</code>必须是<code>0</code>或<code>1</code>。</p>
+<h2 id="电路设计">电路设计</h2>
+<p>功德箱的电路就一个目的：“证明你知道<code>merkle tree</code>上某个叶子节点的<code>preimage</code>”。</p>
+<p>首先实现一个公用电路<code>GetMerkleRoot</code>,<code>GetMerkleRoot</code>有三个输入参数： - sk - Merkle path - Merkle path index</p>
+<p><code>GetMerkleRoot</code>的目的是对输入的参数进行计算，得出<code>merkle path</code>所在的<code>merkle tree</code>的<code>root</code></p>
+<p><code>GetMerkleRoot</code>里使用的<code>hash</code>算法不是<code>sha256</code>而是<code>mimc7</code>，原因是<code>mimc7</code>对电路友好。</p>
+<p>以下是<code>GetMerkleRoot</code>的源码： <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">&quot;../circomlib/circuits/mimc.circom&quot;</span>; <span class="comment">//引入 mimc hash算法</span></span><br><span class="line"></span><br><span class="line">template GetMerkleRoot(k)&#123;</span><br><span class="line">    <span class="comment">// k 是Merkle tree 的深度</span></span><br><span class="line"></span><br><span class="line">    signal input leaf; <span class="comment">// 叶子节点 preimage</span></span><br><span class="line">    signal input paths2_root[k]; <span class="comment">// Merkle path</span></span><br><span class="line">    signal input paths2_root_pos[k]; <span class="comment">// Merkle 路径索引</span></span><br><span class="line"></span><br><span class="line">    signal output out;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对Merkle path中前两个元素进行hash运算</span></span><br><span class="line">    component merkle_root[k];</span><br><span class="line">    merkle_root[<span class="number">0</span>] = MiMC7(<span class="number">91</span>);</span><br><span class="line">    merkle_root[<span class="number">0</span>].x_in &lt;== paths2_root[<span class="number">0</span>] - paths2_root_pos[<span class="number">0</span>]* (paths2_root[<span class="number">0</span>] - leaf);</span><br><span class="line">    merkle_root[<span class="number">0</span>].k &lt;== leaf - paths2_root_pos[<span class="number">0</span>]* (leaf - paths2_root[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对Merkle path中剩下的元素进行hash运算</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> v = <span class="number">1</span>; v &lt; k; v++)&#123;</span><br><span class="line">        merkle_root[v] = MiMC7(<span class="number">91</span>);</span><br><span class="line">        merkle_root[v].x_in &lt;== paths2_root[v] - paths2_root_pos[v]* (paths2_root[v] - merkle_root[v<span class="number">-1</span>].out);</span><br><span class="line">        merkle_root[v].k&lt;== merkle_root[v<span class="number">-1</span>].out - paths2_root_pos[v]* (merkle_root[v<span class="number">-1</span>].out - paths2_root[v]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出计算完成的Merkle tree root</span></span><br><span class="line">    out &lt;== merkle_root[k<span class="number">-1</span>].out;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>接下来是<code>Withdraw</code>电路，<code>withdraw</code>的输入参数分两个部分： - public input - root - nullifierHash - private input - sk - Merkle path - Merkle path index</p>
+<p><code>withdraw</code>主要实现以下几个功能： - 校验<code>sk</code>,<code>merkle path</code>与<code>merkle path index</code>计算出的<code>root</code>与<code>public input</code>中的<code>root</code>是否相等。 - 校验<code>sk</code>与<code>merkle path index</code>计算出的<code>nullifierHash</code>与<code>public input</code>中的<code>nullifierHash</code>是否相等</p>
+<p>为什么<code>withdraw</code>电路计算的值需要与<code>public input</code>的参数相等？因为在链上校验<code>proof</code>的时候，合约会将链上的数据（<code>root,nullifierHash</code>）,所以链下的计算会受到链上的约束。</p>
+<p>下面是<code>Withdraw</code>电路的源码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">&quot;./get_merkle_root.circom&quot;</span>; <span class="comment">// 导入 getMerkleRoot 电路</span></span><br><span class="line">include <span class="string">&quot;../circomlib/circuits/mimc.circom&quot;</span>; <span class="comment">//引入 mimc hash算法</span></span><br><span class="line">include <span class="string">&quot;../circomlib/circuits/bitify.circom&quot;</span>;</span><br><span class="line"></span><br><span class="line">template Withdraw(k)&#123;</span><br><span class="line">	<span class="comment">// public input</span></span><br><span class="line">	signal input root; <span class="comment">// Merkle root</span></span><br><span class="line">	signal input nullifierHash;  <span class="comment">// nullifier</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// private input</span></span><br><span class="line">	signal private input secret; <span class="comment">// 叶子节点 preimage</span></span><br><span class="line"></span><br><span class="line">	signal private input paths2_root[k]; <span class="comment">// merkle path</span></span><br><span class="line">    signal private input paths2_root_pos[k]; <span class="comment">// merkle path index</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// root constrain</span></span><br><span class="line">	component leaf = MiMC7(<span class="number">91</span>);</span><br><span class="line">	leaf.x_in &lt;== secret;</span><br><span class="line">	leaf.k &lt;== <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    component computed_root = GetMerkleRoot(k);</span><br><span class="line">    computed_root.leaf &lt;== leaf.out;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> w = <span class="number">0</span>; w &lt; k; w++)&#123;</span><br><span class="line">        computed_root.paths2_root[w] &lt;== paths2_root[w];</span><br><span class="line">        computed_root.paths2_root_pos[w] &lt;== paths2_root_pos[w];</span><br><span class="line">    &#125;</span><br><span class="line">    root === computed_root.out;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// nullifier constrain</span></span><br><span class="line">	component cmt_index = Bits2Num(k);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span> ;i &lt; k ; i++)&#123;</span><br><span class="line">		cmt_index.in[i] &lt;== paths2_root_pos[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	component nullifier = MiMC7(<span class="number">91</span>);</span><br><span class="line">	nullifier.x_in &lt;== cmt_index.out;</span><br><span class="line">	nullifier.k &lt;== secret;</span><br><span class="line"></span><br><span class="line">	nullifierHash === nullifier.out;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">component main = Withdraw(<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="电路处理">电路处理</h2>
+<p>现在所有电路已经全部编写完成了，接下来利用<code>circom</code>做以下几件事： - 编译电路 - 计算witness - trusted setup - 生成proof - 校验proof</p>
+<p>首先安装<code>Circom</code>与<code>snarkjs</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g circom</span><br><span class="line">npm install -g snarkjs</span><br></pre></td></tr></table></figure>
+<h3 id="编译电路">编译电路</h3>
+<p>执行以下命令编译电路，编译好的电路会放入<code>circuit.json</code>文件中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">circom withdraw.circom -o circuit.json</span><br></pre></td></tr></table></figure>
+<p>现在电路已经编译完成了，我们可以使用<code>snarkjs printconstraints</code>查看电路约束。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snarkjs printconstraints -c circuit.json</span><br></pre></td></tr></table></figure>
+<p>或着使用<code>snarkjs info</code>查看电路的统计信息 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">snarkjs info -c circuit.json</span><br><span class="line"></span><br><span class="line"># Wires: 3674</span><br><span class="line"># Constraints: 3656</span><br><span class="line"># Private Inputs: 17</span><br><span class="line"># Public Inputs: 2</span><br><span class="line"># Outputs: 0</span><br></pre></td></tr></table></figure></p>
+<h3 id="trusted-setup">trusted setup</h3>
+<p>使用编译好的电路执行<code>trusted setup</code>，执行完成后会生成两个文件：<code>proving_key.json</code>与<code>verification_key.json</code>。生成证明时需要用到<code>proving key</code>，校验证明时需要用到<code>verification key</code>。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snarkjs setup -c circuit.json --protocol groth</span><br></pre></td></tr></table></figure>
+<h3 id="计算witness">计算witness</h3>
+<p>在生成<code>proof</code>之前，需要生成符合电路约束的<code>witness</code>，零知识证明可以证明你知道一个<code>witness</code>，这个<code>witness</code>可以满足电路中所有的约束，但除了<code>public input</code>以及<code>output</code>不会向外泄露任何信息</p>
+<p>在生成<code>witness</code>之间需要先将用到的<code>public input</code>以及<code>private input</code>放入到<code>input.json</code>文件中：</p>
+<p><code>input.json</code>内容 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;root&quot;: &quot;21150603275199036235447464146889900632582816435445773009431960038115036290869&quot;,</span><br><span class="line">    &quot;nullifierHash&quot;: &quot;8112587267332776847096965636706065951984180935722389598817594570457611916925&quot;,</span><br><span class="line">    &quot;secret&quot;: &quot;0&quot;,</span><br><span class="line">    &quot;paths2_root&quot;: [</span><br><span class="line">        &quot;0&quot;,</span><br><span class="line">        &quot;11730251359286723731141466095709901450170369094578288842486979042586033922425&quot;,</span><br><span class="line">        &quot;9246143820134657901174176070515121907817622693387763521229610032056676659170&quot;,</span><br><span class="line">        &quot;3919701857960328675810908960351443394156342162925591865624975500788003961839&quot;,</span><br><span class="line">        &quot;11868459870544964516983456008242250460119356993157504951373700810334626455267&quot;,</span><br><span class="line">        &quot;17452340833314273101389791943519612073692685328163719737408744891984034913325&quot;,</span><br><span class="line">        &quot;5253775198292439148470029927208469781432760606734473405438165226265735347735&quot;,</span><br><span class="line">        &quot;9586203148669237657308746417333646936338855598595657703565568663564319347700&quot;</span><br><span class="line">    ],</span><br><span class="line">    &quot;paths2_root_pos&quot;: [</span><br><span class="line">        1,</span><br><span class="line">        1,</span><br><span class="line">        1,</span><br><span class="line">        1,</span><br><span class="line">        1,</span><br><span class="line">        1,</span><br><span class="line">        1,</span><br><span class="line">        1</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来使用<code>snarkjs calculatewitness</code>来生成<code>witness</code>，命令执行完成后会将结果输出到<code>witness.json</code>文件中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snarkjs calculatewitness -c circuit.json -i input.json</span><br></pre></td></tr></table></figure>
+<h3 id="生成证明">生成证明</h3>
+<p>有了<code>witness.json</code>后就可以使用<code>snarkjs proof</code>生成证明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snarkjs proof -w witness.json --pk proving_key.json</span><br></pre></td></tr></table></figure>
+<p>这个命令会使用<code>proving_key.json</code>和<code>witness.json</code>生成<code>proof.json</code>与<code>public.json</code>两个文件,<code>proof.json</code>包含证明相关信息。<code>public.json</code>包含<code>public input</code>以及电路运行后的<code>outputs</code>。</p>
+<h3 id="校验证明链下校验">校验证明（链下校验）</h3>
+<p>运行<code>snarkjs verify</code>来验证<code>proof</code>是否正确，如果验证通过会输出<code>OK</code>，否则输出<code>INVALID</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snarkjs verify --vk verification_key.json -p proof.json --pub public.json</span><br></pre></td></tr></table></figure> 验证<code>proof</code>时会用到<code>verification_key.json</code>，<code>proof.json</code>以及<code>public.json</code>。</p>
+<h3 id="校验证明链上校验">校验证明（链上校验）</h3>
+<p>为了能够在链上校验<code>proof</code>，需要生成一个链上合约。<code>snarkjs generateverifier</code>会用<code>verification_key.json</code>生成<code>solidity</code>代码并将<code>solidity</code>代码保存到<code>verifier.sol</code>文件中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snarkjs generateverifier --vk  verification_key.json</span><br></pre></td></tr></table></figure>
+<p><code>verifier.sol</code>中包含两个合约： - Pairings - Verifier</p>
+<p>当部署合约时只需要部署<code>Verifier</code>合约即可。<code>Verifier</code>合约部署完成后，可以调用<code>verifyProof</code>方法校验<code>proof</code>，如果校验通过则返回<code>true</code>，否则返回<code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">verifyProof</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory a,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>][<span class="number">2</span>] memory b,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory c,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory input</span></span></span><br><span class="line"><span class="function"><span class="params">        </span>) <span class="title">public</span> <span class="title">view</span> <span class="title">returns</span> (<span class="params">bool r</span>) </span>&#123;</span><br><span class="line">        Proof memory proof;</span><br><span class="line">        proof.A = Pairing.G1Point(a[<span class="number">0</span>], a[<span class="number">1</span>]);</span><br><span class="line">        proof.B = Pairing.G2Point([b[<span class="number">0</span>][<span class="number">0</span>], b[<span class="number">0</span>][<span class="number">1</span>]], [b[<span class="number">1</span>][<span class="number">0</span>], b[<span class="number">1</span>][<span class="number">1</span>]]);</span><br><span class="line">        proof.C = Pairing.G1Point(c[<span class="number">0</span>], c[<span class="number">1</span>]);</span><br><span class="line">        uint[] memory inputValues = <span class="keyword">new</span> uint[](input.length);</span><br><span class="line">        <span class="keyword">for</span>(uint i = <span class="number">0</span>; i &lt; input.length; i++)&#123;</span><br><span class="line">            inputValues[i] = input[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (verify(inputValues, proof) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>调用合约方法的参数可以通过<code>snarkjs generatecall</code>生成，<code>snarkjs generatecall</code>会用<code>proof.json</code>与<code>public.json</code>两个文件生成调用<code>Verifier</code>合约所需要的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">snarkjs generatecall -p proof.json --pub public.json</span><br><span class="line"></span><br><span class="line">[&quot;0x2e282056742fb4fe24b65531a7e17e66fd2416d293d13a0b4ecc3a4b13be36c5&quot;, &quot;0x22b245ca3c770f9ce2e946ccdd4052b9e13f5292009ea1f212a12b260043aa90&quot;],[[&quot;0x2e2dbd1677ff7712cbc551c63e205d7e5469d52d07f2e4c700fac535378e6d3c&quot;, &quot;0x05f4c0367542bb1281556ff8e773993ed56352dd8cbaa136662d42f959e0ae91&quot;],[&quot;0x2088f897fa5e307f41864ce196e3cb94ed6f574fe594af0b7f3633b695cfb38e&quot;, &quot;0x21f183a915e59a74744a48883c3d03350115897dc3c621c1ab491706350647e1&quot;]],[&quot;0x2166c2e9c9b62f2188a07ea30a9234e6509eaed81a621a93ca7fe000c32fad76&quot;, &quot;0x14eee56356071d21438029846397aefc94fc86d4f3fc521dfb2fbae034c9e049&quot;],[&quot;0x2ec2d13597576e6e9a28d337af768c614a0b892a38aece30dd4df4b1138edf35&quot;,&quot;0x11ef8fc9e658c40fa4a8ae1d40e81084befc8a507f560bb0f2c33bb14cca567d&quot;]</span><br></pre></td></tr></table></figure>
+<h2 id="链上合约设计">链上合约设计</h2>
+<p>电路生成好后接下来就到了最后一个环节链上合约设计，链上合约一共有两个：</p>
+<ul>
+<li>Merkle Tree</li>
+<li>Mixer</li>
+</ul>
+<p><code>merkle tree</code>合约主要负责： - 维护<code>merkle tree</code>数据结构 - 生成<code>merkle proof</code></p>
+<p><code>Merkle tree</code>合约源码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.5</span><span class="number">.0</span>;</span><br><span class="line"></span><br><span class="line">contract IMimc &#123; <span class="comment">// Mimc hash函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">MiMCpe7</span>(<span class="params">uint256 in_x,uint256 in_k</span>) <span class="title">public</span> <span class="title">returns</span>(<span class="params">uint256 out_x</span>);</span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">contract</span> <span class="title">MerkelTree</span> </span>&#123;</span><br><span class="line">    mapping (<span class="function"><span class="params">uint256</span> =&gt;</span> bool) public roots; <span class="comment">// 记录Merkle tree上的root</span></span><br><span class="line">    uint public tree_depth = <span class="number">8</span>; <span class="comment">// Merkle tree 深度</span></span><br><span class="line">    uint public no_leaves = <span class="number">256</span>; <span class="comment">// Merkle tree 叶子节点个数</span></span><br><span class="line">    struct Mtree &#123;</span><br><span class="line">        uint256 cur;</span><br><span class="line">        uint256[<span class="number">256</span>][<span class="number">9</span>] leaves2; <span class="comment">// tree depth + 1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Mtree public MT;</span><br><span class="line"></span><br><span class="line">    IMimc mimc;</span><br><span class="line"></span><br><span class="line">    event LeafAdded(uint256 index);</span><br><span class="line"></span><br><span class="line">    event TestMimc(uint256);</span><br><span class="line"></span><br><span class="line">    event MerkleProof(uint256[<span class="number">8</span>] , uint256[<span class="number">8</span>] );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(address _mimc) public&#123;</span><br><span class="line">        mimc = IMimc(_mimc);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Merkletree.append(com)</span></span><br><span class="line">    <span class="comment">// 插入 commitment叶子节点</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params">uint256 com</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">uint256 </span>) </span>&#123;</span><br><span class="line">        <span class="built_in">require</span> (MT.cur != no_leaves );</span><br><span class="line">        MT.leaves2[<span class="number">0</span>][MT.cur] = com;</span><br><span class="line">        updateTree();</span><br><span class="line">        emit LeafAdded(MT.cur);</span><br><span class="line">        MT.cur++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> MT.cur<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回Merkle path，Merkle path index</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getMerkelProof</span>(<span class="params">uint256 index</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">uint256[<span class="number">8</span>] memory, uint256[<span class="number">8</span>] memory</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        uint256[<span class="number">8</span>] memory address_bits;</span><br><span class="line">        uint256[<span class="number">8</span>] memory merkelProof;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (uint256 i=<span class="number">0</span> ; i &lt; tree_depth; i++) &#123;</span><br><span class="line">            <span class="comment">// address_bits[i] = index%2;</span></span><br><span class="line">            <span class="keyword">if</span> (index%<span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                address_bits[i]=<span class="number">1</span>;</span><br><span class="line">                merkelProof[i] = getUniqueLeaf(MT.leaves2[i][index + <span class="number">1</span>],i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                address_bits[i]=<span class="number">0</span>;</span><br><span class="line">                merkelProof[i] = getUniqueLeaf(MT.leaves2[i][index - <span class="number">1</span>],i);</span><br><span class="line">            &#125;</span><br><span class="line">            index = uint256(index/<span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        emit MerkleProof(merkelProof, address_bits);</span><br><span class="line">        <span class="keyword">return</span>(merkelProof, address_bits);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getMimc</span>(<span class="params">uint256 input, uint256 sk</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params"> uint256</span>) </span>&#123;</span><br><span class="line">        emit TestMimc(mimc.MiMCpe7(input , sk));</span><br><span class="line">        <span class="keyword">return</span> mimc.MiMCpe7(input , sk);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getUniqueLeaf</span>(<span class="params">uint256 leaf, uint256 depth</span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">uint256</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (leaf == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (uint256 i=<span class="number">0</span>;i&lt;depth;i++) &#123;</span><br><span class="line">                leaf = mimc.MiMCpe7(leaf, leaf);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (leaf);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新Merkle  tree</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">updateTree</span>(<span class="params"></span>) <span class="title">public</span> <span class="title">returns</span>(<span class="params">uint256 root</span>) </span>&#123;</span><br><span class="line">        uint256 CurrentIndex = MT.cur;</span><br><span class="line">        uint256 leaf1;</span><br><span class="line">        uint256 leaf2;</span><br><span class="line">        <span class="keyword">for</span> (uint256 i=<span class="number">0</span> ; i &lt; tree_depth; i++) &#123;</span><br><span class="line">            uint256 NextIndex = CurrentIndex/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (CurrentIndex%<span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                leaf1 =  MT.leaves2[i][CurrentIndex];</span><br><span class="line">                leaf2 = getUniqueLeaf(MT.leaves2[i][CurrentIndex + <span class="number">1</span>], i);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                leaf1 = getUniqueLeaf(MT.leaves2[i][CurrentIndex - <span class="number">1</span>], i);</span><br><span class="line">                leaf2 =  MT.leaves2[i][CurrentIndex];</span><br><span class="line">            &#125;</span><br><span class="line">            MT.leaves2[i+<span class="number">1</span>][NextIndex] = mimc.MiMCpe7( leaf1, leaf2);</span><br><span class="line">            CurrentIndex = NextIndex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> MT.leaves2[tree_depth][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getLeaf</span>(<span class="params">uint256 j,uint256 k</span>) <span class="title">public</span> <span class="title">view</span> <span class="title">returns</span> (<span class="params">uint256 root</span>) </span>&#123;</span><br><span class="line">        root = MT.leaves2[j][k];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回Merkle tree root</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getRoot</span>(<span class="params"></span>) <span class="title">public</span> <span class="title">view</span> <span class="title">returns</span>(<span class="params">uint256 root</span>) </span>&#123;</span><br><span class="line">        root = MT.leaves2[tree_depth][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>Mixer</code>合约主要负责： - 记录所有合法<code>Merkle tree root</code>，防止链下造假 - 记录已使用的<code>nullifierHash</code>，防止双花 - 记录<code>commitment</code>，确保同一个<code>commitment</code>不会多次被添加到<code>Merkle tree</code>上 - <code>deposit</code>方法，用户调用<code>deposit</code>时，向<code>Mixer</code>中存储0.01以太币，同时会将<code>commitment</code>添加到<code>merkle tree</code>上 - <code>withdraw</code>方法，用户调用<code>withdraw</code>时，<code>Mixer</code>校验<code>proof</code>是否合法，如果合法则给用户转0.01以太币 - <code>forward</code>方法，用户调用<code>forward</code>时，<code>Mixer</code>校验<code>proof</code>是否合法，如何合法则在<code>merkle tree</code>中插入一个新的<code>commitment</code></p>
+<p>当<code>merkle tree</code>是空时，所有的<code>commitment</code>都是初始化状态"0x0"，<code>Alice</code>向<code>merkle tree</code>中添加了一个<code>commitment</code>后，<code>Bob</code>从合约中用<code>secret</code>将这个<code>commitment</code>所表示的币给提走了，那么第三方很容易将<code>Alice</code>与<code>Bob</code>联系起来，从这里也可以看出当越多的人使用<code>mixer</code>时，<code>mixer</code>的隐私性越好，反之则越差。</p>
+<p>那么在使用人数较少的时候如何保证隐私？当<code>Bob</code>接受到<code>Alice</code>的转账，<code>Bob</code>向将币转给<code>Carl</code>那么<code>Bob</code>可以调用<code>forward</code>方法，具体流程如下： - <code>Bob</code>向<code>Mixer</code>提供<code>proof</code>证明他可以消费某一个币，同时提交一个新的<code>commitment</code>这个<code>commitment</code>是<code>Carl</code>可以消费的 - <code>forward</code>校验<code>Bob</code>的<code>proof</code>是否正确，如何正确则向<code>merkle tree</code>中插入新的<code>commitment</code> - <code>forawrd</code>在合约中作废<code>Bob</code>已经消费的<code>nulliferHash</code></p>
+<p><code>Mixer</code>合约源码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.5</span><span class="number">.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;./MerkleTree.sol&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;./verifier.sol&quot;</span>;</span><br><span class="line"></span><br><span class="line">contract Mixer is MerkelTree ,Verifier &#123;</span><br><span class="line">    mapping(<span class="function"><span class="params">uint256</span> =&gt;</span> bool) public roots; <span class="comment">// 记录所有合法的Merkle tree root</span></span><br><span class="line">    mapping(<span class="function"><span class="params">uint256</span> =&gt;</span> bool) public nullifierHashes; <span class="comment">// 记录已使用的nullifier，防止双花</span></span><br><span class="line">    mapping(<span class="function"><span class="params">uint256</span> =&gt;</span> bool) public commitments; <span class="comment">// 记录commitment，同一个commitment不允许放入两次</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每次只能向mixer中投入0.01个以太币</span></span><br><span class="line">    uint256 constant public AMOUNT = <span class="number">0.01</span> ether;</span><br><span class="line"></span><br><span class="line">    event Deposit(uint256 indexed commitment, uint256 leafIndex, uint256 timestamp);</span><br><span class="line">    event Withdraw(address to, uint256 nullifierHash);</span><br><span class="line">    event Forward(uint256 indexed commitment, uint256 leafIndex, uint256 timestamp);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Constructor</span></span><br><span class="line">    <span class="keyword">constructor</span>  (address _mimc) MerkelTree(_mimc) public &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向mixer中存入0.01个以太坊，同时将_commitment插入到Merkle tree中</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">deposit</span> (<span class="params">uint256 _commitment</span>) <span class="title">payable</span> <span class="title">public</span></span>&#123;</span><br><span class="line">        <span class="built_in">require</span>(!commitments[_commitment], <span class="string">&quot;The commitment has been submitted&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">require</span>(msg.value == AMOUNT);</span><br><span class="line">        uint256 insertedIndex = insert(_commitment);</span><br><span class="line">        commitments[_commitment] = <span class="literal">true</span>;</span><br><span class="line">        roots[getRoot()] = <span class="literal">true</span>;</span><br><span class="line">        emit Deposit(_commitment,insertedIndex,block.timestamp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 向mixer提交proof，校验通过后可以提走0.01个以太币</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">withdraw</span>(<span class="params">uint[<span class="number">2</span>] memory a,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>][<span class="number">2</span>] memory b,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory c,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory input</span>) <span class="title">public</span> <span class="title">payable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        uint256 _nullifierHash = uint256(input[<span class="number">1</span>]);</span><br><span class="line">        uint256 _root = uint256(input[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">require</span>(!nullifierHashes[_nullifierHash], <span class="string">&quot;The note has been already spent&quot;</span>);</span><br><span class="line">        <span class="built_in">require</span>(isKnownRoot(_root), <span class="string">&quot;Cannot find your merkle root&quot;</span>);</span><br><span class="line">        <span class="built_in">require</span>(verifyProof(a,b,c,input), <span class="string">&quot;Invalid withdraw proof&quot;</span>);</span><br><span class="line"></span><br><span class="line">        nullifierHashes[_nullifierHash] = <span class="literal">true</span>;</span><br><span class="line">        msg.sender.transfer(AMOUNT); <span class="comment">// 处理转账</span></span><br><span class="line">        emit Withdraw(msg.sender, _nullifierHash);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// forward 允许用户直接在合约中进行转账操作</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">forward</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory a,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>][<span class="number">2</span>] memory b,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory c,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint[<span class="number">2</span>] memory input,</span></span></span><br><span class="line"><span class="function"><span class="params">            uint256 _commitment</span></span></span><br><span class="line"><span class="function"><span class="params">    </span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">address</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        uint256 _nullifierHash = uint256(input[<span class="number">1</span>]);</span><br><span class="line">        uint256 _root = uint256(input[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">require</span>(!commitments[_commitment], <span class="string">&quot;The commitment has been submitted&quot;</span>);</span><br><span class="line">        <span class="built_in">require</span>(!nullifierHashes[_nullifierHash], <span class="string">&quot;The note has been already spent&quot;</span>);</span><br><span class="line">        <span class="built_in">require</span>(isKnownRoot(_root), <span class="string">&quot;Cannot find your merkle root&quot;</span>); <span class="comment">// Make sure to use a recent one</span></span><br><span class="line">        <span class="built_in">require</span>(verifyProof(a,b,c,input), <span class="string">&quot;Invalid withdraw proof&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        uint insertedIndex = insert(_commitment);</span><br><span class="line">        roots[getRoot()] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        nullifierHashes[_nullifierHash] = <span class="literal">true</span>;</span><br><span class="line">        emit Forward(_commitment,insertedIndex,block.timestamp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isKnownRoot</span>(<span class="params">uint256 _root</span>) <span class="title">public</span> <span class="title">returns</span>(<span class="params">bool</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> roots[_root];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到这里已经将实现混币的所有步骤都分享完了，下面演示一下怎么使用<code>Mixer</code>。</p>
+<h2 id="实例演示">实例演示</h2>
+<p>我在<code>ropsten</code>上部署已经部署好一个<code>Mxier</code>合约，合约地址："https://ropsten.etherscan.io/address/0x46a7f914785357b9054fdb670845dc6c0c968167"</p>
+<p>下图演示了使用<code>Mixer</code>的流程，例如：<code>Alice</code>要给<code>Bob</code>转0.01ether，那么会涉及到以下几个步骤： 1. <code>Bob</code>在本地产生一个随机数<code>sk2</code>，然后将<code>sk2</code>用<code>mimc7</code>进行<code>hash</code>运算得到<code>cmt2</code>，然后将<code>cmt2</code>发送给<code>Alice</code> 2. <code>Alice</code>调用<code>Mixer</code>合约<code>deposit</code>方法，并传入<code>cmt2</code>参数 3. <code>Bob</code>接收到<code>Alice</code>转账时，可以在本地生成<code>proof</code>，调用<code>Mixer</code>的<code>withdraw</code>方法取回0.01 ether。 4. <code>Mixer</code>校验<code>proof</code>通过后，向<code>Bob</code>转0.01 ether</p>
+<figure>
+<img src="/assets/2019-12-02/send_mixcoin.svg" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>下图是我在<code>ropsten</code>上先存储0.01 ether，然后在取回0.01 ether</p>
+<figure>
+<img src="/assets/2019-12-02/1.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>下图是在<code>ropsten</code>上调用<code>Mixer</code>合约<code>deposit</code>方法的交易记录： <img src="/assets/2019-12-02/2.png" alt="img" /></p>
+<p>下图是在<code>ropsten</code>上调用<code>Mixer</code>合约<code>withdraw</code>方法的交易记录： <img src="/assets/2019-12-02/3.png" alt="img" /></p>
+<p>终于写完了<code>^_^</code>，需要源码的小伙伴可以关注公众号。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/11/24/%E5%8D%81%E5%88%86%E9%92%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E6%B7%B7%E5%B8%81-%E5%8E%9F%E7%90%86%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/24/%E5%8D%81%E5%88%86%E9%92%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E6%B7%B7%E5%B8%81-%E5%8E%9F%E7%90%86%E7%AF%87/" class="post-title-link" itemprop="url">十分钟开发零知识证明之混币--原理篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-11-24 12:00:00" itemprop="dateCreated datePublished" datetime="2019-11-24T12:00:00+08:00">2019-11-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E/" itemprop="url" rel="index"><span itemprop="name">零知识证明</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>零知识证明很多人听过，但不明白它是干什么的？其实零知识证明可以用一句话来概括：“证明者（Alice）在不透露秘密的情况下，说服验证者（Bob）相信证明者（Alice）知道这个秘密”。为了更直观解释，接下来会用混币的例子来说明。</p>
+<h2 id="什么是混币">什么是混币？</h2>
+<p>混币的目的是切断加密货币交易中发送方与接受方的联系，提高加密货币的隐私性和匿名性，使第三方更难追踪加密货币的用途以及它属于谁。</p>
+<p>举个生活中的例子： 游客向庙里功德箱中仍香火钱，所有的游客仍的都是同一个年份的一元硬币，这时有一个第三方在一旁观察，他可以知道谁在什么时间扔进去多少个硬币。但是当小沙弥从功德箱中取钱的时候，他无法分别取出的硬币是由谁扔进去的。</p>
+<p>这里功德箱就起到一个混币的功能，游客使用功德箱可以快速高效地将自己的资金与其他的资金进行混合，这里功德箱有个缺陷，游客仍进去的币其实谁都可以取出没有限制，所以我们需要在提款人与混币后的加密货币之间创建随机的联系，我们将使用零知识证明来解决在不暴露相关信息的情况下，证明加密货币所有权的问题。</p>
+<h2 id="为什么需要混币隐私币">为什么需要混币/隐私币</h2>
+<p>最主要的原因是混币帮我们解决了匿名与隐私以及货币可互换性的问题。</p>
+<h3 id="匿名">匿名</h3>
+<p>目前公链（比特币）的匿名只起到假名的作用，例如现实生活中的人可以生成任意多的公私钥对，用这些公钥在链上发送或接受每笔交易，这些公钥就充当他们的假名。如果外界不知道你和公钥的关系，他们就无法把你和你的交易历史关联起来，只要有人能把你跟公钥联系起来，就可以顺藤摸瓜找到你过去的交易历史。目前不没有办法阻止第三方将我们和我们的公钥联系起来。</p>
+<p>为了直观理解上面的文字，举一个例子来说明： 作家一般都会用一个假名与读者互动，比如，《哈利波特》的作者 乔安妮·罗琳 总是以“J.K.罗琳”的名义出版作品。她为什么这样做？很可能是因为她想过正常人的生活，不让别人发现她是一个知名作家。不幸的是，一旦你被曝光，假名就变得毫无意义。就好像一旦我知道 乔安妮·罗琳 就是 J.K.罗琳，我会立即把她与她写过的每一件作品联系起来，并且意识到她一年的版税可能都比我一辈子赚的钱还要多。</p>
+<p>到这里我们回答了需要隐私币的第一个理由：隐私币可以能实现完全匿名且不可追踪。</p>
+<h3 id="货币可互换性">货币可互换性</h3>
+<p>流通性使货币具有了内在可互换性，可互换性意味着商品/物品/货币可以完全互换。如果说1BTC如论如何都价值1BTC，无论它来自何处或之前被用于什么其他用途。但是加密货币具有极度透明性，我们可以追踪到与某一特定货币的所有相关历史交易，这样一来，人们一旦发现某个货币是“污点”货币（俗称“黑钱”）就可以拒绝接受这种货币。如果这种情况大规模发生，加密货币将不再是可互换的因为“干净”的货币比“污点”货币具有更大价值。</p>
+<p>不可互换的货币会给用户带来额外的负担，用户为了避免不小心买入“污点”货币，那么用户就会被迫检查他们购买的每笔货币的交易历史。</p>
+<p>到这里我们回答了需要隐私币的第二个理由：由于隐私币无法查看货币的交易记录，所以减少了货币不可互换性的问题。</p>
+<h2 id="用零知识证明解决隐私">用零知识证明解决隐私</h2>
+<p>为了在提款人与混币后的加密货币之间创建随机的联系，需要使用零知识证明来解决在不暴露相关信息的情况下，证明加密货币所有权的问题。那什么是零知识证明，为什么零知识证明可以在不揭露敏感信息的情况下也可以证明你知道某个秘密呢？</p>
+<h3 id="零知识证明">零知识证明</h3>
+<p>接下来只从使用零知识证明的角度来讲解，让大家能从一个宏观的视角看零知识证明是如何被使用的，至于零知识证明的细节，如果大家感兴趣可以持续关注我的公众号，在之后的文章中我会用通俗的方法来分享零知识证明 <code>^_^</code> 。</p>
+<figure>
+<img src="/assets/2019-11-24/zkp.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>上图是使用零知识证明的一般过程，这里我们将circuit看作是一个黑盒，在circuit中会执行一些约束，这些约束是与要解决的问题是相关的，比如x+y=5。接下来从Prover向circuit中传入两个值：Private input（值：2），public input （值：3），接下来circuit会进行一系列的运算并检查约束是否满足（2+3=5），然后输出一个proof。Prover将proof以及public input发送给Verifier，Verifier使用proof，public input 进行运算来验证proof是否正确，如果正确则返回true，错误则返回false。</p>
+<p>这里Private input是不对外揭露的，只有prover自己知道这个值。public input是prover与Verifier之间共享的一个值。所以上面的过程可以总结为，prover 在不揭露Private input 的情况下向Verifier证明自己知道一个值能满足（x+3=5)。</p>
+<p>基于circuit的零知识证明被称为通用零知识证明，通用零知识证明会将一个计算问题转化成circuit，接下以zk-Snark为例来说明，下图是zk-Snark流程图：</p>
+<figure>
+<img src="/assets/2019-11-24/snark.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<p>首先，zk-SNARK不能直接用于解决任何计算问题，我们必须先把问题转换成正确的“形式”来处理，这种形式叫做 "quadratic arithmetic problem"(QAP)，在进行QAP 转换的同时，我们可以用Private input ，public input创建一个对应的解，称为QAP的witness。只有prover用这个witness来生成proof。</p>
+<p>如上图所示：</p>
+<ol type="1">
+<li>首先得有一个计算问题，这个问题一般是NP问题</li>
+<li>然后将计算问题做一个等价转换变成QAP，步骤如下：
+<ul>
+<li>将计算问题拍平变成circuit</li>
+<li>接下来我们要把circuit转化成 R1CS(rank-1 constraint system，一阶约束系统)。R1CS 是一个由三向量组 (a,b,c) 组成的序列，R1CS 有个解向量 s，s 必须满足符号表示向量的内积运算 a.s * b.s - c.s = 0，这里的解向量s就是witness</li>
+<li>接下来我们要做的是将 R1CS 转化成 QAP 形式，这两者的区别是 QAP 使用多项式来代替点积运算，他们所实现的逻辑完全相同。</li>
+</ul></li>
+<li>接下的是比较重要的一步trusted setup，trusted setup会生成两个值PK，VK，truseted setup的目的是实现零交互验证，它生成的PK，VK相当于是一个“上帝”由它来帮我们做一些挑战，来验证prover。</li>
+<li>prover会用PK已经witness生成一个proof交给Verifier</li>
+<li>Verifier拿到这个proof会用VK做一些校验，这一步发生在链上，有链上的节点或智能合约来做校验。</li>
+</ol>
+<p>到这里，你已经基本掌握了zk-Snark的运作原理，虽然还有些细节不明白不过没关系，这并不影响你利用zk-snark来做项目，有关zk-snark的细节我将在之后的文章中有介绍。</p>
+<h2 id="总结">总结</h2>
+<p>混币的目的是切断加密货币交易中发送方与接受方的联系，发送方利用混币系统将自己的钱与其他人的钱进行混合，接受方利用零知识证明来证明有某一个混币的所有全，从而进行转账交易。</p>
+<p>现在已经将实现一个混币所需要的原理都已经全部说完了，在下一个篇中将开始进入实操阶段，动手实现一个混币。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">Cosmos跨链协议</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-09-13 12:00:00" itemprop="dateCreated datePublished" datetime="2019-09-13T12:00:00+08:00">2019-09-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tendermint/" itemprop="url" rel="index"><span itemprop="name">Tendermint</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第三方辅助服务辅助跨链交互。</p>
+<h2 id="同构跨链怎么实现">同构跨链怎么实现？</h2>
+<p>基于Tendermint开发的链都可以用同构跨链，cosmos中同构链之间进行资产转移的原理如下。</p>
+<p>由于Tendermint采用PBFT+POS共识算法，每个区块都是经过全网2/3节点签名过的，所以得到Validator信息就可以通过对区块头进行校验来验证这个区块头是不是某一个链中的合法区块。ChainA，ChainB都是用Tendermint开发的链，现在ChainA，ChainB之间需要进行跨链资产转移，A,B两个链之间会相互进行注册，在注册的过程中，A，B两个链会将各自的创世区块以及ChainID（用于表示不同链）发送给对方，由于创世区块中含有Validator信息，所以通过注册后A，B两个链会有对方链的Validator信息，以及区块头信息。</p>
+<p>现在A中的资产需要向B中转移，首先发送一个跨链交易package到A中，A执行这个packageTx，将相关的资产进行销毁或锁定，接下来将packageTx写入egress中，，egress可以看成是一个信箱，所有向外部通知的跨链交易的都放入到egress中。</p>
+<p>为了将A链中发生的事件通知给B链，需要一个relayer，relayer是一个中继程序负责将A链中egress中的跨链消息转发给B链，relayer查询 A 链中 egress 中的packageTx，并获取packageTx的Merkle Proof，将这些信息打包成 IBCPacketPostTx 交易发送到 B 链上，并查询 packageTx 所在的区块头信息，将区块头信息打包成 IBCUpdateChainTx 发送到 B 链上， 注意这里 relayer是需要支付 IBCPacketPostTx，IBCUpdateChainTx 执行的交易费用的。</p>
+<p>B链接收到IBCPacketPostTx交易后开始执行，首先通过A链中的Validator校验IBCUpdateChainTx中的区块头是否是A链的，然后校验IBCPacketPostTx中跨链交易的Merkle proof是否等于IBCUpdateChainTx中的区块头hash。当所有校验全部通过时B链开始执行相关操作。</p>
+<figure>
+<img src="/assets/2019-09-13/ibc_process.svg" alt="" /><figcaption>ibc_process</figcaption>
+</figure>
+<h2 id="同构跨链实现方法">同构跨链实现方法</h2>
+<h3 id="跨链协议">跨链协议</h3>
+<p>cosmos中的跨链是通过IBC协议实现，cosmos中一共定义以下几个IBC协议包:IBCRegisterChainTx,IBCUpdateChainTx,IBCPacketCreateTx,IBCPacketPostTx。</p>
+<h4 id="ibcregisterchaintx">IBCRegisterChainTx</h4>
+<p>在跨链开始用来注册，并发送创世区块，Validator给对方，这个只能执行一次，多次执行会报错。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IBCRegisterChainTx <span class="keyword">struct</span> &#123;</span><br><span class="line">	BlockchainGenesis</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> BlockchainGenesis <span class="keyword">struct</span> &#123;</span><br><span class="line">	ChainID <span class="keyword">string</span></span><br><span class="line">	Genesis <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="ibcupdatechaintx">IBCUpdateChainTx</h4>
+<p>向另外一个链推送当前链上区块最新信息，区块高度，区块头信息。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IBCUpdateChainTx <span class="keyword">struct</span> &#123;</span><br><span class="line">	Header tm.Header</span><br><span class="line">	Commit tm.Commit</span><br><span class="line">	<span class="comment">// <span class="doctag">TODO:</span> NextValidators</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ibcpacketcreatetx">IBCPacketCreateTx</h4>
+<p>当链收到这个交易包时会执行跨链交易，并将在egress中放入相关信息。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IBCPacketCreateTx <span class="keyword">struct</span> &#123;</span><br><span class="line">	Packet</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Packet <span class="keyword">struct</span> &#123;</span><br><span class="line">	SrcChainID <span class="keyword">string</span></span><br><span class="line">	DstChainID <span class="keyword">string</span></span><br><span class="line">	Sequence   <span class="keyword">uint64</span></span><br><span class="line">	Type       <span class="keyword">string</span> <span class="comment">// redundant now that Type() is a method on Payload ?</span></span><br><span class="line">	Payload    Payload</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ibcpacketposttx">IBCPacketPostTx</h4>
+<p>这个包中包含跨链交易执行后的Merkle proof，由relayer发送给另外一个链。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IBCPacketPostTx <span class="keyword">struct</span> &#123;</span><br><span class="line">	FromChainID     <span class="keyword">string</span> <span class="comment">// The immediate source of the packet, not always Packet.SrcChainID</span></span><br><span class="line">	FromChainHeight <span class="keyword">uint64</span> <span class="comment">// The block height in which Packet was committed, to check Proof</span></span><br><span class="line">	Packet</span><br><span class="line">	Proof *merkle.IAVLProof <span class="comment">// Merkle证明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="plugin">plugin</h3>
+<p>那么如何执行这些跨链协议，从上面协议的定义可以看出，这些协议包其实都是一个交易，Tendermint为了方便我们扩展，Tendermint中有一个插件模块，我们可以实现plugin中接口，在ibc插件中执行跨链交易。</p>
+<figure>
+<img src="/assets/2019-09-13/plugin.jpg" alt="" /><figcaption>plugin</figcaption>
+</figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Plugin <span class="keyword">interface</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Name of this plugin, should be short.</span></span><br><span class="line">	Name() <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Run a transaction from ABCI DeliverTx</span></span><br><span class="line">	RunTx(store KVStore, ctx CallContext, txBytes []<span class="keyword">byte</span>) (res abci.Result)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Other ABCI message handlers</span></span><br><span class="line">	SetOption(store KVStore, key, value <span class="keyword">string</span>) (log <span class="keyword">string</span>)</span><br><span class="line">	InitChain(store KVStore, vals []*abci.Validator)</span><br><span class="line">	BeginBlock(store KVStore, hash []<span class="keyword">byte</span>, header *abci.Header)</span><br><span class="line">	EndBlock(store KVStore, height <span class="keyword">uint64</span>) abci.ResponseEndBlock</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码时plugin接口的定义，可以看出plugin与abci接口很类似，所以在deliverTx时将ibc交易交给plugin</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ABCI::DeliverTx</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(app *BaseApp)</span> <span class="title">DeliverTx</span><span class="params">(txBytes []<span class="keyword">byte</span>)</span> <span class="params">(res abci.Result)</span></span> &#123;</span><br><span class="line">  <span class="comment">// Exec tx</span></span><br><span class="line">  <span class="keyword">switch</span> tx := tx.(<span class="keyword">type</span>) &#123;</span><br><span class="line">  <span class="keyword">case</span> *types.SendTx:</span><br><span class="line">      <span class="comment">// 执行正常交交易</span></span><br><span class="line">  <span class="keyword">case</span> *types.AppTx:</span><br><span class="line">    <span class="comment">// 执行plugin中的交易</span></span><br><span class="line">    plugin := pgz.GetByName(tx.Name)</span><br><span class="line">    res = plugin.RunTx(cache, ctx, tx.Data)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">return</span> abci.ErrBaseEncodingError.SetLog(<span class="string">&quot;Unknown tx type&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异构跨链pegzone">异构跨链PegZone</h2>
+<p>对于bitcoin,ethereum这类使用POW共识算法的链，如何与使用Tendermint的IBC协议进行跨链操作呢？由于这些链采用的POW算法那么我们无法通过Validator对这些链的区块头进行校验，进而无法使用Merkle proof来证明这些链上的跨链交易的合法行。其次POW共识算法产生的区块是属于概率最终性的，又被回滚的可能性，在进行跨链时我们需要保证跨链的交易是最终确定的且不会被回滚的。</p>
+<p>基于以上几点考虑，我们采用PegZone方案来进行异构跨链，PegZone本身其实是一条用Tendermint开发的代理链，实时跟踪原始链的状态，通过设定一个安全阀值，等待原始链区块增长数达到安全阀值时就认为原始链的状态达到了伪实时最终性（回滚概率小），这点和轻客户端钱包验证是相同的原理，例如比特币安全阀值通常设置为6，以太坊安全阀值可以设置为20或者100。而PegZone本身具备实时最终性，就可以通过IBC与Hub相连，从而实现跨链。</p>
+<p>接下来还是用例子来说明下，以Ethereum为例来看，有兴趣的朋友可参考Github上的<a target="_blank" rel="noopener" href="https://github.com/cosmos/peggy">cosmos/Peggy</a>项目。示意图如下：</p>
+<figure>
+<img src="/assets/2019-09-13/cross_chain.jpg" alt="" /><figcaption>pegzone</figcaption>
+</figure>
+<p>上图我们可以看出PegZone可以分为5个部分：</p>
+<ul>
+<li>Smart Contract：资产托管的角色，保管以太坊中的代币和Cosmos中的代币。主要提供了lock、unlock、mint、burn四个方法。</li>
+<li>Witness：是一个以太坊全节点，监听以太坊合约的event，并等待100个区块产生后，封装WitnessTx提交到PegZone中来证明在以太坊内状态更改。</li>
+<li>PegZone：PegZone是基于Tendermint的区块链，负责维护用户的账户信息，允许用户之间资产的转移，并提供交易查询。</li>
+<li>Signer：使用secp256k1对交易进行签名，以便签名能够高效的被智能合约验证，对应于智能合约的校验者公钥集合。</li>
+<li>Relayer： 中继器负责交易转发。将所有Signer签名后的SignTx转发到smart contract中。</li>
+</ul>
+<h2 id="cosmos-hub的作用">cosmos hub的作用</h2>
+<p>在cosmos中自带的basecoin跨链demo中，两个链ChainA，ChainB，这两个链之间进行跨链，A，B两个链之间相互发送IBCRegisterChainTx进行注册。在跨链的时候直接发送IBC协议包，进行资产跨链操作。这种直接连接的方式会有个问题，随着接入到网络中Zone（zone是一个独立的区块链）的数量上升，以直连方式实现通信会导致链路数量呈平方级上升。以100个Zone接入到网络中为例，如果各个Zone直接都要建立起IBC连接，则网络中需要有n(n-1)/2=4950 条通信链路！如此快速的增长显然会令网络不堪重负。</p>
+<p>通过hub就可以解决连接爆发增长的问题，所有的zone都向hub进行注册，向hub发送IBC包。</p>
+<figure>
+<img src="/assets/2019-09-13/hub.png" alt="" /><figcaption>hub</figcaption>
+</figure>
+<h3 id="hub工作方式">hub工作方式</h3>
+<p>hub管理着许多zone，所有的zone都需要向hub进行注册，由hub追踪各个zone的状态，每一个zone不停地把自身产出的新区快信息汇报给hub，同时每一个zone也需要同步hub的状态。每一个zone之间不是直接进行通信，而是通过向hub发送IBC间接进行通信。</p>
+<p>Hub与Zone直接通信，而Zone与Zone之间通过IBC间接通信。当Zone对 Hub建立起一个IBC连接，它可以自动访问其他连接到该Hub上的Zone ，这意味着Zone无需与其他Zone连接，而仅仅连接到Hub上即可。</p>
+<p>当一个Zone通过Hub收到来自其他Zone的代币时，它只需要信任Hub以及代币来源的Zone，而不需要信任网络中所有其它的Zone 。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/08/18/%E4%BD%BF%E7%94%A8Tendermint%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%85%AC%E9%93%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/18/%E4%BD%BF%E7%94%A8Tendermint%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%85%AC%E9%93%BE/" class="post-title-link" itemprop="url">亲自动手实现一个公链</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-18 15:00:00" itemprop="dateCreated datePublished" datetime="2019-08-18T15:00:00+08:00">2019-08-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tendermint/" itemprop="url" rel="index"><span itemprop="name">Tendermint</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>32</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc} ## 亲自动手实现一个公链</li>
+</ul>
+<p>待续。。。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/08/13/%E6%B7%B1%E5%85%A5Tendermint-ABCI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/13/%E6%B7%B1%E5%85%A5Tendermint-ABCI/" class="post-title-link" itemprop="url">深入Tendermint---ABCI接口</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-13 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-13T09:00:00+08:00">2019-08-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tendermint/" itemprop="url" rel="index"><span itemprop="name">Tendermint</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>18</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>待续。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/" class="post-title-link" itemprop="url">深入Tendermint---共识算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-12 12:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T12:00:00+08:00">2019-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tendermint/" itemprop="url" rel="index"><span itemprop="name">Tendermint</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>content {:toc}</li>
+</ul>
+<p>分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Tendermint的共识机制。</p>
+<h2 id="round-based协议">Round-based协议</h2>
+<p>在Tendermint中一共有三种类型的投票：prevote,precommit和commit。当一个block被全网络commit的话，意味着这个block已经被全网超过2/3的Validator签名并广播了。</p>
+<p>vote数据结构如下：</p>
+<figure>
+<img src="/assets/2019-08-11/vote.jpg" alt="" /><figcaption>vote</figcaption>
+</figure>
+<p>在链达到一个新的Height时候，系统会运行一个round-based协议来决定下一个block。round-based协议由以下三个步骤构成：proposal，prevote，precommit。以及两个特殊步骤：commit，NewHeight。其中propose，prevote和precommit会分别占用整个round 1/3时间。每一round的时间会比上一round的时间长一点，这是为了让网络在部分同步的情况下最终达成一致性共识。</p>
+<p>round-based协议运行过程如下：</p>
+<figure>
+<img src="/assets/2019-08-11/round.jpg" alt="" /><figcaption>round</figcaption>
+</figure>
+<p>round-based协议是一个状态机，主要有 NewHeigh -&gt; Propose -&gt; Prevote -&gt; Precommit -&gt; Commit 一共 5 个状态。上述每个状态都被称为一个Step，首尾的 NewHeigh和Commit这两个Steps被称为特殊的 Step，而中间循环三个Steps 则被称为一个 Round，是共识阶段，也是也是算法的核心原理所在。一个块的最终提交（Commit）可能需要多个Round过程，这是因为有许多原因可能会导致当前Round不成功（比如出块节点Offline，提出的块是无效块，收到的Prevote或者Precommit票数不够 +2/3 等等），出现这些情况的话，解决方案就是移步到下一轮，或者增加 timeout 时间）。</p>
+<p>当区块链达到一个新的高度时进入NewHeight阶段，接下来Propose阶段会提交一个proposal，prevote阶段会对收到的proposal进行prevote投票，在precommit阶段收集到+2/3prevote投票后对block进行precommit投票，如果收集到+2/3precommit投票后进入commit阶段，如果没有收集到+2/3precommit投票会进入再次进入propose阶段。在共识阶段期间如果收到+2/3commit投票那么直接进入commit阶段。</p>
+<p>以上就是算法运行的整体过程，接下来分阶段来阐述各个阶段。</p>
+<h2 id="proposal">Proposal</h2>
+<p>在每一轮开始前会通过round-robin方式选出一个proposer，选出的proposal会提交这一轮的proposal。proposer的选择规则请查看之前的一篇文章<a href="http://www.whatsblockchain.com/2019/08/12/深入Tendermint-Validator/">出块节点选择</a></p>
+<p>proposal的数据结构如下：</p>
+<figure>
+<img src="/assets/2019-08-11/proposal.jpg" alt="" /><figcaption>round</figcaption>
+</figure>
+<p>Round-based协议的第一个步骤是Propose，在propose开始阶段，被选中的proposer会给全网络广播一个proposal。如果proposer锁定在上一轮中的block上，那么proposer在本轮中发起的proposal会是锁定的block，并且在proposal中加上proof-of-lock字段。</p>
+<h2 id="prevote">prevote</h2>
+<p>在Prevote开始阶段，每个Validator会判断自己是否锁定在上一轮的proposed区块上，如果锁定在之前的proposal区块中，那么在本轮中继续为之前锁定的proposal区块签名并广播prevote投票。否则为当前轮中接收到的proposal区块签名并广播prevote投票。如果由于某些原因当前Validator并没有收到任何proposal区块，那么签名并广播一个空的prevote投票。</p>
+<h2 id="precommit">Precommit</h2>
+<p>在precommit开始阶段，每个Validator会判断，如果收集到了超过2/3 prevote投票，那么为这个区块签名并广播precommit投票，并且当前Validator会锁定在这个区块上，同时释放之前锁定的区块，一个Validator一次只能锁定在一个区块上。如果一个Validator收集到超过2/3空区块（nil)的prevote投票，那么释放之前锁定的区块。处于锁定状态的Validator会为锁定的区块收集prevote投票，并把这些投票打成包放入proof-of-lock中，proof-of-lock会在之后的propose阶段用到。如果一个Validator没有收集到超过2/3的prevote投票，那么它不会锁定在任何区块上。这里，介绍一个重要概念：PoLC，全称为 Proof of Lock Change，表示在某个特定的高度和轮数(height, round)，对某个块或 nil (空块)超过总结点 2/3 的Prevote投票集合，简单来说 PoLC 就是 Prevote 的投票集。</p>
+<p>在precommit阶段后期，如果Validator收集到超过2/3的precommit投票，那么Validator进入到commit阶段。否则进入下一轮的propose阶段。</p>
+<h2 id="commit">Commit</h2>
+<p>commit阶段分为两个并行的步骤： 1. Validator收到了被全网commit的区块，Validator会为这个区块广播一个commit投票。 2. Validator需要为被全网络precommit的区块，收集到超过2/3commit投票。</p>
+<p>一旦两个条件全部满足了，节点会将commitTime设置到当前时间上，并且会进入NewHeight阶段。</p>
+<p>在整个共识过程的任何阶段，一旦节点收到超过2/3commit投票，那么它会立刻进入到commit阶段。</p>
+<h2 id="为什么不会分叉">为什么不会分叉</h2>
+<p>如果小于1/3节点是拜占庭节点（如果大于等于1/3，那么共识就没法达成了）。当validator commit了区块B，那么表示有大于2/3的节点在R轮投了precommit，这表示至少有大于1/3节点（大于1/3节点哪儿来的呢，就是大于2/3减去小于1/3，为什么是这么算呢，有人说不是有大于2/3的节点投了precommit那么这些人不都是诚实节点吗，当然不是了，拜占庭节点的意思它工作随性，有时候正确有时候失败，假设这个时候所有的拜占庭节点正确的工作了，所以都算在在+2/3节点内，所以这么算了）被lock在了R‘&gt;R。如果这个时候有针对同一区块高度的投票，那么由于这+1/3节点被lock在了R’轮，所以不会有+2/3的节点投prevote，也就不会在同一高度达成一个新的共识区块，所以就不会分叉。</p>
+<p>所以Tendermint不分叉是基于它是BFT共识，然后加上LockedBlock共同完成。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴寿鹤</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">88k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:20</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

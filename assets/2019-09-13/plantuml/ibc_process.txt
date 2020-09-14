@@ -1,0 +1,15 @@
+@startuml
+actor user
+participant ChainA
+participant Relayer
+participant ChainB
+
+
+user -> ChainA: 发送跨链交易\nIBCPacketCreateTx
+ChainA -> ChainA: 执行跨链交易\n将跨链包写入egress中
+Relayer -> ChainA: 同步最新区块头\nIBCUpdateChainTx
+Relayer -> ChainB: 向ChainB发送ChainA中最新区块信息
+Relayer -> ChainA: 同步egress中的跨链包
+Relayer -> ChainB:向ChainB发送跨链交易包\nIBCPacketPostTx
+ChainB -> ChainB: 校验IBCPacketPostTx中的Merkle proof\n是否等于ChainA中的区块头，校验完成后\n在ChainB中执行跨链交易，并将IBCPacketPostTx放入ingress中
+@enduml

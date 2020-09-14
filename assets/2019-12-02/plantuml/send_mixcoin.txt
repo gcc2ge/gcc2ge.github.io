@@ -1,0 +1,12 @@
+@startuml
+actor Alice as alice
+participant Mixer as mixer
+actor Bob as bob
+
+bob -> bob : 生成随机数sk2
+bob -> alice : cmt2=mimc7(sk2)
+alice -> mixer :deposit(cmt2, 0.01 ether)
+bob -> bob : private input : sk=sk2,merklePath=(cmt1,h2),merklePathIndex=(0,1)\npublic input: root=root,nullifer=mimc7(zk2,2)\nproof=Prove(sk,merklePath,merklePathIndex,nullifer,root)
+bob -> mixer : withdraw(root,nullifiers,proof)
+mixer -> mixer :校验proof，如果校验通过给bob转0.01 ether
+@enduml

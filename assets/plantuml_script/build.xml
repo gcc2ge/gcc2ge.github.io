@@ -1,0 +1,11 @@
+<project name="OwnTaskExample" default="main" basedir=".">
+	<!-- task definition -->
+	<taskdef name="plantuml" classname="net.sourceforge.plantuml.ant.PlantUmlTask" classpath="/usr/local/lib/plantuml.jar" />
+	<target name="main">
+		<plantuml output="../" format="svg"> <!-- 相对于 *.txt 所在的目录 -->
+			<fileset dir="../"> <!-- 相对于 build.xml所在的目录 -->
+				<include name="**/plantuml/*.txt" />
+			</fileset>
+		</plantuml>
+	</target>
+</project>
