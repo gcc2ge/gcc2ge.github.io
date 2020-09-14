@@ -19,13 +19,13 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  选型思路 本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。 众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IPOS共识算法设计">
-<meta property="og:url" content="http://www.whatsblockchain.com/2019/04/02/IPOS%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2019/04/02/IPOS%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  选型思路 本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。 众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一">
 <meta property="og:locale">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2019/04/02/IPOS%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/">
+<link rel="canonical" href="http://whatsblockchain.com/2019/04/02/IPOS%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/">
 
 
 <script class="page-configurations">
@@ -229,7 +229,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/04/02/IPOS%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2019/04/02/IPOS%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -489,12 +489,14 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>

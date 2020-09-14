@@ -19,26 +19,26 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  Tendermint本身是BFT+POS共识，在BFT之前需要先通过POS方法选出一个proposer来进行提案，proposer是从Validator节点中选出的，Validator是在创世区块（genesis.json)中配置的。 这里有两个概念区分一下： - validator：所有参与共识验证的节点 - proposer：出块节点，validator中选出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入Tendermint --- 出块节点选择">
-<meta property="og:url" content="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-Validator/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-Validator/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  Tendermint本身是BFT+POS共识，在BFT之前需要先通过POS方法选出一个proposer来进行提案，proposer是从Validator节点中选出的，Validator是在创世区块（genesis.json)中配置的。 这里有两个概念区分一下： - validator：所有参与共识验证的节点 - proposer：出块节点，validator中选出">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-08-11/validators.jpg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/validators.jpg">
 <meta property="article:published_time" content="2019-08-12T01:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-14T09:48:43.171Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint 区块链共识算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.whatsblockchain.com/assets/2019-08-11/validators.jpg">
+<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-08-11/validators.jpg">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-Validator/">
+<link rel="canonical" href="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-Validator/">
 
 
 <script class="page-configurations">
@@ -231,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-Validator/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-Validator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -417,12 +417,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>

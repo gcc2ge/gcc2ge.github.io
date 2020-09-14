@@ -19,13 +19,13 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  分布式系统介绍 长期以来学习掌握分布式系统的知识非常庞杂混乱，要确定分布式系统算法的分类，主要依据是搞清楚算法的各种属性。例如计时模型timing model; 进程间通讯interprocess communication 和失败模型failure model等等。 涉及的主要概念包括：  定时模型（Timing Model） 进程间通信（Interproces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式共识一】分布系统及共识介绍">
-<meta property="og:url" content="http://www.whatsblockchain.com/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%80%E3%80%91%E5%88%86%E5%B8%83%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%85%B1%E8%AF%86%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%80%E3%80%91%E5%88%86%E5%B8%83%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%85%B1%E8%AF%86%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  分布式系统介绍 长期以来学习掌握分布式系统的知识非常庞杂混乱，要确定分布式系统算法的分类，主要依据是搞清楚算法的各种属性。例如计时模型timing model; 进程间通讯interprocess communication 和失败模型failure model等等。 涉及的主要概念包括：  定时模型（Timing Model） 进程间通信（Interproces">
 <meta property="og:locale">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%80%E3%80%91%E5%88%86%E5%B8%83%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%85%B1%E8%AF%86%E4%BB%8B%E7%BB%8D/">
+<link rel="canonical" href="http://whatsblockchain.com/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%80%E3%80%91%E5%88%86%E5%B8%83%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%85%B1%E8%AF%86%E4%BB%8B%E7%BB%8D/">
 
 
 <script class="page-configurations">
@@ -229,7 +229,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%80%E3%80%91%E5%88%86%E5%B8%83%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%85%B1%E8%AF%86%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%80%E3%80%91%E5%88%86%E5%B8%83%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%85%B1%E8%AF%86%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -382,13 +382,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2016/07/07/git-clone-not-master-branch/" rel="prev" title="Git 如何 clone 非 master 分支的代码">
-                  <i class="fa fa-chevron-left"></i> Git 如何 clone 非 master 分支的代码
+                <a href="/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%BA%8C%E3%80%91%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E5%8F%A3%E5%A4%B4%E5%8D%8F%E8%AE%AE/" rel="prev" title="【分布式共识二】拜占庭将军问题——口头协议">
+                  <i class="fa fa-chevron-left"></i> 【分布式共识二】拜占庭将军问题——口头协议
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2017/07/15/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%BA%8C%E3%80%91%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E5%8F%A3%E5%A4%B4%E5%8D%8F%E8%AE%AE/" rel="next" title="【分布式共识二】拜占庭将军问题——口头协议">
-                  【分布式共识二】拜占庭将军问题——口头协议 <i class="fa fa-chevron-right"></i>
+                <a href="/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E4%B8%89%E3%80%91%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98%E2%80%94%E2%80%94%E4%B9%A6%E9%9D%A2%E5%8D%8F%E8%AE%AE/" rel="next" title="【分布式共识三】拜占庭将军问题——书面协议">
+                  【分布式共识三】拜占庭将军问题——书面协议 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -447,12 +447,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>

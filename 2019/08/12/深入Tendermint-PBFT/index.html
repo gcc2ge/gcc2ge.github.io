@@ -19,28 +19,28 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入Tendermint---共识算法">
-<meta property="og:url" content="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-08-11/vote.jpg">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-08-11/round.jpg">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-08-11/proposal.jpg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/vote.jpg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/round.jpg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/proposal.jpg">
 <meta property="article:published_time" content="2019-08-12T04:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-14T09:48:43.170Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint 区块链共识算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.whatsblockchain.com/assets/2019-08-11/vote.jpg">
+<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-08-11/vote.jpg">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/">
+<link rel="canonical" href="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/">
 
 
 <script class="page-configurations">
@@ -233,7 +233,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -324,7 +324,7 @@
 <p>当区块链达到一个新的高度时进入NewHeight阶段，接下来Propose阶段会提交一个proposal，prevote阶段会对收到的proposal进行prevote投票，在precommit阶段收集到+2/3prevote投票后对block进行precommit投票，如果收集到+2/3precommit投票后进入commit阶段，如果没有收集到+2/3precommit投票会进入再次进入propose阶段。在共识阶段期间如果收到+2/3commit投票那么直接进入commit阶段。</p>
 <p>以上就是算法运行的整体过程，接下来分阶段来阐述各个阶段。</p>
 <h2 id="proposal">Proposal</h2>
-<p>在每一轮开始前会通过round-robin方式选出一个proposer，选出的proposal会提交这一轮的proposal。proposer的选择规则请查看之前的一篇文章<a href="http://www.whatsblockchain.com/2019/08/12/深入Tendermint-Validator/">出块节点选择</a></p>
+<p>在每一轮开始前会通过round-robin方式选出一个proposer，选出的proposal会提交这一轮的proposal。proposer的选择规则请查看之前的一篇文章<a target="_blank" rel="noopener" href="http://www.whatsblockchain.com/2019/08/12/深入Tendermint-Validator/">出块节点选择</a></p>
 <p>proposal的数据结构如下：</p>
 <figure>
 <img src="/assets/2019-08-11/proposal.jpg" alt="" /><figcaption>round</figcaption>
@@ -423,12 +423,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>

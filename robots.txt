@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.whatsblockchain.com/sitemap.xml
-Sitemap: http://www.whatsblockchain.com/baidusitemap.xml
+Sitemap: http://whatsblockchain.com/sitemap.xml
+Sitemap: http://whatsblockchain.com/baidusitemap.xml

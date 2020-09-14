@@ -19,29 +19,29 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cosmos跨链协议">
-<meta property="og:url" content="http://www.whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-09-13/plugin.jpg">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-09-13/cross_chain.jpg">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-09-13/hub.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/plugin.jpg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/cross_chain.jpg">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/hub.png">
 <meta property="article:published_time" content="2019-09-13T04:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-14T09:48:43.173Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint 区块链共识算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
+<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/">
+<link rel="canonical" href="http://whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/">
 
 
 <script class="page-configurations">
@@ -234,7 +234,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2019/09/13/cosmos%E8%B7%A8%E9%93%BE%E5%8D%8F%E8%AE%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -448,12 +448,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>

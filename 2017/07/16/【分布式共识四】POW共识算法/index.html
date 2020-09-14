@@ -19,27 +19,27 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币 2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币 交易 比特币协议在数字货币中提供了一种交易方法，在这个方法中每个人可以对货币所有权，交易顺序达成共识。货币所有权是通">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式共识四】POW共识算法">
-<meta property="og:url" content="http://www.whatsblockchain.com/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E5%9B%9B%E3%80%91POW%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E5%9B%9B%E3%80%91POW%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币 2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币 交易 比特币协议在数字货币中提供了一种交易方法，在这个方法中每个人可以对货币所有权，交易顺序达成共识。货币所有权是通">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2017-07-16/1.png">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2017-07-16/2.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-16/1.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-16/2.png">
 <meta property="article:published_time" content="2017-07-16T03:04:01.000Z">
 <meta property="article:modified_time" content="2020-09-14T09:48:43.166Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="分布式共识 区块链共识算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.whatsblockchain.com/assets/2017-07-16/1.png">
+<meta name="twitter:image" content="http://whatsblockchain.com/assets/2017-07-16/1.png">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E5%9B%9B%E3%80%91POW%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/">
+<link rel="canonical" href="http://whatsblockchain.com/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E5%9B%9B%E3%80%91POW%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/">
 
 
 <script class="page-configurations">
@@ -232,7 +232,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E5%9B%9B%E3%80%91POW%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2017/07/16/%E3%80%90%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E5%9B%9B%E3%80%91POW%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -492,12 +492,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>

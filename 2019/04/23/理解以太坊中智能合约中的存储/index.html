@@ -19,29 +19,29 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="content {:toc}  以太坊中的智能合约使用了一种不常见的存储模型，如果开发者想要对合约中的变量进行寻址，并修改相应的值，那么本文会给予你一些帮助。在接下来篇幅中，我将详细解释以太坊中合约的存储模型，并展示如何使用solidity编程语言使用它。 超大范围的存储空间 每个运行在以太坊虚拟机（EVM）中的合约会在永久存储空间中（storage）维护一个状态。这个存储空间（storage）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解以太坊中智能合约中的存储">
-<meta property="og:url" content="http://www.whatsblockchain.com/2019/04/23/%E7%90%86%E8%A7%A3%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/index.html">
+<meta property="og:url" content="http://whatsblockchain.com/2019/04/23/%E7%90%86%E8%A7%A3%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="content {:toc}  以太坊中的智能合约使用了一种不常见的存储模型，如果开发者想要对合约中的变量进行寻址，并修改相应的值，那么本文会给予你一些帮助。在接下来篇幅中，我将详细解释以太坊中合约的存储模型，并展示如何使用solidity编程语言使用它。 超大范围的存储空间 每个运行在以太坊虚拟机（EVM）中的合约会在永久存储空间中（storage）维护一个状态。这个存储空间（storage）">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-04-23/storage.png">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-04-23/fixed.png">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-04-23/dynamic.png">
-<meta property="og:image" content="http://www.whatsblockchain.com/assets/2019-04-23/mapping.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-04-23/storage.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-04-23/fixed.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-04-23/dynamic.png">
+<meta property="og:image" content="http://whatsblockchain.com/assets/2019-04-23/mapping.png">
 <meta property="article:published_time" content="2019-04-22T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-14T09:48:43.169Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="智能合约">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.whatsblockchain.com/assets/2019-04-23/storage.png">
+<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-04-23/storage.png">
 
 
-<link rel="canonical" href="http://www.whatsblockchain.com/2019/04/23/%E7%90%86%E8%A7%A3%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/">
+<link rel="canonical" href="http://whatsblockchain.com/2019/04/23/%E7%90%86%E8%A7%A3%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/">
 
 
 <script class="page-configurations">
@@ -234,7 +234,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://www.whatsblockchain.com/2019/04/23/%E7%90%86%E8%A7%A3%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/">
+    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/2019/04/23/%E7%90%86%E8%A7%A3%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -504,12 +504,14 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
+      <span>Symbols count total: </span>
     <span title="Symbols count total">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span>Reading time total &asymp;</span>
     <span title="Reading time total">1:20</span>
   </span>
 </div>
