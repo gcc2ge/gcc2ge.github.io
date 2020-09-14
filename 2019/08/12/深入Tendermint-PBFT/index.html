@@ -22,18 +22,18 @@
     var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="content {:toc}  分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统">
+  <meta name="description" content="分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Te">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入Tendermint---共识算法">
 <meta property="og:url" content="http://whatsblockchain.com/2019/08/12/%E6%B7%B1%E5%85%A5Tendermint-PBFT/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="content {:toc}  分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统">
+<meta property="og:description" content="分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Te">
 <meta property="og:locale">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/vote.jpg">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/round.jpg">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/proposal.jpg">
 <meta property="article:published_time" content="2019-08-12T04:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-14T09:48:43.170Z">
+<meta property="article:modified_time" content="2020-09-14T13:01:36.663Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint 区块链共识算法">
 <meta name="twitter:card" content="summary">
@@ -267,7 +267,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:36" itemprop="dateModified" datetime="2020-09-14T21:01:36+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -305,10 +305,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <ul>
-<li>content {:toc}</li>
-</ul>
-<p>分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Tendermint的共识机制。</p>
+        <p>分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Tendermint的共识机制。</p>
 <h2 id="round-based协议">Round-based协议</h2>
 <p>在Tendermint中一共有三种类型的投票：prevote,precommit和commit。当一个block被全网络commit的话，意味着这个block已经被全网超过2/3的Validator签名并广播了。</p>
 <p>vote数据结构如下：</p>

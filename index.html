@@ -257,7 +257,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 20:59:16" itemprop="dateModified" datetime="2020-09-14T20:59:16+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:24" itemprop="dateModified" datetime="2020-09-14T21:01:24+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -900,7 +900,7 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:27" itemprop="dateModified" datetime="2020-09-14T21:01:27+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -938,10 +938,7 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>关于零知识证明是什么，也许你不一定很了解，但说到应用零知识证明技术的区块链产品，你也许并不陌生。zcash就是使用零知识证明技术的隐私币，以太坊上的混币合约也是零知识证明技术的一个应用，还有在今年比较热门的链下扩容技术<code>zkRollup</code>也是零知识证明技术的一个应用。这时你也许会很好奇零知识证明究竟是一个什么样的技术，为什么既可以用在隐私方面，也可以用于扩容。在接下来一个系列的文章中将为你一一介绍，从零知识证明的概念一直到零知识证明背后的密码学实现。</p>
+          <p>关于零知识证明是什么，也许你不一定很了解，但说到应用零知识证明技术的区块链产品，你也许并不陌生。zcash就是使用零知识证明技术的隐私币，以太坊上的混币合约也是零知识证明技术的一个应用，还有在今年比较热门的链下扩容技术<code>zkRollup</code>也是零知识证明技术的一个应用。这时你也许会很好奇零知识证明究竟是一个什么样的技术，为什么既可以用在隐私方面，也可以用于扩容。在接下来一个系列的文章中将为你一一介绍，从零知识证明的概念一直到零知识证明背后的密码学实现。</p>
 <h2 id="什么是零知识证明">什么是零知识证明</h2>
 <p>零知识证明的定义为：证明者（<code>prover</code>）能够在不向验证者（<code>verifier</code>）提供任何有用的信息的情况下，使验证者（<code>verifier</code>）相信某个论断是正确的。</p>
 <p>为了理解上面这段话的含义，接下来给出一个有关零知识证明的非常经典的例子：</p>
@@ -1183,7 +1180,7 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:29" itemprop="dateModified" datetime="2020-09-14T21:01:29+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1221,10 +1218,7 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
+          <p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
 <h2 id="zkrollup是什么">zkRollup是什么</h2>
 <p><code>zkRollup</code>就是基于零知识证明的二层扩容方案(<code>layer2</code>)， <code>zkRollup</code>方案起源于18年下半年，由<code>Barry Whitehat</code>和<code>Vitalik</code>先后提出。<code>Rollup</code>顾名思义有“卷起”和“汇总”的意思，将大量的交易“卷起/汇总”打包成一个交易，<code>zkRollup</code>的原理一句话就可以讲清楚：链下进行复杂的计算和证明的生成，链上进行证明的校验并存储部分数据保证数据可用性。<code>zkRollup</code>数据可用性可以让任何人都能根据链上存储的交易数据，还原出账户的全局状态，从而消除由于数据可用性带来的安全风险（这里的数据可用性对比<code>Plasma</code>，<code>Plasma</code>之所以不能称为主流的扩容方案，在于<code>Plasma</code>的数据并没有提交到链上，所以在<code>Plasma</code>上退出一笔资产的周期会长达一周左右（争议期），如果在争议期间没有人提交欺诈证明，那么资产才可以安全退出到主链）</p>
 <h2 id="zkrollup工作原理">zkRollup工作原理</h2>
@@ -1488,7 +1482,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:30" itemprop="dateModified" datetime="2020-09-14T21:01:30+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1526,10 +1520,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>你也许听说过比特币，2009年一个叫中本聪（satoshi nakamoto）的神秘人物或组织将比特币推向了世界，随着比特币的流行，加密货币，区块链这些词汇也渐渐的走进了大众的视野中，如果你已经非常熟悉加密货币世界，那么你可能听说过以太坊，它是全球第二大加密货币，即使你听说过以太坊，那么在解释它与比特币区别时，你也可能会感到困惑。</p>
+          <p>你也许听说过比特币，2009年一个叫中本聪（satoshi nakamoto）的神秘人物或组织将比特币推向了世界，随着比特币的流行，加密货币，区块链这些词汇也渐渐的走进了大众的视野中，如果你已经非常熟悉加密货币世界，那么你可能听说过以太坊，它是全球第二大加密货币，即使你听说过以太坊，那么在解释它与比特币区别时，你也可能会感到困惑。</p>
 <h3 id="以太坊的诞生">以太坊的诞生</h3>
 <p>以太坊是由加拿大人维塔利克·布特林(Vitalik Buterin)发明的,他出生在俄罗斯，十几岁就开始接触比特币，2013年，布特林发表了以太坊白皮书，为以太坊奠定了基础。发表白皮书时布特林只有19岁，这就是为什么布特林被誉为天才少年。</p>
 <p>2014年，布特林主持了一场众筹，为以太坊的推出众筹资金，并通过他的瑞士公司--以太坊瑞士股份有限公司（ethereum Switzerland GmbH)众筹了1800万美元。2015年7月30日，在区块链上创建了第一个创世区块，以太坊网络诞生了。</p>
@@ -1623,7 +1614,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:31" itemprop="dateModified" datetime="2020-09-14T21:01:31+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1661,10 +1652,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>上一篇我们梳理了一下混币的基本原理，在这一篇中我们开始动手实现一个混币。</p>
+          <p>上一篇我们梳理了一下混币的基本原理，在这一篇中我们开始动手实现一个混币。</p>
 <p>混币中最主要的数据结构就是<code>Merkle tree</code>，现在还是借助功德箱来分析如何利用<code>Merkle tree</code>来实现混币功能的。</p>
 <p>首先回顾一下功德箱的第一个特点：“所有游客向功德箱中放入都是同一年份的一元硬币”，这个特性保证了在功德箱中的硬币都是一模一样的并且无法区分，这一特性是如何在<code>Merkle tree</code>中体现的？先看一下下面这张图，这张图中展示了所有与混币相关的操作，首先看一下如何让游客投入的硬币全部变成一模一样无法区分的硬币，这里用到的是<code>hash</code>算法，<code>hash</code>算法是不可逆的，也就是任何人都无法通过hash后的值推算出原始值是什么。利用<code>hash</code>函数的这一特点就可以将不同的硬币变成无法分辨的同质硬币了。具体操作看下面的图，图中最后一行是原始货币（游客要捐的香火钱），接下来原始货币会被<code>hash</code>函数进行处理变成<code>commitment</code>（混淆之后的货币），<code>commitment</code>会被添加到<code>Merkle tree</code>的叶子节点中，至此利用<code>Merkle tree</code>已经完成了功德箱的第一个特点。</p>
 <figure>
@@ -1831,7 +1819,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:32" itemprop="dateModified" datetime="2020-09-14T21:01:32+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1851,7 +1839,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>2.9k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -1869,10 +1857,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>零知识证明很多人听过，但不明白它是干什么的？其实零知识证明可以用一句话来概括：“证明者（Alice）在不透露秘密的情况下，说服验证者（Bob）相信证明者（Alice）知道这个秘密”。为了更直观解释，接下来会用混币的例子来说明。</p>
+          <p>零知识证明很多人听过，但不明白它是干什么的？其实零知识证明可以用一句话来概括：“证明者（Alice）在不透露秘密的情况下，说服验证者（Bob）相信证明者（Alice）知道这个秘密”。为了更直观解释，接下来会用混币的例子来说明。</p>
 <h2 id="什么是混币">什么是混币？</h2>
 <p>混币的目的是切断加密货币交易中发送方与接受方的联系，提高加密货币的隐私性和匿名性，使第三方更难追踪加密货币的用途以及它属于谁。</p>
 <p>举个生活中的例子： 游客向庙里功德箱中仍香火钱，所有的游客仍的都是同一个年份的一元硬币，这时有一个第三方在一旁观察，他可以知道谁在什么时间扔进去多少个硬币。但是当小沙弥从功德箱中取钱的时候，他无法分别取出的硬币是由谁扔进去的。</p>
@@ -1974,7 +1959,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:34" itemprop="dateModified" datetime="2020-09-14T21:01:34+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2012,10 +1997,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第三方辅助服务辅助跨链交互。</p>
+          <p>跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第三方辅助服务辅助跨链交互。</p>
 <h2 id="同构跨链怎么实现">同构跨链怎么实现？</h2>
 <p>基于Tendermint开发的链都可以用同构跨链，cosmos中同构链之间进行资产转移的原理如下。</p>
 <p>由于Tendermint采用PBFT+POS共识算法，每个区块都是经过全网2/3节点签名过的，所以得到Validator信息就可以通过对区块头进行校验来验证这个区块头是不是某一个链中的合法区块。ChainA，ChainB都是用Tendermint开发的链，现在ChainA，ChainB之间需要进行跨链资产转移，A,B两个链之间会相互进行注册，在注册的过程中，A，B两个链会将各自的创世区块以及ChainID（用于表示不同链）发送给对方，由于创世区块中含有Validator信息，所以通过注册后A，B两个链会有对方链的Validator信息，以及区块头信息。</p>
@@ -2129,7 +2111,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:39" itemprop="dateModified" datetime="2020-09-14T21:01:39+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2149,7 +2131,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>32</span>
+      <span>17</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -2167,9 +2149,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc} ## 亲自动手实现一个公链</li>
-</ul>
+          <h2 id="亲自动手实现一个公链">亲自动手实现一个公链</h2>
 <p>待续。。。。。</p>
 
       
@@ -2227,7 +2207,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:38" itemprop="dateModified" datetime="2020-09-14T21:01:38+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2247,7 +2227,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>18</span>
+      <span>5</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -2265,10 +2245,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>待续。。。</p>
+          <p>待续。。。</p>
 
       
     </div>
@@ -2325,7 +2302,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:36" itemprop="dateModified" datetime="2020-09-14T21:01:36+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -2363,10 +2340,7 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Tendermint的共识机制。</p>
+          <p>分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Tendermint的共识机制。</p>
 <h2 id="round-based协议">Round-based协议</h2>
 <p>在Tendermint中一共有三种类型的投票：prevote,precommit和commit。当一个block被全网络commit的话，意味着这个block已经被全网超过2/3的Validator签名并广播了。</p>
 <p>vote数据结构如下：</p>

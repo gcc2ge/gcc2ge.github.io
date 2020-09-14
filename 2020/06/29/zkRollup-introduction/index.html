@@ -22,18 +22,18 @@
     var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="content {:toc}  17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同">
+  <meta name="description" content="17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zkRollup介绍 原理篇 ">
 <meta property="og:url" content="http://whatsblockchain.com/2020/06/29/zkRollup-introduction/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="content {:toc}  17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同">
+<meta property="og:description" content="17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，">
 <meta property="og:locale">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2020-06-29/op_state.png">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2020-06-29/chain.png">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2020-06-29/tx.png">
 <meta property="article:published_time" content="2020-06-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-14T09:48:43.176Z">
+<meta property="article:modified_time" content="2020-09-14T13:01:29.191Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="零知识证明 以太坊 区块链">
 <meta name="twitter:card" content="summary">
@@ -267,7 +267,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:29" itemprop="dateModified" datetime="2020-09-14T21:01:29+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -305,10 +305,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <ul>
-<li>content {:toc}</li>
-</ul>
-<p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
+        <p>17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到<code>Vitalik</code>提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，三者只能取其二。这是一个很让人失望的结论，但我们必须知道，一切事物都有自己的边界，公链不应该做所有的事情，公链应该做它该做的事情：“公链是以最高效率达成共识的工具，能够以最低成本来构建信任”。作为共识的工具，信任的引擎，公链不应该为了可扩展性放弃去中心化与安全性。那么公链的TPS这么低，该怎么使用呢？我们是否可以将大量的工作放到链下去解决，仅仅将最重要的数据提交到区块链主链上，让所有节点都能够验证这些链下的工作都是准确可靠的呢？社会的发展带来的是更精细化的分工，区块链的技术发展也是如此，在底层区块链（Layer1）上构建一个扩展层（Layer2)，Layer1来保证安全和去中心化，绝对可靠、可信；它能做到全球共识，并作为“加密法院”，通过智能合约设计的规则进行仲裁，以经济激励的形式将信任传递到Layer2 上，而Layer2追求极致的性能，它只能做到局部共识，但是能够满足各类商业场景的需求。</p>
 <h2 id="zkrollup是什么">zkRollup是什么</h2>
 <p><code>zkRollup</code>就是基于零知识证明的二层扩容方案(<code>layer2</code>)， <code>zkRollup</code>方案起源于18年下半年，由<code>Barry Whitehat</code>和<code>Vitalik</code>先后提出。<code>Rollup</code>顾名思义有“卷起”和“汇总”的意思，将大量的交易“卷起/汇总”打包成一个交易，<code>zkRollup</code>的原理一句话就可以讲清楚：链下进行复杂的计算和证明的生成，链上进行证明的校验并存储部分数据保证数据可用性。<code>zkRollup</code>数据可用性可以让任何人都能根据链上存储的交易数据，还原出账户的全局状态，从而消除由于数据可用性带来的安全风险（这里的数据可用性对比<code>Plasma</code>，<code>Plasma</code>之所以不能称为主流的扩容方案，在于<code>Plasma</code>的数据并没有提交到链上，所以在<code>Plasma</code>上退出一笔资产的周期会长达一周左右（争议期），如果在争议期间没有人提交欺诈证明，那么资产才可以安全退出到主链）</p>
 <h2 id="zkrollup工作原理">zkRollup工作原理</h2>

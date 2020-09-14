@@ -257,7 +257,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:35" itemprop="dateModified" datetime="2020-09-14T21:01:35+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,10 +295,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>Tendermint本身是BFT+POS共识，在BFT之前需要先通过POS方法选出一个proposer来进行提案，proposer是从Validator节点中选出的，Validator是在创世区块（genesis.json)中配置的。</p>
+          <p>Tendermint本身是BFT+POS共识，在BFT之前需要先通过POS方法选出一个proposer来进行提案，proposer是从Validator节点中选出的，Validator是在创世区块（genesis.json)中配置的。</p>
 <p>这里有两个概念区分一下： - validator：所有参与共识验证的节点 - proposer：出块节点，validator中选出来的出块节点</p>
 <h2 id="proposer选择规则">Proposer选择规则</h2>
 <p>validator可以配置一个或多个，但只会有一个Validator被选中作为proposer出块，那么如何选择proposer呢？Tendermint采取round-robin策略选择proposer。round-robin是什么意思呢？当Validator初始化完成后，全网每个节点会存储一份Validator副本，放在一个循环数据中，当链上区块达到一个新的高度后，就会进行一次proposer选举，一般一个区块高度（height）大部分情况下只需要一轮(round)就能产生，网络不好的时候可能要多轮才能出一个块，无论如何，每一轮都会有一个新的validator作为proposer, 轮换规则就是很简单的依次递增，第一轮，会选择数组中第0个validator作为proposer, 第二轮选择第1个validator,以此类推，当到达最后一个后重置为0，这样无限循环。这种round-robin策略，能有效的略过超时的proposer节点，使算法能自动进行下去。</p>
@@ -384,7 +381,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:40" itemprop="dateModified" datetime="2020-09-14T21:01:40+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,10 +419,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。</p>
+          <p>现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。</p>
 <h2 id="tendermint-发展史">Tendermint 发展史</h2>
 <p>在介绍Tendermint之前我们先回顾一下Tendermint的发展史：</p>
 <ul>
@@ -558,7 +552,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:42" itemprop="dateModified" datetime="2020-09-14T21:01:42+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -596,10 +590,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>以太坊中的智能合约使用了一种不常见的存储模型，如果开发者想要对合约中的变量进行寻址，并修改相应的值，那么本文会给予你一些帮助。在接下来篇幅中，我将详细解释以太坊中合约的存储模型，并展示如何使用solidity编程语言使用它。</p>
+          <p>以太坊中的智能合约使用了一种不常见的存储模型，如果开发者想要对合约中的变量进行寻址，并修改相应的值，那么本文会给予你一些帮助。在接下来篇幅中，我将详细解释以太坊中合约的存储模型，并展示如何使用solidity编程语言使用它。</p>
 <h2 id="超大范围的存储空间">超大范围的存储空间</h2>
 <p>每个运行在以太坊虚拟机（EVM）中的合约会在永久存储空间中（storage）维护一个状态。这个存储空间（storage）是一个非常大的数组，数组长度为<span class="math inline">\(2^{256}\)</span>，其中每个元素的大小为32个字节，数组中的每个元素的初始化值为0。任何智能合约都可以从这个存储空间中任何位置读取值，或写入值。</p>
 <figure>
@@ -769,7 +760,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:43" itemprop="dateModified" datetime="2020-09-14T21:01:43+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -807,10 +798,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<h2 id="选型思路">选型思路</h2>
+          <h2 id="选型思路">选型思路</h2>
 <p>本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。</p>
 <p>众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一些不容忽视的缺点：</p>
 <ul>
@@ -970,7 +958,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:45" itemprop="dateModified" datetime="2020-09-14T21:01:45+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1008,10 +996,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<h2 id="事件回顾">事件回顾</h2>
+          <h2 id="事件回顾">事件回顾</h2>
 <p>4月25日早间，火币Pro公告，SMT项目方反馈今日凌晨发现其交易存在异常问题，经初步排查，SMT的以太坊智能合约存在漏洞。火币Pro也同期检测到TXID为<a target="_blank" rel="noopener" href="https://etherscan.io/tx/0x0775e55c402281e8ff24cf37d6f2079bf2a768cf7254593287b5f8a0f621fb83">https://etherscan.io/tx/0x0775e55c402281e8ff24cf37d6f2079bf2a768cf7254593287b5f8a0f621fb83</a>的异常。受此影响，火币Pro现决定暂停所有币种的充提币业务，随后，火币Pro又发布公告称暂停SMT/USDT、SMT/BTC和SMT/ETH的交易。此外，OKEx，gate.io等交易平台也已经暂停了SMT的充提和交易。截止暂停交易，SMT在火币Pro的价格下跌近20%。</p>
 <figure>
 <img src="/assets/2018-05-01/news.jpg" alt="" /><figcaption>img</figcaption>
@@ -1110,7 +1095,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:47" itemprop="dateModified" datetime="2020-09-14T21:01:47+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1148,10 +1133,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<p>下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。</p>
+          <p>下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。</p>
 <h2 id="比特币">比特币</h2>
 <p>2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币</p>
 <h2 id="交易">交易</h2>
@@ -1311,7 +1293,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:48" itemprop="dateModified" datetime="2020-09-14T21:01:48+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1349,10 +1331,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<h2 id="书面协议">书面协议</h2>
+          <h2 id="书面协议">书面协议</h2>
 <p>Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：</p>
 <figure>
 <img src="/assets/2017-07-15/wp1.png" alt="" /><figcaption>img</figcaption>
@@ -1464,7 +1443,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:50" itemprop="dateModified" datetime="2020-09-14T21:01:50+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1502,10 +1481,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<h2 id="分布式系统介绍">分布式系统介绍</h2>
+          <h2 id="分布式系统介绍">分布式系统介绍</h2>
 <p>长期以来学习掌握分布式系统的知识非常庞杂混乱，要确定分布式系统算法的分类，主要依据是搞清楚算法的各种属性。例如计时模型timing model; 进程间通讯interprocess communication 和失败模型failure model等等。</p>
 <p>涉及的主要概念包括：</p>
 <ol type="1">
@@ -1623,7 +1599,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 17:48:43" itemprop="dateModified" datetime="2020-09-14T17:48:43+08:00">2020-09-14</time>
+        <time title="Modified: 2020-09-14 21:01:49" itemprop="dateModified" datetime="2020-09-14T21:01:49+08:00">2020-09-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1661,10 +1637,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>content {:toc}</li>
-</ul>
-<h2 id="拜占庭将军问题">拜占庭将军问题</h2>
+          <h2 id="拜占庭将军问题">拜占庭将军问题</h2>
 <p>拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。</p>
 <p>关于拜占庭将军问题，一个简易的非正式描述如下：</p>
 <p>拜占庭帝国想要进攻一个强大的敌人，为此派出了10支军队去包围这个敌人。这个敌人虽不比拜占庭帝国，但也足以抵御5支常规拜占庭军队的同时袭击。基于一些原因，这10支军队不能集合在一起单点突破，必须在分开的包围状态下同时攻击。他们任一支军队单独进攻都毫无胜算，除非有至少6支军队同时袭击才能攻下敌国。他们分散在敌国的四周，依靠通信兵相互通信来协商进攻意向及进攻时间。困扰这些将军的问题是，他们不确定他们中是否有叛徒，叛徒可能擅自变更进攻意向或者进攻时间。在这种状态下，拜占庭将军们能否找到一种分布式的协议来让他们能够远程协商，从而赢取战斗？这就是著名的拜占庭将军问题。</p>
