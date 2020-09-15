@@ -21,27 +21,27 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
   <meta name="description" content="现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从软件分层开发角度理解tendermint">
-<meta property="og:url" content="http://whatsblockchain.com/posts/bdff6814.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/bdff6814.html">
+<meta property="og:site_name" content="区块链大杂烩">
 <meta property="og:description" content="现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/architecture.jpg">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-08-11/network_deploy.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-08-11/architecture.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-08-11/network_deploy.png">
 <meta property="article:published_time" content="2019-08-11T01:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-15T09:09:33.171Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-08-11/architecture.jpg">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2019-08-11/architecture.jpg">
 
 
-<link rel="canonical" href="http://whatsblockchain.com/posts/bdff6814.html">
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/bdff6814.html">
 
 
 <script class="page-configurations">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>从软件分层开发角度理解tendermint | Hexo</title>
+  <title>从软件分层开发角度理解tendermint | 区块链大杂烩</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
     <script>
@@ -139,9 +139,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">区块链大杂烩</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
   </div>
 
   <div class="site-nav-right">
@@ -215,7 +216,7 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -271,16 +272,16 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/bdff6814.html">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/bdff6814.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="吴寿鹤">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="区块链大杂烩">
     </span>
 
     
@@ -366,9 +367,7 @@
 </ul>
 <h2 id="分层开发模式">分层开发模式</h2>
 <p>如果我们现在决定用Tendermint开发自己的链，那么在我们链的架构中Tendermint应该处于那一层呢？为了回答这个问题，我们先看一张图</p>
-<figure>
-<img src="/assets/2019-08-11/architecture.jpg" alt="" /><figcaption>architecture</figcaption>
-</figure>
+<p><img src="/assets/2019-08-11/architecture.jpg" alt="architecture" /></p>
 <p>在图片的左边是我们web开发常用的分层模式，上层是应用层（spring），底层是数据库（MySQL，Oracle），在web开发中数据层需要实现以下三个功能：1. 数据持久化，保证我们的业务数据能够保存在硬盘中。2. 事务性，保证我们业务数据满足ACID这四个要求。3. 数据复制一致性，当我们的对做主从复制或读写分离时，需要保证数据在不同机器之间做一致性复制。</p>
 <p>在使用Tendermint开发链的时候，与web开发类似，在架构上可以把Tendermint当作是底层数据层，基于数据层之上可以实现自己链相关的业务（交易结构，账号模型，智能合约，合约虚拟机），在右边的数据层中，比左边的数据层多处三个功能，除了常见的数据持久化，事务性，数据复制一致性外，还多了三个功能：1. p2p网络，由于区块链节点是分布式在这个地方的，所以必须通过P2P网络协议将这些分散在各地的节点连接起来。2. 拜占庭容错，区块链与其他应用最大的区别就在于区块链是可以容忍拜占庭作恶节点存在的，如果不能容忍拜占庭，那么我们的应用就与常见的分布式系统没啥区别。3. 出块节点选举，在区块链上的区块有谁来产生是通过出块节点选举决定的，产生的区块需要通过共识算法在做一致性共识。</p>
 <p>Tendermint帮我们实现所有在区块链开发中通用的模块，让我们只需专注于自己的链上业务开发。当我们的链上业务开发完成后，该怎么与Tendermint整合呢，Tendermint提供了一套ABCI接口，通过ABCI接口就可以将应用层与Tendermint数据层整合起来了，关于ABCI接口将在接下来的篇幅中有详细的介绍。</p>
@@ -376,9 +375,7 @@
 <p>为了更直观的来阐述使用Tendermint开发的好处，现在以以太坊作为二次开发来说明一下，以太坊是将所有功能全部放在一个进程中实现的，所以在使用以太坊做开发时，经常会出现牵一发而动全身的情况，比如我们想在以太坊上新增一个交易结构（投票交易），那么我们来看一下将会影响到哪些模块，首先肯定是交易模块，交易需要被打包到区块中，所以区块模块也需要跟着做修改，区块需要在本地做共识（POW证明），所以共识模块也需要做相应的修改，共识后的区块需要进行全网广播，所以p2p区块同步这块也要做相应的修改。仅仅新增一个交易，就需要做这么多的连带修改，这将给对我们的开发代码巨大的不必要的工作量，但是如果是使用Tendermint作为开发那么完全可以避免这些繁琐的工作量，因为我们只要关注与应用层开发就好了。</p>
 <h2 id="tendermint部署结构">Tendermint部署结构</h2>
 <p>如果我们的Tendermint的链开发好了，那么我们应该怎么去部署呢，下面这张图是我们cosmos官网上找到的，这张图是cosmos的网络部署图，由于cosmos也是基于Tendermint作为开发的，所以可以借鉴cosmos来部署我们的链。</p>
-<figure>
-<img src="/assets/2019-08-11/network_deploy.png" alt="" /><figcaption>network_deployment</figcaption>
-</figure>
+<p><img src="/assets/2019-08-11/network_deploy.png" alt="network_deployment" /></p>
 <p>上图右侧一共部署了5个节点（五个绿块），这5个节点就是我们链节点，每个节点之间通过p2p协议进行互连，在图中左侧有一个轻节点与链进行连接，轻节点用来向区块链网络中发送交易请求。</p>
 <p>先对图右侧的这5个节点做一个详细说明，从图中可以看出我们的链节点有三个方块组成，这三个方块分别是： - 最大的绿色方块是Tendermint节点 - 蓝色的方块是我们的开发的链应用层 - 粉红色的方块是签名节点，用来对区块进行签名，单独部署签名签名的目的是从安全方面考虑的，这个在之后的篇幅中会做说明</p>
 <p>在这个三个模块中需要我们开发的就是蓝色方块（链业务层），链业务层开发完成后与Tendermint程序通过ABCI节点相连。</p>
@@ -428,6 +425,23 @@
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/bdff6814.html" title="从软件分层开发角度理解tendermint">https://www.whatsblockchain.com/posts/bdff6814.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
               <a href="/tags/Tendermint/" rel="tag"># Tendermint</a>
           </div>

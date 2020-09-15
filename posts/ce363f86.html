@@ -21,29 +21,29 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
   <meta name="description" content="跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第三方辅助服务辅助跨链交互。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cosmos跨链协议">
-<meta property="og:url" content="http://whatsblockchain.com/posts/ce363f86.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/ce363f86.html">
+<meta property="og:site_name" content="区块链大杂烩">
 <meta property="og:description" content="跨链交互根据所跨越的区块链底层技术平台的不同可以分为同构链跨链和异构链跨链：同构链之间安全机制、共识算法、网络拓扑、区块生成验证逻辑都一致，它们之间的跨链交互相对简单。而异构链的跨链交互相对复杂，比如比特币采用PoW算法而Tendermint采用PBFT共识算法，其区块的组成形式和确定性保证机制均有很大不同，直接跨链交互机制不易设计。异构链之间的跨链交互一般需要第三方辅助服务辅助跨链交互。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/plugin.jpg">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/cross_chain.jpg">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-09-13/hub.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-09-13/plugin.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-09-13/cross_chain.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-09-13/hub.png">
 <meta property="article:published_time" content="2019-09-13T04:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-15T09:09:16.547Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint 区块链共识算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2019-09-13/ibc_process.svg">
 
 
-<link rel="canonical" href="http://whatsblockchain.com/posts/ce363f86.html">
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/ce363f86.html">
 
 
 <script class="page-configurations">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title>Cosmos跨链协议 | Hexo</title>
+  <title>Cosmos跨链协议 | 区块链大杂烩</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
     <script>
@@ -141,9 +141,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">区块链大杂烩</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
   </div>
 
   <div class="site-nav-right">
@@ -217,7 +218,7 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -273,16 +274,16 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/ce363f86.html">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/ce363f86.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="吴寿鹤">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="区块链大杂烩">
     </span>
 
     
@@ -353,9 +354,7 @@
 <p>现在A中的资产需要向B中转移，首先发送一个跨链交易package到A中，A执行这个packageTx，将相关的资产进行销毁或锁定，接下来将packageTx写入egress中，，egress可以看成是一个信箱，所有向外部通知的跨链交易的都放入到egress中。</p>
 <p>为了将A链中发生的事件通知给B链，需要一个relayer，relayer是一个中继程序负责将A链中egress中的跨链消息转发给B链，relayer查询 A 链中 egress 中的packageTx，并获取packageTx的Merkle Proof，将这些信息打包成 IBCPacketPostTx 交易发送到 B 链上，并查询 packageTx 所在的区块头信息，将区块头信息打包成 IBCUpdateChainTx 发送到 B 链上， 注意这里 relayer是需要支付 IBCPacketPostTx，IBCUpdateChainTx 执行的交易费用的。</p>
 <p>B链接收到IBCPacketPostTx交易后开始执行，首先通过A链中的Validator校验IBCUpdateChainTx中的区块头是否是A链的，然后校验IBCPacketPostTx中跨链交易的Merkle proof是否等于IBCUpdateChainTx中的区块头hash。当所有校验全部通过时B链开始执行相关操作。</p>
-<figure>
-<img src="/assets/2019-09-13/ibc_process.svg" alt="" /><figcaption>ibc_process</figcaption>
-</figure>
+<p><img src="/assets/2019-09-13/ibc_process.svg" alt="ibc_process" /></p>
 <h2 id="同构跨链实现方法">同构跨链实现方法</h2>
 <h3 id="跨链协议">跨链协议</h3>
 <p>cosmos中的跨链是通过IBC协议实现，cosmos中一共定义以下几个IBC协议包:IBCRegisterChainTx,IBCUpdateChainTx,IBCPacketCreateTx,IBCPacketPostTx。</p>
@@ -373,9 +372,7 @@
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IBCPacketPostTx <span class="keyword">struct</span> &#123;</span><br><span class="line">	FromChainID     <span class="keyword">string</span> <span class="comment">// The immediate source of the packet, not always Packet.SrcChainID</span></span><br><span class="line">	FromChainHeight <span class="keyword">uint64</span> <span class="comment">// The block height in which Packet was committed, to check Proof</span></span><br><span class="line">	Packet</span><br><span class="line">	Proof *merkle.IAVLProof <span class="comment">// Merkle证明</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="plugin">plugin</h3>
 <p>那么如何执行这些跨链协议，从上面协议的定义可以看出，这些协议包其实都是一个交易，Tendermint为了方便我们扩展，Tendermint中有一个插件模块，我们可以实现plugin中接口，在ibc插件中执行跨链交易。</p>
-<figure>
-<img src="/assets/2019-09-13/plugin.jpg" alt="" /><figcaption>plugin</figcaption>
-</figure>
+<p><img src="/assets/2019-09-13/plugin.jpg" alt="plugin" /></p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Plugin <span class="keyword">interface</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Name of this plugin, should be short.</span></span><br><span class="line">	Name() <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// Run a transaction from ABCI DeliverTx</span></span><br><span class="line">	RunTx(store KVStore, ctx CallContext, txBytes []<span class="keyword">byte</span>) (res abci.Result)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Other ABCI message handlers</span></span><br><span class="line">	SetOption(store KVStore, key, value <span class="keyword">string</span>) (log <span class="keyword">string</span>)</span><br><span class="line">	InitChain(store KVStore, vals []*abci.Validator)</span><br><span class="line">	BeginBlock(store KVStore, hash []<span class="keyword">byte</span>, header *abci.Header)</span><br><span class="line">	EndBlock(store KVStore, height <span class="keyword">uint64</span>) abci.ResponseEndBlock</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的代码时plugin接口的定义，可以看出plugin与abci接口很类似，所以在deliverTx时将ibc交易交给plugin</p>
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ABCI::DeliverTx</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(app *BaseApp)</span> <span class="title">DeliverTx</span><span class="params">(txBytes []<span class="keyword">byte</span>)</span> <span class="params">(res abci.Result)</span></span> &#123;</span><br><span class="line">  <span class="comment">// Exec tx</span></span><br><span class="line">  <span class="keyword">switch</span> tx := tx.(<span class="keyword">type</span>) &#123;</span><br><span class="line">  <span class="keyword">case</span> *types.SendTx:</span><br><span class="line">      <span class="comment">// 执行正常交交易</span></span><br><span class="line">  <span class="keyword">case</span> *types.AppTx:</span><br><span class="line">    <span class="comment">// 执行plugin中的交易</span></span><br><span class="line">    plugin := pgz.GetByName(tx.Name)</span><br><span class="line">    res = plugin.RunTx(cache, ctx, tx.Data)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="keyword">return</span> abci.ErrBaseEncodingError.SetLog(<span class="string">&quot;Unknown tx type&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -383,9 +380,7 @@
 <p>对于bitcoin,ethereum这类使用POW共识算法的链，如何与使用Tendermint的IBC协议进行跨链操作呢？由于这些链采用的POW算法那么我们无法通过Validator对这些链的区块头进行校验，进而无法使用Merkle proof来证明这些链上的跨链交易的合法行。其次POW共识算法产生的区块是属于概率最终性的，又被回滚的可能性，在进行跨链时我们需要保证跨链的交易是最终确定的且不会被回滚的。</p>
 <p>基于以上几点考虑，我们采用PegZone方案来进行异构跨链，PegZone本身其实是一条用Tendermint开发的代理链，实时跟踪原始链的状态，通过设定一个安全阀值，等待原始链区块增长数达到安全阀值时就认为原始链的状态达到了伪实时最终性（回滚概率小），这点和轻客户端钱包验证是相同的原理，例如比特币安全阀值通常设置为6，以太坊安全阀值可以设置为20或者100。而PegZone本身具备实时最终性，就可以通过IBC与Hub相连，从而实现跨链。</p>
 <p>接下来还是用例子来说明下，以Ethereum为例来看，有兴趣的朋友可参考Github上的<a target="_blank" rel="noopener" href="https://github.com/cosmos/peggy">cosmos/Peggy</a>项目。示意图如下：</p>
-<figure>
-<img src="/assets/2019-09-13/cross_chain.jpg" alt="" /><figcaption>pegzone</figcaption>
-</figure>
+<p><img src="/assets/2019-09-13/cross_chain.jpg" alt="pegzone" /></p>
 <p>上图我们可以看出PegZone可以分为5个部分：</p>
 <ul>
 <li>Smart Contract：资产托管的角色，保管以太坊中的代币和Cosmos中的代币。主要提供了lock、unlock、mint、burn四个方法。</li>
@@ -397,9 +392,7 @@
 <h2 id="cosmos-hub的作用">cosmos hub的作用</h2>
 <p>在cosmos中自带的basecoin跨链demo中，两个链ChainA，ChainB，这两个链之间进行跨链，A，B两个链之间相互发送IBCRegisterChainTx进行注册。在跨链的时候直接发送IBC协议包，进行资产跨链操作。这种直接连接的方式会有个问题，随着接入到网络中Zone（zone是一个独立的区块链）的数量上升，以直连方式实现通信会导致链路数量呈平方级上升。以100个Zone接入到网络中为例，如果各个Zone直接都要建立起IBC连接，则网络中需要有n(n-1)/2=4950 条通信链路！如此快速的增长显然会令网络不堪重负。</p>
 <p>通过hub就可以解决连接爆发增长的问题，所有的zone都向hub进行注册，向hub发送IBC包。</p>
-<figure>
-<img src="/assets/2019-09-13/hub.png" alt="" /><figcaption>hub</figcaption>
-</figure>
+<p><img src="/assets/2019-09-13/hub.png" alt="hub" /></p>
 <h3 id="hub工作方式">hub工作方式</h3>
 <p>hub管理着许多zone，所有的zone都需要向hub进行注册，由hub追踪各个zone的状态，每一个zone不停地把自身产出的新区快信息汇报给hub，同时每一个zone也需要同步hub的状态。每一个zone之间不是直接进行通信，而是通过向hub发送IBC间接进行通信。</p>
 <p>Hub与Zone直接通信，而Zone与Zone之间通过IBC间接通信。当Zone对 Hub建立起一个IBC连接，它可以自动访问其他连接到该Hub上的Zone ，这意味着Zone无需与其他Zone连接，而仅仅连接到Hub上即可。</p>
@@ -412,6 +405,23 @@
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/ce363f86.html" title="Cosmos跨链协议">https://www.whatsblockchain.com/posts/ce363f86.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
               <a href="/tags/Tendermint-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># Tendermint 区块链共识算法</a>
           </div>

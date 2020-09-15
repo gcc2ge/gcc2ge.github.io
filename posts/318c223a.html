@@ -21,28 +21,28 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
   <meta name="description" content="17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zkRollup介绍 原理篇 ">
-<meta property="og:url" content="http://whatsblockchain.com/posts/318c223a.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/318c223a.html">
+<meta property="og:site_name" content="区块链大杂烩">
 <meta property="og:description" content="17年出现了一款非常火爆的Dapp应用叫加密猫，加密猫曾造成以太坊主网大规模的拥堵，造成拥堵的原因是以太坊当时的TPS只有15，这意味着以太坊每秒只能处理15笔交易，如此低的TPS严重限制了区块链应用的大规模落地，所以有人开始研究区块链扩容的问题，目的就是为了提高链上的TPS。但区块链扩容受到Vitalik提出的不可能三角的限制，不可能三角是指区块链系统设计无法同时兼顾可扩展性，去中心化和安全性，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2020-06-29/op_state.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2020-06-29/chain.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2020-06-29/tx.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-06-29/op_state.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-06-29/chain.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-06-29/tx.png">
 <meta property="article:published_time" content="2020-06-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-15T09:09:05.476Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="零知识证明 以太坊 区块链">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://whatsblockchain.com/assets/2020-06-29/op_state.png">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2020-06-29/op_state.png">
 
 
-<link rel="canonical" href="http://whatsblockchain.com/posts/318c223a.html">
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/318c223a.html">
 
 
 <script class="page-configurations">
@@ -55,7 +55,7 @@
   };
 </script>
 
-  <title>zkRollup介绍 原理篇  | Hexo</title>
+  <title>zkRollup介绍 原理篇  | 区块链大杂烩</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
     <script>
@@ -140,9 +140,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">区块链大杂烩</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
   </div>
 
   <div class="site-nav-right">
@@ -216,7 +217,7 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -272,16 +273,16 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/318c223a.html">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/318c223a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="吴寿鹤">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="区块链大杂烩">
     </span>
 
     
@@ -351,19 +352,13 @@
 <h2 id="zkrollup工作原理">zkRollup工作原理</h2>
 <p><code>zkRollup</code>在链下利用<code>Merkle tree</code>存储账户状态，由<code>Operator</code>收集用户的交易，交易收集完成后<code>Operator</code>会执行每个交易（校验余额，校验nonce，校验签名，执行状态转换），当交易执行完成后会产生一个新的<code>Merkle tree Root</code>，为了证明链下状态转移是正确的，<code>Operator</code>会在交易执行完成后生成一个零知识证明的<code>proof</code>。</p>
 <p>下图表示<code>Operator</code>工作过程，黄色的表示用户发送的交易，绿色的表示<code>Operator</code>中维护的<code>merkle tree</code>，<code>Operator</code>执行交易后本地的<code>merkle tree root</code>会由<code>prev state root</code>转换成<code>post state root</code>，图中蓝色的表示<code>Operator</code>生成证明账户状态转移有效的零知识证明。</p>
-<figure>
-<img src="/assets/2020-06-29/op_state.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2020-06-29/op_state.png" alt="img" /></p>
 <p><code>Operator</code>把<code>prev state root</code>，<code>post state root</code>，交易数据和<code>proof</code>证明提交至链上合约，合约校验<code>proof</code>通过后会将来新的状态写入到链上，合约不需要单独校验每笔交易的合法性，只需要校验<code>proof</code>是否有效，降低了链上<code>gas</code>消耗，其中交易数据是存储在较便宜的位置<code>CALLDATA</code>上。链下每一次的状态转变都需要提供零知识证明，由主链上的合约进行验证，只有验证通过才能更改状态。即每一次状态转变都严格依赖密码学证明。</p>
 <p><code>zkRollup</code>生成的证明大小（很小），验证时间（很快基本上是常数），不会随着交易数量的增长而变大，所以<code>zkRollup</code>可以极大地提高TPS。影响<code>zkRollup</code>链上性能的只有链上<code>CALLDATA</code>存储数据的成本,随着以太坊<code>Istanbul</code>升级，<code>CALLDATA</code>使用成本降为原来的<code>1/4</code>，<code>zkRollup</code>的性能则获得<code>4</code>倍提升，<code>TPS</code>可达到近<code>2000</code>左右。</p>
-<figure>
-<img src="/assets/2020-06-29/chain.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2020-06-29/chain.png" alt="img" /></p>
 <p>上链的数据中<code>prve state root</code>，<code>post state root</code>与<code>proof</code>基本上是不会随着交易增长变化的，只有上图中黄色交易部分会随着交易增长变大，所以为了能在一个区块链中容纳更多的交易，需要对上链的交易进行压缩。<code>zkRollup</code>使用<code>merkle tree</code>来记录地址，这样地址就可以表示成<code>merkle tree</code>的索引值，地址数据的大小就从原本的<code>20 bytes</code>减少到<code>3 bytes</code>，在以太坊上金额用<code>32</code>个字节<code>256</code>位的大整型来表示，这里压缩到<code>6</code>个字节，货币最小单位从<code>wei</code>变成<code>Mwei=10^6 wei</code>，手续费压缩到<code>1</code>个字节，<code>nonce</code>压缩到<code>2</code>个字节，<code>nonce</code>的范围<code>0~65535</code>，也就是说一个账户最多可以发送<code>65535</code>笔交易，交易的签名直接删除了，不出现交易中，因为每笔交易的合法性在链下都通过零知识证明的电路约束校验过了。</p>
 <p>下图是压缩后<code>zkRollup</code>每笔交易数据的格式：</p>
-<figure>
-<img src="/assets/2020-06-29/tx.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2020-06-29/tx.png" alt="img" /></p>
 <h2 id="zkrollup性能">zkRollup性能</h2>
 <p>2019年12月7号发生的伊斯坦布尔硬分叉中有两个降低在链上执行零知识证明运算<code>gas</code>费用的提案：<a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-1108">EIP-1108</a>与<a target="_blank" rel="noopener" href="https://eips.ethereum.org/EIPS/eip-2028">EIP-2028</a></p>
 <h3 id="eip-1108">EIP-1108</h3>
@@ -561,6 +556,23 @@ e(\pi_A , \pi_B ) = e(\alpha, \beta) ⋅ e(pub, \gamma) ⋅ e(\pi_c , \delta)
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/318c223a.html" title="zkRollup介绍 原理篇 ">https://www.whatsblockchain.com/posts/318c223a.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
               <a href="/tags/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E-%E4%BB%A5%E5%A4%AA%E5%9D%8A-%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag"># 零知识证明 以太坊 区块链</a>
           </div>

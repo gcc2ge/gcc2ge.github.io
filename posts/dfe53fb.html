@@ -21,32 +21,32 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
   <meta name="description" content="上一篇我们梳理了一下混币的基本原理，在这一篇中我们开始动手实现一个混币。 混币中最主要的数据结构就是Merkle tree，现在还是借助功德箱来分析如何利用Merkle tree来实现混币功能的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="十分钟开发零知识证明之混币-实操篇">
-<meta property="og:url" content="http://whatsblockchain.com/posts/dfe53fb.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/dfe53fb.html">
+<meta property="og:site_name" content="区块链大杂烩">
 <meta property="og:description" content="上一篇我们梳理了一下混币的基本原理，在这一篇中我们开始动手实现一个混币。 混币中最主要的数据结构就是Merkle tree，现在还是借助功德箱来分析如何利用Merkle tree来实现混币功能的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/mt.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/mt_proof.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/zkp_input.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/send_mixcoin.svg">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/1.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/2.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2019-12-02/3.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/mt.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/mt_proof.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/zkp_input.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/send_mixcoin.svg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/1.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/2.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-12-02/3.png">
 <meta property="article:published_time" content="2019-12-02T04:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-15T09:09:10.824Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="零知识证明 隐私币">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://whatsblockchain.com/assets/2019-12-02/mt.png">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2019-12-02/mt.png">
 
 
-<link rel="canonical" href="http://whatsblockchain.com/posts/dfe53fb.html">
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/dfe53fb.html">
 
 
 <script class="page-configurations">
@@ -59,7 +59,7 @@
   };
 </script>
 
-  <title>十分钟开发零知识证明之混币-实操篇 | Hexo</title>
+  <title>十分钟开发零知识证明之混币-实操篇 | 区块链大杂烩</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
     <script>
@@ -144,9 +144,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">区块链大杂烩</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
   </div>
 
   <div class="site-nav-right">
@@ -220,7 +221,7 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -276,16 +277,16 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/dfe53fb.html">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/dfe53fb.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="吴寿鹤">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="区块链大杂烩">
     </span>
 
     
@@ -352,18 +353,12 @@
 <p>混币中最主要的数据结构就是<code>Merkle tree</code>，现在还是借助功德箱来分析如何利用<code>Merkle tree</code>来实现混币功能的。</p>
 <a id="more"></a>
 <p>首先回顾一下功德箱的第一个特点：“所有游客向功德箱中放入都是同一年份的一元硬币”，这个特性保证了在功德箱中的硬币都是一模一样的并且无法区分，这一特性是如何在<code>Merkle tree</code>中体现的？先看一下下面这张图，这张图中展示了所有与混币相关的操作，首先看一下如何让游客投入的硬币全部变成一模一样无法区分的硬币，这里用到的是<code>hash</code>算法，<code>hash</code>算法是不可逆的，也就是任何人都无法通过hash后的值推算出原始值是什么。利用<code>hash</code>函数的这一特点就可以将不同的硬币变成无法分辨的同质硬币了。具体操作看下面的图，图中最后一行是原始货币（游客要捐的香火钱），接下来原始货币会被<code>hash</code>函数进行处理变成<code>commitment</code>（混淆之后的货币），<code>commitment</code>会被添加到<code>Merkle tree</code>的叶子节点中，至此利用<code>Merkle tree</code>已经完成了功德箱的第一个特点。</p>
-<figure>
-<img src="/assets/2019-12-02/mt.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2019-12-02/mt.png" alt="img" /></p>
 <p>接下来是功德箱的第二个特性：“使用零知识证明解决在不暴露相关信息的情况下，证明加密货币所有权的问题”。先看第一个问题如何证明加密货币所有权的问题，由于功德箱是通过<code>Merkle tree</code>实现，所以证明是否有某个货币所有权的问题就转化成是否可以证明你拥有<code>Merkle tree</code>上某个叶子节点的<code>preimage</code>（原始货币）同时能给出从这个叶子节点到<code>Merkle tree</code>根之间的路径也就是<code>Merkle path</code>。为了便于理解，接下来通过一个例子来说明，请看下图：</p>
-<figure>
-<img src="/assets/2019-12-02/mt_proof.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2019-12-02/mt_proof.png" alt="img" /></p>
 <p>当小沙弥来到功德箱前，并想取走图中绿色方块（<code>cmt2</code>）中的钱，那么他首先需要提供<code>cmt2</code>的<code>preimage</code>也就是图中的黄色小方块（<code>sk2</code>)，同时要提供一个从<code>cmt2</code>到<code>root</code>之间的<code>Merkle path</code>也就是图中标红的小方块（<code>cmt1</code>,<code>h2</code>)，还有一个<code>Merkle path索引(1,0)</code>索引是<code>(cmt1,h2)</code>在<code>Merkle tree</code>中的位置，索引看用于计算<code>nullifier</code>以及从<code>merkle path</code>计算<code>merkle root</code>。</p>
 <p>接下来需要解决的是如何在不暴露隐私的情况下能向他人证明我们拥有<code>cmt2</code>的<code>preimage</code>(<code>sk2</code>)，要解决这个问题就需要零知识证明。请看下面这张图，这张图的作用在上一篇中已经介绍过，这张图演示了零知识证明生成以及校验的过程，在生成零知识证明的时候需要有输入即：<code>Private input</code>，<code>Public Input</code>，然后经过电路运算后会产生一个<code>proof</code>，接下来将<code>proof</code>交给<code>verify</code>校验即可。</p>
-<figure>
-<img src="/assets/2019-12-02/zkp_input.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2019-12-02/zkp_input.png" alt="img" /></p>
 <p>有关电路如何编写将在下个章节中介绍，这里先明确哪些是可以作为<code>public input</code>参数可以公开的，哪些是可以作为<code>private input</code>需要隐藏的。</p>
 <p>首先<code>sk2</code>是不能公开的，一旦公开其他人也可以利用<code>sk2</code>进行<code>hash</code>运算生成<code>cmt2</code>并且构造出一个<code>merkle path</code>，然后进行提款。第二个不能公开的是<code>merkle path</code>，因为一旦公开了<code>merkle path</code>，其他人就知道你在<code>merkle tree</code>上的某个叶子节点(<code>cmt2</code>)上取了钱，在结合之前的充钱记录，就可以将发送方与接收方联系起来了，因为向功德箱中放入钱是可以知道谁向<code>Merkle tree</code>上添加了哪个叶子节点的。</p>
 <p>所以取款方的<code>Private input</code>为：</p>
@@ -450,13 +445,9 @@
 <h2 id="实例演示">实例演示</h2>
 <p>我在<code>ropsten</code>上部署已经部署好一个<code>Mxier</code>合约，合约地址："https://ropsten.etherscan.io/address/0x46a7f914785357b9054fdb670845dc6c0c968167"</p>
 <p>下图演示了使用<code>Mixer</code>的流程，例如：<code>Alice</code>要给<code>Bob</code>转0.01ether，那么会涉及到以下几个步骤： 1. <code>Bob</code>在本地产生一个随机数<code>sk2</code>，然后将<code>sk2</code>用<code>mimc7</code>进行<code>hash</code>运算得到<code>cmt2</code>，然后将<code>cmt2</code>发送给<code>Alice</code> 2. <code>Alice</code>调用<code>Mixer</code>合约<code>deposit</code>方法，并传入<code>cmt2</code>参数 3. <code>Bob</code>接收到<code>Alice</code>转账时，可以在本地生成<code>proof</code>，调用<code>Mixer</code>的<code>withdraw</code>方法取回0.01 ether。 4. <code>Mixer</code>校验<code>proof</code>通过后，向<code>Bob</code>转0.01 ether</p>
-<figure>
-<img src="/assets/2019-12-02/send_mixcoin.svg" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2019-12-02/send_mixcoin.svg" alt="img" /></p>
 <p>下图是我在<code>ropsten</code>上先存储0.01 ether，然后在取回0.01 ether</p>
-<figure>
-<img src="/assets/2019-12-02/1.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2019-12-02/1.png" alt="img" /></p>
 <p>下图是在<code>ropsten</code>上调用<code>Mixer</code>合约<code>deposit</code>方法的交易记录： <img src="/assets/2019-12-02/2.png" alt="img" /></p>
 <p>下图是在<code>ropsten</code>上调用<code>Mixer</code>合约<code>withdraw</code>方法的交易记录： <img src="/assets/2019-12-02/3.png" alt="img" /></p>
 <p>终于写完了<code>^_^</code>，需要源码的小伙伴可以关注公众号。</p>
@@ -468,6 +459,23 @@
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/dfe53fb.html" title="十分钟开发零知识证明之混币-实操篇">https://www.whatsblockchain.com/posts/dfe53fb.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
               <a href="/tags/%E9%9B%B6%E7%9F%A5%E8%AF%86%E8%AF%81%E6%98%8E-%E9%9A%90%E7%A7%81%E5%B8%81/" rel="tag"># 零知识证明 隐私币</a>
           </div>

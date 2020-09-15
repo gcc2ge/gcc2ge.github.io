@@ -21,27 +21,27 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
   <meta name="description" content="下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币 2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式共识四】POW共识算法">
-<meta property="og:url" content="http://whatsblockchain.com/posts/a7b53d58.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/a7b53d58.html">
+<meta property="og:site_name" content="区块链大杂烩">
 <meta property="og:description" content="下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币 2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-16/1.png">
-<meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-16/2.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2017-07-16/1.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2017-07-16/2.png">
 <meta property="article:published_time" content="2017-07-16T03:04:01.000Z">
 <meta property="article:modified_time" content="2020-09-15T09:09:51.295Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="分布式共识 区块链共识算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://whatsblockchain.com/assets/2017-07-16/1.png">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2017-07-16/1.png">
 
 
-<link rel="canonical" href="http://whatsblockchain.com/posts/a7b53d58.html">
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/a7b53d58.html">
 
 
 <script class="page-configurations">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>【分布式共识四】POW共识算法 | Hexo</title>
+  <title>【分布式共识四】POW共识算法 | 区块链大杂烩</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
     <script>
@@ -139,9 +139,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">区块链大杂烩</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
   </div>
 
   <div class="site-nav-right">
@@ -215,7 +216,7 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -271,16 +272,16 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/a7b53d58.html">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/a7b53d58.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="吴寿鹤">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="区块链大杂烩">
     </span>
 
     
@@ -355,9 +356,7 @@
 <p>为了实现对交易打时间戳，Hash交易数据。比特币用了工作量证明方法。网络中的每个节点从事于解决一个适度困难的密码难题。难题的解决方法是：把区块中的所有数据做SHA256哈希运算，并且得到哈希值小于给定的目标值。区块中还包含一个Nonce值，通过递增Nonce来寻找正确的哈希值。这个密码谜题被设计成，每隔10Mins会找到一个谜题答案。</p>
 <p>一旦正确的哈希值被找到，节点就会向网络中广播这个哈希值。这个哈希值可以很容易的被网络中的其他节点验证，节点可以对收到区块后对区块中的数据进行SHA256运算哈希值。</p>
 <p>花费的CPU就是工作量证明。要修改一个区块需要重做这个区块以及这个区块之后所有区块的工作量证明。这就意味比特网络更倾向于最诚实的链，只要网络中大多数节点是诚实的。</p>
-<figure>
-<img src="/assets/2017-07-16/1.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2017-07-16/1.png" alt="img" /></p>
 <p>Pow的过程可以被看做是一个投票的过程。每个新增的区块累积了以前的历史交易（区块是串联成链的），每个节点都会继续对以有最多投票数量的链继续投票。</p>
 <h2 id="攻击比特币网络">攻击比特币网络</h2>
 <p>现在考虑一下网络中可以存在的一种攻击。一个恶意的节点试图双花之前已花费的交易。攻击者需要重做包含这个交易的区块，以及这个区块之后的所有的区块，创建一个比目前诚实区块链更长的区块链。只有网络中的大多数节点都转向攻击者创建的区块链，攻击者的攻击才算成功了。考虑交易T包含在区块b1中。每个后续区块b2,b3,b4,.........bn会降低交易T被修改的可能性，因为修改这些后续的区块需要更多的算力。中本聪用概率理论证明，六个区块后攻击者追赶上最长链的可能性降低到0.0002428%。在过四个或更多区块后这个可能行会降到0.0000012%。每新增一个区块bn，攻击的可能性就会以指数形式下降，很快整个攻击的可能性就会低到可以忽略的程度。在实际中，比特币交易会在六个区块后被确认，因为在这种情况下，攻击者追赶上的可能性已经非常低了，可以认为这个交易是有效的，不再会被修改。</p>
@@ -439,9 +438,7 @@
 <p>Nonce,guess,throttle target是用来进行工作量证明运算。Pow最重要的是难于生成易于验证。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> guess &gt; target:</span><br><span class="line"></span><br><span class="line">​         nonce += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​         guess,=unpack(<span class="string">&#x27;&gt;Q&#x27;</span>,hashlib.sha256(hashlib.sha256(pack(<span class="string">&#x27;&gt;Q&#x27;</span>,nonce)+payloadHash).digest()).digest()[<span class="number">0</span>:<span class="number">8</span>])</span><br></pre></td></tr></table></figure>
 <p>这三行就是Pow算法主要内容。这是一个简单的循环。它使用SHA256对数据进行两轮哈希。前八个字节作为我们的谜底。</p>
-<figure>
-<img src="/assets/2017-07-16/2.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2017-07-16/2.png" alt="img" /></p>
 <p>比特币的除数（难度）2016个区块后调整一次 增加或下降。<strong>上图显示随着难度的增加正确谜底的可能值范围缩小，也就是越难于发现Guess</strong></p>
 <p><code>nonce += 1</code></p>
 <p>Nonce表示CPU的工作量，在本例子nonce 表示发现一个低于target的guess的<strong>累计工作量</strong>。因为每一个guess都有相同的可能性会低于target，它和nonce生成的方式是无关的。所以nonce从0开始递增比生成随机数成本更低。当区块提交到网络中，nonce会被用来证明区块的正确性。</p>
@@ -456,6 +453,23 @@
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/a7b53d58.html" title="【分布式共识四】POW共识算法">https://www.whatsblockchain.com/posts/a7b53d58.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
           <div class="post-tags">
               <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># 分布式共识 区块链共识算法</a>
           </div>
