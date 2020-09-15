@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="书面协议Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：">
+  <meta name="description" content="书面协议 Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：  img">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式共识三】拜占庭将军问题——书面协议">
 <meta property="og:url" content="http://whatsblockchain.com/posts/ef92d986.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="书面协议Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：">
+<meta property="og:description" content="书面协议 Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：  img">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-15/wp1.png">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-15/wp2.png">
@@ -342,53 +342,63 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="书面协议"><a href="#书面协议" class="headerlink" title="书面协议"></a>书面协议</h2><p>Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：</p>
-<p><img src="/assets/2017-07-15/wp1.png" alt="img"></p>
+        <h2 id="书面协议">书面协议</h2>
+<p>Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：</p>
+<figure>
+<img src="/assets/2017-07-15/wp1.png" alt="" /><figcaption>img</figcaption>
+</figure>
 <a id="more"></a>
 <p>即A4（a）忠诚将军的签名是不能伪造的，内容修改可检测。（即即使是叛徒也要原封不动的签了名将消息转发出去）</p>
 <p>（b）任何人都可以识别将军的签名，叛徒可以伪造叛徒司令的签名。（后半句是论文中的后半部分规定的）。</p>
-<p>而且这里Lamport规定，每条消息只可以复制，然后加上自己的姓名再发出去。 </p>
+<p>而且这里Lamport规定，每条消息只可以复制，然后加上自己的姓名再发出去。</p>
 <p>下面是具体的算法：</p>
-<p><img src="/assets/2017-07-15/wp2.png" alt="img"></p>
-<p><img src="/assets/2017-07-15/wp3.png" alt="img"></p>
+<figure>
+<img src="/assets/2017-07-15/wp2.png" alt="" /><figcaption>img</figcaption>
+</figure>
+<figure>
+<img src="/assets/2017-07-15/wp3.png" alt="" /><figcaption>img</figcaption>
+</figure>
 <p>对于这个算法要说的是：</p>
-<ol>
-<li><p>初始化中的 Vi 类似于一个集合，表示的是第i个将军收到的命令，比如Vi= {Attack}                                     之所以说是个集合是因为Vi里面不会有重复的命令出现。这在算法步骤（2）的（B) 部分描述的很清楚。</p>
-<p> 在算法步骤（1）中将军将签了自己姓名的消息广播发给所有副官。注意这里发的格式是 V:0，V是命令，0代表自己的身份。</p>
-</li>
-<li><p>算法步骤（2）（A）中，每个副官将收到的消息V:0  把命令V放入自己的命令集合Vi（因为初始的时候他们的命令集合都是空的，所    以不存在重复问题）然后他们将命令拷贝，然后加上自己的签名，得到消息： V:0:i   然后再发给其他的副官。</p>
-<p> 在算法步骤（2）（B）中因为副官i 也会收到别的副官发来的消息v:0:1:…:jk. 此时i会判断v在不在自己的命令集合中，如果不存在的话将v加入Vi，并在k&lt;m的情况下将信息签名，继续发出去。</p>
-<p> 在这里有几点是需要注意的。</p>
-<p> A） 如果将军是忠诚的话，那么因为忠诚将军的签名是不可以改的，所以所有的命令都只是V，只是消息的签名不一样罢了，那么副官将不会将重复的命令再加入Vi，所以这就是lamport在论文中提到的如果将军是忠臣的话，那么每个副官只会保存a single order 。这里之所以提到这个是后面的证明需要用到。</p>
-<p> B）为什么说当k&lt;m的时候才会发送呢，这是因为每条信息只需要被复制m+1就可以了（这里将将军署名的时候也算是一次签名，可以发现每签名1次就是一个复制），超过m就没必要了。之所以有这样的规定后面会有证明，即只需要复制m+1此所有的忠臣就可以达成一致。还有就是这里的下标k，并不是代表一个副官的id号，而是被签名的多少次，例如 v:0:j3; 这条消息，k是等于1（因为除了将军以外只被签名了一次）的而不是3.</p>
-</li>
-<li><p>算法步骤（3），当一个副官不会再收到任何的消息时就会执行choice函数。这里不再收到，lamport规定是超过一个时间不再收到就认为不再收到了。这里的choice函数,lamport没做具体的实现，只是认为，当Vi中只有一个命令时就得出这个命令。当Vi和Vj是相等的时候choice执行的结果是一样的，即他们可以达成一致，这个只会在将军是叛徒的时候才会出现，这样的话就满足了IC1条件。</p>
-</li>
+<ol type="1">
+<li><p>初始化中的 Vi 类似于一个集合，表示的是第i个将军收到的命令，比如Vi= {Attack} 之所以说是个集合是因为Vi里面不会有重复的命令出现。这在算法步骤（2）的（B) 部分描述的很清楚。</p>
+<p>在算法步骤（1）中将军将签了自己姓名的消息广播发给所有副官。注意这里发的格式是 V:0，V是命令，0代表自己的身份。</p></li>
+<li><p>算法步骤（2）（A）中，每个副官将收到的消息V:0 把命令V放入自己的命令集合Vi（因为初始的时候他们的命令集合都是空的，所 以不存在重复问题）然后他们将命令拷贝，然后加上自己的签名，得到消息： V:0:i 然后再发给其他的副官。</p>
+<p>在算法步骤（2）（B）中因为副官i 也会收到别的副官发来的消息v:0:1:...:jk. 此时i会判断v在不在自己的命令集合中，如果不存在的话将v加入Vi，并在k&lt;m的情况下将信息签名，继续发出去。</p>
+<p>在这里有几点是需要注意的。</p>
+<p>A） 如果将军是忠诚的话，那么因为忠诚将军的签名是不可以改的，所以所有的命令都只是V，只是消息的签名不一样罢了，那么副官将不会将重复的命令再加入Vi，所以这就是lamport在论文中提到的如果将军是忠臣的话，那么每个副官只会保存a single order 。这里之所以提到这个是后面的证明需要用到。</p>
+<p>B）为什么说当k&lt;m的时候才会发送呢，这是因为每条信息只需要被复制m+1就可以了（这里将将军署名的时候也算是一次签名，可以发现每签名1次就是一个复制），超过m就没必要了。之所以有这样的规定后面会有证明，即只需要复制m+1此所有的忠臣就可以达成一致。还有就是这里的下标k，并不是代表一个副官的id号，而是被签名的多少次，例如 v:0:j3; 这条消息，k是等于1（因为除了将军以外只被签名了一次）的而不是3.</p></li>
+<li><p>算法步骤（3），当一个副官不会再收到任何的消息时就会执行choice函数。这里不再收到，lamport规定是超过一个时间不再收到就认为不再收到了。这里的choice函数,lamport没做具体的实现，只是认为，当Vi中只有一个命令时就得出这个命令。当Vi和Vj是相等的时候choice执行的结果是一样的，即他们可以达成一致，这个只会在将军是叛徒的时候才会出现，这样的话就满足了IC1条件。</p></li>
 </ol>
 <p>当第三步结束，就可以得出一致命令了。</p>
 <p>下面我们看看lamport是怎么证明只需要m+1次复制就可以了。</p>
-<p><img src="/assets/2017-07-15/wp4.png" alt="img"></p>
+<figure>
+<img src="/assets/2017-07-15/wp4.png" alt="" /><figcaption>img</figcaption>
+</figure>
 <p>证明的总体思路是：</p>
 <p>情形（一）如果将军是忠诚的话，就像我们在讨论算法的时候提到的，所有忠臣的副官只可能是收到a single order然后经过 choice函数得到的是将军的命令，所以满足IC2。</p>
 <p>情形（二）这里假如将军是个叛徒。证明的总体思路是只需要证Vi，Vj是相同的集合就可以了。即只需要证明如果在step2中i将命令v放入Vi时，j也会将命令v放入Vj。</p>
 <p>下面我们来证这个：</p>
-<p>因为i要是想将v命令放入Vi，肯定会收到一个消息，V:0:j1:j2:…jk。那么下面就讨论：</p>
+<p>因为i要是想将v命令放入Vi，肯定会收到一个消息，V:0:j1:j2:...jk。那么下面就讨论：</p>
 <p>（1）如果j属于j1~jk中的一个，那么他既然在消息上签了名，那么肯定也收到了消息v，所以在这种情况下是满足的。</p>
 <p>（2）如果j不属于j1~jk中的一个的话，再讨论k的范围：</p>
 <p>a.如果k&lt;m, 那么i肯定会签上自己的姓名，将消息转发给所有的副官当然这里面肯定会有副官j（根据算法B中的ii），那么j要么在命令集vj中没有v的情况下将他保存，要么在已经有的情况下置之不理，但是无论是哪种情况，都会保证,Vj和Vi一致。</p>
-<p>b. 如果k=m.此时i不会转发此消息。但是因为只有m个叛徒，又将军是叛徒，那么这m+1个复制里面就肯定有1个是忠臣，而忠臣会不修改消息直接将叛徒将军的消息v传给所有的副官，当然包括 j，所以在此情况下也是可以保证的。</p>
+<ol start="2" type="a">
+<li>如果k=m.此时i不会转发此消息。但是因为只有m个叛徒，又将军是叛徒，那么这m+1个复制里面就肯定有1个是忠臣，而忠臣会不修改消息直接将叛徒将军的消息v传给所有的副官，当然包括 j，所以在此情况下也是可以保证的。</li>
+</ol>
 <p>现在用个实例来证明：</p>
 <p>当n=4,m=2必须要经过m+1轮复制才可以完成容错(或者说是交换)。</p>
 <p>实例证明：n=4,m=2,r=m+1时（r=3 复制的轮数）可容错</p>
 <p>1，当将军，L3是叛徒</p>
-<p><img src="/assets/2017-07-15/wp5.png" alt="img"></p>
+<figure>
+<img src="/assets/2017-07-15/wp5.png" alt="" /><figcaption>img</figcaption>
+</figure>
 <p>step1：R1={x:0} R2={y:0}R3={0:0}</p>
 <p>step2：k=0；1将 x:0:1 发给2,3；2将 y:0:2 发给1,3；3将 z1:0:3 发给1，将 z2:0:3 发给2。得到：</p>
-<p>R1={x:0;y:0:2;z1:0:3} R2={y:0;x:0:1;z2:0:3} R3={0:0;x:0:1;y:0:2} </p>
+<p>R1={x:0;y:0:2;z1:0:3} R2={y:0;x:0:1;z2:0:3} R3={0:0;x:0:1;y:0:2}</p>
 <p>step3：k=1,k&lt;m进行下一轮复制。1将 z1:0:3:1发给2,3；2将z2:0:3:2发给1,3。得到：</p>
 <p>R1={x:0;y:0:2;z1:0:3; z2:0:3:2}R2={y:0;x:0:1; z1:0:3; z2:0:3:1} k=2算法执行choice函数。</p>
 <p>书面协议的本质就是引入了签名系统，这使得所有消息都可追本溯源。这一优势，大大节省了成本，他化解了口头协议中1/3要求，只要采用了书面协议，忠诚的将军就可以达到一致（实现IC1和IC2）。这个效果是惊人的，相较之下口头协议则明显有一些缺陷。</p>
-<p>书面协议的结论非常令人兴奋，这不是解决了拜占庭将军问题了吗？但请注意我们在A1~A4中实际上是添加了一些条件的，这使得拜占庭将军问题在这些假设下能够解决，但是在实际状况中却会有一些问题。观察A1~A4，我们做了一些在现实中比较难以完成的假设，比如没考虑传输信息的延迟时间，书面协议的签名体系难以实现，而且签名消息记录的保存难以摆脱一个中心化机构而独立存在。</p>
+<p>书面协议的结论非常令人兴奋，这不是解决了拜占庭将军问题了吗？但请注意我们在A1<sub>A4中实际上是添加了一些条件的，这使得拜占庭将军问题在这些假设下能够解决，但是在实际状况中却会有一些问题。观察A1</sub>A4，我们做了一些在现实中比较难以完成的假设，比如没考虑传输信息的延迟时间，书面协议的签名体系难以实现，而且签名消息记录的保存难以摆脱一个中心化机构而独立存在。</p>
 
     </div>
 
@@ -405,8 +415,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/ec5b8a8d.html" rel="prev" title="【分布式共识一】分布系统及共识介绍">
-                  <i class="fa fa-chevron-left"></i> 【分布式共识一】分布系统及共识介绍
+                <a href="/posts/fe0496d6.html" rel="prev" title="【分布式共识二】拜占庭将军问题——口头协议">
+                  <i class="fa fa-chevron-left"></i> 【分布式共识二】拜占庭将军问题——口头协议
                 </a>
             </div>
             <div class="post-nav-item">
@@ -471,14 +481,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">87k</span>
+    <span title="站点总字数">88k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:19</span>
+    <span title="站点阅读时长">1:20</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
