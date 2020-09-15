@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -21,21 +21,21 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="拜占庭将军问题 拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。 关于拜占庭将军问题，一个简易的非正式描述如下">
+  <meta name="description" content="拜占庭将军问题拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式共识二】拜占庭将军问题——口头协议">
 <meta property="og:url" content="http://whatsblockchain.com/posts/fe0496d6.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="拜占庭将军问题 拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。 关于拜占庭将军问题，一个简易的非正式描述如下">
-<meta property="og:locale">
+<meta property="og:description" content="拜占庭将军问题拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-15/message.png">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-15/oral.png">
 <meta property="og:image" content="http://whatsblockchain.com/assets/2017-07-15/oral_pic.png">
 <meta property="article:published_time" content="2017-07-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-15T08:40:07.477Z">
+<meta property="article:modified_time" content="2020-09-15T09:10:00.545Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="分布式共识 区块链共识算法">
 <meta name="twitter:card" content="summary">
@@ -51,7 +51,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'zh'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -129,7 +129,10 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -150,6 +153,35 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
@@ -168,10 +200,10 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -189,18 +221,19 @@
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
+          <a href="/archives/">
+        
           <span class="site-state-item-count">21</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -234,7 +267,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/fe0496d6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -260,22 +293,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2017-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">2017-07-15</time>
+      <time title="创建时间：2017-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">2017-07-15</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:10:00" itemprop="dateModified" datetime="2020-09-15T17:10:00+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -284,19 +317,19 @@
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>3k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -307,19 +340,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="拜占庭将军问题">拜占庭将军问题</h2>
-<p>拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。</p>
+        <h2 id="拜占庭将军问题"><a href="#拜占庭将军问题" class="headerlink" title="拜占庭将军问题"></a>拜占庭将军问题</h2><p>拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。</p>
+<a id="more"></a>
 <p>关于拜占庭将军问题，一个简易的非正式描述如下：</p>
 <p>拜占庭帝国想要进攻一个强大的敌人，为此派出了10支军队去包围这个敌人。这个敌人虽不比拜占庭帝国，但也足以抵御5支常规拜占庭军队的同时袭击。基于一些原因，这10支军队不能集合在一起单点突破，必须在分开的包围状态下同时攻击。他们任一支军队单独进攻都毫无胜算，除非有至少6支军队同时袭击才能攻下敌国。他们分散在敌国的四周，依靠通信兵相互通信来协商进攻意向及进攻时间。困扰这些将军的问题是，他们不确定他们中是否有叛徒，叛徒可能擅自变更进攻意向或者进攻时间。在这种状态下，拜占庭将军们能否找到一种分布式的协议来让他们能够远程协商，从而赢取战斗？这就是著名的拜占庭将军问题。</p>
 <p>应该明确的是，拜占庭将军问题中并不去考虑通信兵是否会被截获或无法传达信息等问题，即消息传递的信道绝无问题。Lamport已经证明了在消息可能丢失的不可靠信道上试图通过消息传递的方式达到一致性是不可能的。所以，在研究拜占庭将军问题的时候，我们已经假定了信道是没有问题的，并在这个前提下，去做一致性和容错性相关研究。</p>
-<figure>
-<img src="/assets/2017-07-15/message.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<h2 id="拜占庭容错算法">拜占庭容错算法</h2>
-<p>我们已经了解了拜占庭将军问题的场景，并且明确了这个问题的解决是建立在通信兵可以正确的传达信息的基础上的，即信道绝对可信。接下来，我们将探讨拜占庭将军问题的实质。</p>
-<p>拜占庭容错算法是解决在<strong>同步网络</strong>，<strong>任意失败模型</strong>情况下达成一致性共识<strong>。</strong></p>
-<h2 id="拜占庭将军问题实质">拜占庭将军问题实质</h2>
-<p>回顾问题，一群将军想要实现某一个目标（一致进攻或者一致撤退），但是单独行动行不通，必须合作，达成共识；由于叛徒的存在，将军们不知道应该如何达到一致。注意，这里“<strong>一致性</strong>”才是拜占庭将军问题探讨的内容，如果本来叛徒数量就已经多到了问题不可解的地步，这个就是“反叛”的问题了；同时，我们的目标是忠诚的将军能够达成一致，对于这些忠诚的将军来说，进攻或者撤退都是可以的，只要他们能够达成一致就行。</p>
+<p><img src="/assets/2017-07-15/message.png" alt="img"></p>
+<h2 id="拜占庭容错算法"><a href="#拜占庭容错算法" class="headerlink" title="拜占庭容错算法"></a>拜占庭容错算法</h2><p>我们已经了解了拜占庭将军问题的场景，并且明确了这个问题的解决是建立在通信兵可以正确的传达信息的基础上的，即信道绝对可信。接下来，我们将探讨拜占庭将军问题的实质。</p>
+<p> 拜占庭容错算法是解决在<strong>同步网络</strong>，<strong>任意失败模型</strong>情况下达成一致性共识<strong>。</strong></p>
+<h2 id="拜占庭将军问题实质"><a href="#拜占庭将军问题实质" class="headerlink" title="拜占庭将军问题实质"></a>拜占庭将军问题实质</h2><p>回顾问题，一群将军想要实现某一个目标（一致进攻或者一致撤退），但是单独行动行不通，必须合作，达成共识；由于叛徒的存在，将军们不知道应该如何达到一致。注意，这里“<strong>一致性</strong>”才是拜占庭将军问题探讨的内容，如果本来叛徒数量就已经多到了问题不可解的地步，这个就是“反叛”的问题了；同时，我们的目标是忠诚的将军能够达成一致，对于这些忠诚的将军来说，进攻或者撤退都是可以的，只要他们能够达成一致就行。</p>
 <p>但是，光靠“一致”就可以解决问题吗？考虑一下，如果万事俱备，客观上每个忠诚的将军只要进攻了就一定能够胜利，但是却因为叛徒的存在他们都“一致的”没有进攻；反之，条件不利，将军们不应该进攻，但是却因为叛徒的存在所有人都“一致的”进攻了。</p>
 <p>可以发现，只有“一致性”是不足以解决拜占庭将军问题的，我们还需要提出一个“<strong>正确性</strong>”要求。这个要求是值得斟酌的，因为如果客观来看或许会有“绝对正确的”判断，但是针对每一个将军，大家的判断或许都不相同，我们如何定义“正确”呢？我们或许可以简单地说，正确就是每个忠诚的将军都正确的表达了自己的意思，不会因为叛徒让别的将军认为忠诚的将军是叛徒而不采用他传达的消息。</p>
 <p>至此，我们将拜占庭将军问题简化成了，所有忠诚的将军都能够让别的将军接收到自己的真实意图，并最终一致行动；而形式化的要求就是，“一致性”与“正确性”。</p>
@@ -327,32 +356,27 @@
 <p>由此可见，这个问题说到底是一个关于一致性和正确性的算法问题，这个算法是针对的是忠诚的将军，因为叛徒可以做出任何超出约定的判断。我们就是要在有叛徒的干扰下，找到一个抗干扰的算法。要解决这个算法问题，我们需要将形式化要求具体化。</p>
 <p><strong>口头协议推演</strong></p>
 <p>下面的这个截图是从Lamport发表的论文中截取的：</p>
-<figure>
-<img src="/assets/2017-07-15/oral.png" alt="" /><figcaption>img</figcaption>
-</figure>
+<p><img src="/assets/2017-07-15/oral.png" alt="img"></p>
 <p>对于这个算法需要说明的是：</p>
-<ol type="1">
-<li><p>在第一轮 将军会把消息发送给所有的副官，第i个副官收到的记为 Vi。如 1(这里代表的是Attack)</p></li>
-<li><p>在第二轮里面，Li(即第i个副官)会怀疑将军发来的消息Vi是对还是错，于是他会问其余的副官。这样他就会得到剩下的(n-2)个副官的值。 i从1到n-1，所以每个副官都会得到剩余的n-2个副官手里的Vi。在这一步骤里，忠诚的副官j会直接将自己的 Vj发送给其它人。叛徒则会发假消息。</p></li>
-</ol>
+<p>(1) 在第一轮 将军会把消息发送给所有的副官，第i个副官收到的记为 Vi。如 1(这里代表的是Attack)</p>
+<p>(2) 在第二轮里面，Li(即第i个副官)会怀疑将军发来的消息Vi是对还是错，于是他会问其余的副官。这样他就会得到剩下的(n-2)个副官的值。 i从1到n-1，所以每个副官都会得到剩余的n-2个副官手里的Vi。在这一步骤里，忠诚的副官j会直接将自己的 Vj发送给其它人。叛徒则会发假消息。</p>
 <p>在n=7,m=2的时候如果将军是忠臣的话，那么在第二轮忠诚的副官确实已经可以判断出要做的决定，因为他们会收到(1 1 1 0 0 )再加上将军发来的1就是 1 1 1 1 0 0 但是这个算法是递归的所有必须要到第三轮。并且如果将军是个叛徒的话，那么第二轮有情形是做不出决定的。</p>
 <p>这里对进入第三轮的解释是，如L1收到其它L2~L6发来的Vj, 但是他要怀疑准确性，比如L1会想L2发给自己是否是正确的呢？那么就进入第三轮进行投票。</p>
 <p>(3)在第三轮里面，接着(2)中后面的问题。L1会依次询问L3,4,5,6，问他们上一轮L2给他们发了什么，然后L1会得到在(2)中 L2-&gt;L3, L2-&gt;L4,L2-&gt;L5, L2-&gt;L6的值 这样再结合自己的L2-&gt;L1的值，从这5个里面用majority函数投出决定得到L2发给自己的消息值。依次再进行L3,L4,L5,L6在第二轮中发给自己的消息的确认。</p>
 <p>这样L1就完成了第二轮的确认。之后L1再从第一步中将军发给自己的vi和第二轮中确定的5个值中投出自己的决定。</p>
 <p>其余的L2，L3.等等也进行同样的步骤。</p>
 <p>如果还是没清晰的话，直接看下面的过程：</p>
-<figure>
-<img src="/assets/2017-07-15/oral_pic.png" alt="" /><figcaption>IMG_256</figcaption>
-</figure>
+<p><img src="/assets/2017-07-15/oral_pic.png" alt="IMG_256"></p>
 <p>这里需要注意的是：Lamport提出的容错的两个条件</p>
 <p>IC1：即所有的忠诚的副官要遵守同一个命令，即达成一致；</p>
 <p>IC2：假如将军是忠诚的，那么每一个忠诚的副官都应该按照将军的意思行事。</p>
 <p>这里将军是叛徒，所以只要满足IC1条件即可。</p>
-<p>Step1 : C给L1~L6 依次发 A R A R AX （A，R代表攻击和撤退，这里因为C是叛徒，所以可以随便发给L1-L5消息，这里只是一个例子，可以用其他的值，只要最后满足IC1就可以）</p>
+<p>Step1 : C给L1~L6 依次发 A R A R AX  （A，R代表攻击和撤退，这里因为C是叛徒，所以可以随便发给L1-L5消息，这里只是一个例子，可以用其他的值，只要最后满足IC1就可以）</p>
 <p>Step2： L1为例，L1会怀疑将军发给自己的消息，于是会问<a href="">L2-L6</a></p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>L2(R)</th>
 <th>L3(A)</th>
@@ -363,7 +387,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>L2</td>
 <td>R</td>
 <td>R</td>
@@ -372,7 +396,7 @@
 <td>A</td>
 <td>R</td>
 </tr>
-<tr class="even">
+<tr>
 <td>L3</td>
 <td>A</td>
 <td>A</td>
@@ -381,7 +405,7 @@
 <td>R</td>
 <td>A</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>L4</td>
 <td>R</td>
 <td>R</td>
@@ -390,7 +414,7 @@
 <td>A</td>
 <td>R</td>
 </tr>
-<tr class="even">
+<tr>
 <td>L5</td>
 <td>A</td>
 <td>A</td>
@@ -399,7 +423,7 @@
 <td>R</td>
 <td>A</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>L6</td>
 <td>R</td>
 <td>A</td>
@@ -410,10 +434,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>算法步骤：</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>确认将军</th>
 <th>L2(R)</th>
 <th>L3(A)</th>
@@ -424,7 +450,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>确认L2</td>
 <td>R</td>
 <td>R</td>
@@ -433,7 +459,7 @@
 <td>A</td>
 <td>R</td>
 </tr>
-<tr class="even">
+<tr>
 <td>确认L3</td>
 <td>A</td>
 <td>A</td>
@@ -442,7 +468,7 @@
 <td>R</td>
 <td>A</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>确认L4</td>
 <td>R</td>
 <td>R</td>
@@ -451,7 +477,7 @@
 <td>A</td>
 <td>R</td>
 </tr>
-<tr class="even">
+<tr>
 <td>确认L5</td>
 <td>A</td>
 <td>A</td>
@@ -460,7 +486,7 @@
 <td>R</td>
 <td>A</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>确认L6</td>
 <td>R</td>
 <td>A</td>
@@ -471,11 +497,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Step3：其实在第三步中 L1会依次确认在step2中, L2~L6发给自己的信息. 例如确认L2时 会问L3-L6,在Step2中L2发给你们了什么</p>
 <p>最后得到 R, R, R,X （因为L6这时候肯定又说谎）再结合自己的R , L1确定在Step2中收到L2发来的是R，之后又确认了L3-L6。大家可以自己在草稿纸上画出。</p>
 <p>其实因为L1-L5都是忠诚，他们不会在Step2中撒谎，所以只需投票L6即可，(A R A R A )是L6发给L1-L5的信息，最后投出发的是A ，将A修改到step2中L1-L5收到的</p>
 <p>信息中其余的信息可以不用改。</p>
-<p>最后得到L1-L5均是 4个A， 2个R。以L1为例=R A R A A A</p>
+<p>最后得到L1-L5均是 4个A， 2个R。以L1为例=R  A  R  A  A  A </p>
 <p>即L1~L5达成了一致。</p>
 
     </div>
@@ -558,18 +585,18 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-      <span>Symbols count total: </span>
-    <span title="Symbols count total">87k</span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">87k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-      <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:19</span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:19</span>
   </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -577,7 +604,7 @@
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
   <script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -21,14 +21,14 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://whatsblockchain.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:locale">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="吴寿鹤">
 <meta name="twitter:card" content="summary">
 
@@ -42,7 +42,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'zh'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -120,7 +120,10 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -141,6 +144,35 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
@@ -159,10 +191,10 @@
     <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -179,18 +211,19 @@
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
+          <a href="/archives/">
+        
           <span class="site-state-item-count">21</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -223,7 +256,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/e5f8fc7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,22 +283,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2019-08-12 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T09:00:00+08:00">2019-08-12</time>
+      <time title="创建时间：2019-08-12 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T09:00:00+08:00">2019-08-12</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:19" itemprop="dateModified" datetime="2020-09-15T17:09:19+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Tendermint/" itemprop="url" rel="index"><span itemprop="name">Tendermint</span></a>
         </span>
@@ -274,19 +307,19 @@
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>2.5k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -298,36 +331,19 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Tendermint本身是BFT+POS共识，在BFT之前需要先通过POS方法选出一个proposer来进行提案，proposer是从Validator节点中选出的，Validator是在创世区块（genesis.json)中配置的。</p>
-<p>这里有两个概念区分一下： - validator：所有参与共识验证的节点 - proposer：出块节点，validator中选出来的出块节点</p>
-<h2 id="proposer选择规则">Proposer选择规则</h2>
-<p>validator可以配置一个或多个，但只会有一个Validator被选中作为proposer出块，那么如何选择proposer呢？Tendermint采取round-robin策略选择proposer。round-robin是什么意思呢？当Validator初始化完成后，全网每个节点会存储一份Validator副本，放在一个循环数据中，当链上区块达到一个新的高度后，就会进行一次proposer选举，一般一个区块高度（height）大部分情况下只需要一轮(round)就能产生，网络不好的时候可能要多轮才能出一个块，无论如何，每一轮都会有一个新的validator作为proposer, 轮换规则就是很简单的依次递增，第一轮，会选择数组中第0个validator作为proposer, 第二轮选择第1个validator,以此类推，当到达最后一个后重置为0，这样无限循环。这种round-robin策略，能有效的略过超时的proposer节点，使算法能自动进行下去。</p>
-<p>上面提到proposer是通过round-robin方式从Validator数据组选出来的，那么Validator数组中的Validator是以什么规则被选中的呢？proposer选择顺序与Validato的votingPower(投票力)有关，谁的VotingPower大谁优先被选中为proposer。如果每一轮都选择votingPower最大的，那么会不会出现votingPower大的Validator会一直被选中，而其他votingPower小的Validator会一直没有机会称为proposer呢？为了解决这个问题Tendermint提供了一个votingPower更新算法，算法的规则如下：</p>
+<p>这里有两个概念区分一下：</p>
 <ul>
-<li>Validator的初始votingPower与其stake是相等的，stake是什么？之前提到过Tendermint的共识算法是POS+BFT，这里的stake就是POS算法的权重，类似于POW算法的算力，用来衡量一个节点的权重的。如果Validator A在创世块中的stake是1，那么它的votingPower也会被初始化为1</li>
-<li>每一轮结束后都会对Validator的votingPower做一次更新
-<ul>
-<li>如果一个Validator在当前轮中没有被选中为proposer，那么它的votingPower将增加，增加的值为它初始的stake，例如Validator A的初始化stake为1，如果A没有被选中为proposer，那么它的votingPower=pre_votingPower+stake。</li>
-<li>如果一个Validator在当前轮中被选中为proposer，那么它的votingPower将减少，减少的值为数组中其他Validator的stake之和，例如：Validator集合={A:1,B:2,C:3}，如果C被选中为proposer，那么C的votingPower=pre_votingPower-(stake_a+stake_b)</li>
-</ul></li>
+<li>validator：所有参与共识验证的节点</li>
+<li>proposer：出块节点，validator中选出来的出块节点</li>
 </ul>
-<h2 id="例子演示">例子演示</h2>
-<p>到此为止，关于出块节点的选择方式已经介绍完了，接下来将通过一个例子让大家直观地感受一下在Tendermint中出块节点的选择过程，下面这张图演示了如何选择proposer的过程：</p>
-<figure>
-<img src="/assets/2019-08-11/validators.jpg" alt="" /><figcaption>validators</figcaption>
-</figure>
-<p>例：Validator集合={A:1,B:2,C:3}</p>
-<p>首先假设我们在创世块中一个配置了三个Validator分别是A，B，C他们的stake分别是1，2，3，因此这三个Validator的votingPower也分别为：1，2，3。</p>
-<p>在第一轮中，根据上文介绍的规则，Tendermint会选择votingPower最大的Validator作为proposer，所以在第一轮中proposer为C，就是上图中第一列中标红的方块。根据规则，每一轮结束后会对所有的Validator的votingPower做一次更新，所以从上图可以看出在第二轮中A，B，C的votingPower分别变成2，4，0。</p>
-<p>以此类推，大家有兴趣可以推算一下第二轮，第三轮，第四轮中A，B，C各自的votingPower的变化。</p>
-<p>从上图中可以看出，Validator C 在四轮中有两次被选中为proposer，这是由于每个Validator称为proposer的比率是与它的stake占所有Validator的stake比率有关，Validator C 的stake是3，其中总的stake为6，所以C称为proposer的比率是50%。</p>
-<h2 id="总结">总结</h2>
-<p>Tendermint在创世块中有一组Validator，当链上区块达到一个新的高度时会首先触发Proposer选举，Proposer选举是通过round-robin这种轮询的方式产生的，每一轮结束后Tendermint会调整一次votingPower，每一个Validator节点出块比例与它的stake占总的stake有关。</p>
-<p>优缺点总结：</p>
-<ul>
-<li><p>优点： Proposer的选择方式是与stake相关的，所以应用层可以实现自己的共识（如：DPOS）,在应用层将计算好Validator的权重传递给Tendermint，Tendermint就会按照应用层需要的方式选择Proposer。</p></li>
-<li><p>缺点： Round-robin 策略太简单了，容易被坏人预测到下一个validator是谁，于是可以提前布局，对validator发起DDoS攻击或别的攻击。Tendermint的解决方法就是，把validator节点，全部放在 Sentry Node后面，对外不暴露IP地址。</p></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/e5f8fc7.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -347,7 +363,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/bdff6814.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -374,22 +390,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2019-08-11 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-11T09:00:00+08:00">2019-08-11</time>
+      <time title="创建时间：2019-08-11 09:00:00" itemprop="dateCreated datePublished" datetime="2019-08-11T09:00:00+08:00">2019-08-11</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:33" itemprop="dateModified" datetime="2020-09-15T17:09:33+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Tendermint/" itemprop="url" rel="index"><span itemprop="name">Tendermint</span></a>
         </span>
@@ -398,19 +414,19 @@
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>3.3k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -421,84 +437,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。</p>
-<h2 id="tendermint-发展史">Tendermint 发展史</h2>
-<p>在介绍Tendermint之前我们先回顾一下Tendermint的发展史：</p>
-<ul>
-<li>2014年，Jae Kwon与Ethan Buchman、Zarko Milosevic联合创建了Tendermint。</li>
-<li>2014年，Jae Kwon 发表了《Tendermint：无挖矿的共识》白皮书。Tendermint 的基本思想是允许大量分布式节点就共识达成一致，而无需中本聪共识依赖的PoW 工作量证明挖矿。</li>
-<li>2014年，成立的跨链项目Cosmos。</li>
-<li>2016年6月，为解决跨链问题而发起的Cosmos项目发布第一版白皮书。</li>
-<li>2017年 4月6日 ，Tendermint团队，在不到半个小时的时间筹集了 1600 多万美元，完成募资不到两个星期，Tendermint 团队就开始建立COSMOS中国社区。</li>
-<li>2018年 2 月，上线 Cosmos 软件开发工具包（SDK）。</li>
-<li>2018年3月，币安公链 Binance Chain 宣布将构建在 Cosmos 的 Tendermint 协议之上，采用 DPoS 和 BFT 共识，其去中心化交易所 DEX 也将基于 Cosmos 的跨链协议。</li>
-<li>2019年3 月14 日 7 时 08 分（UTC+8），Cosmos 主网成功上线。</li>
-</ul>
-<p>从Tendermint的发展史中我们可以得到以下几点信息：</p>
-<ul>
-<li>Tendermint一开始是为了寻找一种可以替代POW这个比较耗费资源的分布式共识算法</li>
-<li>cosmos是Tendermint团队开发的一个跨链项目</li>
-<li>Tendermint很注重中国社区，Tendermint在完成募资之后不到两周内就建立了cosmos中国社区</li>
-<li>有些著名的链是基于Tendermint上开发的，比如币安的去中心化交易所，从这里可以看出Tendermint是具有商用方面的稳定性的</li>
-<li>重要的的一点是基于Tendermint开发的cosmos跨链项目在今年主网上线了</li>
-</ul>
-<h2 id="分层开发模式">分层开发模式</h2>
-<p>如果我们现在决定用Tendermint开发自己的链，那么在我们链的架构中Tendermint应该处于那一层呢？为了回答这个问题，我们先看一张图</p>
-<figure>
-<img src="/assets/2019-08-11/architecture.jpg" alt="" /><figcaption>architecture</figcaption>
-</figure>
-<p>在图片的左边是我们web开发常用的分层模式，上层是应用层（spring），底层是数据库（MySQL，Oracle），在web开发中数据层需要实现以下三个功能：1. 数据持久化，保证我们的业务数据能够保存在硬盘中。2. 事务性，保证我们业务数据满足ACID这四个要求。3. 数据复制一致性，当我们的对做主从复制或读写分离时，需要保证数据在不同机器之间做一致性复制。</p>
-<p>在使用Tendermint开发链的时候，与web开发类似，在架构上可以把Tendermint当作是底层数据层，基于数据层之上可以实现自己链相关的业务（交易结构，账号模型，智能合约，合约虚拟机），在右边的数据层中，比左边的数据层多处三个功能，除了常见的数据持久化，事务性，数据复制一致性外，还多了三个功能：1. p2p网络，由于区块链节点是分布式在这个地方的，所以必须通过P2P网络协议将这些分散在各地的节点连接起来。2. 拜占庭容错，区块链与其他应用最大的区别就在于区块链是可以容忍拜占庭作恶节点存在的，如果不能容忍拜占庭，那么我们的应用就与常见的分布式系统没啥区别。3. 出块节点选举，在区块链上的区块有谁来产生是通过出块节点选举决定的，产生的区块需要通过共识算法在做一致性共识。</p>
-<p>Tendermint帮我们实现所有在区块链开发中通用的模块，让我们只需专注于自己的链上业务开发。当我们的链上业务开发完成后，该怎么与Tendermint整合呢，Tendermint提供了一套ABCI接口，通过ABCI接口就可以将应用层与Tendermint数据层整合起来了，关于ABCI接口将在接下来的篇幅中有详细的介绍。</p>
-<p>一定需要用Tendermint开发区块链吗？不一定，但是用Tendermint分层开发模式可以给我们带来以下几点好处： - 使软件具有结构性，便于开发，维护和管理 - 将不同的功能模块独立开来，在改动一个层模块的时候，另一层不改变不需要作出相应的改动，这样可以方便代码的复用、替换 - 可以专注于链上业务开发，不需要关注链的底层 - 在开发语言上可以有更多的选择，应用层可以用golang，java，nodejs等作为开发语言</p>
-<p>为了更直观的来阐述使用Tendermint开发的好处，现在以以太坊作为二次开发来说明一下，以太坊是将所有功能全部放在一个进程中实现的，所以在使用以太坊做开发时，经常会出现牵一发而动全身的情况，比如我们想在以太坊上新增一个交易结构（投票交易），那么我们来看一下将会影响到哪些模块，首先肯定是交易模块，交易需要被打包到区块中，所以区块模块也需要跟着做修改，区块需要在本地做共识（POW证明），所以共识模块也需要做相应的修改，共识后的区块需要进行全网广播，所以p2p区块同步这块也要做相应的修改。仅仅新增一个交易，就需要做这么多的连带修改，这将给对我们的开发代码巨大的不必要的工作量，但是如果是使用Tendermint作为开发那么完全可以避免这些繁琐的工作量，因为我们只要关注与应用层开发就好了。</p>
-<h2 id="tendermint部署结构">Tendermint部署结构</h2>
-<p>如果我们的Tendermint的链开发好了，那么我们应该怎么去部署呢，下面这张图是我们cosmos官网上找到的，这张图是cosmos的网络部署图，由于cosmos也是基于Tendermint作为开发的，所以可以借鉴cosmos来部署我们的链。</p>
-<figure>
-<img src="/assets/2019-08-11/network_deploy.png" alt="" /><figcaption>network_deployment</figcaption>
-</figure>
-<p>上图右侧一共部署了5个节点（五个绿块），这5个节点就是我们链节点，每个节点之间通过p2p协议进行互连，在图中左侧有一个轻节点与链进行连接，轻节点用来向区块链网络中发送交易请求。</p>
-<p>先对图右侧的这5个节点做一个详细说明，从图中可以看出我们的链节点有三个方块组成，这三个方块分别是： - 最大的绿色方块是Tendermint节点 - 蓝色的方块是我们的开发的链应用层 - 粉红色的方块是签名节点，用来对区块进行签名，单独部署签名签名的目的是从安全方面考虑的，这个在之后的篇幅中会做说明</p>
-<p>在这个三个模块中需要我们开发的就是蓝色方块（链业务层），链业务层开发完成后与Tendermint程序通过ABCI节点相连。</p>
-<p>接下来看一下图的左侧，这个节点就是我们比较熟悉的轻节点应用，轻节点就是我们比较熟悉的钱包节点，通过轻节点我们可以向区块链网络中发送交易，也可以通过查询网络区块，交易等信息。从图中可以看出，我们开发轻节点也不是从头开发的，可以节点cosmos SDK来开发我们的轻节点应用，开发完成的轻节点通过RPC方式与Tendermint网络通信。</p>
-<h2 id="tendermint总结">Tendermint总结</h2>
-<p>现在对上面的内容做一个总结，Tendermint帮我们实现区块链应用中最基础的几个模块，使我们可以专注与链业务代码的开发。</p>
-<ul>
-<li>Tendermint Core
-<ul>
-<li>实现了 p2p 网络; 在节点之间共享区块和交易;</li>
-<li>实现了拜占庭容错的共识算法, 确定了不可更改的交易顺序;</li>
-<li>POS方式选择出块节点</li>
-</ul></li>
-</ul>
-<p>我们借助开发Tendermint链应用时，只要实现ABCI接口就好了，这种开发模式可以使我们获得分层应用开发的好处（上文中有具体介绍分层开发的优势）</p>
-<ul>
-<li>ABCI Interface
-<ul>
-<li>业务层实现ABCI接口，开发链相关的业务代码</li>
-<li>可以基于不同的语言 (Golang, Java，JS) 来实现;</li>
-</ul></li>
-</ul>
-<p>同时Tendermint为了方便我们开发区块链应用，同时也提供了许多开发库</p>
-<ul>
-<li>Tendermint提供了许多实用的开发库
-<ul>
-<li>密码库（secp256k1，ed25519）</li>
-<li>Merkel Tree，用于证明</li>
-<li>iavl状态树（类似于以太坊中的Merkle Patricia tries）</li>
-</ul></li>
-</ul>
-<h2 id="预告">预告</h2>
-<p>接下来将从以下两个方面深入Tendermint的细节中，感兴趣的读者可以继续保持关注。</p>
-<ul>
-<li>共识算法
-<ul>
-<li>出块节点选择</li>
-<li>PBFT算法</li>
-</ul></li>
-<li>ABCI接口</li>
-</ul>
-
+          <p>现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。<br>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/bdff6814.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -518,7 +465,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/c052872a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -545,22 +492,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2019-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-23T00:00:00+08:00">2019-04-23</time>
+      <time title="创建时间：2019-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-23T00:00:00+08:00">2019-04-23</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:36" itemprop="dateModified" datetime="2020-09-15T17:09:36+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
         </span>
@@ -569,19 +516,19 @@
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>3.8k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -593,120 +540,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>以太坊中的智能合约使用了一种不常见的存储模型，如果开发者想要对合约中的变量进行寻址，并修改相应的值，那么本文会给予你一些帮助。在接下来篇幅中，我将详细解释以太坊中合约的存储模型，并展示如何使用solidity编程语言使用它。</p>
-<h2 id="超大范围的存储空间">超大范围的存储空间</h2>
-<p>每个运行在以太坊虚拟机（EVM）中的合约会在永久存储空间中（storage）维护一个状态。这个存储空间（storage）是一个非常大的数组，数组长度为<span class="math inline">\(2^{256}\)</span>，其中每个元素的大小为32个字节，数组中的每个元素的初始化值为0。任何智能合约都可以从这个存储空间中任何位置读取值，或写入值。</p>
-<figure>
-<img src="/assets/2019-04-23/storage.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p><span class="math inline">\(2^{256}\)</span>长度的存储空间是不能在组成以太坊网络的物理计算机上实现的，实际上的存储空间是非常稀疏的，不需要存储0值，在寻找的时候通过32字节的键映射到32字节的值，这种键值对的方式完成。</p>
-<p>因为零不占用任何存储空间，所以我们可以通过将某个值设置为零来回回收存储空间。在智能合约中，当我们将某个变量设置为零时，系统会退还一部分gas给我们。</p>
-<h2 id="寻找固定长度的值">寻找固定长度的值</h2>
-<p>对于已知拥有固定长度的值，通常的方法是在存储空间给他们分配一个预留的位置存储值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract StorageTest &#123;</span><br><span class="line">    uint256 a;</span><br><span class="line">    uint256[2] b;</span><br><span class="line"></span><br><span class="line">    struct Entry &#123;</span><br><span class="line">        uint256 id;</span><br><span class="line">        uint256 value;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于上面的代码：</p>
-<ul>
-<li><code>a</code>存储在<em>slot</em> 0（在solidity属于中，存储空间中的每一个位置称为“slot”）</li>
-<li><code>b</code>存储在<em>slot</em> 1和2中（因为<code>b</code>是一个数组，且数组长度为2）</li>
-<li><code>c</code>存储位置从<em>slot</em> 3开始，消耗两个<em>slot</em>，因为<code>Entry</code>结构体存储了两个32字节长度的值</li>
-</ul>
-<figure>
-<img src="/assets/2019-04-23/fixed.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>这些<em>slot</em>位置在合约编译的时候就确定了，并且严格按照变量在合约中的定义顺序确定的。</p>
-<h2 id="寻找动态长度的值">寻找动态长度的值</h2>
-<p>对于固定长度的值使用预分配位置的方法可以很好的解决，但对于这些动态长度的数组和<code>mapping</code>类型的值不起作用，因为无法预先知道到底需要预留多少<code>slot</code>给这些动态类型。</p>
-<p>对比我们之前比较熟悉的<code>RAM</code>内存分配方式，你可能会期望有一个"allocation"方法来找到可用空间，然后有一个"free"方法将空间放回到可用的存储池中。</p>
-<p>很遗憾这方法并不可行，由于智能合约中的存储空间是天文数字规模的，存储中有<span class="math inline">\(2^{256}\)</span>可供选择的位置，这大约是已知可观测宇宙中原子的数目。你可以随机选择存储位置，而不用担心会发生冲突。在solidity中使用hash函数为动态长度的类型值计算存储位置。</p>
-<h3 id="动态长度数组">动态长度数组</h3>
-<p>动态长度的数组需要一个位置来存储数组的长度和数组中的所有元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">contract StorageTest &#123;</span><br><span class="line">    uint256 a;     &#x2F;&#x2F; slot 0</span><br><span class="line">    uint256[2] b;  &#x2F;&#x2F; slots 1-2</span><br><span class="line"></span><br><span class="line">    struct Entry &#123;</span><br><span class="line">        uint256 id;</span><br><span class="line">        uint256 value;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry c;       &#x2F;&#x2F; slots 3-4</span><br><span class="line">    Entry[] d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于上面的代码：</p>
-<ul>
-<li>动态数组<code>d</code>存储在<em>slot</em> 5位置中，但<em>slot</em> 5中存储的值是数组<code>d</code>的长度，数组中的元素连续存储在以<code>hash(5)</code>开始的位置中。即通过对动态数组<code>d</code>的<code>slot</code>进行hash运算，求出数组中的元素存储位置。</li>
-</ul>
-<figure>
-<img src="/assets/2019-04-23/dynamic.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>下面一段<code>solidity</code>代码用来计算动态数组中元素的位置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function arrLocation(uint256 slot, uint256 index, uint256 elementSize)</span><br><span class="line">    public</span><br><span class="line">    pure</span><br><span class="line">    returns (uint256)</span><br><span class="line">&#123;</span><br><span class="line">    return uint256(keccak256(slot)) + (index * elementSize);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="mappings">Mappings</h3>
-<p>映射需要找到与给定键对应的位置的有效方法。散列键是一个好的开始，但是必须注意确保不同的映射生成不同的位置。</p>
-<p><code>mapping</code>需要一个有效的方法通过给定的key找到相应的存储位置，通过对<code>mapping</code>的key进行hash运算是一个不错的方法，但需要确保针对不同的<code>mapping</code>对象的相同的<code>key</code>生成不同的存储位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">contract StorageTest &#123;</span><br><span class="line">    uint256 a;     &#x2F;&#x2F; slot 0</span><br><span class="line">    uint256[2] b;  &#x2F;&#x2F; slots 1-2</span><br><span class="line"></span><br><span class="line">    struct Entry &#123;</span><br><span class="line">        uint256 id;</span><br><span class="line">        uint256 value;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry c;       &#x2F;&#x2F; slots 3-4</span><br><span class="line">    Entry[] d;     &#x2F;&#x2F; slot 5 for length, keccak256(5)+ for data</span><br><span class="line"></span><br><span class="line">    mapping(uint256 &#x3D;&gt; uint256) e;</span><br><span class="line">    mapping(uint256 &#x3D;&gt; uint256) f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于以上代码：</p>
-<ul>
-<li><code>e</code>的<em>slot</em>是6，<code>f</code>的<em>slot</em>是7，但在这两个位置中并没有存储任何值，因为<code>mapping</code>没有长度值需要存储</li>
-</ul>
-<p>要寻找<code>mapping</code>中的值的位置，需要将<code>key</code>与<code>mapping</code>的<em>slot</em>一起进行hash运算。</p>
-<figure>
-<img src="/assets/2019-04-23/mapping.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>下面的<code>solidity</code>函数用于计算<code>mapping</code>中值的存储位置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function mapLocation(uint256 slot, uint256 key) public pure returns (uint256) &#123;</span><br><span class="line">    return uint256(keccak256(key, slot));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：当传入多个参数到<code>keccak256</code>方法时，首先会将这些参数进行连接，然后在进行hash运算。因为是将<code>mapping</code>的slot值与<code>key</code>值同时进行的hash运算，所以不同<code>mapping</code>之间是不会存在冲突的。</p>
-<h3 id="复杂类型的组合">复杂类型的组合</h3>
-<p>动态大小的数组与<code>mapping</code>可以相互嵌套在一起，当这种情况发生时，可以通过递归的方式找到值的存储位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">contract StorageTest &#123;</span><br><span class="line">    uint256 a;     &#x2F;&#x2F; slot 0</span><br><span class="line">    uint256[2] b;  &#x2F;&#x2F; slots 1-2</span><br><span class="line"></span><br><span class="line">    struct Entry &#123;</span><br><span class="line">        uint256 id;</span><br><span class="line">        uint256 value;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry c;       &#x2F;&#x2F; slots 3-4</span><br><span class="line">    Entry[] d;     &#x2F;&#x2F; slot 5 for length, keccak256(5)+ for data</span><br><span class="line"></span><br><span class="line">    mapping(uint256 &#x3D;&gt; uint256) e;    &#x2F;&#x2F; slot 6, data at h(k . 6)</span><br><span class="line">    mapping(uint256 &#x3D;&gt; uint256) f;    &#x2F;&#x2F; slot 7, data at h(k . 7)</span><br><span class="line"></span><br><span class="line">    mapping(uint256 &#x3D;&gt; uint256[]) g;  &#x2F;&#x2F; slot 8</span><br><span class="line">    mapping(uint256 &#x3D;&gt; uint256)[] h;  &#x2F;&#x2F; slot 9</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要寻找这些复杂类型中的值的存储位置可以使用上面定义的函数：</p>
-<ul>
-<li>arrLocation</li>
-<li>mapLocation</li>
-</ul>
-<p>例：寻找<code>g[123][0]</code>的存储位置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 首先找到g[123]的位置，g是mapping，g的slot是8，key是123，用mapLocation计算存储位置</span><br><span class="line">arrLoc &#x3D; mapLocation(8, 123);  &#x2F;&#x2F; g is at slot 8</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 然后 查找arr[0]</span><br><span class="line">itemLoc &#x3D; arrLocation(arrLoc, 0, 1);</span><br></pre></td></tr></table></figure>
-<p>例：寻找 <code>h[2][456]</code>的存储位置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 首先查找h[2]位置，h是动态数组，h的slot是9</span><br><span class="line">mapLoc &#x3D; arrLocation(9, 2, 1);  &#x2F;&#x2F; h is at slot 9</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 然后查找 map[456]位置</span><br><span class="line">itemLoc &#x3D; mapLocation(mapLoc, 456);</span><br></pre></td></tr></table></figure>
-<h2 id="总结">总结</h2>
-<ul>
-<li>每个智能合约中的<code>storage</code>都是以<span class="math inline">\(2^{256}\)</span>长度的数组形式存在的，并且数组中的所有元素的初始值为0</li>
-<li>0值是不会被显示存储的，所以当给一个对象赋值0时，就相当于生命回收相应的存储空间</li>
-<li>对与固定长度的值，solidity是通过预分配的方式分配存储位置的</li>
-<li>对于动态长度类型的值，Solidity通过hash运算的方法动态确定存储位置</li>
-</ul>
-<p>下表展示了如何计算不同类型的存储位置。<code>slot</code>表示在合约中定义的变量的位置。</p>
-<table>
-<thead>
-<tr class="header">
-<th>Kind</th>
-<th>Declaration</th>
-<th>Value</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>一般类型</td>
-<td><code>T v</code></td>
-<td><code>v</code></td>
-<td>v's slot</td>
-</tr>
-<tr class="even">
-<td>定长数组</td>
-<td><code>T[10] v</code></td>
-<td><code>v[n]</code></td>
-<td>(v's slot) + n * (size of T)</td>
-</tr>
-<tr class="odd">
-<td>不定长数组</td>
-<td><code>T[] v</code></td>
-<td><code>v[n]</code></td>
-<td>keccak256(v's slot) + n * (size of T)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td><code>v.length</code></td>
-<td>v's slot</td>
-</tr>
-<tr class="odd">
-<td>Mapping</td>
-<td><code>mapping(T1 =&gt; T2) v</code></td>
-<td><code>v[key]</code></td>
-<td>keccak256(key . (v's slot))</td>
-</tr>
-</tbody>
-</table>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/c052872a.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -726,7 +567,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/126665fc.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -753,22 +594,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2019-04-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-02T00:00:00+08:00">2019-04-02</time>
+      <time title="创建时间：2019-04-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-02T00:00:00+08:00">2019-04-02</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:38" itemprop="dateModified" datetime="2020-09-15T17:09:38+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -777,19 +618,19 @@
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>3.8k</span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -800,111 +641,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="选型思路">选型思路</h2>
-<p>本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。</p>
-<p>众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一些不容忽视的缺点：</p>
-<ul>
-<li>需要非常高的算力</li>
-<li>高能源消耗</li>
-<li>矿池带来的中心化问题</li>
-</ul>
-<p>基于以上这些考虑，我们在选择算法时就忽略了POW，因为一旦我们的项目中使用POW作为共识算法还会带来一些我们无法控制的问题，例如：一些矿场将他们的算力切换到我们链上，挖取大量的货币并将货币在二级市场上抛售，这样我们的货币就有归零的风险。</p>
-<p>那么还有没有一种共识算法同时兼具POW的有点，同时也减少POW的缺点呢？有，这个算法就是权益证明（POS），在POW中矿工通过部署大量的矿机来争夺区块的打包权，那么在POS中，矿工是如何来竞争打包权？POS中矿工的算力是用权益来表示的，权益即矿工将所持有的加密货币一部分以保证金的形式存储在系统中，并处于锁定状态（不可以取出），如果以后不想挖矿了可以从系统中取出相应的保证金。在ionchain中是以合约的形式实现保证金的存储与赎回，矿工可以通过调用系统保证金合约来获取相关账户的权益，具体的实现方式可以参考github上开源的项目<a target="_blank" rel="noopener" href="http://github.com/ionchain/IPOSContract">IPOSContract</a>。</p>
-<p>权益的问题解决了，接下来要考虑如何选择合适的矿工打包区块，对于选择算法我们会有以下几个目标：</p>
-<ul>
-<li>用户拥有的保证金越多，那么该用户被选中的概率就越大</li>
-<li>算法选择过程中包含一定程度的概率，以避免出现富有的用户总是被选中生成区块，持续获得的奖励，富人越来越富</li>
-<li>目前POS中常用的选择算法有两种：1. 独立同分布随机算法，2. 币龄选择。如果采用币龄选择算法，会导致用户离线攒币龄，等币龄满足条件后才上线打包区块，这样会导致我们的链上的节点在线率不高，所有在IPOS中我们选择独立同分布随机作为选择节点的算法</li>
-</ul>
-<p>如何选择节点打包区块的问题解决了，具体的算法将会在下一章节中做详细的介绍，接下来我们应该考虑的是激励的问题了，激励是区块链中一个非常重要的组成部分，在POW算法中对矿工的激励分成两部分：1. 打包生成区块的奖励。 2. 区块中的所有交易费用的奖励。 由于我们使用的是POS算法，在POS中是以权益作为算力的，所以在整个生态中我们需要确保货币不能超发即不能增发货币，所以在POS算法中我们对矿工的奖励只有交易费用这部分。</p>
-<h2 id="算法介绍">算法介绍</h2>
-<p>在POW算法中是通过hash算力来获取区块的打包权的，POS是通过权益来获取打包权的，其实POS是对POW的一种改进，为了便于大家理解POS是如何工作的，在这里我们先介绍POW的工作原理，为了便于阐述，使用hash(...)表示所有的哈希函数，在不同的共识算法中的整数范围是不一样的，例如比特币中整数的范围是<span class="math inline">\([0,2^{256}-1]\)</span>，为了便于描述我们使用<span class="math inline">\([0,M]\)</span>表示整数范围。</p>
-<p>POW公式：</p>
-<p><span class="math display">\[
-hash(B) \leq M \div D   \qquad\qquad\qquad\qquad\qquad (1)
-\]</span></p>
-<p>其中：</p>
-<ul>
-<li><p><span class="math inline">\(D \in [1,M]\)</span>表示目标难度，难度越高需要查找的次数也就越多</p></li>
-<li><p><code>B</code>表示nonce，这只能通过暴力搜索的方式来寻找合适的值</p></li>
-</ul>
-<p>在POW算法中，所有矿工看到的<code>D</code>都是相同的，矿工唯一能改变的就是<code>B</code>值，所有矿工通过不断的寻找合适的<code>nonce</code>来满足上面的不等式。</p>
-<p>在POS算法中，需要对上面不等式<code>(1)</code>做一点修改，假设有一个矿工账户为<code>K</code>，账户<code>K</code>在系统中的保证金余额为<code>bal(K)</code>，那么我们可以通过以下不等式来定义POS算法</p>
-<p>POS公式：</p>
-<p><span class="math display">\[
-hash(B_{prev},K) \leq S \ast Bal(K) \ast M \div D  \qquad (2)
-\]</span></p>
-<p>其中：</p>
-<ul>
-<li><p><span class="math inline">\(B_{prev}\)</span> 区块中的一个字段（生成签名），矿工使用生成签名字段与矿工的地址做hash运算生成一个随机数，具体过程在下文中有详细解释。</p></li>
-<li><p><code>S</code> 父区块到当前区块之间的时间差</p></li>
-<li><p><code>Bal(K)</code> 矿工K拥有的保证金余额</p></li>
-</ul>
-<p>与(1)不同，矿工唯一可以改变的变量是不等式(2)右侧的时间戳S，因为矿工地址中的保证金被系统锁定。随着时间的流失不等式的右边的值会越来越大，不等式右边的增长幅度与矿工的保证金大小成正比，所以在未来的某一刻一定会到达满足不等式(2)成立的条件。从这个过程中可以看出，在POS中没有涉及到昂贵的计算，矿工的出块速度与其拥有的保证金大小成正相关。</p>
-<h3 id="b_prev-作用与生成方法"><span class="math inline">\(B_{prev}\)</span> 作用与生成方法</h3>
-<p>在POW算法中所有矿工都解的是同一道题目，即如何使不等式(1)成立，在POS算法中我们需要满足之前所说的两个条件：</p>
-<ol type="1">
-<li>矿工被选中的概率，与矿工所持有的保证金数额成正比</li>
-<li>在算法选择过程中包含一定程度的概率，以避免出现富有的矿工总是被选中生成区块，持续获得的奖励，富人越来越富</li>
-</ol>
-<p>第一个条件好满足，从不等式(2)中就可以看出，矿工持有的保证金额度越高不等式右边的增长幅度就越快。为了满足第二个条件，我们引入了<span class="math inline">\(B_{prev}\)</span>生成签名，生成签名可以看作是一个不可预测的随机数，它为了不等式(2)的左边，这意味着每一个矿工所需要解决的题目是不相同的，这样就可以避免富有的矿工总是被选中。下面是<span class="math inline">\(B_{prev}\)</span>的生成过程：</p>
-<ol type="1">
-<li>在区块头中有一个生成签名的字段<span class="math inline">\(B_{prev}\)</span></li>
-<li>将当前矿工的地址与父区块的<span class="math inline">\(B_{prev}\)</span>做hash运算，可以看出每一个矿工得到的值都是不一样的。</li>
-<li>将运算后的结果取前八个字节作为不等式(2)左边的值</li>
-</ol>
-<h3 id="公式简化">公式简化</h3>
-<p>现在我们将不等式(2)做一点简化，IPOS中会在创始块中设置一个字段BaseTarget（基础目标），这个BaseTarget就相当于POW算法中的难度，在区块链系统中所有的节点都是可以自由加入、退出的，所以我们需要根据全网中的现有算力来调整难度，目的是维持出块速度保持稳定。</p>
-<p>baseTarget公式：</p>
-<p><span class="math display">\[
-T_b=M \div D
-\]</span></p>
-<p>一旦BaseTarget初始化后，之后就会针对BaseTarget进行调整了，具体调整方法在下文中有详细的解释。</p>
-<p>相应的对不等式(2)右边进行相应的替代，不等式(2)右边：</p>
-<p><span class="math display">\[
-{T_k}={T_b} \times {S} \times {B_k}
-\]</span></p>
-<p>其中：</p>
-<ul>
-<li><span class="math inline">\(T_k\)</span>是当前矿工计算后的值，这个值会随着时间增加而增长</li>
-</ul>
-<p>在上文中解释了IPOS中的随机数生成规则，同样这里使用<span class="math inline">\(H_k\)</span>来替代不等式(2)左边的部分，不等式(2) 左边</p>
-<p><span class="math display">\[
-H_k = hash(B_{prev},K)[0:8]
-\]</span></p>
-<p>新的不等式：</p>
-<p><span class="math display">\[
-H_k \leq T_b \times S \times B_k \qquad\qquad\qquad (3)
-\]</span></p>
-<p>不等式(3)就是经过简化后的公式，上面提到过为了问题出块速度需要根据全网中的算力，对BaseTarget进行相关的调整，以下就是BaseTarget调整的公式。</p>
-<p>BaseTarget 调整公式:</p>
-<p><span class="math display">\[
-T_b=
-\begin{cases}
-T_p \ast \frac {min(S,R_{max})}{15}                        &amp;  {S &gt; 15} \\
-T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
-\end{cases}
-\]</span></p>
-<p>其中：</p>
-<ul>
-<li><p><span class="math inline">\(R_{max}\)</span>=22 当区块时间大于15秒时，目标降低的最大比率</p></li>
-<li><p><span class="math inline">\(R_{min}\)</span>=8 当块时间小于15秒时，目标增加的最小比率</p></li>
-<li><p><span class="math inline">\(\gamma\)</span>=0.64</p></li>
-<li><p><code>S</code> 是最近3个区块的平均时间，目前保证出块时间稳定在15秒左右</p></li>
-<li><p><span class="math inline">\(T_p\)</span> 父区块的baseTarget</p></li>
-<li><p><span class="math inline">\(T_b\)</span> 当前账户计算出的baseTarget</p></li>
-</ul>
-<h2 id="攻击">攻击</h2>
-<h3 id="零成本攻击nothing-at-stake">零成本攻击(Nothing at Stake)</h3>
-<p>在一个零成本攻击中，矿工试图在block的每个分支上都继续创建block，因为这个行为几乎对攻击者毫无成本；另外，忽略任何一个分支都可能会导致丢失奖励，一旦某一个分支因为最大的累计难度成为正式的区块链；</p>
-<p>现在这类攻击只是在理论上可能发生，并不实际；Ionchain网络不会经历长的block分支，低区块收益也无法提供非常强的利益刺激；进一步讲，为了很小的利益而影响网络的安全和信任是得不偿失的。</p>
-<p>作为ionchain发展路线图中的一部分，一个叫做“经济集合”概念的特性可以针对这种攻击提供保护，它通过强制要求交易创建时包含一个之前block的hash值来探测网络中非正常的行为并给予处罚（暂时失去挖矿能力)</p>
-<h3 id="历史攻击history-attacks">历史攻击(History Attacks)</h3>
-<p>在一个历史攻击中，某个人获得了一大笔货币，并出售，然后试图从交易前创建一个成功的分支替换区块链数据；如果失败了，对攻击者不会有任何损失，因为货币已经成功出售了；如果攻击成功，那么攻击者又拿回了他们已经出售的货币。这种攻击的一个极端例子就是攻击者需要获取账户的私钥，然后从创世块开始构建一个成功分支；</p>
-<p>在ionchain中，一般的历史攻击都会失败，因为所有可以用来挖矿的权益都需要停留区块达到5769个（一天的时间），这就限制了攻击者，从时间框架上无法实现成功的攻击。</p>
-<h2 id="实现">实现</h2>
-<p>算法的具体实现可以参考github上的开源项目<a target="_blank" rel="noopener" href="http://github.com/ionchain/ionchain-core">ionchain-core</a></p>
-
+          <h2 id="选型思路"><a href="#选型思路" class="headerlink" title="选型思路"></a>选型思路</h2><p>本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/126665fc.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -924,7 +669,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/7664e5f1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -951,22 +696,22 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2018-05-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-01T00:00:00+08:00">2018-05-01</time>
+      <time title="创建时间：2018-05-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-01T00:00:00+08:00">2018-05-01</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:41" itemprop="dateModified" datetime="2020-09-15T17:09:41+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
         </span>
@@ -975,19 +720,19 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>6.7k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>6 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -998,50 +743,15 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="事件回顾">事件回顾</h2>
-<p>4月25日早间，火币Pro公告，SMT项目方反馈今日凌晨发现其交易存在异常问题，经初步排查，SMT的以太坊智能合约存在漏洞。火币Pro也同期检测到TXID为<a target="_blank" rel="noopener" href="https://etherscan.io/tx/0x0775e55c402281e8ff24cf37d6f2079bf2a768cf7254593287b5f8a0f621fb83">https://etherscan.io/tx/0x0775e55c402281e8ff24cf37d6f2079bf2a768cf7254593287b5f8a0f621fb83</a>的异常。受此影响，火币Pro现决定暂停所有币种的充提币业务，随后，火币Pro又发布公告称暂停SMT/USDT、SMT/BTC和SMT/ETH的交易。此外，OKEx，gate.io等交易平台也已经暂停了SMT的充提和交易。截止暂停交易，SMT在火币Pro的价格下跌近20%。</p>
-<figure>
-<img src="/assets/2018-05-01/news.jpg" alt="" /><figcaption>img</figcaption>
-</figure>
-<figure>
-<img src="/assets/2018-05-01/news-2.jpg" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>该漏洞代理的直接经济损失高达上亿元人民币，间接产生的负面影响目前无法估量。这到底是怎样一个漏洞呢？下面将详细分析该漏洞的产生和解决方案。</p>
-<h2 id="漏洞分析">漏洞分析</h2>
-<p>SMT与前几天爆出的美图BEC代币都出现类似的安全漏洞—整数溢出，那么什么是整数溢出，整数溢出出现的原因是什么，怎样才能避免整数溢出呢？接下来我们带着这些问题来看下面的内容。</p>
-<h2 id="整数溢出">整数溢出</h2>
-<p>整数溢出分向上溢出和向下溢出，有关智能合约安全的其他关键点作者在《区块链开发实战——以太坊关键技术与案例分析》中有详细介绍，以下是截取本书中关于整数溢出的部分，通过下面文字的阅读大家就可以对：什么是整数溢出，整数溢出出现的原因是什么，怎样才能避免整数溢出呢？这三个问题有个答案了。</p>
-<p>以下文字截取于《区块链开发实战——以太坊关键技术与案例分析》</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">这是一个测试整数类型上溢和下溢的例子</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">contract Test&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 整数上溢</span></span><br><span class="line">  <span class="comment">//如果uint8 类型的变量达到了它的最大值(255)，如果在加上一个大于0的值便会变成0</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) <span class="title">returns</span>(<span class="params">uint8</span>)</span>&#123;</span><br><span class="line">    uint8 a = <span class="number">255</span>;</span><br><span class="line">    uint8 b = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a+b;<span class="comment">// return 0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//整数下溢</span></span><br><span class="line">  <span class="comment">//如果uint8 类型的变量达到了它的最小值(0)，如果在减去一个小于0的值便会变成255(uin8 类型的最大值)</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">test_1</span>(<span class="params"></span>) <span class="title">returns</span>(<span class="params">uint8</span>)</span>&#123;</span><br><span class="line">    uint8 a = <span class="number">0</span>;</span><br><span class="line">    uint8 b = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a-b;<span class="comment">// return 255</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有了上面的理论基础，我们在看一个转账的例子，看在我们的合约中应该如何避免不安全的代码出现：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存储用户余额信息</span></span><br><span class="line">mapping (<span class="function"><span class="params">address</span> =&gt;</span> uint256) public balanceOf;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不安全的代码</span></span><br><span class="line"><span class="comment">// 函数功能：转账，这里没有做整数溢出检查</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transfer</span>(<span class="params">address _to, uint256 _value</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 检查发送者是否有足够的余额*/</span></span><br><span class="line">    <span class="keyword">if</span> (balanceOf[msg.sender] &lt; _value)</span><br><span class="line">        <span class="keyword">throw</span>;</span><br><span class="line">    <span class="comment">/*  修改发送者和接受者的余额 */</span></span><br><span class="line">    balanceOf[msg.sender] -= _value;</span><br><span class="line">    balanceOf[_to] += _value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安全代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transfer</span>(<span class="params">address _to, uint256 _value</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 检查发送者是否有足够的余额，同时做溢出检查：balanceOf[_to] + _value &lt; balanceOf[_to] */</span></span><br><span class="line">    <span class="keyword">if</span> (balanceOf[msg.sender] &lt; _value || balanceOf[_to] + _value &lt; balanceOf[_to])</span><br><span class="line">        <span class="keyword">throw</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 修改发送者和接受者的余额 */</span></span><br><span class="line">    balanceOf[msg.sender] -= _value;</span><br><span class="line">    balanceOf[_to] += _value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们在做整数运算的时候要时刻注意上溢，下溢检查，尤其对于较小数字的类型比如uint8、uint16、uint24更加要小心：它们更加容易达到最大值，最小值。</p>
-<h2 id="smt合约中的整数安全问题简析">SMT合约中的整数安全问题简析</h2>
-<p>SMT的合约地址是：0x55F93985431Fc9304077687a35A1BA103dC1e081，合约代码可以访问etherscan的如下网址进行查看</p>
-<p><a href="hhttps://etherscan.io/address/0x55f93985431fc9304077687a35a1ba103dc1e081#code">https://etherscan.io/address/0x55f93985431fc9304077687a35a1ba103dc1e081#code</a></p>
-<p>SMT合约有问题的代码存在于transferProxy()函数，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transferProxy</span>(<span class="params">address _from, address _to, uint256 _value, uint256 _feeSmt,</span></span></span><br><span class="line"><span class="function"><span class="params">        uint8 _v,bytes32 _r, bytes32 _s</span>) <span class="title">public</span> <span class="title">transferAllowed</span>(<span class="params">_from</span>) <span class="title">returns</span> (<span class="params">bool</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(balances[_from] &lt; _feeSmt + _value) revert();</span><br><span class="line"></span><br><span class="line">        uint256 nonce = nonces[_from];</span><br><span class="line">        bytes32 h = keccak256(_from,_to,_value,_feeSmt,nonce);</span><br><span class="line">        <span class="keyword">if</span>(_from != ecrecover(h,_v,_r,_s)) revert();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(balances[_to] + _value &lt; balances[_to]</span><br><span class="line">            || balances[msg.sender] + _feeSmt &lt; balances[msg.sender]) revert();</span><br><span class="line">        balances[_to] += _value;</span><br><span class="line">        Transfer(_from, _to, _value);</span><br><span class="line"></span><br><span class="line">        balances[msg.sender] += _feeSmt;</span><br><span class="line">        Transfer(_from, msg.sender, _feeSmt);</span><br><span class="line"></span><br><span class="line">        balances[_from] -= _value + _feeSmt;</span><br><span class="line">        nonces[_from] = nonce + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="其中的问题分析如下">其中的问题分析如下</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transferProxy</span>(<span class="params">address _from, address _to, uint256 _value, uint256 _feeSmt,</span></span></span><br><span class="line"><span class="function"><span class="params">        uint8 _v,bytes32 _r, bytes32 _s</span>) <span class="title">public</span> <span class="title">transferAllowed</span>(<span class="params">_from</span>) <span class="title">returns</span> (<span class="params">bool</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//错误1：这里没有做整数上溢出检查</span></span><br><span class="line">    <span class="comment">//_feeSmt,value都是由外部传入的参数，通过我们之前的理论这里可能会出现整数上溢出的情况</span></span><br><span class="line">    <span class="comment">// 例如：_feeSmt = 8fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff ,</span></span><br><span class="line">    <span class="comment">// value = 7000000000000000000000000000000000000000000000000000000000000001</span></span><br><span class="line">    <span class="comment">//  _feeSmt和value均是uint256无符号整数，相加后最高位舍掉，结果为0。</span></span><br><span class="line">    <span class="comment">// 那么_feeSmt + _value = 0 直接溢出，绕过代码检查，导致可以构造巨大数量的smt代币并进行转账</span></span><br><span class="line">        <span class="keyword">if</span>(balances[_from] &lt; _feeSmt + _value) revert();</span><br><span class="line"></span><br><span class="line">        uint256 nonce = nonces[_from];</span><br><span class="line">        bytes32 h = keccak256(_from,_to,_value,_feeSmt,nonce);</span><br><span class="line">        <span class="keyword">if</span>(_from != ecrecover(h,_v,_r,_s)) revert();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(balances[_to] + _value &lt; balances[_to]</span><br><span class="line">            || balances[msg.sender] + _feeSmt &lt; balances[msg.sender]) revert();</span><br><span class="line">        balances[_to] += _value;</span><br><span class="line">        Transfer(_from, _to, _value);</span><br><span class="line"></span><br><span class="line">        balances[msg.sender] += _feeSmt;</span><br><span class="line">        Transfer(_from, msg.sender, _feeSmt);</span><br><span class="line"></span><br><span class="line">        balances[_from] -= _value + _feeSmt;</span><br><span class="line">        nonces[_from] = nonce + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="作者修改后的代码如下">作者修改后的代码如下</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transferProxy</span>(<span class="params">address _from, address _to, uint256 _value, uint256 _feeSmt,</span></span></span><br><span class="line"><span class="function"><span class="params">        uint8 _v,bytes32 _r, bytes32 _s</span>) <span class="title">public</span> <span class="title">transferAllowed</span>(<span class="params">_from</span>) <span class="title">returns</span> (<span class="params">bool</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//错误1：这里没有做整数上溢出检查</span></span><br><span class="line">    <span class="comment">//_feeSmt,value都是由外部传入的参数，通过我们之前的理论这里可能会出现整数上溢出的情况</span></span><br><span class="line">    <span class="comment">// 例如：_feeSmt = 8fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff ,</span></span><br><span class="line">    <span class="comment">// value = 7000000000000000000000000000000000000000000000000000000000000001</span></span><br><span class="line">    <span class="comment">//  _feeSmt和value均是uint256无符号整数，相加后最高位舍掉，结果为0。</span></span><br><span class="line">    <span class="comment">// 那么_feeSmt + _value = 0 直接溢出，绕过代码检查，导致可以构造巨大数量的smt代币并进行转账</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在这里做整数上溢出检查</span></span><br><span class="line">        <span class="keyword">if</span>(balances[_to] + _value &lt; balances[_to]</span><br><span class="line">            || balances[msg.sender] + _feeSmt &lt; balances[msg.sender]) revert();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在这里做整数上溢出检查 ,防止交易费用 过大</span></span><br><span class="line">        <span class="keyword">if</span>(_feeSmt + _value &lt; _value ) revert();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在这里做整数上溢出检查 ,防止交易费用 过大</span></span><br><span class="line">        <span class="keyword">if</span>(balances[_from] &lt; _feeSmt + _value) revert();</span><br><span class="line"></span><br><span class="line">        uint256 nonce = nonces[_from];</span><br><span class="line">        bytes32 h = keccak256(_from,_to,_value,_feeSmt,nonce);</span><br><span class="line">        <span class="keyword">if</span>(_from != ecrecover(h,_v,_r,_s)) revert();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 条件检查尽量 在开头做</span></span><br><span class="line">        <span class="comment">// if(balances[_to] + _value &lt; balances[_to]</span></span><br><span class="line">        <span class="comment">//     || balances[msg.sender] + _feeSmt &lt; balances[msg.sender]) revert();</span></span><br><span class="line">        balances[_to] += _value;</span><br><span class="line">        Transfer(_from, _to, _value);</span><br><span class="line"></span><br><span class="line">        balances[msg.sender] += _feeSmt;</span><br><span class="line">        Transfer(_from, msg.sender, _feeSmt);</span><br><span class="line"></span><br><span class="line">        balances[_from] -= _value + _feeSmt;</span><br><span class="line">        nonces[_from] = nonce + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="攻击者发送的交易">攻击者发送的交易</h3>
-<p>以下是攻击者恶意发送的转账交易地地址：<a target="_blank" rel="noopener" href="https://etherscan.io/tx/0x1abab4c8db9a30e703114528e31dee129a3a758f7f8abc3b6494aad3d304e43f">https://etherscan.io/tx/0x1abab4c8db9a30e703114528e31dee129a3a758f7f8abc3b6494aad3d304e43f</a></p>
-<p><img src="/assets/2018-05-01/pic1.jpg" alt="img" />黑客攻击截图</p>
-<h2 id="bec合约中的整数安全问题简析">BEC合约中的整数安全问题简析</h2>
-<p>BEC的合约地址是0xC5d105E63711398aF9bbff092d4B6769C82F793D，合约代码可以访问etherscan的如下网址进行查看<a target="_blank" rel="noopener" href="https://etherscan.io/address/0xc5d105e63711398af9bbff092d4b6769c82f793d#code">https://etherscan.io/address/0xc5d105e63711398af9bbff092d4b6769c82f793d#code</a></p>
-<p>BEC合约有问题的代码存在于batchTransfer()函数，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">batchTransfer</span>(<span class="params">address[] _receivers, uint256 _value</span>) <span class="title">public</span> <span class="title">whenNotPaused</span> <span class="title">returns</span> (<span class="params">bool</span>) </span>&#123;</span><br><span class="line">    uint cnt = _receivers.length;</span><br><span class="line">    uint256 amount = uint256(cnt) * _value;</span><br><span class="line">    <span class="built_in">require</span>(cnt &gt; <span class="number">0</span> &amp;&amp; cnt &lt;= <span class="number">20</span>);</span><br><span class="line">    <span class="built_in">require</span>(_value &gt; <span class="number">0</span> &amp;&amp; balances[msg.sender] &gt;= amount);</span><br><span class="line"></span><br><span class="line">    balances[msg.sender] = balances[msg.sender].sub(amount);</span><br><span class="line">    <span class="keyword">for</span> (uint i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</span><br><span class="line">        balances[_receivers[i]] = balances[_receivers[i]].add(_value);</span><br><span class="line">        Transfer(msg.sender, _receivers[i], _value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="其中问题代码分析如下">其中问题代码分析如下</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">batchTransfer</span>(<span class="params">address[] _receivers, uint256 _value</span>) <span class="title">public</span> <span class="title">whenNotPaused</span> <span class="title">returns</span> (<span class="params">bool</span>) </span>&#123;</span><br><span class="line">    uint cnt = _receivers.length;</span><br><span class="line">    <span class="comment">// 这里直接使用乘法运算符，可能会导致溢出</span></span><br><span class="line">    <span class="comment">// 变量cnt为转账的地址数量，可以通过外界的用户输入_receivers进行控制，_value为单地址转账数额，也可以直接进行控制。</span></span><br><span class="line">    <span class="comment">// 外界可以通过调整_receivers和_value的数值，产生乘法运算溢出，得出非预期amount数值，amount溢出后可以为一个很小的数字或者0，</span></span><br><span class="line">    uint256 amount = uint256(cnt) * _value;</span><br><span class="line">    <span class="built_in">require</span>(cnt &gt; <span class="number">0</span> &amp;&amp; cnt &lt;= <span class="number">20</span>);</span><br><span class="line">    <span class="comment">// 这里判断当前用户拥有的代币余额是否大于或等于要转移的amount数量</span></span><br><span class="line">    <span class="comment">// 由于之前恶意用户通过调大单地址转账数额_value的数值，使amount溢出后可以为一个很小的数字或者0，</span></span><br><span class="line">    <span class="comment">// 所以很容易绕过balances[msg.sender] &gt;= amount的检查代码。从而产生巨大_value数额的恶意转账。</span></span><br><span class="line">    <span class="built_in">require</span>(_value &gt; <span class="number">0</span> &amp;&amp; balances[msg.sender] &gt;= amount);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//调用Safemath库中的安全函数来完成加减操作</span></span><br><span class="line">    balances[msg.sender] = balances[msg.sender].sub(amount);</span><br><span class="line">    <span class="keyword">for</span> (uint i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</span><br><span class="line">        balances[_receivers[i]] = balances[_receivers[i]].add(_value);</span><br><span class="line">        Transfer(msg.sender, _receivers[i], _value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="攻击者发送的交易-1">攻击者发送的交易</h3>
-<p>以下是攻击者恶意发送的转账交易：</p>
-<p><a target="_blank" rel="noopener" href="https://etherscan.io/tx/0xad89ff16fd1ebe3a0a7cf4ed282302c06626c1af33221ebe0d3a470aba4a660f">https://etherscan.io/tx/0xad89ff16fd1ebe3a0a7cf4ed282302c06626c1af33221ebe0d3a470aba4a660f</a></p>
-<p><img src="/assets/2018-05-01/pic2.jpg" alt="img" />黑客攻击截图</p>
-<h2 id="合约整数漏洞事件总结">合约整数漏洞事件总结</h2>
-<p>从上面的分析中，大家可以看出针对SMT和BEC的合约恶意攻击都是通过恶意的整数溢出来绕过条件检查。目前以太坊上运行着上千种合约，这上千种合约中可能也存在类似的安全隐患，所以作为合约的开发人员需要投入更多的精力来确保合约的安全性。</p>
-<p>下篇我们将详细的介绍如何正确保合约的安全，敬请期待。</p>
-
+          <h2 id="事件回顾"><a href="#事件回顾" class="headerlink" title="事件回顾"></a>事件回顾</h2><p>4月25日早间，火币Pro公告，SMT项目方反馈今日凌晨发现其交易存在异常问题，经初步排查，SMT的以太坊智能合约存在漏洞。火币Pro也同期检测到TXID为<a target="_blank" rel="noopener" href="https://etherscan.io/tx/0x0775e55c402281e8ff24cf37d6f2079bf2a768cf7254593287b5f8a0f621fb83">https://etherscan.io/tx/0x0775e55c402281e8ff24cf37d6f2079bf2a768cf7254593287b5f8a0f621fb83</a>的异常。受此影响，火币Pro现决定暂停所有币种的充提币业务，随后，火币Pro又发布公告称暂停SMT/USDT、SMT/BTC和SMT/ETH的交易。此外，OKEx，gate.io等交易平台也已经暂停了SMT的充提和交易。截止暂停交易，SMT在火币Pro的价格下跌近20%。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/7664e5f1.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1061,7 +771,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/a7b53d58.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,22 +798,22 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2017-07-16 11:04:01" itemprop="dateCreated datePublished" datetime="2017-07-16T11:04:01+08:00">2017-07-16</time>
+      <time title="创建时间：2017-07-16 11:04:01" itemprop="dateCreated datePublished" datetime="2017-07-16T11:04:01+08:00">2017-07-16</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:51" itemprop="dateModified" datetime="2020-09-15T17:09:51+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -1112,19 +822,19 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>4.2k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -1136,110 +846,15 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     <div class="post-body" itemprop="articleBody">
           <p>下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。</p>
-<h2 id="比特币">比特币</h2>
-<p>2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币</p>
-<h2 id="交易">交易</h2>
-<p>比特币协议在数字货币中提供了一种交易方法，在这个方法中每个人可以<strong>对货币所有权，交易顺序达成共识</strong>。货币所有权是通过公钥来决定。整个网络需要对货币数量与货币所有权之间的关系达成共识。货币所有权可以通过对转账交易（从一个账户转移给另一个账户）签名进行转移。整个网络需要能个解决同一笔钱不能花费两次的难题。<strong>由于没有一个中心化的权威机构能够校验交易，因此需要在没有受信任第三方机构的情况下解决这个问题。就是说需要用去中心化的方法解决这个问题。</strong></p>
-<p>解决方案：公开向网络广播每笔交易，网络中的节点对先到达的交易是有效的达成共识。每个节点检查先到达的交易的输出之前是否被花费。难点是：由于网络通信不是及时的（异步网络），所以导致所有节点收到的交易并不是完全一致的。在这个情况下找到一个确认哪一个交易是最先到达的共识是困难的。为了对交易顺序达成共识，交易被打上时间戳存放在含有工作量证明的区块中。</p>
-<p>这个方法为交易顺序共识提供了解决方案：区块包含上一个区块的Hash，最新交易。</p>
-<h2 id="proof-of-work-工作量证明">Proof-of-Work 工作量证明</h2>
-<p>为了实现对交易打时间戳，Hash交易数据。比特币用了工作量证明方法。网络中的每个节点从事于解决一个适度困难的密码难题。难题的解决方法是：把区块中的所有数据做SHA256哈希运算，并且得到哈希值小于给定的目标值。区块中还包含一个Nonce值，通过递增Nonce来寻找正确的哈希值。这个密码谜题被设计成，每隔10Mins会找到一个谜题答案。</p>
-<p>一旦正确的哈希值被找到，节点就会向网络中广播这个哈希值。这个哈希值可以很容易的被网络中的其他节点验证，节点可以对收到区块后对区块中的数据进行SHA256运算哈希值。</p>
-<p>花费的CPU就是工作量证明。要修改一个区块需要重做这个区块以及这个区块之后所有区块的工作量证明。这就意味比特网络更倾向于最诚实的链，只要网络中大多数节点是诚实的。</p>
-<figure>
-<img src="/assets/2017-07-16/1.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>Pow的过程可以被看做是一个投票的过程。每个新增的区块累积了以前的历史交易（区块是串联成链的），每个节点都会继续对以有最多投票数量的链继续投票。</p>
-<h2 id="攻击比特币网络">攻击比特币网络</h2>
-<p>现在考虑一下网络中可以存在的一种攻击。一个恶意的节点试图双花之前已花费的交易。攻击者需要重做包含这个交易的区块，以及这个区块之后的所有的区块，创建一个比目前诚实区块链更长的区块链。只有网络中的大多数节点都转向攻击者创建的区块链，攻击者的攻击才算成功了。考虑交易T包含在区块b1中。每个后续区块b2,b3,b4,.........bn会降低交易T被修改的可能性，因为修改这些后续的区块需要更多的算力。中本聪用概率理论证明，六个区块后攻击者追赶上最长链的可能性降低到0.0002428%。在过四个或更多区块后这个可能行会降到0.0000012%。每新增一个区块bn，攻击的可能性就会以指数形式下降，很快整个攻击的可能性就会低到可以忽略的程度。在实际中，比特币交易会在六个区块后被确认，因为在这种情况下，攻击者追赶上的可能性已经非常低了，可以认为这个交易是有效的，不再会被修改。</p>
-<h2 id="工作量证明pow-实现拜占庭共识">工作量证明Pow 实现拜占庭共识</h2>
-<p>现在我们看一下比特币的工作量证明是如何解决计算机网络中的拜占庭将军问题的。比特币网络是就交易的顺序，没有中心化机构的情况下达成共识的，同样拜占庭将军也是做得同样的事情。拜占庭将军需要攻击城堡，所有将军需要对任何将军可能提出的攻击时间达成共识。</p>
-<p>方案一：被所有将军都接受到的攻击计划，被认为是正式的攻击计划。问题是：两个或多个将军有可能同时发出不同的攻击计划。</p>
-<p><strong>这个问题模型被工作量证明简化了，比特币工作量证明系统中，不会追踪交易顺序，取而代之是在将军之间达成共识。</strong>每个将军基于工作量证明，解决一个难度适当的Hash难题，每个难题有足够的难度，仅当在所有的将军同时工作时，平均10Mins会找到一个难题的答案（solution）。当一个将军找到问题的答案，它会把这个答案连同攻击计划在网络中广播。一旦收到Solution，每个将军调整难题为在广播中收到的攻击时间，攻击计划。然后将军继续解决下一个工作量证明。这样接下来每个solution会依次在第一个solution后串联成链。如果有将军还在继续在对另一个不同的攻击方案进行工作量证明计算，它会切换到这个最长的链上。这个最长链上积累了最多的CPU算力。</p>
-<p>平均一个小时后，这个链上会有六个区块。每个将军可以判断是否有足够多的将军工作在含有相同初始攻击计划的最长链上。链会在一小时累积到六个区块，说明大多数将军对相同的攻击计划进行工作量证明计算（CPU投票）。因此将军对攻击时间达成共识。</p>
-<h2 id="结论">结论</h2>
-<p>在没有中心化权威机构存在的P2P网络上，比特币共识协议功能上等同于一个受信任的中心化机构。这个协议解决了拜占庭将军问题中缺少中心化权威机构的难题。帮组将军在攻击时间上达成共识。而且，它缓解了多个攻击计划同时提交的可能性，同时也降低了攻击的可能性。因此比特币共识协议现代拜占庭将军中的问题。</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>拜占庭将军问题和Bitcoin 对比</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>拜占庭将军问题</td>
-<td></td>
-<td>BitCoin</td>
-</tr>
-<tr class="even">
-<td>攻击时间上达成共识</td>
-<td>目标</td>
-<td>对合法的交易达成共识</td>
-</tr>
-<tr class="odd">
-<td>将军分布在城堡周围</td>
-<td>分布情况</td>
-<td>节点分布在网络中</td>
-</tr>
-<tr class="even">
-<td>忠诚的将军和副官</td>
-<td>好的</td>
-<td>可信任的节点</td>
-</tr>
-<tr class="odd">
-<td>叛徒</td>
-<td>坏的</td>
-<td>作恶节点</td>
-</tr>
-<tr class="even">
-<td>篡改消息（干扰忠诚的将军达成共识）</td>
-<td>破坏</td>
-<td>向区块中加入无效非法的交易</td>
-</tr>
-<tr class="odd">
-<td>怎么才能知道那个消息是真的</td>
-<td>难点</td>
-<td>怎么才能知道那个交易是合法的</td>
-</tr>
-<tr class="even">
-<td>暂无</td>
-<td>解决方案</td>
-<td>Pow</td>
-</tr>
-<tr class="odd">
-<td>暂无</td>
-<td>共识</td>
-<td>BlockChain + Pow</td>
-</tr>
-</tbody>
-</table>
-<h2 id="pow-是如何运行的">Pow 是如何运行的</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack, pack</span><br><span class="line"></span><br><span class="line">timestamp = str(time.time())                   <span class="comment"># Work timestamp</span></span><br><span class="line"></span><br><span class="line">message = <span class="string">&quot;This is a random message.&quot;</span>       <span class="comment"># Plaintext message</span></span><br><span class="line"></span><br><span class="line">nonce = <span class="number">0</span>                             </span><br><span class="line"></span><br><span class="line">guess = <span class="number">99999999999999999999</span></span><br><span class="line"></span><br><span class="line">payload = timestamp + message</span><br><span class="line"></span><br><span class="line">throttle = <span class="number">100000000</span></span><br><span class="line"></span><br><span class="line">target = <span class="number">2</span>**<span class="number">64</span> / throttle</span><br><span class="line"></span><br><span class="line">payloadHash = hashlib.sha256(payload).digest()</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> guess &gt; target:</span><br><span class="line"></span><br><span class="line">​         nonce += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​         guess,=unpack(<span class="string">&#x27;&gt;Q&#x27;</span>,hashlib.sha256(hashlib.sha256(pack(<span class="string">&#x27;&gt;Q&#x27;</span>,nonce)+payloadHash).digest()).digest()[<span class="number">0</span>:<span class="number">8</span>])</span><br><span class="line"></span><br><span class="line">​         print(guess);</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;%s:%s:%s:%s:%s:%s:%s&quot;</span> % (timestamp, message, nonce, guess, payload, target, end-start)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><strong>timestamp</strong> 开始产生区块的时间戳</p></li>
-<li><p><strong>message</strong> 类似比特别中的交易，这里只做演示用字符串替代</p></li>
-<li><p><strong>payload</strong> is a combination of the things that you will encrypt.</p></li>
-<li><p><strong>nonce</strong> 会从0到N递增，直到找到target为止</p></li>
-<li><p><strong>guess</strong> 将会保存谜底，一开始初始化为无穷大</p></li>
-<li><p><strong>throttle</strong> 相当于比特币中的难度</p></li>
-<li><p><strong>target</strong> 8个字节的整数最大值 （2^64）除以难度（throttle ）</p></li>
-</ul>
-<p>Timestamp，message，payload是你要发送到网络中的东西。它可以是区块数据</p>
-<p>Nonce,guess,throttle target是用来进行工作量证明运算。Pow最重要的是难于生成易于验证。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> guess &gt; target:</span><br><span class="line"></span><br><span class="line">​         nonce += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​         guess,=unpack(<span class="string">&#x27;&gt;Q&#x27;</span>,hashlib.sha256(hashlib.sha256(pack(<span class="string">&#x27;&gt;Q&#x27;</span>,nonce)+payloadHash).digest()).digest()[<span class="number">0</span>:<span class="number">8</span>])</span><br></pre></td></tr></table></figure>
-<p>这三行就是Pow算法主要内容。这是一个简单的循环。它使用SHA256对数据进行两轮哈希。前八个字节作为我们的谜底。</p>
-<figure>
-<img src="/assets/2017-07-16/2.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>比特币的除数（难度）2016个区块后调整一次 增加或下降。<strong>上图显示随着难度的增加正确谜底的可能值范围缩小，也就是越难于发现Guess</strong></p>
-<p><code>nonce += 1</code></p>
-<p>Nonce表示CPU的工作量，在本例子nonce 表示发现一个低于target的guess的<strong>累计工作量</strong>。因为每一个guess都有相同的可能性会低于target，它和nonce生成的方式是无关的。所以nonce从0开始递增比生成随机数成本更低。当区块提交到网络中，nonce会被用来证明区块的正确性。</p>
-<p><code>guess,=unpack('&gt;Q',hashlib.sha256(hashlib.sha256(pack('&gt;Q',nonce)+payloadHash).digest()).digest()[0:8])</code></p>
-<p>Guess是把nonce和payload经过两轮SHA256哈希之后值的前8个字节。因为target的范围是0..2^8，所以guess不可能超过target.在每次循环后，nonce是唯一会改变的值。</p>
-<p>向网络中提交nonce是安全的。因为每个旷工的payload是独一无二的。如果旷工Alice使用了旷工Bob提交的nonce，Alice需要提供相同的payload，由于Alice不能在payload把Bob的公钥自己的公钥，因为这会改变两轮SHA256哈希的输出。改变后的输出就一定满足小于target这个条件。由于Alice的payload不同于Bob的payload，所以Bob的nonce对Alice就不适用。</p>
-
+<h2 id="比特币"><a href="#比特币" class="headerlink" title="比特币"></a>比特币</h2><p>2008年，中本聪介绍了一个点对点的电子现金系统—比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/a7b53d58.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1259,7 +874,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/ef92d986.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1286,22 +901,22 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2017-07-16 11:03:01" itemprop="dateCreated datePublished" datetime="2017-07-16T11:03:01+08:00">2017-07-16</time>
+      <time title="创建时间：2017-07-16 11:03:01" itemprop="dateCreated datePublished" datetime="2017-07-16T11:03:01+08:00">2017-07-16</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:57" itemprop="dateModified" datetime="2020-09-15T17:09:57+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -1310,19 +925,19 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>2.4k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -1333,63 +948,16 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="书面协议">书面协议</h2>
-<p>Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：</p>
-<figure>
-<img src="/assets/2017-07-15/wp1.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>即A4（a）忠诚将军的签名是不能伪造的，内容修改可检测。（即即使是叛徒也要原封不动的签了名将消息转发出去）</p>
-<p>（b）任何人都可以识别将军的签名，叛徒可以伪造叛徒司令的签名。（后半句是论文中的后半部分规定的）。</p>
-<p>而且这里Lamport规定，每条消息只可以复制，然后加上自己的姓名再发出去。</p>
-<p>下面是具体的算法：</p>
-<figure>
-<img src="/assets/2017-07-15/wp2.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<figure>
-<img src="/assets/2017-07-15/wp3.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>对于这个算法要说的是：</p>
-<ol type="1">
-<li><p>初始化中的 Vi 类似于一个集合，表示的是第i个将军收到的命令，比如Vi= {Attack} 之所以说是个集合是因为Vi里面不会有重复的命令出现。这在算法步骤（2）的（B) 部分描述的很清楚。</p>
-<p>在算法步骤（1）中将军将签了自己姓名的消息广播发给所有副官。注意这里发的格式是 V:0，V是命令，0代表自己的身份。</p></li>
-<li><p>算法步骤（2）（A）中，每个副官将收到的消息V:0 把命令V放入自己的命令集合Vi（因为初始的时候他们的命令集合都是空的，所 以不存在重复问题）然后他们将命令拷贝，然后加上自己的签名，得到消息： V:0:i 然后再发给其他的副官。</p>
-<p>在算法步骤（2）（B）中因为副官i 也会收到别的副官发来的消息v:0:1:...:jk. 此时i会判断v在不在自己的命令集合中，如果不存在的话将v加入Vi，并在k&lt;m的情况下将信息签名，继续发出去。</p>
-<p>在这里有几点是需要注意的。</p>
-<p>A） 如果将军是忠诚的话，那么因为忠诚将军的签名是不可以改的，所以所有的命令都只是V，只是消息的签名不一样罢了，那么副官将不会将重复的命令再加入Vi，所以这就是lamport在论文中提到的如果将军是忠臣的话，那么每个副官只会保存a single order 。这里之所以提到这个是后面的证明需要用到。</p>
-<p>B）为什么说当k&lt;m的时候才会发送呢，这是因为每条信息只需要被复制m+1就可以了（这里将将军署名的时候也算是一次签名，可以发现每签名1次就是一个复制），超过m就没必要了。之所以有这样的规定后面会有证明，即只需要复制m+1此所有的忠臣就可以达成一致。还有就是这里的下标k，并不是代表一个副官的id号，而是被签名的多少次，例如 v:0:j3; 这条消息，k是等于1（因为除了将军以外只被签名了一次）的而不是3.</p></li>
-<li><p>算法步骤（3），当一个副官不会再收到任何的消息时就会执行choice函数。这里不再收到，lamport规定是超过一个时间不再收到就认为不再收到了。这里的choice函数,lamport没做具体的实现，只是认为，当Vi中只有一个命令时就得出这个命令。当Vi和Vj是相等的时候choice执行的结果是一样的，即他们可以达成一致，这个只会在将军是叛徒的时候才会出现，这样的话就满足了IC1条件。</p></li>
-</ol>
-<p>当第三步结束，就可以得出一致命令了。</p>
-<p>下面我们看看lamport是怎么证明只需要m+1次复制就可以了。</p>
-<figure>
-<img src="/assets/2017-07-15/wp4.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>证明的总体思路是：</p>
-<p>情形（一）如果将军是忠诚的话，就像我们在讨论算法的时候提到的，所有忠臣的副官只可能是收到a single order然后经过 choice函数得到的是将军的命令，所以满足IC2。</p>
-<p>情形（二）这里假如将军是个叛徒。证明的总体思路是只需要证Vi，Vj是相同的集合就可以了。即只需要证明如果在step2中i将命令v放入Vi时，j也会将命令v放入Vj。</p>
-<p>下面我们来证这个：</p>
-<p>因为i要是想将v命令放入Vi，肯定会收到一个消息，V:0:j1:j2:...jk。那么下面就讨论：</p>
-<p>（1）如果j属于j1~jk中的一个，那么他既然在消息上签了名，那么肯定也收到了消息v，所以在这种情况下是满足的。</p>
-<p>（2）如果j不属于j1~jk中的一个的话，再讨论k的范围：</p>
-<p>a.如果k&lt;m, 那么i肯定会签上自己的姓名，将消息转发给所有的副官当然这里面肯定会有副官j（根据算法B中的ii），那么j要么在命令集vj中没有v的情况下将他保存，要么在已经有的情况下置之不理，但是无论是哪种情况，都会保证,Vj和Vi一致。</p>
-<ol start="2" type="a">
-<li>如果k=m.此时i不会转发此消息。但是因为只有m个叛徒，又将军是叛徒，那么这m+1个复制里面就肯定有1个是忠臣，而忠臣会不修改消息直接将叛徒将军的消息v传给所有的副官，当然包括 j，所以在此情况下也是可以保证的。</li>
-</ol>
-<p>现在用个实例来证明：</p>
-<p>当n=4,m=2必须要经过m+1轮复制才可以完成容错(或者说是交换)。</p>
-<p>实例证明：n=4,m=2,r=m+1时（r=3 复制的轮数）可容错</p>
-<p>1，当将军，L3是叛徒</p>
-<figure>
-<img src="/assets/2017-07-15/wp5.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>step1：R1={x:0} R2={y:0}R3={0:0}</p>
-<p>step2：k=0；1将 x:0:1 发给2,3；2将 y:0:2 发给1,3；3将 z1:0:3 发给1，将 z2:0:3 发给2。得到：</p>
-<p>R1={x:0;y:0:2;z1:0:3} R2={y:0;x:0:1;z2:0:3} R3={0:0;x:0:1;y:0:2}</p>
-<p>step3：k=1,k&lt;m进行下一轮复制。1将 z1:0:3:1发给2,3；2将z2:0:3:2发给1,3。得到：</p>
-<p>R1={x:0;y:0:2;z1:0:3; z2:0:3:2}R2={y:0;x:0:1; z1:0:3; z2:0:3:1} k=2算法执行choice函数。</p>
-<p>书面协议的本质就是引入了签名系统，这使得所有消息都可追本溯源。这一优势，大大节省了成本，他化解了口头协议中1/3要求，只要采用了书面协议，忠诚的将军就可以达到一致（实现IC1和IC2）。这个效果是惊人的，相较之下口头协议则明显有一些缺陷。</p>
-<p>书面协议的结论非常令人兴奋，这不是解决了拜占庭将军问题了吗？但请注意我们在A1<sub>A4中实际上是添加了一些条件的，这使得拜占庭将军问题在这些假设下能够解决，但是在实际状况中却会有一些问题。观察A1</sub>A4，我们做了一些在现实中比较难以完成的假设，比如没考虑传输信息的延迟时间，书面协议的签名体系难以实现，而且签名消息记录的保存难以摆脱一个中心化机构而独立存在。</p>
-
+          <h2 id="书面协议"><a href="#书面协议" class="headerlink" title="书面协议"></a>书面协议</h2><p>Lamport在文中提出，之所以会出现在口头传达中的那些错误是因为一些叛徒可以说谎，这里通过签名就是为了防止说谎。在签名算法中加了两个条件：</p>
+<p><img src="/assets/2017-07-15/wp1.png" alt="img"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/ef92d986.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1409,7 +977,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/ec5b8a8d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1436,22 +1004,22 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2017-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">2017-07-15</time>
+      <time title="创建时间：2017-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">2017-07-15</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:10:04" itemprop="dateModified" datetime="2020-09-15T17:10:04+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -1460,19 +1028,19 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>3.9k</span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -1483,69 +1051,15 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="分布式系统介绍">分布式系统介绍</h2>
-<p>长期以来学习掌握分布式系统的知识非常庞杂混乱，要确定分布式系统算法的分类，主要依据是搞清楚算法的各种属性。例如计时模型timing model; 进程间通讯interprocess communication 和失败模型failure model等等。</p>
-<p>涉及的主要概念包括：</p>
-<ol type="1">
-<li><p>定时模型（Timing Model）</p></li>
-<li><p>进程间通信（Interprocess Communication）</p></li>
-<li><p>失效模式（Failure Modes）</p></li>
-<li><p>失效检测器（Failure Detectors）</p></li>
-<li><p>领导人选举（Leader Election）</p></li>
-<li><p>共识（Consensus）</p></li>
-<li><p>法定人数（Quorums）</p></li>
-<li><p>分布式系统中的时间</p></li>
-</ol>
-<h2 id="计时模型timing-model">计时模型timing model</h2>
-<p>计时模型分同步，异步两种，这几种模型都有时间计时这个共同特点。</p>
-<p><strong>同步模型</strong> 在同步分布式系统中消息传递时间的上限是已知的。</p>
-<p><strong>异步模型</strong> 异步分布式系统中消息可能在任何时间送达。</p>
-<p>在同步分布式系统中，由于消息传递时间的上限已知，则可以根据超时来检测进程故障（非拜占庭故障），大大简化了分布式算法的设计，但遗憾的是，大部分实际的分布式系统往往是异步的，比如互联网就是异步分布式系统，如果为异步分布式系统中设计分布式算法，必须意识到消息可能延迟任意长的时间到达。</p>
-<h2 id="进程间通讯">进程间通讯</h2>
-<p>进程之间是如何通讯的，这里有<strong>消息传递模型</strong>和<strong>共享内存模型</strong>，前者是通过消息发送通讯，后者是访问内存中共享变量共享数据进行通讯。这里进程有服务器节点的意思，一个进程可能代表分布式场景的一台服务器。</p>
-<p><strong>消息传递</strong>最难的是不能发送重复消息，每次只能精确一次传递，这里有很多设计，比如Perfect Links（可以理解为进程之间的信道） 抽象可以保证，但是它不能正常反映现实世界，虽然不真实，但是有用，我们可以使用Perfect Links 证明一个问题不可能被解决，然后我们就知道其他相关问题也没有答案。消息传递总是可以被想象为FIFO之类队列或堆栈。</p>
-<p><strong>共享内存</strong>是我们编程常用的方式，需要在一台服务器内才能完成。我们可以使用消息传递算法完成分布式情况下的内存共享对象，比如读写注册器，调用一个服务之间需要查询这个服务在哪个服务器上，负载平衡器也是一个读写注册器，是一个全局共享的内存。</p>
-<p>在理解基于消息传递模型的算法时，还必须弄清楚进程之间是哪一种链接（可以理解为进程之间的信道）。不同种类的链接抽象为算法提供的保证也不相同。例如，完美链接能够保证消息的可靠送达，不会重复发送消息；它保证消息会且只会一次送达。显然，现实世界并非如此。当算法设计者在设计尽量接近真实的模型时，他们会使用其他类型的链接抽象。请牢记，即使完美链接并非那么真实，它仍然有用。例如，如果我们能证明，即使链接是完美的我们也无法解决某个问题，那么所有的相关问题也将是不可解的。在讨论链接时，研究者通常会假定消息顺序是“先入先出”的， <a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs347/reading/zab.pdf">Zab</a> 就是一个例子。</p>
-<h2 id="失败模型">失败模型</h2>
-<p>进程的失败模型是分布式系统模型的一个属性，它是对进程失效种类的假设。</p>
-<p>分布式模型总是必须考虑进程失败的情况，在<strong>crash-stop失败模型</strong>中，一个进程假设为一直是正确，直至它崩溃，一旦它崩溃，就永远不会恢复；也有<strong>crash-recovery</strong> <strong>模型</strong>，进程能够在失败以后恢复，在这种情况下，一些算法来保证进程恢复到其失败之前的状态，这可以通过从持久层读取状态完成，或者通过和一个集群小组中的其他进程通讯方式完成。注意这里有不同集群组算法，一个进程崩溃后，恢复其状态的进程不会再被认为是之前同样的进程，这取决于动态组还是固定组这两种算法。</p>
-<p>失败模型也包括：一个进程如果无法接受和发送消息，被称为遗漏<strong>omission failure mode</strong>，遗漏模型也有不同种类，一个进程无法接受和发送消息很重要吗？想象一组进程实现一个分布式缓存，如果一个进程无法回复同一组的其他进程，即使能够接受来自它们的请求，这也意味着这个进程能够接受外部消息更新自己的状态，其实也就意味着它能回复来自客户端的读请求，也就是说，虽然它自己不能主动回复客户端的请求，但是可以接受客户端的主动读取请求。</p>
-<p>一个复杂失败模型是<strong>拜占庭Byzantine</strong> <strong>或称为任意失败模型</strong>，进程会发送错误信息到对方，它们会模仿发送正确数据，但是实际已经篡改了本地数据库的内容。</p>
-<p>设计分布式系统时，我们需要对付这些失败模型。</p>
-<h2 id="失败探测">失败探测</h2>
-<p>有了定时模型和进程失效模式的假设，我们就可以构建报告系统状态的抽象——失败检测器，即检测某个进程是否已经崩溃，或者怀疑这个进程已经崩溃。完美失效检测器从不虚报进程失效。</p>
-<p>我们希望在进程崩溃失败时及时发现，比如crash-stop失败模型加上同步系统，我们能够使用timeout；如果我们定期让进程ping到一个专门的失败探测器，我们就能精确知道那个进程是否正常，如果过了timeout时间没有Ping访问，那么我们就可以认为那台进程服务器崩溃了。</p>
-<p>更真实情况是，假设一个消息到达目标需要确定的时间，确定好一个进程执行一个步骤需要多长时间，那么就可以使用timeout进行衡量计算。</p>
-<p>失败模型探测有两个属性策略：</p>
-<ol type="1">
-<li><p><strong>Strong Completeness强完整性</strong>：每个失败的进程会永久被其他正确进程怀疑。</p></li>
-<li><p><strong>Eventual Strong Accuracy最终强精确度</strong>，没有一个进程被任何正确的进程怀疑。</p></li>
-</ol>
-<p>失败检测器是异步模型中解决共识问题的关键。在 <a target="_blank" rel="noopener" href="http://cs-www.cs.yale.edu/homes/arvind/cs425/doc/fischer.pdf">FLP</a> 论文中，提出了很多著名的不可能性结果。这篇论文指出，在异步的分布式系统中，如果进程有可能失效，那么就不可能达成共识。要达成共识，就必须为系统引入一个<a target="_blank" rel="noopener" href="http://www.cs.utexas.edu/~lorenzo/corsi/cs380d/papers/p225-chandra.pdf">能够规避上述问题的失效检测器</a>。</p>
-<p>当一个进程被其他进程怀疑时，这些进程就不可能达成共识consensus ，而在分布式系统中使用异步模型是必须要达成共识，也就是每个进程内部状态通过异步消息传递后，最终其他进程的状态会和最初发送消息的那个进程内部状态一致，这称为达成共识，但是因为有进程存在失败崩溃的可能，所以，在这个达成共识的消息传递过程中，如何确保进程之间的信任，不怀疑对方，从而确保消息传递成功，那么引入失败探测器是可以规避这个问题的。</p>
-<h2 id="领导人选举leader-election">领导人选举LEADER ELECTION</h2>
-<p>与失败检测相反的一个问题是，如何判定一个进程没有崩溃，它因此能够正确地工作。网络中其他进程会信赖这个进程，把它当作能够协调分布式行动的领导人。像 <a target="_blank" rel="noopener" href="https://raft.github.io/">Raft</a> 或者 <a target="_blank" rel="noopener" href="https://web.stanford.edu/class/cs347/reading/zab.pdf">Zab</a> 这样的协议就依赖领导人进程来协调行动。</p>
-<p>这种机制会导致瓶颈集中在领导人那里，而且之前还需要领导人选举，这些多余过程可能是我们不需要的。</p>
-<h2 id="一致共识consensus">一致共识CONSENSUS</h2>
-<p>共识（consensus 或 agreement）问题是由 Pease ， Shostak 和 Lamport 在论文<a target="_blank" rel="noopener" href="http://research.microsoft.com/en-us/um/people/lamport/pubs/reaching.pdf">“在存在失效的情况下达成一致”</a>首先提出来的。他们是这么描述的：</p>
-<p>“容错系统通常要求提供一种手段，使得独立的处理器或者进程能够达成某种精确的相互一致。例如，一个冗余系统的多个处理器可能需要定期同步它们的内部时钟。或者每个处理从某个时变的输入传感器读取的数值都有稍微不同，它们需要确定一个统一的值。”</p>
-<p>共识是在独立进程之间达成一致的统一意见，这些进程会就某个问题建议一个数值，基于这个推荐的值会同意采取一致行动。</p>
-<p>一个进程实现共识是通过暴露带有<strong>推荐和决定</strong>功能的API实现的，一个进程会推荐数值，由此开始共识，然后它得基于一个数值决定，这个数值是在整个系统中被推荐了的，这些算法包括：Termination, Validity, Integrity 和Agreement.</p>
-<ol type="1">
-<li><p><strong>Termination</strong>: 每个正确的进程最终会决定某个数值。</p></li>
-<li><p><strong>Validity</strong>: 如果一个进程决定了v，那么v会被其他进程推荐。</p></li>
-<li><p><strong>Integrity</strong>: 没有进程能够决定两次</p></li>
-<li><p><strong>Agreement</strong>: 没有两个正确进程有不同的决定。</p></li>
-</ol>
-<p><strong>法定人数QUORUMS</strong></p>
-<p>Quorums 是一个设计失败容错分布式系统的工具，当系统存在crash-failure模型时，总是有一个法定人数代表大多数意见从而进行决策的，因为崩溃失败的总是少数。</p>
-<p>比如有N个进程服务器，假设崩溃的进程是少数，比如N/2-1个进程崩溃，也就是49%的进程崩溃，我们还是有51%的会投赞成票。Raft协议使用的是这种大多数策略，根据提交到系统的日志来判断，</p>
-<h2 id="分布式系统的时间">分布式系统的时间</h2>
-<p>理解时间和其导致的因果是分布式系统的大问题，我们通常用事件这个概念代表生活中发生的那些事实，使用happened before顺序约束定义这些事件，但是我们有很多进程交换信息，共同访问共享资源等等，我们如何告诉某个进程事件的happened before策略呢？也就是谁在前谁在后的顺序呢？为了回答这个问题，进程需要共享一个同步的时钟，精确知道它在网络间移动花费多长时间？包括CPU调度任务的时间等等，显然这在真实世界是不可能实现的。</p>
-<p>Time, Clocks, and the Ordering of Events in a Distributed System这篇论文引入了逻辑时钟概念，逻辑时钟是一个分配一个数字给事件的方式，也就是说，这些数字不是和实际时间有关，但是和一个节点的进程事件有关。</p>
-<p>有各种逻辑时钟，比如 Vector Clocks向量时钟或 Interval Tree Clocks.</p>
-<p>理解分布式时间问题，必须理解一个重要概念：同时性这个想法有时我们必须放弃（The idea of simultaneity is something we have to let go.），这是有关“绝对知识”等旧哲学信条的问题，他们认为绝对知识是可以到达的，其实人的认识是相对，永远不可能到达真正事物本质，你以为的同时性并不是真正同时性，光线也是有速度的，即使最快的光线也是需要时间才从一个地方到达另外一个地方。可见Inventing the Enemy发明敌人 一书中的“绝对与相对”。</p>
-
+          <h2 id="分布式系统介绍"><a href="#分布式系统介绍" class="headerlink" title="分布式系统介绍"></a>分布式系统介绍</h2><p>长期以来学习掌握分布式系统的知识非常庞杂混乱，要确定分布式系统算法的分类，主要依据是搞清楚算法的各种属性。例如计时模型timing model; 进程间通讯interprocess communication 和失败模型failure model等等。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/ec5b8a8d.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1565,7 +1079,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/fe0496d6.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1592,22 +1106,22 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2017-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">2017-07-15</time>
+      <time title="创建时间：2017-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">2017-07-15</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:10:00" itemprop="dateModified" datetime="2020-09-15T17:10:00+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -1616,19 +1130,19 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">本文字数：</span>
       <span>3k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -1639,177 +1153,15 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="拜占庭将军问题">拜占庭将军问题</h2>
-<p>拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。</p>
-<p>关于拜占庭将军问题，一个简易的非正式描述如下：</p>
-<p>拜占庭帝国想要进攻一个强大的敌人，为此派出了10支军队去包围这个敌人。这个敌人虽不比拜占庭帝国，但也足以抵御5支常规拜占庭军队的同时袭击。基于一些原因，这10支军队不能集合在一起单点突破，必须在分开的包围状态下同时攻击。他们任一支军队单独进攻都毫无胜算，除非有至少6支军队同时袭击才能攻下敌国。他们分散在敌国的四周，依靠通信兵相互通信来协商进攻意向及进攻时间。困扰这些将军的问题是，他们不确定他们中是否有叛徒，叛徒可能擅自变更进攻意向或者进攻时间。在这种状态下，拜占庭将军们能否找到一种分布式的协议来让他们能够远程协商，从而赢取战斗？这就是著名的拜占庭将军问题。</p>
-<p>应该明确的是，拜占庭将军问题中并不去考虑通信兵是否会被截获或无法传达信息等问题，即消息传递的信道绝无问题。Lamport已经证明了在消息可能丢失的不可靠信道上试图通过消息传递的方式达到一致性是不可能的。所以，在研究拜占庭将军问题的时候，我们已经假定了信道是没有问题的，并在这个前提下，去做一致性和容错性相关研究。</p>
-<figure>
-<img src="/assets/2017-07-15/message.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<h2 id="拜占庭容错算法">拜占庭容错算法</h2>
-<p>我们已经了解了拜占庭将军问题的场景，并且明确了这个问题的解决是建立在通信兵可以正确的传达信息的基础上的，即信道绝对可信。接下来，我们将探讨拜占庭将军问题的实质。</p>
-<p>拜占庭容错算法是解决在<strong>同步网络</strong>，<strong>任意失败模型</strong>情况下达成一致性共识<strong>。</strong></p>
-<h2 id="拜占庭将军问题实质">拜占庭将军问题实质</h2>
-<p>回顾问题，一群将军想要实现某一个目标（一致进攻或者一致撤退），但是单独行动行不通，必须合作，达成共识；由于叛徒的存在，将军们不知道应该如何达到一致。注意，这里“<strong>一致性</strong>”才是拜占庭将军问题探讨的内容，如果本来叛徒数量就已经多到了问题不可解的地步，这个就是“反叛”的问题了；同时，我们的目标是忠诚的将军能够达成一致，对于这些忠诚的将军来说，进攻或者撤退都是可以的，只要他们能够达成一致就行。</p>
-<p>但是，光靠“一致”就可以解决问题吗？考虑一下，如果万事俱备，客观上每个忠诚的将军只要进攻了就一定能够胜利，但是却因为叛徒的存在他们都“一致的”没有进攻；反之，条件不利，将军们不应该进攻，但是却因为叛徒的存在所有人都“一致的”进攻了。</p>
-<p>可以发现，只有“一致性”是不足以解决拜占庭将军问题的，我们还需要提出一个“<strong>正确性</strong>”要求。这个要求是值得斟酌的，因为如果客观来看或许会有“绝对正确的”判断，但是针对每一个将军，大家的判断或许都不相同，我们如何定义“正确”呢？我们或许可以简单地说，正确就是每个忠诚的将军都正确的表达了自己的意思，不会因为叛徒让别的将军认为忠诚的将军是叛徒而不采用他传达的消息。</p>
-<p>至此，我们将拜占庭将军问题简化成了，所有忠诚的将军都能够让别的将军接收到自己的真实意图，并最终一致行动；而形式化的要求就是，“一致性”与“正确性”。</p>
-<p>如果将问题推广开来，可以发现针对一致性和正确性的算法并不要求命令必须是“进攻/撤退”或是“1/0”，而可以是“发送消息1/发送消息2/待机”或“x/y/z/w”，这意味着拜占庭将军问题算法可以为多种分布式系统提供启发，比如电力系统或网络系统。</p>
-<p>由此可见，这个问题说到底是一个关于一致性和正确性的算法问题，这个算法是针对的是忠诚的将军，因为叛徒可以做出任何超出约定的判断。我们就是要在有叛徒的干扰下，找到一个抗干扰的算法。要解决这个算法问题，我们需要将形式化要求具体化。</p>
-<p><strong>口头协议推演</strong></p>
-<p>下面的这个截图是从Lamport发表的论文中截取的：</p>
-<figure>
-<img src="/assets/2017-07-15/oral.png" alt="" /><figcaption>img</figcaption>
-</figure>
-<p>对于这个算法需要说明的是：</p>
-<ol type="1">
-<li><p>在第一轮 将军会把消息发送给所有的副官，第i个副官收到的记为 Vi。如 1(这里代表的是Attack)</p></li>
-<li><p>在第二轮里面，Li(即第i个副官)会怀疑将军发来的消息Vi是对还是错，于是他会问其余的副官。这样他就会得到剩下的(n-2)个副官的值。 i从1到n-1，所以每个副官都会得到剩余的n-2个副官手里的Vi。在这一步骤里，忠诚的副官j会直接将自己的 Vj发送给其它人。叛徒则会发假消息。</p></li>
-</ol>
-<p>在n=7,m=2的时候如果将军是忠臣的话，那么在第二轮忠诚的副官确实已经可以判断出要做的决定，因为他们会收到(1 1 1 0 0 )再加上将军发来的1就是 1 1 1 1 0 0 但是这个算法是递归的所有必须要到第三轮。并且如果将军是个叛徒的话，那么第二轮有情形是做不出决定的。</p>
-<p>这里对进入第三轮的解释是，如L1收到其它L2~L6发来的Vj, 但是他要怀疑准确性，比如L1会想L2发给自己是否是正确的呢？那么就进入第三轮进行投票。</p>
-<p>(3)在第三轮里面，接着(2)中后面的问题。L1会依次询问L3,4,5,6，问他们上一轮L2给他们发了什么，然后L1会得到在(2)中 L2-&gt;L3, L2-&gt;L4,L2-&gt;L5, L2-&gt;L6的值 这样再结合自己的L2-&gt;L1的值，从这5个里面用majority函数投出决定得到L2发给自己的消息值。依次再进行L3,L4,L5,L6在第二轮中发给自己的消息的确认。</p>
-<p>这样L1就完成了第二轮的确认。之后L1再从第一步中将军发给自己的vi和第二轮中确定的5个值中投出自己的决定。</p>
-<p>其余的L2，L3.等等也进行同样的步骤。</p>
-<p>如果还是没清晰的话，直接看下面的过程：</p>
-<figure>
-<img src="/assets/2017-07-15/oral_pic.png" alt="" /><figcaption>IMG_256</figcaption>
-</figure>
-<p>这里需要注意的是：Lamport提出的容错的两个条件</p>
-<p>IC1：即所有的忠诚的副官要遵守同一个命令，即达成一致；</p>
-<p>IC2：假如将军是忠诚的，那么每一个忠诚的副官都应该按照将军的意思行事。</p>
-<p>这里将军是叛徒，所以只要满足IC1条件即可。</p>
-<p>Step1 : C给L1~L6 依次发 A R A R AX （A，R代表攻击和撤退，这里因为C是叛徒，所以可以随便发给L1-L5消息，这里只是一个例子，可以用其他的值，只要最后满足IC1就可以）</p>
-<p>Step2： L1为例，L1会怀疑将军发给自己的消息，于是会问<a href="">L2-L6</a></p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>L2(R)</th>
-<th>L3(A)</th>
-<th>L4(R)</th>
-<th>L5(A)</th>
-<th>L6(X)</th>
-<th>A(L1)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>L2</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>A</td>
-<td>R</td>
-</tr>
-<tr class="even">
-<td>L3</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>R</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>L4</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>A</td>
-<td>R</td>
-</tr>
-<tr class="even">
-<td>L5</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>R</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>L6</td>
-<td>R</td>
-<td>A</td>
-<td>R</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-</tr>
-</tbody>
-</table>
-<p>算法步骤：</p>
-<table>
-<thead>
-<tr class="header">
-<th>确认将军</th>
-<th>L2(R)</th>
-<th>L3(A)</th>
-<th>L4(R)</th>
-<th>L5(A)</th>
-<th>L6(X)</th>
-<th>A(L1)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>确认L2</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>A</td>
-<td>R</td>
-</tr>
-<tr class="even">
-<td>确认L3</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>R</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>确认L4</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>A</td>
-<td>R</td>
-</tr>
-<tr class="even">
-<td>确认L5</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-<td>R</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>确认L6</td>
-<td>R</td>
-<td>A</td>
-<td>R</td>
-<td>A</td>
-<td>A</td>
-<td>A</td>
-</tr>
-</tbody>
-</table>
-<p>Step3：其实在第三步中 L1会依次确认在step2中, L2~L6发给自己的信息. 例如确认L2时 会问L3-L6,在Step2中L2发给你们了什么</p>
-<p>最后得到 R, R, R,X （因为L6这时候肯定又说谎）再结合自己的R , L1确定在Step2中收到L2发来的是R，之后又确认了L3-L6。大家可以自己在草稿纸上画出。</p>
-<p>其实因为L1-L5都是忠诚，他们不会在Step2中撒谎，所以只需投票L6即可，(A R A R A )是L6发给L1-L5的信息，最后投出发的是A ，将A修改到step2中L1-L5收到的</p>
-<p>信息中其余的信息可以不用改。</p>
-<p>最后得到L1-L5均是 4个A， 2个R。以L1为例=R A R A A A</p>
-<p>即L1~L5达成了一致。</p>
-
+          <h2 id="拜占庭将军问题"><a href="#拜占庭将军问题" class="headerlink" title="拜占庭将军问题"></a>拜占庭将军问题</h2><p>拜占庭将军问题是一个共识问题: 首先由Leslie Lamport与另外两人在1982年提出，被称为The Byzantine Generals Problem或者Byzantine Failure。核心描述是军中可能有叛徒，却要保证进攻一致，由此引申到计算领域，发展成了一种容错理论。随着比特币的出现和兴起，这个著名问题又重入大众视野。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/fe0496d6.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1829,7 +1181,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/c6088b.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1856,22 +1208,22 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2016-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-07T00:00:00+08:00">2016-07-07</time>
+      <time title="创建时间：2016-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-07T00:00:00+08:00">2016-07-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:10:08" itemprop="dateModified" datetime="2020-09-15T17:10:08+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a>
         </span>
@@ -1880,19 +1232,19 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.4k</span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -1903,37 +1255,17 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="问题描述">问题描述</h2>
-<p>我们每次使用命令</p>
+          <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我们每次使用命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@gitlab.xxx.com:xxxxx.git</span><br></pre></td></tr></table></figure>
 <p>默认 clone 的是这个仓库的 master 分支。如果最新的代码不在 master 分支上，该如何拿到呢？如下图所示，最新的代码可能在<code>daily/1.4.1</code>分支上，我们希望拿到这个分支上的代码。</p>
-<figure>
-<img src="https://ooo.0o0.ooo/2016/07/07/577e349ab42ed.png" alt="" /><figcaption>7f07c8f6deef169ef6be5103bbd3e932f8676bb1.png</figcaption>
-</figure>
-<h2 id="解决方法">解决方法</h2>
-<p><strong>刚刚开周会的时候，自己洋洋得意的分享我的解决方案，但是……经过与团队成员的的讨论，自己的方法弱爆了，现在把更优雅的方法写一下。原来写的方法并不太适合用在这个场景里。</strong> 我之前写的方法在文章后面。</p>
-<p>直接使用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -r #查看远程分支</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a #查看所有分支</span><br></pre></td></tr></table></figure>
-<p>会显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">origin&#x2F;HEAD -&gt; origin&#x2F;master</span><br><span class="line">origin&#x2F;daily&#x2F;1.2.2</span><br><span class="line">origin&#x2F;daily&#x2F;1.3.0</span><br><span class="line">origin&#x2F;daily&#x2F;1.4.1</span><br><span class="line">origin&#x2F;develop</span><br><span class="line">origin&#x2F;feature&#x2F;daily-1.0.0</span><br><span class="line">origin&#x2F;master</span><br></pre></td></tr></table></figure>
-<p>然后直接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout origin&#x2F;daily&#x2F;1.4.1</span><br></pre></td></tr></table></figure>
-<p>就好了。。。</p>
-<h2 id="原来的解决方案">原来的解决方案</h2>
-<p><strong>其实我原来写的这个方法更多的是：设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改正在跟踪的上游分支。</strong></p>
-<p>我们在本地先建立一个分支，建议名称和远程的想要同步的分支名称一样。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch daily&#x2F;1.4.1</span><br></pre></td></tr></table></figure>
-<p>在切换到这个本地分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout daily&#x2F;1.4.1</span><br><span class="line"># Switched to branch &#39;daily&#x2F;1.4.1&#39;</span><br></pre></td></tr></table></figure>
-<p>接下来就可以去建立上游分支的关联了，但是这个命令比较长，不好记，我们可以直接先<code>pull</code>一下，git 会提示我们相应的操作和命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line">There is no tracking information for the current branch.</span><br><span class="line">Please specify which branch you want to merge with.</span><br><span class="line">See git-pull(1) for details.</span><br><span class="line"></span><br><span class="line">    git pull &lt;remote&gt; &lt;branch&gt;</span><br><span class="line"></span><br><span class="line">If you wish to set tracking information for this branch you can do so with:</span><br><span class="line"></span><br><span class="line">    git branch --set-upstream-to&#x3D;origin&#x2F;&lt;branch&gt; daily&#x2F;1.4.1</span><br></pre></td></tr></table></figure>
-<p>我们看到最后一行，执行这个命令，即可完成与上游分支的关联。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;daily&#x2F;1.4.1 daily&#x2F;1.4.1</span><br><span class="line"># Branch daily&#x2F;1.4.1 set up to track remote branch daily&#x2F;1.4.1 from origin.</span><br></pre></td></tr></table></figure>
-<p>然后再<code>pull</code>一下就好了！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/c6088b.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1953,7 +1285,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2005,18 +1337,18 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-      <span>Symbols count total: </span>
-    <span title="Symbols count total">87k</span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">87k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-      <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:19</span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:19</span>
   </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -2024,7 +1356,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
   <script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -21,18 +21,18 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Muse","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="选型思路 本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。 众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一些不容忽视的缺点：  需要非常高的">
+  <meta name="description" content="选型思路本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IPOS共识算法设计">
 <meta property="og:url" content="http://whatsblockchain.com/posts/126665fc.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="选型思路 本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。 众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一些不容忽视的缺点：  需要非常高的">
-<meta property="og:locale">
+<meta property="og:description" content="选型思路本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-15T08:40:07.479Z">
+<meta property="article:modified_time" content="2020-09-15T09:09:38.599Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="分布式共识 区块链共识算法">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'zh'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -125,7 +125,10 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -146,6 +149,35 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
@@ -164,16 +196,16 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E5%9E%8B%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">选型思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">算法介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#b_prev-%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">\(B_{prev}\) 作用与生成方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%AE%80%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">公式简化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BB%E5%87%BB"><span class="nav-number">3.</span> <span class="nav-text">攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E6%88%90%E6%9C%AC%E6%94%BB%E5%87%BBnothing-at-stake"><span class="nav-number">3.1.</span> <span class="nav-text">零成本攻击(Nothing at Stake)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E6%94%BB%E5%87%BBhistory-attacks"><span class="nav-number">3.2.</span> <span class="nav-text">历史攻击(History Attacks)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E5%9E%8B%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">选型思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">算法介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-prev-%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">$B_{prev}$ 作用与生成方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%AE%80%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">公式简化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BB%E5%87%BB"><span class="nav-number">3.</span> <span class="nav-text">攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%B6%E6%88%90%E6%9C%AC%E6%94%BB%E5%87%BB-Nothing-at-Stake"><span class="nav-number">3.1.</span> <span class="nav-text">零成本攻击(Nothing at Stake)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E6%94%BB%E5%87%BB-History-Attacks"><span class="nav-number">3.2.</span> <span class="nav-text">历史攻击(History Attacks)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -185,18 +217,19 @@
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
+          <a href="/archives/">
+        
           <span class="site-state-item-count">21</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
         <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -230,7 +263,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://whatsblockchain.com/posts/126665fc.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -256,22 +289,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2019-04-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-02T00:00:00+08:00">2019-04-02</time>
+      <time title="创建时间：2019-04-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-02T00:00:00+08:00">2019-04-02</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-15 16:40:07" itemprop="dateModified" datetime="2020-09-15T16:40:07+08:00">2020-09-15</time>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-15 17:09:38" itemprop="dateModified" datetime="2020-09-15T17:09:38+08:00">2020-09-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">分布式共识</span></a>
         </span>
@@ -280,19 +313,19 @@
   
       </div>
       <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>3.8k</span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
     </span>
-    <span class="post-meta-item" title="Reading time">
+    <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -303,8 +336,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="选型思路">选型思路</h2>
-<p>本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。</p>
+        <h2 id="选型思路"><a href="#选型思路" class="headerlink" title="选型思路"></a>选型思路</h2><p>本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。</p>
+<a id="more"></a>
 <p>众所周知的是工作量证明算法（POW）是第一个在区块链中使用的共识算法，也被广泛的认证过的实现分布式共识的最好的算法，POW被广泛的用在如比特别，以太坊和一些其他的加密货币中，尽管POW算法有如此广泛的应用，但也存储在一些不容忽视的缺点：</p>
 <ul>
 <li>需要非常高的算力</li>
@@ -320,93 +353,83 @@
 <li>目前POS中常用的选择算法有两种：1. 独立同分布随机算法，2. 币龄选择。如果采用币龄选择算法，会导致用户离线攒币龄，等币龄满足条件后才上线打包区块，这样会导致我们的链上的节点在线率不高，所有在IPOS中我们选择独立同分布随机作为选择节点的算法</li>
 </ul>
 <p>如何选择节点打包区块的问题解决了，具体的算法将会在下一章节中做详细的介绍，接下来我们应该考虑的是激励的问题了，激励是区块链中一个非常重要的组成部分，在POW算法中对矿工的激励分成两部分：1. 打包生成区块的奖励。 2. 区块中的所有交易费用的奖励。 由于我们使用的是POS算法，在POS中是以权益作为算力的，所以在整个生态中我们需要确保货币不能超发即不能增发货币，所以在POS算法中我们对矿工的奖励只有交易费用这部分。</p>
-<h2 id="算法介绍">算法介绍</h2>
-<p>在POW算法中是通过hash算力来获取区块的打包权的，POS是通过权益来获取打包权的，其实POS是对POW的一种改进，为了便于大家理解POS是如何工作的，在这里我们先介绍POW的工作原理，为了便于阐述，使用hash(...)表示所有的哈希函数，在不同的共识算法中的整数范围是不一样的，例如比特币中整数的范围是<span class="math inline">\([0,2^{256}-1]\)</span>，为了便于描述我们使用<span class="math inline">\([0,M]\)</span>表示整数范围。</p>
+<h2 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h2><p>在POW算法中是通过hash算力来获取区块的打包权的，POS是通过权益来获取打包权的，其实POS是对POW的一种改进，为了便于大家理解POS是如何工作的，在这里我们先介绍POW的工作原理，为了便于阐述，使用hash(…)表示所有的哈希函数，在不同的共识算法中的整数范围是不一样的，例如比特币中整数的范围是$[0,2^{256}-1]$，为了便于描述我们使用$[0,M]$表示整数范围。</p>
 <p>POW公式：</p>
-<p><span class="math display">\[
-hash(B) \leq M \div D   \qquad\qquad\qquad\qquad\qquad (1)
-\]</span></p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+hash(B) \leq M \div D   \qquad\qquad\qquad\qquad\qquad (1)</script><p>其中：</p>
 <ul>
-<li><p><span class="math inline">\(D \in [1,M]\)</span>表示目标难度，难度越高需要查找的次数也就越多</p></li>
-<li><p><code>B</code>表示nonce，这只能通过暴力搜索的方式来寻找合适的值</p></li>
+<li><p>$D \in [1,M]$表示目标难度，难度越高需要查找的次数也就越多</p>
+</li>
+<li><p><code>B</code>表示nonce，这只能通过暴力搜索的方式来寻找合适的值</p>
+</li>
 </ul>
 <p>在POW算法中，所有矿工看到的<code>D</code>都是相同的，矿工唯一能改变的就是<code>B</code>值，所有矿工通过不断的寻找合适的<code>nonce</code>来满足上面的不等式。</p>
 <p>在POS算法中，需要对上面不等式<code>(1)</code>做一点修改，假设有一个矿工账户为<code>K</code>，账户<code>K</code>在系统中的保证金余额为<code>bal(K)</code>，那么我们可以通过以下不等式来定义POS算法</p>
 <p>POS公式：</p>
-<p><span class="math display">\[
-hash(B_{prev},K) \leq S \ast Bal(K) \ast M \div D  \qquad (2)
-\]</span></p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+hash(B_{prev},K) \leq S \ast Bal(K) \ast M \div D  \qquad (2)</script><p>其中：</p>
 <ul>
-<li><p><span class="math inline">\(B_{prev}\)</span> 区块中的一个字段（生成签名），矿工使用生成签名字段与矿工的地址做hash运算生成一个随机数，具体过程在下文中有详细解释。</p></li>
-<li><p><code>S</code> 父区块到当前区块之间的时间差</p></li>
-<li><p><code>Bal(K)</code> 矿工K拥有的保证金余额</p></li>
+<li><p>$B_{prev}$  区块中的一个字段（生成签名），矿工使用生成签名字段与矿工的地址做hash运算生成一个随机数，具体过程在下文中有详细解释。</p>
+</li>
+<li><p><code>S</code> 父区块到当前区块之间的时间差</p>
+</li>
+<li><p><code>Bal(K)</code> 矿工K拥有的保证金余额</p>
+</li>
 </ul>
 <p>与(1)不同，矿工唯一可以改变的变量是不等式(2)右侧的时间戳S，因为矿工地址中的保证金被系统锁定。随着时间的流失不等式的右边的值会越来越大，不等式右边的增长幅度与矿工的保证金大小成正比，所以在未来的某一刻一定会到达满足不等式(2)成立的条件。从这个过程中可以看出，在POS中没有涉及到昂贵的计算，矿工的出块速度与其拥有的保证金大小成正相关。</p>
-<h3 id="b_prev-作用与生成方法"><span class="math inline">\(B_{prev}\)</span> 作用与生成方法</h3>
-<p>在POW算法中所有矿工都解的是同一道题目，即如何使不等式(1)成立，在POS算法中我们需要满足之前所说的两个条件：</p>
-<ol type="1">
+<h3 id="B-prev-作用与生成方法"><a href="#B-prev-作用与生成方法" class="headerlink" title="$B_{prev}$ 作用与生成方法"></a>$B_{prev}$ 作用与生成方法</h3><p>在POW算法中所有矿工都解的是同一道题目，即如何使不等式(1)成立，在POS算法中我们需要满足之前所说的两个条件：</p>
+<ol>
 <li>矿工被选中的概率，与矿工所持有的保证金数额成正比</li>
 <li>在算法选择过程中包含一定程度的概率，以避免出现富有的矿工总是被选中生成区块，持续获得的奖励，富人越来越富</li>
 </ol>
-<p>第一个条件好满足，从不等式(2)中就可以看出，矿工持有的保证金额度越高不等式右边的增长幅度就越快。为了满足第二个条件，我们引入了<span class="math inline">\(B_{prev}\)</span>生成签名，生成签名可以看作是一个不可预测的随机数，它为了不等式(2)的左边，这意味着每一个矿工所需要解决的题目是不相同的，这样就可以避免富有的矿工总是被选中。下面是<span class="math inline">\(B_{prev}\)</span>的生成过程：</p>
-<ol type="1">
-<li>在区块头中有一个生成签名的字段<span class="math inline">\(B_{prev}\)</span></li>
-<li>将当前矿工的地址与父区块的<span class="math inline">\(B_{prev}\)</span>做hash运算，可以看出每一个矿工得到的值都是不一样的。</li>
+<p>第一个条件好满足，从不等式(2)中就可以看出，矿工持有的保证金额度越高不等式右边的增长幅度就越快。为了满足第二个条件，我们引入了$B<em>{prev}$生成签名，生成签名可以看作是一个不可预测的随机数，它为了不等式(2)的左边，这意味着每一个矿工所需要解决的题目是不相同的，这样就可以避免富有的矿工总是被选中。下面是$B</em>{prev}$的生成过程：</p>
+<ol>
+<li>在区块头中有一个生成签名的字段$B_{prev}$</li>
+<li>将当前矿工的地址与父区块的$B_{prev}$做hash运算，可以看出每一个矿工得到的值都是不一样的。</li>
 <li>将运算后的结果取前八个字节作为不等式(2)左边的值</li>
 </ol>
-<h3 id="公式简化">公式简化</h3>
-<p>现在我们将不等式(2)做一点简化，IPOS中会在创始块中设置一个字段BaseTarget（基础目标），这个BaseTarget就相当于POW算法中的难度，在区块链系统中所有的节点都是可以自由加入、退出的，所以我们需要根据全网中的现有算力来调整难度，目的是维持出块速度保持稳定。</p>
+<h3 id="公式简化"><a href="#公式简化" class="headerlink" title="公式简化"></a>公式简化</h3><p>现在我们将不等式(2)做一点简化，IPOS中会在创始块中设置一个字段BaseTarget（基础目标），这个BaseTarget就相当于POW算法中的难度，在区块链系统中所有的节点都是可以自由加入、退出的，所以我们需要根据全网中的现有算力来调整难度，目的是维持出块速度保持稳定。</p>
 <p>baseTarget公式：</p>
-<p><span class="math display">\[
-T_b=M \div D
-\]</span></p>
-<p>一旦BaseTarget初始化后，之后就会针对BaseTarget进行调整了，具体调整方法在下文中有详细的解释。</p>
+<script type="math/tex; mode=display">
+T_b=M \div D</script><p>一旦BaseTarget初始化后，之后就会针对BaseTarget进行调整了，具体调整方法在下文中有详细的解释。</p>
 <p>相应的对不等式(2)右边进行相应的替代，不等式(2)右边：</p>
-<p><span class="math display">\[
-{T_k}={T_b} \times {S} \times {B_k}
-\]</span></p>
-<p>其中：</p>
+<script type="math/tex; mode=display">
+{T_k}={T_b} \times {S} \times {B_k}</script><p>其中：</p>
 <ul>
-<li><span class="math inline">\(T_k\)</span>是当前矿工计算后的值，这个值会随着时间增加而增长</li>
+<li>$T_k$是当前矿工计算后的值，这个值会随着时间增加而增长</li>
 </ul>
-<p>在上文中解释了IPOS中的随机数生成规则，同样这里使用<span class="math inline">\(H_k\)</span>来替代不等式(2)左边的部分，不等式(2) 左边</p>
-<p><span class="math display">\[
-H_k = hash(B_{prev},K)[0:8]
-\]</span></p>
-<p>新的不等式：</p>
-<p><span class="math display">\[
-H_k \leq T_b \times S \times B_k \qquad\qquad\qquad (3)
-\]</span></p>
-<p>不等式(3)就是经过简化后的公式，上面提到过为了问题出块速度需要根据全网中的算力，对BaseTarget进行相关的调整，以下就是BaseTarget调整的公式。</p>
+<p>在上文中解释了IPOS中的随机数生成规则，同样这里使用$H_k$来替代不等式(2)左边的部分，不等式(2) 左边</p>
+<script type="math/tex; mode=display">
+H_k = hash(B_{prev},K)[0:8]</script><p>新的不等式：</p>
+<script type="math/tex; mode=display">
+H_k \leq T_b \times S \times B_k \qquad\qquad\qquad (3)</script><p>不等式(3)就是经过简化后的公式，上面提到过为了问题出块速度需要根据全网中的算力，对BaseTarget进行相关的调整，以下就是BaseTarget调整的公式。</p>
 <p>BaseTarget 调整公式:</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 T_b=
 \begin{cases}
-T_p \ast \frac {min(S,R_{max})}{15}                        &amp;  {S &gt; 15} \\
-T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
-\end{cases}
-\]</span></p>
-<p>其中：</p>
+T_p \ast \frac {min(S,R_{max})}{15}                        &  {S > 15} \\
+T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &  {S \leq 15}
+\end{cases}</script><p>其中：</p>
 <ul>
-<li><p><span class="math inline">\(R_{max}\)</span>=22 当区块时间大于15秒时，目标降低的最大比率</p></li>
-<li><p><span class="math inline">\(R_{min}\)</span>=8 当块时间小于15秒时，目标增加的最小比率</p></li>
-<li><p><span class="math inline">\(\gamma\)</span>=0.64</p></li>
-<li><p><code>S</code> 是最近3个区块的平均时间，目前保证出块时间稳定在15秒左右</p></li>
-<li><p><span class="math inline">\(T_p\)</span> 父区块的baseTarget</p></li>
-<li><p><span class="math inline">\(T_b\)</span> 当前账户计算出的baseTarget</p></li>
+<li><p>$R_{max}$=22 当区块时间大于15秒时，目标降低的最大比率</p>
+</li>
+<li><p>$R_{min}$=8 当块时间小于15秒时，目标增加的最小比率</p>
+</li>
+<li><p>$\gamma$=0.64</p>
+</li>
+<li><p><code>S</code> 是最近3个区块的平均时间，目前保证出块时间稳定在15秒左右</p>
+</li>
+<li><p>$T_p$ 父区块的baseTarget</p>
+</li>
+<li><p>$T_b$ 当前账户计算出的baseTarget</p>
+</li>
 </ul>
-<h2 id="攻击">攻击</h2>
-<h3 id="零成本攻击nothing-at-stake">零成本攻击(Nothing at Stake)</h3>
-<p>在一个零成本攻击中，矿工试图在block的每个分支上都继续创建block，因为这个行为几乎对攻击者毫无成本；另外，忽略任何一个分支都可能会导致丢失奖励，一旦某一个分支因为最大的累计难度成为正式的区块链；</p>
+<h2 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h2><h3 id="零成本攻击-Nothing-at-Stake"><a href="#零成本攻击-Nothing-at-Stake" class="headerlink" title="零成本攻击(Nothing at Stake)"></a>零成本攻击(Nothing at Stake)</h3><p>在一个零成本攻击中，矿工试图在block的每个分支上都继续创建block，因为这个行为几乎对攻击者毫无成本；另外，忽略任何一个分支都可能会导致丢失奖励，一旦某一个分支因为最大的累计难度成为正式的区块链；</p>
 <p>现在这类攻击只是在理论上可能发生，并不实际；Ionchain网络不会经历长的block分支，低区块收益也无法提供非常强的利益刺激；进一步讲，为了很小的利益而影响网络的安全和信任是得不偿失的。</p>
 <p>作为ionchain发展路线图中的一部分，一个叫做“经济集合”概念的特性可以针对这种攻击提供保护，它通过强制要求交易创建时包含一个之前block的hash值来探测网络中非正常的行为并给予处罚（暂时失去挖矿能力)</p>
-<h3 id="历史攻击history-attacks">历史攻击(History Attacks)</h3>
-<p>在一个历史攻击中，某个人获得了一大笔货币，并出售，然后试图从交易前创建一个成功的分支替换区块链数据；如果失败了，对攻击者不会有任何损失，因为货币已经成功出售了；如果攻击成功，那么攻击者又拿回了他们已经出售的货币。这种攻击的一个极端例子就是攻击者需要获取账户的私钥，然后从创世块开始构建一个成功分支；</p>
+<h3 id="历史攻击-History-Attacks"><a href="#历史攻击-History-Attacks" class="headerlink" title="历史攻击(History Attacks)"></a>历史攻击(History Attacks)</h3><p>在一个历史攻击中，某个人获得了一大笔货币，并出售，然后试图从交易前创建一个成功的分支替换区块链数据；如果失败了，对攻击者不会有任何损失，因为货币已经成功出售了；如果攻击成功，那么攻击者又拿回了他们已经出售的货币。这种攻击的一个极端例子就是攻击者需要获取账户的私钥，然后从创世块开始构建一个成功分支；</p>
 <p>在ionchain中，一般的历史攻击都会失败，因为所有可以用来挖矿的权益都需要停留区块达到5769个（一天的时间），这就限制了攻击者，从时间框架上无法实现成功的攻击。</p>
-<h2 id="实现">实现</h2>
-<p>算法的具体实现可以参考github上的开源项目<a target="_blank" rel="noopener" href="http://github.com/ionchain/ionchain-core">ionchain-core</a></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>算法的具体实现可以参考github上的开源项目<a target="_blank" rel="noopener" href="http://github.com/ionchain/ionchain-core">ionchain-core</a></p>
 
     </div>
 
@@ -488,18 +511,18 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-      <span>Symbols count total: </span>
-    <span title="Symbols count total">87k</span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">87k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-      <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:19</span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:19</span>
   </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -507,7 +530,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
   <script>
