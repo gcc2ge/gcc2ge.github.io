@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="T1Dbmn0YmNZwwxNqq98b7FvVCsxbeIChYP6H75TZjdk">
+  <meta name="baidu-site-verification" content="code-86L5xW0tJy">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="上一篇简要说明了什么是substrate，在这一篇中将从实践角度近距离接触一下substrate，在本篇中我们将手动编译运行一个substrat私有节点，并且验证以下几个功能：  基于substrate node-template搭建一个私有节点 启动多个节点组成网络 自定义出块节点  生成 ed25519 和sr25519 密钥对  自定义创世区块，创建chainspec.json文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="运行substrate私链">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/e9b4c4d6.html">
+<meta property="og:site_name" content="区块链大杂烩">
+<meta property="og:description" content="上一篇简要说明了什么是substrate，在这一篇中将从实践角度近距离接触一下substrate，在本篇中我们将手动编译运行一个substrat私有节点，并且验证以下几个功能：  基于substrate node-template搭建一个私有节点 启动多个节点组成网络 自定义出块节点  生成 ed25519 和sr25519 密钥对  自定义创世区块，创建chainspec.json文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28473.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28456.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28480.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28484.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28490.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28521.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28528.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28526.png">
+<meta property="article:published_time" content="2020-07-25T08:26:54.000Z">
+<meta property="article:modified_time" content="2020-09-16T08:31:51.524Z">
+<meta property="article:author" content="吴寿鹤">
+<meta property="article:tag" content="substrate">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28473.png">
+
+
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/e9b4c4d6.html">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>运行substrate私链 | 区块链大杂烩</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145440251-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9af0452214522472f44968f5a652e2f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">区块链大杂烩</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rust%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">rust安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">2.</span> <span class="nav-text">安装依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">快速安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">完全安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node-template"><span class="nav-number">3.</span> <span class="nav-text">安装node-template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%8A%82%E7%82%B9%E5%90%AF%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">单节点启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%8A%82%E7%82%B9%E5%90%AF%E5%8A%A8"><span class="nav-number">5.</span> <span class="nav-text">多节点启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%81%E9%92%A5%E7%94%9F%E6%88%90"><span class="nav-number">6.</span> <span class="nav-text">私钥生成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80subkey"><span class="nav-number">6.1.</span> <span class="nav-text">方法一：subkey</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sr25519"><span class="nav-number">6.1.1.</span> <span class="nav-text">sr25519</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8Cpolkadot-js-%E9%A1%B5%E9%9D%A2"><span class="nav-number">6.2.</span> <span class="nav-text">方法二：Polkadot-JS 页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%E9%A2%84%E7%94%9F%E6%88%90%E5%9C%B0%E5%9D%80"><span class="nav-number">6.3.</span> <span class="nav-text">方法三：预生成地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%9B%E4%B8%96%E5%9D%97"><span class="nav-number">7.</span> <span class="nav-text">自定义创世块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keystore"><span class="nav-number">8.</span> <span class="nav-text">Keystore</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80polkadot-js-apps-ui"><span class="nav-number">8.1.</span> <span class="nav-text">方法一：Polkadot-JS Apps UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8Ccurl"><span class="nav-number">8.2.</span> <span class="nav-text">方法二：CURL</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴寿鹤</p>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/e9b4c4d6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="区块链大杂烩">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          运行substrate私链
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-25 16:26:54" itemprop="dateCreated datePublished" datetime="2020-07-25T16:26:54+08:00">2020-07-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-16 16:31:51" itemprop="dateModified" datetime="2020-09-16T16:31:51+08:00">2020-09-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/substrate/" itemprop="url" rel="index"><span itemprop="name">substrate</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>20k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>18 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>上一篇简要说明了什么是<code>substrate</code>，在这一篇中将从实践角度近距离接触一下<code>substrate</code>，在本篇中我们将手动编译运行一个<code>substrat</code>私有节点，并且验证以下几个功能：</p>
+<ul>
+<li>基于<code>substrate node-template</code>搭建一个私有节点</li>
+<li>启动多个节点组成网络</li>
+<li>自定义出块节点
+<ul>
+<li>生成 <code>ed25519</code> 和<code>sr25519</code> 密钥对</li>
+</ul></li>
+<li>自定义创世区块，创建<code>chainspec.json</code>文件</li>
+</ul>
+<a id="more"></a>
+<h2 id="rust安装">rust安装</h2>
+<p><code>substrate</code>是用<code>rust</code>语言编程的，在搭建<code>substrate</code>私链的时候需要先编译<code>substrate</code>，所以需要安装<code>rust</code>相关编译环境。但是一般我们不单独下载<code>rust</code>的编译器，而是使用一个叫<code>rustup</code>的工具安装<code>rust</code>相关的一整套工具链，包括编译器、标准库、<code>cargo</code>等。使用这个工具，我们还可以轻易地更新版本、切换渠道、多工具链管理等。</p>
+<p><code>rustup</code>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash</span><br></pre></td></tr></table></figure>
+<p>为了让下载更顺畅，可以配置国内源。在~/.profile中添加如下两行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export RUSTUP_DIST_SERVER&#x3D;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;rust-static</span><br><span class="line">export RUSTUP_UPDATE_ROOT&#x3D;https:&#x2F;&#x2F;mirrors.sjtug.sjtu.edu.cn&#x2F;rust-static&#x2F;rustup</span><br></pre></td></tr></table></figure>
+<h2 id="安装依赖">安装依赖</h2>
+<p>编译安装<code>substrate</code>需要一些预装依赖。<code>substrate</code>提供了快速安装和完全安装两种形式，都是傻瓜式一键安装</p>
+<h3 id="快速安装">快速安装</h3>
+<p>快速安装仅安装依赖项，而不编译<code>substrate</code>。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash -s -- --fast</span><br></pre></td></tr></table></figure> 从<code>https://getsubstrate.io</code>脚本中可以看出，脚本安装了以下三个依赖库：</p>
+<ul>
+<li>OpenSSL 包含了一系列的软件包来实现安全通信，还是一个通用的加密库</li>
+<li>CMake 是一个跨平台的编译打包工具</li>
+<li>LLVM 是一个编译器框架，用来生成虚拟机字节码或者二进制机器码</li>
+</ul>
+<h3 id="完全安装">完全安装</h3>
+<p>完全安装花费的时间很长，需要大概几分钟到十几分钟，具体时间取决于运行脚本的硬件，因为它还会编译<code>substrate</code>框架所需的所有<code>rust</code>库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash</span><br></pre></td></tr></table></figure></p>
+<p>完整安装除了包含上面的内容，还将安装以下两个工具：</p>
+<ul>
+<li><code>subKey</code>：用于创建<code>substrate</code>私钥的命令行工具</li>
+<li><code>substrate node</code>：预配置的<code>substrate</code>节点，可以直接接入<code>substrate</code>测试网络</li>
+</ul>
+<p>安装完成后执行命令检查安装是否正确:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.cargo&#x2F;env</span><br><span class="line">substrate --version</span><br><span class="line">subkey --version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>默认情况下，<code>substrate</code>和工具程序安装在<code>~/.cargo/bin</code>目录中，执行以下命令看一下安装的程序：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls ~/.cargo/bin</span><br><span class="line"></span><br><span class="line">substrate-ui-new        substrate-module-new    polkadot-js-apps-new       </span><br><span class="line">substrate-node-new      substrae                subkey</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>你会注意到除了<code>substrate</code>和<code>subkey</code>，还有<code>substrate-node-new</code>和<code>substrate-module-new</code>这两个程序，接下来我们将使用这些程序来创建新的私有节点。</p>
+<blockquote>
+<p>由于完全安装的方式消耗时间很长，我们可以选择快速安装，需要的程序可以在使用到的时候在手动编译安装</p>
+</blockquote>
+<h2 id="安装node-template">安装node-template</h2>
+<p><code>substrate</code>作为一个标准的区块链开发框架，不仅提供了必备的底层公共组件（如数据库、共识、<code>P2P</code>、交易池）和通用的<code>runtime</code>模块（如资产相关的<code>balances</code>，治理相关的<code>democracy</code>等），还提供了将各个功能组件连接起来的节点模板程序（<code>node-template</code>）。</p>
+<p>从<code>github</code>上下载节点模板代码<code>Substrate Node Template (version v2.0.0-rc4)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b v2.0.0-rc4 --depth 1 https:&#x2F;&#x2F;github.com&#x2F;substrate-developer-hub&#x2F;substrate-node-template</span><br></pre></td></tr></table></figure>
+<p><code>substrate</code>采用最新稳定版<code>rust</code>进行编译。为保证<code>rust</code>编译器是最新的，运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Update Rust</span><br><span class="line">rustup update nightly</span><br></pre></td></tr></table></figure>
+<p><code>substrate</code>会使用到<code>WebAssembly(Wasm)</code>，需要配置<code>rust</code>编译器使用<code>nightly</code>版本进行编译，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rustup update stable</span><br><span class="line"># Add Wasm target</span><br><span class="line">rustup target add wasm32-unknown-unknown --toolchain nightly</span><br></pre></td></tr></table></figure>
+<p>接下来就可以进行编译了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd substrate-node-template&#x2F;</span><br><span class="line">git checkout -b my-first-substrate-chain</span><br><span class="line">cargo build --release</span><br></pre></td></tr></table></figure>
+<p>编译过程大概需要15到30分钟，具体视网络和机器性能而定。</p>
+<p>编译过程中需要从<code>cartes.io</code>中下载一些依赖包，如果<code>crates</code>里面包下载过慢，可更改为国内源，修改<code>~/.cargo/config</code>文件，文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[source.crates-io]</span><br><span class="line">registry &#x3D; &quot;https:&#x2F;&#x2F;github.com&#x2F;rust-lang&#x2F;crates.io-index&quot;</span><br><span class="line">replace-with &#x3D; &#39;ustc&#39;</span><br><span class="line">[source.ustc]</span><br><span class="line">registry &#x3D; &quot;git:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;crates.io-index&quot;</span><br><span class="line"></span><br><span class="line">[http]</span><br><span class="line">check-revoke&#x3D;false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其中<code>http</code>下<code>check-revoke=false</code>的设置是为了解决有些包无法下载的问题。</p>
+<h2 id="单节点启动">单节点启动</h2>
+<p>编译完成后，接下来开始启动一个单节点，首先执行以下命令清除数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template purge-chain --dev -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>然后通过以下命令运行节点，<code>--dev</code>表示启动一个本地开发链：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># Run your actual node in &quot;development&quot; mode</span><br><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template --dev</span><br><span class="line"></span><br><span class="line">2020-07-20 08:17:59 Running in --dev mode, RPC CORS has been disabled.</span><br><span class="line">2020-07-20 08:17:59 Substrate Node</span><br><span class="line">2020-07-20 08:17:59 ✌️  version 2.0.0-rc4-ff0fa24-x86_64-macos</span><br><span class="line">2020-07-20 08:17:59 ❤️  by Substrate DevHub &lt;https:&#x2F;&#x2F;github.com&#x2F;substrate-developer-hub&gt;, 2017-2020</span><br><span class="line">2020-07-20 08:17:59 📋 Chain specification: Development</span><br><span class="line">2020-07-20 08:17:59 🏷  Node name: absorbing-rub-5487</span><br><span class="line">2020-07-20 08:17:59 👤 Role: AUTHORITY</span><br><span class="line">2020-07-20 08:17:59 💾 Database: RocksDb at &#x2F;Users&#x2F;shouhewu&#x2F;Library&#x2F;Application Support&#x2F;node-template&#x2F;chains&#x2F;dev&#x2F;db</span><br><span class="line">2020-07-20 08:17:59 ⛓  Native runtime: node-template-1 (node-template-1.tx1.au1)</span><br><span class="line">2020-07-20 08:18:00 🔨 Initializing Genesis block&#x2F;state (state: 0x4873…6b70, header-hash: 0x6507…6b1c)</span><br><span class="line">2020-07-20 08:18:00 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.</span><br><span class="line">2020-07-20 08:18:00 ⏱  Loaded block-time &#x3D; 6000 milliseconds from genesis on first-launch</span><br><span class="line">2020-07-20 08:18:00 📦 Highest known block at #0</span><br><span class="line">2020-07-20 08:18:00 Using default protocol ID &quot;sup&quot; because none is configured in the chain specs</span><br><span class="line">2020-07-20 08:18:00 🏷  Local node identity is: 12D3KooWNQcY6Nok89pZA8beSJYxud9tXmaa4njmg5tYVHfqu6Fu (legacy representation: QmQvaKQMAasAAXa1ePzanvVWyjMx2dvB3Pa9UDZM2swvr7)</span><br><span class="line">2020-07-20 08:18:00 〽️ Prometheus server started at 127.0.0.1:9615</span><br><span class="line">2020-07-20 08:18:05 💤 Idle (0 peers), best: #0 (0x6507…6b1c), finalized #0 (0x6507…6b1c), ⬇ 0 ⬆ 0</span><br><span class="line">2020-07-20 08:18:06 🙌 Starting consensus session on top of parent 0x6507cc935d4965698302c6c4a30a19a2bbe4b4fe4657734d08d122139bde6b1c</span><br><span class="line">2020-07-20 08:18:06 🎁 Prepared block for proposing at 1 [hash: 0x4b17dcfa7844be12bf6510e71f5e223c14d0d049ed6043adf67dfcc64f5a6fca; parent_hash: 0x6507…6b1c; extrinsics (1): [0x6f75…2375]]</span><br><span class="line">2020-07-20 08:18:06 🔖 Pre-sealed block for proposal at 1. Hash now 0xb486e13b481222879df3f1de669c8ffc92bb0ef5d50fdf68924b4ca4ed8630f0, previously 0x4b17dcfa7844be12bf6510e71f5e223c14d0d049ed6043adf67dfcc64f5a6fca.</span><br><span class="line">2020-07-20 08:18:06 ✨ Imported #1 (0xb486…30f0)</span><br></pre></td></tr></table></figure>
+<p>看到高度一直在增加，说明链已经在生产新的区块了，启动成功。从浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，其中<code>rpc=ws://127.0.0.1:9944</code>表示通过<code>websocket</code>方式连接你本地节点</p>
+<p><img src="/assets/2020-07-25/28473.png" /></p>
+<p>打开Accounts选项卡，你会看到已经有几个内置账号，并且账号有<code>Token</code>：</p>
+<p><img src="/assets/2020-07-25/28456.png" /></p>
+<p>点击"添加账号"按钮创建一个自己的账号:</p>
+<p><img src="/assets/2020-07-25/28480.png" /></p>
+<p>创建完成后点击右边导航"交易"菜单向你的账号转账，转账从<code>Alice</code>转给<code>gcc2ge</code></p>
+<p><img src="/assets/2020-07-25/28484.png" /></p>
+<p>转账成功后会收到转账成功的通知</p>
+<p><img src="/assets/2020-07-25/28490.png" /></p>
+<p>至此你的第一个Substrate链就算创建完成了。</p>
+<h2 id="多节点启动">多节点启动</h2>
+<p>接下来演示使用两个内置的账户<code>Alice</code>与<code>Bob</code>作为出块节点组成区块链网络。</p>
+<p>在启动<code>Alice</code>节点之前先清空数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template purge-chain --base-path &#x2F;tmp&#x2F;alice --chain local -y</span><br></pre></td></tr></table></figure>
+<p>启动<code>Alice</code>节点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Start Alice&#39;s node</span><br><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template \</span><br><span class="line">  --base-path &#x2F;tmp&#x2F;alice \</span><br><span class="line">  --chain local \</span><br><span class="line">  --alice \</span><br><span class="line">  --port 30333 \</span><br><span class="line">  --ws-port 9944 \</span><br><span class="line">  --rpc-port 9933 \</span><br><span class="line">  --telemetry-url &#39;ws:&#x2F;&#x2F;telemetry.polkadot.io:1024 0&#39; \</span><br><span class="line">  --validator</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>命令行参数的解释如下：</p>
+<ul>
+<li><code>--base-path /tmp/alice</code>：节点数据存储的位置</li>
+<li><code>--chain=local</code>：指定了节点所处的网络类型，这里<code>local</code>表示本地测试网络，<code>dev</code>表示本地开发，<code>staging</code>表示公开测试网络</li>
+<li><code>--alice</code>：模块节点程序启动时需要私钥，这里我们用了预置的<code>Alice</code>用户私钥</li>
+<li><code>--port 30333</code>：指定<code>p2p</code>协议的<code>TCP</code>端口</li>
+<li><code>--ws-port 9944</code>：指定<code>websocket</code>接听端口</li>
+<li><code>--rpc-port 9933</code>：指定<code>rpc</code>监听端口</li>
+<li><code>--telemetry-url 'ws://telemetry.polkadot.io:1024 0'</code>：将节点的监控数据发送到指定的监控服务器</li>
+<li><code>--validator</code>：启用<code>validator</code>模式，参与区块生产</li>
+</ul>
+<p>启动完成后，输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">2020-07-20 11:39:46 Substrate Node</span><br><span class="line">2020-07-20 11:39:46 ✌️  version 2.0.0-rc4-ff0fa24-x86_64-macos</span><br><span class="line">2020-07-20 11:39:46 ❤️  by Substrate DevHub &lt;https:&#x2F;&#x2F;github.com&#x2F;substrate-developer-hub&gt;, 2017-2020</span><br><span class="line">2020-07-20 11:39:46 📋 Chain specification: Local Testnet</span><br><span class="line">2020-07-20 11:39:46 🏷  Node name: Alice</span><br><span class="line">2020-07-20 11:39:46 👤 Role: AUTHORITY</span><br><span class="line">2020-07-20 11:39:46 💾 Database: RocksDb at &#x2F;tmp&#x2F;alice&#x2F;chains&#x2F;local_testnet&#x2F;db</span><br><span class="line">2020-07-20 11:39:46 ⛓  Native runtime: node-template-1 (node-template-1.tx1.au1)</span><br><span class="line">2020-07-20 11:39:46 🔨 Initializing Genesis block&#x2F;state (state: 0x4a9b…7ece, header-hash: 0x2d08…1087)</span><br><span class="line">2020-07-20 11:39:46 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.</span><br><span class="line">2020-07-20 11:39:46 ⏱  Loaded block-time &#x3D; 6000 milliseconds from genesis on first-launch</span><br><span class="line">2020-07-20 11:39:46 📦 Highest known block at #0</span><br><span class="line">2020-07-20 11:39:46 Using default protocol ID &quot;sup&quot; because none is configured in the chain specs</span><br><span class="line">2020-07-20 11:39:46 🏷  Local node identity is: 12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W (legacy representation: QmXkF8Q7g4gGSAgSRhqGrPKiNpcjeRAD8wcS7hUH5umjEe)</span><br><span class="line">2020-07-20 11:39:46 〽️ Prometheus server started at 127.0.0.1:9615</span><br><span class="line">2020-07-20 11:49:23 💤 Idle (0 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 0 ⬆ 0</span><br><span class="line">2020-07-20 11:49:28 💤 Idle (0 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 0 ⬆ 0</span><br><span class="line">2020-07-20 11:49:33 💤 Idle (0 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 0 ⬆ 0</span><br><span class="line">2020-07-20 11:49:38 💤 Idle (0 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 0 ⬆ 0</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>2020-07-20 11:39:46 🔨 Initializing Genesis block/state (state: 0x4a9b…7ece, header-hash: 0x2d08…1087)</code>，表示当前节点正在使用的创世块信息，当启动另一个节点的时候可以验证两个节点使用的创世块是否一致。</p>
+<p><code>2020-07-20 11:39:46 🏷  Local node identity is: 12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W (legacy representation: QmXkF8Q7g4gGSAgSRhqGrPKiNpcjeRAD8wcS7hUH5umjEe)</code>表示当前节点<code>Alice</code>的<code>peer id</code>信息，当另一个节点需要加入网络的时候需要得到<code>Alice</code>的<code>peer id</code></p>
+<p><code>2020-07-20 11:49:38 💤 Idle (0 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 0 ⬆ 0</code>，当前节点处于空闲状态，并没有产生区块，需要另一个节点加入到网络中时候才开始产生区块</p>
+</blockquote>
+<p>打开一个新的命令行窗口，启动<code>Bob</code>节点，同样在启动之前先清空数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template purge-chain --base-path &#x2F;tmp&#x2F;bob --chain local -y</span><br></pre></td></tr></table></figure>
+<p>启动<code>Bob</code>节点：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">./target/release/node-template \</span><br><span class="line">  --base-path /tmp/bob \</span><br><span class="line">  --chain local \</span><br><span class="line">  --bob \</span><br><span class="line">  --port 30334 \</span><br><span class="line">  --ws-port 9945 \</span><br><span class="line">  --rpc-port 9934 \</span><br><span class="line">  --telemetry-url &#x27;ws://telemetry.polkadot.io:1024 0&#x27; \</span><br><span class="line">  --validator \</span><br><span class="line">  --bootnodes /ip4/&lt;Alices IP Address&gt;/tcp/&lt;Alices Port&gt;/p2p/&lt;Alices Peer ID&gt;</span><br></pre></td></tr></table></figure>
+<p><code>Bob</code>的启动参数中大多数与<code>Alice</code>是相同的，下面对一些不同点做解释： - 由于<code>Alice</code>与<code>Bob</code>运行在同一台机器上，所以为Bob节点指定了不同的数据存储路径、p2p端口等。 - <code>--bootnodes</code>指明了依赖的启动节点信息，这里使用了<code>Alice</code>节点作为启动节点 - <code>&lt;Alices IP Address&gt;</code>：<code>Alice</code>的<code>IP</code>地址，127.0.0.1 - <code>&lt;Alices Port&gt;</code>：<code>Alice</code>的端口<code>30333</code> - <code>&lt;Alices Peer ID&gt;</code>：<code>Alice</code>的节点<code>ID</code>为<code>12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W</code></p>
+<p><code>Bob</code>完整的启动命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template \</span><br><span class="line">  --base-path &#x2F;tmp&#x2F;bob \</span><br><span class="line">  --chain local \</span><br><span class="line">  --bob \</span><br><span class="line">  --port 30334 \</span><br><span class="line">  --ws-port 9945 \</span><br><span class="line">  --rpc-port 9934 \</span><br><span class="line">  --telemetry-url &#39;ws:&#x2F;&#x2F;telemetry.polkadot.io:1024 0&#39; \</span><br><span class="line">  --validator \</span><br><span class="line">  --bootnodes &#x2F;ip4&#x2F;127.0.0.1&#x2F;tcp&#x2F;30333&#x2F;p2p&#x2F;12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W</span><br></pre></td></tr></table></figure>
+<p>如果一切正常，你应该能够看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">2020-07-20 12:03:06 Substrate Node</span><br><span class="line">2020-07-20 12:03:06 ✌️  version 2.0.0-rc4-ff0fa24-x86_64-macos</span><br><span class="line">2020-07-20 12:03:06 ❤️  by Substrate DevHub &lt;https:&#x2F;&#x2F;github.com&#x2F;substrate-developer-hub&gt;, 2017-2020</span><br><span class="line">2020-07-20 12:03:06 📋 Chain specification: Local Testnet</span><br><span class="line">2020-07-20 12:03:06 🏷  Node name: Bob</span><br><span class="line">2020-07-20 12:03:06 👤 Role: AUTHORITY</span><br><span class="line">2020-07-20 12:03:06 💾 Database: RocksDb at &#x2F;tmp&#x2F;bob&#x2F;chains&#x2F;local_testnet&#x2F;db</span><br><span class="line">2020-07-20 12:03:06 ⛓  Native runtime: node-template-1 (node-template-1.tx1.au1)</span><br><span class="line">2020-07-20 12:03:06 🔨 Initializing Genesis block&#x2F;state (state: 0x4a9b…7ece, header-hash: 0x2d08…1087)</span><br><span class="line">2020-07-20 12:03:06 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.</span><br><span class="line">2020-07-20 12:03:06 ⏱  Loaded block-time &#x3D; 6000 milliseconds from genesis on first-launch</span><br><span class="line">2020-07-20 12:03:06 📦 Highest known block at #0</span><br><span class="line">2020-07-20 12:03:06 Using default protocol ID &quot;sup&quot; because none is configured in the chain specs</span><br><span class="line">2020-07-20 12:03:06 🏷  Local node identity is: 12D3KooWFXtZhw1D1Abx7kEPwcMKopKg47VgbvLCv6PaRr8zd98d (legacy representation: Qmd7DXScrYP1MPRnbBNneXYp7jFXhQ9yy8Vvk4jwViLD68)</span><br><span class="line">2020-07-20 12:03:08 🔍 Discovered new external address for our node: &#x2F;ip4&#x2F;127.0.0.1&#x2F;tcp&#x2F;30334&#x2F;p2p&#x2F;12D3KooWFXtZhw1D1Abx7kEPwcMKopKg47VgbvLCv6PaRr8zd98d</span><br><span class="line">2020-07-20 12:03:11 💤 Idle (1 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 1.3kiB&#x2F;s ⬆ 1.3kiB&#x2F;s</span><br><span class="line">2020-07-20 12:03:12 ✨ Imported #1 (0x5304…fd86)</span><br><span class="line">2020-07-20 12:03:16 💤 Idle (1 peers), best: #1 (0x5304…fd86), finalized #0 (0x2d08…1087), ⬇ 0.8kiB&#x2F;s ⬆ 0.7kiB&#x2F;s</span><br><span class="line">2020-07-20 12:03:18 🙌 Starting consensus session on top of parent 0x53047ad945f475b5aa452d334bd3fbc98363beda42ca41239af9ab91d306fd86</span><br><span class="line">2020-07-20 12:03:18 🎁 Prepared block for proposing at 2 [hash: 0xb29bb6177c20409ea3fc0f2d8a9e6984147188096e1c2839c060a596b367d0e5; parent_hash: 0x5304…fd86; extrinsics (1): [0xc60e…6c01]]</span><br><span class="line">2020-07-20 12:03:18 🔖 Pre-sealed block for proposal at 2. Hash now 0x139699ad88d0c4035fc1c8ae91131d9f1d5260c3675f63895a6f4b47f2b7d623, previously 0xb29bb6177c20409ea3fc0f2d8a9e6984147188096e1c2839c060a596b367d0e5.</span><br><span class="line">2020-07-20 12:03:18 ✨ Imported #2 (0x1396…d623)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>2020-07-20 12:03:08 🔍 Discovered new external address for our node: /ip4/127.0.0.1/tcp/30334/p2p/12D3KooWFXtZhw1D1Abx7kEPwcMKopKg47VgbvLCv6PaRr8zd98d</code>表示<code>Bob</code>已经连接上了<code>Alice</code>的节点</p>
+<p><code>2020-07-20 12:03:11 💤 Idle (1 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 1.3kiB/s ⬆ 1.3kiB/s</code>表示<code>Bob</code>已经同步了<code>Alice</code>的创世块，可以与上面<code>Alice</code>的创世块信息做对比看是否两个创世块的信息是否一致。</p>
+</blockquote>
+<p>同样可以在浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，查看区块状态。</p>
+<h2 id="私钥生成">私钥生成</h2>
+<p>目前我们使用的是内置的账户作为区块生产者，现在我们将生成自己的账户，并且将账户作为区块生产者加入到区块链网络中。</p>
+<h3 id="方法一subkey">方法一：subkey</h3>
+<p><code>subkey</code>是一个生成私钥的工具，首先需要编译生成<code>subkey</code>，这个过程需要大概15分钟。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install --force subkey --git https:&#x2F;&#x2F;github.com&#x2F;paritytech&#x2F;substrate --tag v2.0.0-rc4</span><br></pre></td></tr></table></figure>
+<p>接下来将生成两种类型地址，分别用于区块生产，区块最终确认。</p>
+<h4 id="sr25519">sr25519</h4>
+<p><code>sr25519</code>用于<code>Aura</code>共识算法区块生成，执行下面命令将生产一个助记符，并且生成<code>sr25519</code>相关的公钥以及地址 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ subkey --sr25519 generate</span><br><span class="line"></span><br><span class="line">Secret phrase &#96;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&#96; is account:</span><br><span class="line">  Network ID&#x2F;version: substrate</span><br><span class="line">  Secret seed:        0xa2b0200f9666b743402289ca4f7e79c9a4a52ce129365578521b0b75396bd242</span><br><span class="line">  Public key (hex):   0x0a11c9bcc81f8bd314e80bc51cbfacf30eaeb57e863196a79cccdc8bf4750d21</span><br><span class="line">  Account ID:         0x0a11c9bcc81f8bd314e80bc51cbfacf30eaeb57e863196a79cccdc8bf4750d21</span><br><span class="line">  SS58 Address:       5CHucvTwrPg8L2tjneVoemApqXcUaEdUDsCEPyE7aDwrtR8D</span><br></pre></td></tr></table></figure> #### Ed25519</p>
+<p><code>ed25519</code>用于<code>GRANDPA</code>算法做区块最终确认，使用上面的助记符生成<code>ed25519</code>相关的公钥以及地址。</p>
+<blockquote>
+<p>sr25519与ed25519使用的都是同一条椭圆曲线curve25519。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ subkey --ed25519 inspect &quot;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&quot;</span><br><span class="line"></span><br><span class="line">Secret phrase &#96;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&#96; is account:</span><br><span class="line">  Network ID&#x2F;version: substrate</span><br><span class="line">  Secret seed:        0xa2b0200f9666b743402289ca4f7e79c9a4a52ce129365578521b0b75396bd242</span><br><span class="line">  Public key (hex):   0x1a0e2bf1e0195a1f5396c5fd209a620a48fe90f6f336d89c89405a0183a857a3</span><br><span class="line">  Account ID:         0x1a0e2bf1e0195a1f5396c5fd209a620a48fe90f6f336d89c89405a0183a857a3</span><br><span class="line">  SS58 Address:       5CesK3uTmn4NGfD3oyGBd1jrp4EfRyYdtqL3ERe9SXv8jUHb</span><br></pre></td></tr></table></figure>
+<h3 id="方法二polkadot-js-页面">方法二：Polkadot-JS 页面</h3>
+<p>由于<code>subkey</code>编译生成时间较长，为了快速生成相关私钥可以在浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接。点击左侧账户，生成相关私钥。</p>
+<p><img src="/assets/2020-07-25/28521.png" /></p>
+<h3 id="方法三预生成地址">方法三：预生成地址</h3>
+<p>如果以上两种方法生成地址失败，可以暂时使用下面预生成的地址，用于继续学习下面的内容</p>
+<p><strong>地址一</strong></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Secret phrase</td>
+<td><code>clip organ olive upper oak void inject side suit toilet stick narrow</code></td>
+</tr>
+<tr class="even">
+<td>Secret seed</td>
+<td><code>0x4bd2b2c1dad3dbe3fa37dc6ad5a4e32ddd8ad84b938179ac905b0622880e86e7</code></td>
+</tr>
+<tr class="odd">
+<td><strong>SR25519</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Public key</td>
+<td><code>0x9effc1668ca381c242885516ec9fa2b19c67b6684c02a8a3237b6862e5c8cd7e</code></td>
+</tr>
+<tr class="odd">
+<td>SS58 Address</td>
+<td><code>5FfBQ3kwXrbdyoqLPvcXRp7ikWydXawpNs2Ceu3WwFdhZ8W4</code></td>
+</tr>
+<tr class="even">
+<td><strong>ED25519</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Public key</td>
+<td><code>0xb48004c6e1625282313b07d1c9950935e86894a2e4f21fb1ffee9854d180c781</code></td>
+</tr>
+<tr class="even">
+<td>SS58 Address</td>
+<td><code>5G9NWJ5P9uk7am24yCKeLZJqXWW6hjuMyRJDmw4ofqxG8Js2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>地址二</strong></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Secret phrase</td>
+<td><code>paper next author index wedding frost voice mention fetch waste march tilt</code></td>
+</tr>
+<tr class="even">
+<td>Secret seed</td>
+<td><code>0x4846fedafeed0cf307da3e2b5dfa61415009b239119242006fc8c0972dde64b0</code></td>
+</tr>
+<tr class="odd">
+<td><strong>SR25519</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Public key</td>
+<td><code>0x74cca68a32156615a5923c67024db70da5e7ed36e70c8cd5bcf3556df152bb6d</code></td>
+</tr>
+<tr class="odd">
+<td>SS58 Address</td>
+<td><code>5EhrCtDaQRYjVbLi7BafbGpFqcMhjZJdu8eW8gy6VRXh6HDp</code></td>
+</tr>
+<tr class="even">
+<td><strong>ED25519</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Public key</td>
+<td><code>0x0fe9065f6450c5501df3efa6b13958949cb4b81a2147d68c14ad25366be1ccb4</code></td>
+</tr>
+<tr class="even">
+<td>SS58 Address</td>
+<td><code>5CRZoFgJs4zLzCCAGoCUUs2MRmuD5BKAh17pWtb62LMoCi9h</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="自定义创世块">自定义创世块</h2>
+<p>之前启动节点的时候用到了<code>--chain local</code>，这是一个预定义的<code>chain spec</code>，在这个创世块文件中将<code>Alice</code>与<code>Bob</code>作为验证着，现在我们可以基于这个创世块模板做修改，创建我们自己的创世块文件，首先将<code>local</code>内置的创世块文件导出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Export the local chainspec to json</span><br><span class="line">$ .&#x2F;target&#x2F;release&#x2F;node-template build-spec --disable-default-bootnode --chain local &gt; customSpec.json</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>执行<code>cat customSpec.json</code>命令，打开<code>customSpec.json</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Local Testnet&quot;,</span><br><span class="line">  &quot;id&quot;: &quot;local_testnet&quot;,</span><br><span class="line">  &quot;chainType&quot;: &quot;Local&quot;,</span><br><span class="line">  &quot;bootNodes&quot;: [],</span><br><span class="line">  &quot;telemetryEndpoints&quot;: null,</span><br><span class="line">  &quot;protocolId&quot;: null,</span><br><span class="line">  &quot;properties&quot;: null,</span><br><span class="line">  &quot;consensusEngine&quot;: null,</span><br><span class="line">  &quot;genesis&quot;: &#123;</span><br><span class="line">    &quot;runtime&quot;: &#123; &#x2F;&#x2F; runtime 模块</span><br><span class="line">      &quot;system&quot;: &#123; &#x2F;&#x2F; system runtime</span><br><span class="line">        &quot;changesTrieConfig&quot;: null,</span><br><span class="line">        &quot;code&quot;: &quot;0x0061736d0100000001ee012460037f7f7f017f60027f7f017f60........&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;aura&quot;: &#123; &#x2F;&#x2F; 生成区块账户 配置</span><br><span class="line">        &quot;authorities&quot;: [</span><br><span class="line">          &quot;5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY&quot;, &#x2F;&#x2F; Alice</span><br><span class="line">          &quot;5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty&quot; &#x2F;&#x2F; Bob</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;grandpa&quot;: &#123; &#x2F;&#x2F; 区块确认账户配置</span><br><span class="line">        &quot;authorities&quot;: [</span><br><span class="line">          [</span><br><span class="line">            &quot;5FA9nQDVg267DEd8m1ZypXLBnvN7SFxYwV7ndqSYGiN9TTpu&quot;, &#x2F;&#x2F; Alice</span><br><span class="line">            1</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5GoNkf6WdbxCFnPdAnYYQyCjAKPJgLNxXwPjwTh6DGg6gN3E&quot;, &#x2F;&#x2F; Bob</span><br><span class="line">            1</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;balances&quot;: &#123; &#x2F;&#x2F; 余额，在创世区块中为账户分配余额</span><br><span class="line">        &quot;balances&quot;: [</span><br><span class="line">          [</span><br><span class="line">            &quot;5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5DAAnrj7VHTznn2AWBemMuyBwZWs6FNFjdyVXUeYum3PTXFy&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5HGjWAeFDfFCWPsjFQdVV2Msvz2XtMktvgocEZcCj68kUMaw&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5CiPPseXPECbkjWCa6MnjNokrgYjMqmKndv2rSnekmSK2DjL&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5GNJqTPyNqANBkUVMN1LPPrxXnFouWXoe2wNSmmEoLctxiZY&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5HpG9w8EBLe5XCrbczpwq5TSXvedjrBGCwqxK1iQ7qUsSWFc&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5Ck5SLSHYac6WFt5UZRSsdJjwmpSZq85fd5TRNAdZQVzEAPT&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5HKPmK9GYtE1PSLsS1qiYU9xQ9Si1NcEhdeCq9sw5bqu4ns8&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5FCfAonRZgTFrTd9HREEyeJjDpT397KMzizE6T3DvebLFE7n&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            &quot;5CRmqmsiNFExV6VbdmPJViVxrWmkaXXvBrSX8oqBT8R9vmWk&quot;,</span><br><span class="line">            1152921504606846976</span><br><span class="line">          ]</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;sudo&quot;: &#123;</span><br><span class="line">        &quot;key&quot;: &quot;5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来我们将<code>customSpec.json</code>文件中的<code>aura</code>与<code>grandpa</code>字段里面的地址改成我们的，修改完成后将<code>customSpec.json</code>做格式转化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;target&#x2F;release&#x2F;node-template build-spec --chain&#x3D;customSpec.json --raw --disable-default-bootnode &gt; customSpecRaw.json</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>接下来向其他节点分发<code>customSpecRaw.json</code>文件，其他节点启动的时候需要指定<code>customSpecRaw.json</code>作为创世文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template \</span><br><span class="line">  --base-path &#x2F;tmp&#x2F;node01 \</span><br><span class="line">  --chain&#x3D;.&#x2F;customSpecRaw.json \</span><br><span class="line">  --port 30333 \</span><br><span class="line">  --ws-port 9944 \</span><br><span class="line">  --rpc-port 9933 \</span><br><span class="line">  --telemetry-url &#39;ws:&#x2F;&#x2F;telemetry.polkadot.io:1024 0&#39; \</span><br><span class="line">  --validator \</span><br><span class="line">  --rpc-methods&#x3D;Unsafe \</span><br><span class="line">  --name MyNode01</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>--chain</code>指定<code>customSpecRaw.json</code>作为创世文件</li>
+</ul>
+<p>启动成功后，输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">2020-07-20 14:13:20 Substrate Node</span><br><span class="line">2020-07-20 14:13:20 ✌️  version 2.0.0-rc4-ff0fa24-x86_64-macos</span><br><span class="line">2020-07-20 14:13:20 ❤️  by Substrate DevHub &lt;https:&#x2F;&#x2F;github.com&#x2F;substrate-developer-hub&gt;, 2017-2020</span><br><span class="line">2020-07-20 14:13:20 📋 Chain specification: Local Testnet</span><br><span class="line">2020-07-20 14:13:20 🏷  Node name: MyNode01</span><br><span class="line">2020-07-20 14:13:20 👤 Role: AUTHORITY</span><br><span class="line">2020-07-20 14:13:20 💾 Database: RocksDb at &#x2F;tmp&#x2F;node01&#x2F;chains&#x2F;local_testnet&#x2F;db</span><br><span class="line">2020-07-20 14:13:20 ⛓  Native runtime: node-template-1 (node-template-1.tx1.au1)</span><br><span class="line">2020-07-20 14:13:20 🔨 Initializing Genesis block&#x2F;state (state: 0xff74…91ae, header-hash: 0x7d07…c3ac)</span><br><span class="line">2020-07-20 14:13:20 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.</span><br><span class="line">2020-07-20 14:13:20 ⏱  Loaded block-time &#x3D; 6000 milliseconds from genesis on first-launch</span><br><span class="line">2020-07-20 14:13:20 📦 Highest known block at #0</span><br><span class="line">2020-07-20 14:13:20 Using default protocol ID &quot;sup&quot; because none is configured in the chain specs</span><br><span class="line">2020-07-20 14:13:20 🏷  Local node identity is: 12D3KooWLbibaghJ1TfUQcjetp4yggpFNdMhi7mn7vwgDcPEdZtk (legacy representation: QmQRB1sVkwkWM7ng4icMyhZpq96N26uw33RibMaVVMgMQn)</span><br><span class="line">2020-07-20 14:13:21 〽️ Prometheus server started at 127.0.0.1:9615</span><br><span class="line">2020-07-20 14:13:26 💤 Idle (0 peers), best: #0 (0x7d07…c3ac), finalized #0 (0x7d07…c3ac), ⬇ 0 ⬆ 0</span><br></pre></td></tr></table></figure>
+<h2 id="keystore">Keystore</h2>
+<p>由于<code>substrate</code>共识算法的特性，在生成区块的时候<code>aura</code>需要节点的私钥来签名区块，在对区块做最终确认的时候<code>GRANDPA</code>也需要节点的私钥对区块进行签名，所以我们需要将两个私钥分别上传到<code>keystore</code>目录中。</p>
+<h3 id="方法一polkadot-js-apps-ui">方法一：Polkadot-JS Apps UI</h3>
+<p>同样在浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，点击左侧“工具箱”，在右侧页面中分别选择<code>auther</code>与<code>insertkey</code>，在表格中分别填写相关信息，首先填写<code>sr25519</code></p>
+<p><img src="/assets/2020-07-25/28528.png" /></p>
+<p>接下来用同样的方法填写<code>ed25519</code></p>
+<p><img src="/assets/2020-07-25/28526.png" /></p>
+<p>填写完成后，在<code>Keystore</code>目录中可以看到上传的私钥信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;tmp&#x2F;node01&#x2F;chains&#x2F;local_testnet&#x2F;keystore</span><br><span class="line"></span><br><span class="line">617572619effc1668ca381c242885516ec9fa2b19c67b6684c02a8a3237b6862e5c8cd7e 6772616eb48004c6e1625282313b07d1c9950935e86894a2e4f21fb1ffee9854d180c781</span><br></pre></td></tr></table></figure>
+<h3 id="方法二curl">方法二：CURL</h3>
+<p>通过<code>curl</code>方式提交私钥到<code>keystore</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Submit a new key via RPC, connect to where your &#96;rpc-port&#96; is listening</span><br><span class="line">$ curl http:&#x2F;&#x2F;localhost:9933 -H &quot;Content-Type:application&#x2F;json;charset&#x3D;utf-8&quot; -d &#39;&#123;</span><br><span class="line">  &quot;jsonrpc&quot;:&quot;2.0&quot;,</span><br><span class="line">  &quot;id&quot;:1,</span><br><span class="line">  &quot;method&quot;:&quot;author_insertKey&quot;,</span><br><span class="line">  &quot;params&quot;: [</span><br><span class="line">    &quot;&lt;aura&#x2F;gran&gt;&quot;,</span><br><span class="line">    &quot;&lt;mnemonic phrase&gt;&quot;,</span><br><span class="line">    &quot;&lt;public key&gt;&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;&#39;</span><br></pre></td></tr></table></figure>
+<p>接下来通过同样的方式启动第二个节点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template \</span><br><span class="line">  --base-path &#x2F;tmp&#x2F;node02 \</span><br><span class="line">  --chain .&#x2F;customSpecRaw.json \</span><br><span class="line">  --port 30334 \</span><br><span class="line">  --ws-port 9945 \</span><br><span class="line">  --rpc-port 9934 \</span><br><span class="line">  --telemetry-url &#39;ws:&#x2F;&#x2F;telemetry.polkadot.io:1024 0&#39; \</span><br><span class="line">  --validator \</span><br><span class="line">  --rpc-methods&#x3D;Unsafe \</span><br><span class="line">  --name MyNode02 \</span><br><span class="line">  --bootnodes &#x2F;ip4&#x2F;&lt;IP Address&gt;&#x2F;tcp&#x2F;&lt;Port&gt;&#x2F;p2p&#x2F;&lt;Peer ID&gt;</span><br></pre></td></tr></table></figure>
+<p>到这一步我们已经完成了自定义私有区块链网络。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/e5605cc7.html" rel="bookmark">什么是Substrate</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/d126a292.html" rel="bookmark">在substrate上添加contract runtime</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/e9b4c4d6.html" title="运行substrate私链">https://www.whatsblockchain.com/posts/e9b4c4d6.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/substrate/" rel="tag"># substrate</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/e5605cc7.html" rel="prev" title="什么是Substrate">
+                  <i class="fa fa-chevron-left"></i> 什么是Substrate
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/d126a292.html" rel="next" title="在substrate上添加contract runtime">
+                  在substrate上添加contract runtime <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴寿鹤</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">120k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:49</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
