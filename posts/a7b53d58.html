@@ -24,19 +24,20 @@
     var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币 2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币">
+  <meta name="description" content="下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币2008年，中本聪介绍了一个点对点的电子现金系统—比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分布式共识四】POW共识算法">
 <meta property="og:url" content="https://www.whatsblockchain.com/posts/a7b53d58.html">
 <meta property="og:site_name" content="区块链大杂烩">
-<meta property="og:description" content="下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币 2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币">
+<meta property="og:description" content="下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。 比特币2008年，中本聪介绍了一个点对点的电子现金系统—比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2017-07-16/1.png">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2017-07-16/2.png">
 <meta property="article:published_time" content="2017-07-16T03:04:01.000Z">
-<meta property="article:modified_time" content="2020-09-15T09:09:51.295Z">
+<meta property="article:modified_time" content="2020-09-16T06:56:12.599Z">
 <meta property="article:author" content="吴寿鹤">
-<meta property="article:tag" content="分布式共识 区块链共识算法">
+<meta property="article:tag" content="分布式共识">
+<meta property="article:tag" content="区块链共识算法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2017-07-16/1.png">
 
@@ -209,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81"><span class="nav-number">1.</span> <span class="nav-text">比特币</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%98%93"><span class="nav-number">2.</span> <span class="nav-text">交易</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proof-of-work-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">Proof-of-Work 工作量证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%AF%94%E7%89%B9%E5%B8%81%E7%BD%91%E7%BB%9C"><span class="nav-number">4.</span> <span class="nav-text">攻击比特币网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8Epow-%E5%AE%9E%E7%8E%B0%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%85%B1%E8%AF%86"><span class="nav-number">5.</span> <span class="nav-text">工作量证明Pow 实现拜占庭共识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pow-%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84"><span class="nav-number">7.</span> <span class="nav-text">Pow 是如何运行的</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81"><span class="nav-number">1.</span> <span class="nav-text">比特币</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E6%98%93"><span class="nav-number">2.</span> <span class="nav-text">交易</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proof-of-Work-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">Proof-of-Work 工作量证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%AF%94%E7%89%B9%E5%B8%81%E7%BD%91%E7%BB%9C"><span class="nav-number">4.</span> <span class="nav-text">攻击比特币网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8EPow-%E5%AE%9E%E7%8E%B0%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%85%B1%E8%AF%86"><span class="nav-number">5.</span> <span class="nav-text">工作量证明Pow 实现拜占庭共识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pow-%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84"><span class="nav-number">7.</span> <span class="nav-text">Pow 是如何运行的</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -236,7 +237,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,7 +307,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-15 17:09:51" itemprop="dateModified" datetime="2020-09-15T17:09:51+08:00">2020-09-15</time>
+        <time title="修改时间：2020-09-16 14:56:12" itemprop="dateModified" datetime="2020-09-16T14:56:12+08:00">2020-09-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -319,6 +320,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
       </div>
       <div class="post-meta">
     <span class="post-meta-item" title="本文字数">
@@ -345,104 +353,106 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>下面我来说说Bitcoin是如何通过Pow算法解决拜占庭将军问题的。</p>
-<h2 id="比特币">比特币</h2>
-<p>2008年，中本聪介绍了一个点对点的电子现金系统--比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币</p>
+<h2 id="比特币"><a href="#比特币" class="headerlink" title="比特币"></a>比特币</h2><p>2008年，中本聪介绍了一个点对点的电子现金系统—比特币。比特币的基石是拜占庭共识协议。比特币怎样实现了拜占庭共识协议将在接下来的章节中介绍。不过首先要先介绍一下比特币</p>
 <a id="more"></a>
-<h2 id="交易">交易</h2>
-<p>比特币协议在数字货币中提供了一种交易方法，在这个方法中每个人可以<strong>对货币所有权，交易顺序达成共识</strong>。货币所有权是通过公钥来决定。整个网络需要对货币数量与货币所有权之间的关系达成共识。货币所有权可以通过对转账交易（从一个账户转移给另一个账户）签名进行转移。整个网络需要能个解决同一笔钱不能花费两次的难题。<strong>由于没有一个中心化的权威机构能够校验交易，因此需要在没有受信任第三方机构的情况下解决这个问题。就是说需要用去中心化的方法解决这个问题。</strong></p>
+<h2 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h2><p>比特币协议在数字货币中提供了一种交易方法，在这个方法中每个人可以<strong>对货币所有权，交易顺序达成共识</strong>。货币所有权是通过公钥来决定。整个网络需要对货币数量与货币所有权之间的关系达成共识。货币所有权可以通过对转账交易（从一个账户转移给另一个账户）签名进行转移。整个网络需要能个解决同一笔钱不能花费两次的难题。<strong>由于没有一个中心化的权威机构能够校验交易，因此需要在没有受信任第三方机构的情况下解决这个问题。就是说需要用去中心化的方法解决这个问题。</strong></p>
 <p>解决方案：公开向网络广播每笔交易，网络中的节点对先到达的交易是有效的达成共识。每个节点检查先到达的交易的输出之前是否被花费。难点是：由于网络通信不是及时的（异步网络），所以导致所有节点收到的交易并不是完全一致的。在这个情况下找到一个确认哪一个交易是最先到达的共识是困难的。为了对交易顺序达成共识，交易被打上时间戳存放在含有工作量证明的区块中。</p>
 <p>这个方法为交易顺序共识提供了解决方案：区块包含上一个区块的Hash，最新交易。</p>
-<h2 id="proof-of-work-工作量证明">Proof-of-Work 工作量证明</h2>
-<p>为了实现对交易打时间戳，Hash交易数据。比特币用了工作量证明方法。网络中的每个节点从事于解决一个适度困难的密码难题。难题的解决方法是：把区块中的所有数据做SHA256哈希运算，并且得到哈希值小于给定的目标值。区块中还包含一个Nonce值，通过递增Nonce来寻找正确的哈希值。这个密码谜题被设计成，每隔10Mins会找到一个谜题答案。</p>
+<h2 id="Proof-of-Work-工作量证明"><a href="#Proof-of-Work-工作量证明" class="headerlink" title="Proof-of-Work 工作量证明"></a>Proof-of-Work 工作量证明</h2><p>为了实现对交易打时间戳，Hash交易数据。比特币用了工作量证明方法。网络中的每个节点从事于解决一个适度困难的密码难题。难题的解决方法是：把区块中的所有数据做SHA256哈希运算，并且得到哈希值小于给定的目标值。区块中还包含一个Nonce值，通过递增Nonce来寻找正确的哈希值。这个密码谜题被设计成，每隔10Mins会找到一个谜题答案。</p>
 <p>一旦正确的哈希值被找到，节点就会向网络中广播这个哈希值。这个哈希值可以很容易的被网络中的其他节点验证，节点可以对收到区块后对区块中的数据进行SHA256运算哈希值。</p>
 <p>花费的CPU就是工作量证明。要修改一个区块需要重做这个区块以及这个区块之后所有区块的工作量证明。这就意味比特网络更倾向于最诚实的链，只要网络中大多数节点是诚实的。</p>
-<p><img src="/assets/2017-07-16/1.png" alt="img" /></p>
+<p><img src="/assets/2017-07-16/1.png" alt="img"></p>
 <p>Pow的过程可以被看做是一个投票的过程。每个新增的区块累积了以前的历史交易（区块是串联成链的），每个节点都会继续对以有最多投票数量的链继续投票。</p>
-<h2 id="攻击比特币网络">攻击比特币网络</h2>
-<p>现在考虑一下网络中可以存在的一种攻击。一个恶意的节点试图双花之前已花费的交易。攻击者需要重做包含这个交易的区块，以及这个区块之后的所有的区块，创建一个比目前诚实区块链更长的区块链。只有网络中的大多数节点都转向攻击者创建的区块链，攻击者的攻击才算成功了。考虑交易T包含在区块b1中。每个后续区块b2,b3,b4,.........bn会降低交易T被修改的可能性，因为修改这些后续的区块需要更多的算力。中本聪用概率理论证明，六个区块后攻击者追赶上最长链的可能性降低到0.0002428%。在过四个或更多区块后这个可能行会降到0.0000012%。每新增一个区块bn，攻击的可能性就会以指数形式下降，很快整个攻击的可能性就会低到可以忽略的程度。在实际中，比特币交易会在六个区块后被确认，因为在这种情况下，攻击者追赶上的可能性已经非常低了，可以认为这个交易是有效的，不再会被修改。</p>
-<h2 id="工作量证明pow-实现拜占庭共识">工作量证明Pow 实现拜占庭共识</h2>
-<p>现在我们看一下比特币的工作量证明是如何解决计算机网络中的拜占庭将军问题的。比特币网络是就交易的顺序，没有中心化机构的情况下达成共识的，同样拜占庭将军也是做得同样的事情。拜占庭将军需要攻击城堡，所有将军需要对任何将军可能提出的攻击时间达成共识。</p>
+<h2 id="攻击比特币网络"><a href="#攻击比特币网络" class="headerlink" title="攻击比特币网络"></a>攻击比特币网络</h2><p>现在考虑一下网络中可以存在的一种攻击。一个恶意的节点试图双花之前已花费的交易。攻击者需要重做包含这个交易的区块，以及这个区块之后的所有的区块，创建一个比目前诚实区块链更长的区块链。只有网络中的大多数节点都转向攻击者创建的区块链，攻击者的攻击才算成功了。考虑交易T包含在区块b1中。每个后续区块b2,b3,b4,………bn会降低交易T被修改的可能性，因为修改这些后续的区块需要更多的算力。中本聪用概率理论证明，六个区块后攻击者追赶上最长链的可能性降低到0.0002428%。在过四个或更多区块后这个可能行会降到0.0000012%。每新增一个区块bn，攻击的可能性就会以指数形式下降，很快整个攻击的可能性就会低到可以忽略的程度。在实际中，比特币交易会在六个区块后被确认，因为在这种情况下，攻击者追赶上的可能性已经非常低了，可以认为这个交易是有效的，不再会被修改。</p>
+<h2 id="工作量证明Pow-实现拜占庭共识"><a href="#工作量证明Pow-实现拜占庭共识" class="headerlink" title="工作量证明Pow 实现拜占庭共识"></a>工作量证明Pow 实现拜占庭共识</h2><p>现在我们看一下比特币的工作量证明是如何解决计算机网络中的拜占庭将军问题的。比特币网络是就交易的顺序，没有中心化机构的情况下达成共识的，同样拜占庭将军也是做得同样的事情。拜占庭将军需要攻击城堡，所有将军需要对任何将军可能提出的攻击时间达成共识。</p>
 <p>方案一：被所有将军都接受到的攻击计划，被认为是正式的攻击计划。问题是：两个或多个将军有可能同时发出不同的攻击计划。</p>
 <p><strong>这个问题模型被工作量证明简化了，比特币工作量证明系统中，不会追踪交易顺序，取而代之是在将军之间达成共识。</strong>每个将军基于工作量证明，解决一个难度适当的Hash难题，每个难题有足够的难度，仅当在所有的将军同时工作时，平均10Mins会找到一个难题的答案（solution）。当一个将军找到问题的答案，它会把这个答案连同攻击计划在网络中广播。一旦收到Solution，每个将军调整难题为在广播中收到的攻击时间，攻击计划。然后将军继续解决下一个工作量证明。这样接下来每个solution会依次在第一个solution后串联成链。如果有将军还在继续在对另一个不同的攻击方案进行工作量证明计算，它会切换到这个最长的链上。这个最长链上积累了最多的CPU算力。</p>
 <p>平均一个小时后，这个链上会有六个区块。每个将军可以判断是否有足够多的将军工作在含有相同初始攻击计划的最长链上。链会在一小时累积到六个区块，说明大多数将军对相同的攻击计划进行工作量证明计算（CPU投票）。因此将军对攻击时间达成共识。</p>
-<h2 id="结论">结论</h2>
-<p>在没有中心化权威机构存在的P2P网络上，比特币共识协议功能上等同于一个受信任的中心化机构。这个协议解决了拜占庭将军问题中缺少中心化权威机构的难题。帮组将军在攻击时间上达成共识。而且，它缓解了多个攻击计划同时提交的可能性，同时也降低了攻击的可能性。因此比特币共识协议现代拜占庭将军中的问题。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>在没有中心化权威机构存在的P2P网络上，比特币共识协议功能上等同于一个受信任的中心化机构。这个协议解决了拜占庭将军问题中缺少中心化权威机构的难题。帮组将军在攻击时间上达成共识。而且，它缓解了多个攻击计划同时提交的可能性，同时也降低了攻击的可能性。因此比特币共识协议现代拜占庭将军中的问题。</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>拜占庭将军问题和Bitcoin 对比</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>拜占庭将军问题</td>
 <td></td>
 <td>BitCoin</td>
 </tr>
-<tr class="even">
+<tr>
 <td>攻击时间上达成共识</td>
 <td>目标</td>
 <td>对合法的交易达成共识</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>将军分布在城堡周围</td>
 <td>分布情况</td>
 <td>节点分布在网络中</td>
 </tr>
-<tr class="even">
+<tr>
 <td>忠诚的将军和副官</td>
 <td>好的</td>
 <td>可信任的节点</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>叛徒</td>
 <td>坏的</td>
 <td>作恶节点</td>
 </tr>
-<tr class="even">
+<tr>
 <td>篡改消息（干扰忠诚的将军达成共识）</td>
 <td>破坏</td>
 <td>向区块中加入无效非法的交易</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>怎么才能知道那个消息是真的</td>
 <td>难点</td>
 <td>怎么才能知道那个交易是合法的</td>
 </tr>
-<tr class="even">
+<tr>
 <td>暂无</td>
 <td>解决方案</td>
 <td>Pow</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>暂无</td>
 <td>共识</td>
 <td>BlockChain + Pow</td>
 </tr>
 </tbody>
 </table>
-<h2 id="pow-是如何运行的">Pow 是如何运行的</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack, pack</span><br><span class="line"></span><br><span class="line">timestamp = str(time.time())                   <span class="comment"># Work timestamp</span></span><br><span class="line"></span><br><span class="line">message = <span class="string">&quot;This is a random message.&quot;</span>       <span class="comment"># Plaintext message</span></span><br><span class="line"></span><br><span class="line">nonce = <span class="number">0</span>                             </span><br><span class="line"></span><br><span class="line">guess = <span class="number">99999999999999999999</span></span><br><span class="line"></span><br><span class="line">payload = timestamp + message</span><br><span class="line"></span><br><span class="line">throttle = <span class="number">100000000</span></span><br><span class="line"></span><br><span class="line">target = <span class="number">2</span>**<span class="number">64</span> / throttle</span><br><span class="line"></span><br><span class="line">payloadHash = hashlib.sha256(payload).digest()</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> guess &gt; target:</span><br><span class="line"></span><br><span class="line">​         nonce += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​         guess,=unpack(<span class="string">&#x27;&gt;Q&#x27;</span>,hashlib.sha256(hashlib.sha256(pack(<span class="string">&#x27;&gt;Q&#x27;</span>,nonce)+payloadHash).digest()).digest()[<span class="number">0</span>:<span class="number">8</span>])</span><br><span class="line"></span><br><span class="line">​         print(guess);</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;%s:%s:%s:%s:%s:%s:%s&quot;</span> % (timestamp, message, nonce, guess, payload, target, end-start)</span><br></pre></td></tr></table></figure>
+</div>
+<h2 id="Pow-是如何运行的"><a href="#Pow-是如何运行的" class="headerlink" title="Pow 是如何运行的"></a>Pow 是如何运行的</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> struct <span class="keyword">import</span> unpack, pack</span><br><span class="line"></span><br><span class="line">timestamp = str(time.time())                   <span class="comment"># Work timestamp</span></span><br><span class="line"></span><br><span class="line">message = <span class="string">&quot;This is a random message.&quot;</span>       <span class="comment"># Plaintext message</span></span><br><span class="line"></span><br><span class="line">nonce = <span class="number">0</span>                             </span><br><span class="line"></span><br><span class="line">guess = <span class="number">99999999999999999999</span></span><br><span class="line"></span><br><span class="line">payload = timestamp + message</span><br><span class="line"></span><br><span class="line">throttle = <span class="number">100000000</span></span><br><span class="line"></span><br><span class="line">target = <span class="number">2</span>**<span class="number">64</span> / throttle</span><br><span class="line"></span><br><span class="line">payloadHash = hashlib.sha256(payload).digest()</span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> guess &gt; target:</span><br><span class="line"></span><br><span class="line">​         nonce += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​         guess,=unpack(<span class="string">&#x27;&gt;Q&#x27;</span>,hashlib.sha256(hashlib.sha256(pack(<span class="string">&#x27;&gt;Q&#x27;</span>,nonce)+payloadHash).digest()).digest()[<span class="number">0</span>:<span class="number">8</span>])</span><br><span class="line"></span><br><span class="line">​         print(guess);</span><br><span class="line"></span><br><span class="line">end = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;%s:%s:%s:%s:%s:%s:%s&quot;</span> % (timestamp, message, nonce, guess, payload, target, end-start)</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><strong>timestamp</strong> 开始产生区块的时间戳</p></li>
-<li><p><strong>message</strong> 类似比特别中的交易，这里只做演示用字符串替代</p></li>
-<li><p><strong>payload</strong> is a combination of the things that you will encrypt.</p></li>
-<li><p><strong>nonce</strong> 会从0到N递增，直到找到target为止</p></li>
-<li><p><strong>guess</strong> 将会保存谜底，一开始初始化为无穷大</p></li>
-<li><p><strong>throttle</strong> 相当于比特币中的难度</p></li>
-<li><p><strong>target</strong> 8个字节的整数最大值 （2^64）除以难度（throttle ）</p></li>
+<li><p><strong>timestamp</strong> 开始产生区块的时间戳</p>
+</li>
+<li><p><strong>message</strong> 类似比特别中的交易，这里只做演示用字符串替代</p>
+</li>
+<li><p><strong>payload</strong> is a combination of the things that you will encrypt.</p>
+</li>
+<li><p><strong>nonce</strong> 会从0到N递增，直到找到target为止</p>
+</li>
+<li><p><strong>guess</strong> 将会保存谜底，一开始初始化为无穷大</p>
+</li>
+<li><p><strong>throttle</strong> 相当于比特币中的难度</p>
+</li>
+<li><p><strong>target</strong> 8个字节的整数最大值 （2^64）除以难度（throttle ）</p>
+</li>
 </ul>
 <p>Timestamp，message，payload是你要发送到网络中的东西。它可以是区块数据</p>
 <p>Nonce,guess,throttle target是用来进行工作量证明运算。Pow最重要的是难于生成易于验证。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> guess &gt; target:</span><br><span class="line"></span><br><span class="line">​         nonce += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​         guess,=unpack(<span class="string">&#x27;&gt;Q&#x27;</span>,hashlib.sha256(hashlib.sha256(pack(<span class="string">&#x27;&gt;Q&#x27;</span>,nonce)+payloadHash).digest()).digest()[<span class="number">0</span>:<span class="number">8</span>])</span><br></pre></td></tr></table></figure>
 <p>这三行就是Pow算法主要内容。这是一个简单的循环。它使用SHA256对数据进行两轮哈希。前八个字节作为我们的谜底。</p>
-<p><img src="/assets/2017-07-16/2.png" alt="img" /></p>
+<p> <img src="/assets/2017-07-16/2.png" alt="img"></p>
 <p>比特币的除数（难度）2016个区块后调整一次 增加或下降。<strong>上图显示随着难度的增加正确谜底的可能值范围缩小，也就是越难于发现Guess</strong></p>
 <p><code>nonce += 1</code></p>
 <p>Nonce表示CPU的工作量，在本例子nonce 表示发现一个低于target的guess的<strong>累计工作量</strong>。因为每一个guess都有相同的可能性会低于target，它和nonce生成的方式是无关的。所以nonce从0开始递增比生成随机数成本更低。当区块提交到网络中，nonce会被用来证明区块的正确性。</p>
-<p><code>guess,=unpack('&gt;Q',hashlib.sha256(hashlib.sha256(pack('&gt;Q',nonce)+payloadHash).digest()).digest()[0:8])</code></p>
+<p><code>guess,=unpack(&#39;&gt;Q&#39;,hashlib.sha256(hashlib.sha256(pack(&#39;&gt;Q&#39;,nonce)+payloadHash).digest()).digest()[0:8])</code></p>
 <p>Guess是把nonce和payload经过两轮SHA256哈希之后值的前8个字节。因为target的范围是0..2^8，所以guess不可能超过target.在每次循环后，nonce是唯一会改变的值。</p>
 <p>向网络中提交nonce是安全的。因为每个旷工的payload是独一无二的。如果旷工Alice使用了旷工Bob提交的nonce，Alice需要提供相同的payload，由于Alice不能在payload把Bob的公钥自己的公钥，因为这会改变两轮SHA256哈希的输出。改变后的输出就一定满足小于target这个条件。由于Alice的payload不同于Bob的payload，所以Bob的nonce对Alice就不适用。</p>
 
@@ -451,6 +461,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/ec5b8a8d.html" rel="bookmark">【分布式共识一】分布系统及共识介绍</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/ef92d986.html" rel="bookmark">【分布式共识三】拜占庭将军问题——书面协议</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/fe0496d6.html" rel="bookmark">【分布式共识二】拜占庭将军问题——口头协议</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/126665fc.html" rel="bookmark">IPOS共识算法设计</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/e5f8fc7.html" rel="bookmark">深入Tendermint --- 出块节点选择</a></div>
+    </li>
+  </ul>
+
 
     <footer class="post-footer">
           
@@ -471,7 +501,8 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># 分布式共识 区块链共识算法</a>
+              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/" rel="tag"># 分布式共识</a>
+              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># 区块链共识算法</a>
           </div>
 
         
@@ -544,15 +575,33 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">88k</span>
+    <span title="站点总字数">87k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:20</span>
+    <span title="站点阅读时长">1:19</span>
   </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -593,6 +642,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

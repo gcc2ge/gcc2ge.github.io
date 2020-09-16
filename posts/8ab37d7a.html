@@ -35,9 +35,10 @@
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-08-11/round.jpg">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-08-11/proposal.jpg">
 <meta property="article:published_time" content="2019-08-12T04:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-15T09:09:22.067Z">
+<meta property="article:modified_time" content="2020-09-16T06:54:40.078Z">
 <meta property="article:author" content="吴寿鹤">
-<meta property="article:tag" content="Tendermint 区块链共识算法">
+<meta property="article:tag" content="区块链共识算法">
+<meta property="article:tag" content="Tendermint">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2019-08-11/vote.jpg">
 
@@ -210,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#round-based%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">Round-based协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proposal"><span class="nav-number">2.</span> <span class="nav-text">Proposal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prevote"><span class="nav-number">3.</span> <span class="nav-text">prevote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#precommit"><span class="nav-number">4.</span> <span class="nav-text">Precommit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commit"><span class="nav-number">5.</span> <span class="nav-text">Commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BC%9A%E5%88%86%E5%8F%89"><span class="nav-number">6.</span> <span class="nav-text">为什么不会分叉</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Round-based%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">Round-based协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proposal"><span class="nav-number">2.</span> <span class="nav-text">Proposal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prevote"><span class="nav-number">3.</span> <span class="nav-text">prevote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precommit"><span class="nav-number">4.</span> <span class="nav-text">Precommit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commit"><span class="nav-number">5.</span> <span class="nav-text">Commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BC%9A%E5%88%86%E5%8F%89"><span class="nav-number">6.</span> <span class="nav-text">为什么不会分叉</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -237,7 +238,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -307,7 +308,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-15 17:09:22" itemprop="dateModified" datetime="2020-09-15T17:09:22+08:00">2020-09-15</time>
+        <time title="修改时间：2020-09-16 14:54:40" itemprop="dateModified" datetime="2020-09-16T14:54:40+08:00">2020-09-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -320,6 +321,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
       </div>
       <div class="post-meta">
     <span class="post-meta-item" title="本文字数">
@@ -347,32 +355,30 @@
     <div class="post-body" itemprop="articleBody">
         <p>分布式一致性算法一般可以分为两类：拜占庭容错和非拜占庭容错。非拜占庭容错算法如 Paxos, Raft 等在当前的分布式系统中已经广泛使用，而拜占庭容错算法的实际应用范围相对来说小很多(特别是在区块链问世之前)。Tendermint 属于拜占庭容错算法，它针对传统的PBFT算法做了优化，只需要有两轮投票即可达成共识，目前Tendermint算法主要应用在区块链系统中，这篇文章就从原理上来介绍 Tendermint的共识机制。</p>
 <a id="more"></a>
-<h2 id="round-based协议">Round-based协议</h2>
-<p>在Tendermint中一共有三种类型的投票：prevote,precommit和commit。当一个block被全网络commit的话，意味着这个block已经被全网超过2/3的Validator签名并广播了。</p>
+<h2 id="Round-based协议"><a href="#Round-based协议" class="headerlink" title="Round-based协议"></a>Round-based协议</h2><p>在Tendermint中一共有三种类型的投票：prevote,precommit和commit。当一个block被全网络commit的话，意味着这个block已经被全网超过2/3的Validator签名并广播了。</p>
 <p>vote数据结构如下：</p>
-<p><img src="/assets/2019-08-11/vote.jpg" alt="vote" /></p>
+<p><img src="/assets/2019-08-11/vote.jpg" alt="vote"></p>
 <p>在链达到一个新的Height时候，系统会运行一个round-based协议来决定下一个block。round-based协议由以下三个步骤构成：proposal，prevote，precommit。以及两个特殊步骤：commit，NewHeight。其中propose，prevote和precommit会分别占用整个round 1/3时间。每一round的时间会比上一round的时间长一点，这是为了让网络在部分同步的情况下最终达成一致性共识。</p>
 <p>round-based协议运行过程如下：</p>
-<p><img src="/assets/2019-08-11/round.jpg" alt="round" /></p>
+<p><img src="/assets/2019-08-11/round.jpg" alt="round"></p>
 <p>round-based协议是一个状态机，主要有 NewHeigh -&gt; Propose -&gt; Prevote -&gt; Precommit -&gt; Commit 一共 5 个状态。上述每个状态都被称为一个Step，首尾的 NewHeigh和Commit这两个Steps被称为特殊的 Step，而中间循环三个Steps 则被称为一个 Round，是共识阶段，也是也是算法的核心原理所在。一个块的最终提交（Commit）可能需要多个Round过程，这是因为有许多原因可能会导致当前Round不成功（比如出块节点Offline，提出的块是无效块，收到的Prevote或者Precommit票数不够 +2/3 等等），出现这些情况的话，解决方案就是移步到下一轮，或者增加 timeout 时间）。</p>
 <p>当区块链达到一个新的高度时进入NewHeight阶段，接下来Propose阶段会提交一个proposal，prevote阶段会对收到的proposal进行prevote投票，在precommit阶段收集到+2/3prevote投票后对block进行precommit投票，如果收集到+2/3precommit投票后进入commit阶段，如果没有收集到+2/3precommit投票会进入再次进入propose阶段。在共识阶段期间如果收到+2/3commit投票那么直接进入commit阶段。</p>
 <p>以上就是算法运行的整体过程，接下来分阶段来阐述各个阶段。</p>
-<h2 id="proposal">Proposal</h2>
-<p>在每一轮开始前会通过round-robin方式选出一个proposer，选出的proposal会提交这一轮的proposal。proposer的选择规则请查看之前的一篇文章<a href="http://www.whatsblockchain.com/2019/08/12/深入Tendermint-Validator/">出块节点选择</a></p>
+<h2 id="Proposal"><a href="#Proposal" class="headerlink" title="Proposal"></a>Proposal</h2><p>在每一轮开始前会通过round-robin方式选出一个proposer，选出的proposal会提交这一轮的proposal。proposer的选择规则请查看之前的一篇文章<a href="http://www.whatsblockchain.com/2019/08/12/深入Tendermint-Validator/">出块节点选择</a></p>
 <p>proposal的数据结构如下：</p>
-<p><img src="/assets/2019-08-11/proposal.jpg" alt="round" /></p>
+<p><img src="/assets/2019-08-11/proposal.jpg" alt="round"></p>
 <p>Round-based协议的第一个步骤是Propose，在propose开始阶段，被选中的proposer会给全网络广播一个proposal。如果proposer锁定在上一轮中的block上，那么proposer在本轮中发起的proposal会是锁定的block，并且在proposal中加上proof-of-lock字段。</p>
-<h2 id="prevote">prevote</h2>
-<p>在Prevote开始阶段，每个Validator会判断自己是否锁定在上一轮的proposed区块上，如果锁定在之前的proposal区块中，那么在本轮中继续为之前锁定的proposal区块签名并广播prevote投票。否则为当前轮中接收到的proposal区块签名并广播prevote投票。如果由于某些原因当前Validator并没有收到任何proposal区块，那么签名并广播一个空的prevote投票。</p>
-<h2 id="precommit">Precommit</h2>
-<p>在precommit开始阶段，每个Validator会判断，如果收集到了超过2/3 prevote投票，那么为这个区块签名并广播precommit投票，并且当前Validator会锁定在这个区块上，同时释放之前锁定的区块，一个Validator一次只能锁定在一个区块上。如果一个Validator收集到超过2/3空区块（nil)的prevote投票，那么释放之前锁定的区块。处于锁定状态的Validator会为锁定的区块收集prevote投票，并把这些投票打成包放入proof-of-lock中，proof-of-lock会在之后的propose阶段用到。如果一个Validator没有收集到超过2/3的prevote投票，那么它不会锁定在任何区块上。这里，介绍一个重要概念：PoLC，全称为 Proof of Lock Change，表示在某个特定的高度和轮数(height, round)，对某个块或 nil (空块)超过总结点 2/3 的Prevote投票集合，简单来说 PoLC 就是 Prevote 的投票集。</p>
+<h2 id="prevote"><a href="#prevote" class="headerlink" title="prevote"></a>prevote</h2><p>在Prevote开始阶段，每个Validator会判断自己是否锁定在上一轮的proposed区块上，如果锁定在之前的proposal区块中，那么在本轮中继续为之前锁定的proposal区块签名并广播prevote投票。否则为当前轮中接收到的proposal区块签名并广播prevote投票。如果由于某些原因当前Validator并没有收到任何proposal区块，那么签名并广播一个空的prevote投票。</p>
+<h2 id="Precommit"><a href="#Precommit" class="headerlink" title="Precommit"></a>Precommit</h2><p>在precommit开始阶段，每个Validator会判断，如果收集到了超过2/3 prevote投票，那么为这个区块签名并广播precommit投票，并且当前Validator会锁定在这个区块上，同时释放之前锁定的区块，一个Validator一次只能锁定在一个区块上。如果一个Validator收集到超过2/3空区块（nil)的prevote投票，那么释放之前锁定的区块。处于锁定状态的Validator会为锁定的区块收集prevote投票，并把这些投票打成包放入proof-of-lock中，proof-of-lock会在之后的propose阶段用到。如果一个Validator没有收集到超过2/3的prevote投票，那么它不会锁定在任何区块上。这里，介绍一个重要概念：PoLC，全称为 Proof of Lock Change，表示在某个特定的高度和轮数(height, round)，对某个块或 nil (空块)超过总结点 2/3 的Prevote投票集合，简单来说 PoLC 就是 Prevote 的投票集。</p>
 <p>在precommit阶段后期，如果Validator收集到超过2/3的precommit投票，那么Validator进入到commit阶段。否则进入下一轮的propose阶段。</p>
-<h2 id="commit">Commit</h2>
-<p>commit阶段分为两个并行的步骤： 1. Validator收到了被全网commit的区块，Validator会为这个区块广播一个commit投票。 2. Validator需要为被全网络precommit的区块，收集到超过2/3commit投票。</p>
+<h2 id="Commit"><a href="#Commit" class="headerlink" title="Commit"></a>Commit</h2><p>commit阶段分为两个并行的步骤：</p>
+<ol>
+<li>Validator收到了被全网commit的区块，Validator会为这个区块广播一个commit投票。</li>
+<li>Validator需要为被全网络precommit的区块，收集到超过2/3commit投票。</li>
+</ol>
 <p>一旦两个条件全部满足了，节点会将commitTime设置到当前时间上，并且会进入NewHeight阶段。</p>
 <p>在整个共识过程的任何阶段，一旦节点收到超过2/3commit投票，那么它会立刻进入到commit阶段。</p>
-<h2 id="为什么不会分叉">为什么不会分叉</h2>
-<p>如果小于1/3节点是拜占庭节点（如果大于等于1/3，那么共识就没法达成了）。当validator commit了区块B，那么表示有大于2/3的节点在R轮投了precommit，这表示至少有大于1/3节点（大于1/3节点哪儿来的呢，就是大于2/3减去小于1/3，为什么是这么算呢，有人说不是有大于2/3的节点投了precommit那么这些人不都是诚实节点吗，当然不是了，拜占庭节点的意思它工作随性，有时候正确有时候失败，假设这个时候所有的拜占庭节点正确的工作了，所以都算在在+2/3节点内，所以这么算了）被lock在了R‘&gt;R。如果这个时候有针对同一区块高度的投票，那么由于这+1/3节点被lock在了R’轮，所以不会有+2/3的节点投prevote，也就不会在同一高度达成一个新的共识区块，所以就不会分叉。</p>
+<h2 id="为什么不会分叉"><a href="#为什么不会分叉" class="headerlink" title="为什么不会分叉"></a>为什么不会分叉</h2><p>如果小于1/3节点是拜占庭节点（如果大于等于1/3，那么共识就没法达成了）。当validator commit了区块B，那么表示有大于2/3的节点在R轮投了precommit，这表示至少有大于1/3节点（大于1/3节点哪儿来的呢，就是大于2/3减去小于1/3，为什么是这么算呢，有人说不是有大于2/3的节点投了precommit那么这些人不都是诚实节点吗，当然不是了，拜占庭节点的意思它工作随性，有时候正确有时候失败，假设这个时候所有的拜占庭节点正确的工作了，所以都算在在+2/3节点内，所以这么算了）被lock在了R‘&gt;R。如果这个时候有针对同一区块高度的投票，那么由于这+1/3节点被lock在了R’轮，所以不会有+2/3的节点投prevote，也就不会在同一高度达成一个新的共识区块，所以就不会分叉。</p>
 <p>所以Tendermint不分叉是基于它是BFT共识，然后加上LockedBlock共同完成。</p>
 
     </div>
@@ -380,6 +386,26 @@
     
     
     
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/e5f8fc7.html" rel="bookmark">深入Tendermint --- 出块节点选择</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/ce363f86.html" rel="bookmark">Cosmos跨链协议</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/ec5b8a8d.html" rel="bookmark">【分布式共识一】分布系统及共识介绍</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/ef92d986.html" rel="bookmark">【分布式共识三】拜占庭将军问题——书面协议</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/fe0496d6.html" rel="bookmark">【分布式共识二】拜占庭将军问题——口头协议</a></div>
+    </li>
+  </ul>
+
 
     <footer class="post-footer">
           
@@ -400,7 +426,8 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Tendermint-%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># Tendermint 区块链共识算法</a>
+              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" rel="tag"># 区块链共识算法</a>
+              <a href="/tags/Tendermint/" rel="tag"># Tendermint</a>
           </div>
 
         
@@ -473,15 +500,33 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">88k</span>
+    <span title="站点总字数">87k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:20</span>
+    <span title="站点阅读时长">1:19</span>
   </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -522,6 +567,7 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
