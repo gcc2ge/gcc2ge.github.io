@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.whatsblockchain.com/posts/2e1e9deb.html</loc>
+    
+    <lastmod>2020-09-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.whatsblockchain.com/posts/d126a292.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/posts/ec5b8a8d.html</loc>
-    
-    <lastmod>2020-09-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.whatsblockchain.com/posts/2e1e9deb.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -200,14 +200,14 @@
 
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/Git/</loc>
+    <loc>https://www.whatsblockchain.com/tags/GitHub/</loc>
     <lastmod>2020-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/GitHub/</loc>
+    <loc>https://www.whatsblockchain.com/tags/Git/</loc>
     <lastmod>2020-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -263,14 +263,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/substrate/</loc>
+    <loc>https://www.whatsblockchain.com/tags/%E9%9A%90%E7%A7%81%E5%B8%81/</loc>
     <lastmod>2020-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/%E9%9A%90%E7%A7%81%E5%B8%81/</loc>
+    <loc>https://www.whatsblockchain.com/tags/substrate/</loc>
     <lastmod>2020-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
