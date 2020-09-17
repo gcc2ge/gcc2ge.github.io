@@ -41,9 +41,10 @@
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-24//24912.png">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-24//24925.png">
 <meta property="article:published_time" content="2020-07-24T15:15:55.000Z">
-<meta property="article:modified_time" content="2020-09-17T15:21:06.972Z">
+<meta property="article:modified_time" content="2020-09-17T15:25:42.326Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="智能合约">
+<meta property="article:tag" content="以太坊">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2020-07-24/24791.png">
 
@@ -216,7 +217,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E7%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">合约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#roulette-%E5%90%88%E7%BA%A6"><span class="nav-number">1.1.</span> <span class="nav-text">Roulette 合约</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AC%A1%E5%90%8E"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1000 次后</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AC%A1%E5%90%8E-1"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">10000 次后</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roscoin-%E5%90%88%E7%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">Roscoin 合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E7%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">合约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#roulette-%E5%90%88%E7%BA%A6"><span class="nav-number">1.1.</span> <span class="nav-text">Roulette 合约</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A1%E5%90%8E"><span class="nav-number">1.1.1.</span> <span class="nav-text">1000 次后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A1%E5%90%8E-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">10000 次后</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roscoin-%E5%90%88%E7%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">Roscoin 合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -237,7 +238,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -313,7 +314,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-17 23:21:06" itemprop="dateModified" datetime="2020-09-17T23:21:06+08:00">2020-09-17</time>
+        <time title="修改时间：2020-09-17 23:25:42" itemprop="dateModified" datetime="2020-09-17T23:25:42+08:00">2020-09-17</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -321,11 +322,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%BB%A5%E5%A4%AA%E5%9D%8A/" itemprop="url" rel="index"><span itemprop="name">以太坊</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%BB%A5%E5%A4%AA%E5%9D%8A/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
+          <a href="/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" itemprop="url" rel="index"><span itemprop="name">智能合约</span></a>
         </span>
     </span>
 
@@ -375,7 +372,7 @@
 <p>同时Roulette中还有三个事件，用于对外通知Roulette合约中发生的状况</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 玩家投注完成后触发</span><br><span class="line">event Bet(address indexed player, bytes32 qid, uint256 betSize, uint8 betNumber);</span><br><span class="line">&#x2F;&#x2F; 预言机 返回随机数</span><br><span class="line">event Play(address indexed player, bytes32 qid, uint256 betSize, uint8 betNumber, uint8 winningNumber);</span><br><span class="line">&#x2F;&#x2F; 玩家押注赢了 通知</span><br><span class="line">event Payout(address indexed winner, bytes32 qid, uint256 payout);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>在上图中还有一个<code>maxBet</code>返回当前可下注的最大金额，为了保障赌场的利润，需要限制玩家下注的的最大金额，为了确定最优的最大赌注大小是什么，以及平衡利润、存活率和可用性。为此，我模拟了轮盘赌游戏中的1000/10000次赌注，并重复此10000次。平均生存率和期末利润如下。</p>
-<h5 id="次后">1000 次后</h5>
+<h4 id="次后">1000 次后</h4>
 <table>
 <thead>
 <tr class="header">
@@ -437,7 +434,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="次后-1">10000 次后</h5>
+<h4 id="次后-1">10000 次后</h4>
 <table>
 <thead>
 <tr class="header">
@@ -538,6 +535,15 @@
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/posts/c052872a.html" rel="bookmark">理解以太坊中智能合约中的存储</a></div>
     </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/3e17fcd9.html" rel="bookmark">科普：什么是以太坊</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/318c223a.html" rel="bookmark">zkRollup介绍 原理篇 </a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/58cf1c1b.html" rel="bookmark">零知识证明介绍 </a></div>
+    </li>
   </ul>
 
 
@@ -561,6 +567,7 @@
 
           <div class="post-tags">
               <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/" rel="tag"># 智能合约</a>
+              <a href="/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/" rel="tag"># 以太坊</a>
           </div>
 
         
