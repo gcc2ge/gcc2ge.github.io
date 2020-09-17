@@ -86,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/bdff6814.html</loc>
-    
-    <lastmod>2020-09-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.whatsblockchain.com/posts/2b442f1b.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -107,7 +100,7 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/8ab37d7a.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/bdff6814.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -121,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/fe0496d6.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/8ab37d7a.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/a7b53d58.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/fe0496d6.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -149,6 +142,13 @@
   </url>
   
   <url>
+    <loc>https://www.whatsblockchain.com/posts/a7b53d58.html</loc>
+    
+    <lastmod>2020-09-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.whatsblockchain.com/posts/126665fc.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/9df0461a.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/ec5b8a8d.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/ec5b8a8d.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/9df0461a.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -336,6 +336,13 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/categories/substrate/</loc>
+    <lastmod>2020-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.whatsblockchain.com/categories/%E4%BB%A5%E5%A4%AA%E5%9D%8A/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</loc>
     <lastmod>2020-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
