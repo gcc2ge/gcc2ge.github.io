@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/3e17fcd9.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/318c223a.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/318c223a.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/3e17fcd9.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -100,6 +100,13 @@
   </url>
   
   <url>
+    <loc>https://www.whatsblockchain.com/posts/bdff6814.html</loc>
+    
+    <lastmod>2020-09-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.whatsblockchain.com/posts/2b442f1b.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -108,13 +115,6 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/posts/f609c40f.html</loc>
-    
-    <lastmod>2020-09-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.whatsblockchain.com/posts/bdff6814.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -142,7 +142,7 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/a7b53d58.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/7664e5f1.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -156,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/7664e5f1.html</loc>
-    
-    <lastmod>2020-09-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.whatsblockchain.com/posts/126665fc.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -170,7 +163,7 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/9df0461a.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/a7b53d58.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -191,6 +184,13 @@
   </url>
   
   <url>
+    <loc>https://www.whatsblockchain.com/posts/9df0461a.html</loc>
+    
+    <lastmod>2020-09-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.whatsblockchain.com/tags/index.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -198,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/about/index.html</loc>
+    <loc>https://www.whatsblockchain.com/categories/index.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/categories/index.html</loc>
+    <loc>https://www.whatsblockchain.com/about/index.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -221,14 +221,14 @@
 
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/GitHub/</loc>
+    <loc>https://www.whatsblockchain.com/tags/Git/</loc>
     <lastmod>2020-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/Git/</loc>
+    <loc>https://www.whatsblockchain.com/tags/GitHub/</loc>
     <lastmod>2020-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
