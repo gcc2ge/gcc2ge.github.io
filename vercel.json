@@ -1,1 +1,1 @@
-{"version":2,"routes":[{"handle":"filesystem"},{"src":"/(.*)","status":404,"dest":"/404.html"}]}
+{"version":2,"routes":[{"src":"/2020/06/29/zkRollup-introduction/","dest":"/posts/318c223a.html"},{"src":"/(.*)","status":404,"dest":"/404.html"}]}
