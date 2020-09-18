@@ -175,11 +175,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
   </ul>
 </nav>
 
@@ -213,11 +208,11 @@
       <!--/noindex-->
 
       <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
   <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -325,7 +320,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>9.5k</span>
+      <span>10k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -343,7 +338,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><code>Uniswap</code>是<code>DeFi</code>中最著名的协议之一，<code>Uniswap</code>本质是一个自动化做市商（<code>AMM</code>），它舍弃了传统订单薄的撮合方式，采用流动池加恒定乘积公式算法($x \times y=k$)为不同加密资产提供即时报价和兑换服务。</p>
+          <p><code>Uniswap</code>是<code>DeFi</code>中最著名的协议之一，<code>Uniswap</code>本质是一个自动化做市商（<code>AMM</code>），它舍弃了传统订单薄的撮合方式，采用流动池加恒定乘积公式算法(<span class="math inline">\(x \times y=k\)</span>)为不同加密资产提供即时报价和兑换服务。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/2e1e9deb.html#more" rel="contents">
@@ -445,16 +440,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在上一章中介绍了如何使用<code>node-template</code>运行<code>substrate</code>私链，接下来将介绍如何在<code>substrate</code>私链上部署并调用智能合约。在默认的<code>node-template</code>中只包含以下几个runtime模块：</p>
-<ul>
-<li>sudo：用于由单账户执行一些需要root执行或者委托其他账户执行的函数。</li>
-<li>balances：处理账号与余额相关</li>
-<li>grandpa：用于扩展grandpa共识并且管理共识验证人</li>
-<li>aura：扩展了aura共识算法</li>
-<li>timestamp：获取与设置链上时间</li>
-<li>transaction-payment：用于计算交易费用的基础逻辑。</li>
-</ul>
-<p><img src="/assets/2020-07-26/15963636000760.png" alt=""></p>
+          <p>在上一章中介绍了如何使用<code>node-template</code>运行<code>substrate</code>私链，接下来将介绍如何在<code>substrate</code>私链上部署并调用智能合约。在默认的<code>node-template</code>中只包含以下几个runtime模块： - sudo：用于由单账户执行一些需要root执行或者委托其他账户执行的函数。 - balances：处理账号与余额相关 - grandpa：用于扩展grandpa共识并且管理共识验证人 - aura：扩展了aura共识算法 - timestamp：获取与设置链上时间 - transaction-payment：用于计算交易费用的基础逻辑。</p>
+<p><img src="/assets/2020-07-26/15963636000760.png" /></p>
 <p>为了在<code>node-template</code>中部署，执行合约，需要添加一个新的<code>runtime</code>，在上图的<code>FRAME pallets</code>中有一个<code>contract pallet</code>可以用于部署和执行<code>webAssembly</code>智能合约。</p>
           <!--noindex-->
             <div class="post-button">
@@ -561,10 +548,10 @@
 <ul>
 <li>基于<code>substrate node-template</code>搭建一个私有节点</li>
 <li>启动多个节点组成网络</li>
-<li>自定义出块节点<ul>
+<li>自定义出块节点
+<ul>
 <li>生成 <code>ed25519</code> 和<code>sr25519</code> 密钥对</li>
-</ul>
-</li>
+</ul></li>
 <li>自定义创世区块，创建<code>chainspec.json</code>文件</li>
 </ul>
           <!--noindex-->
@@ -669,7 +656,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>今天介绍一个位于以太坊上的完全分散和自治的赌场Dapps <code>Eth Roulette</code>。</p>
-<p>在一般的赌场里，只有一个老板经营赌场并获取所有利润。<code>Eth Roulette</code>允许任何人参与投资运作赌场合约，同时玩家也可以使用这个赌场合同玩轮盘赌。<br>
+<p>在一般的赌场里，只有一个老板经营赌场并获取所有利润。<code>Eth Roulette</code>允许任何人参与投资运作赌场合约，同时玩家也可以使用这个赌场合同玩轮盘赌。
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/28e870bb.html#more" rel="contents">
@@ -1363,14 +1350,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">122k</span>
+    <span title="站点总字数">123k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:51</span>
+    <span title="站点阅读时长">1:52</span>
   </span>
 </div>
 <div class="busuanzi-count">

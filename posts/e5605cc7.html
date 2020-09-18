@@ -190,11 +190,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
   </ul>
 </nav>
 
@@ -224,16 +219,16 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Substrate%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Substrate介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Database"><span class="nav-number">2.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Networking"><span class="nav-number">3.</span> <span class="nav-text">Networking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transaction-Queue"><span class="nav-number">4.</span> <span class="nav-text">Transaction Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consensus"><span class="nav-number">5.</span> <span class="nav-text">Consensus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runtime"><span class="nav-number">6.</span> <span class="nav-text">Runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Runtime-%E6%97%A0%E5%88%86%E5%8F%89%E5%8D%87%E7%BA%A7"><span class="nav-number">6.1.</span> <span class="nav-text">Runtime 无分叉升级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#substrate%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Substrate介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#database"><span class="nav-number">2.</span> <span class="nav-text">Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#networking"><span class="nav-number">3.</span> <span class="nav-text">Networking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transaction-queue"><span class="nav-number">4.</span> <span class="nav-text">Transaction Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#consensus"><span class="nav-number">5.</span> <span class="nav-text">Consensus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runtime"><span class="nav-number">6.</span> <span class="nav-text">Runtime</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#runtime-%E6%97%A0%E5%88%86%E5%8F%89%E5%8D%87%E7%BA%A7"><span class="nav-number">6.1.</span> <span class="nav-text">Runtime 无分叉升级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
       <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">吴寿鹤</p>
   <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -368,10 +363,11 @@
     <div class="post-body" itemprop="articleBody">
         <p>使用现有的区块链做二次开发是件非常痛苦的事情，用以太坊作为二次开发来说明一下，以太坊是将所有功能全部放在一个进程中实现的，所以在使用以太坊做开发时，经常会出现牵一发而动全身的情况，比如我们想在以太坊上新增一个交易结构（投票交易），那么我们来看一下将会影响到哪些模块，首先肯定是交易模块，交易需要被打包到区块中，所以区块模块也需要跟着做修改，区块需要在本地做共识（POW证明），所以共识模块也需要做相应的修改，共识后的区块需要进行全网广播，所以p2p区块同步这块也要做相应的修改。仅仅新增一个交易，就需要做这么多的连带修改，这将给对我们的开发代码巨大的不必要的工作量。所以非常需要一个框架帮助我们开发区块链项目，就像使用<code>spring boot</code>开发<code>web</code>应用一样，开发人员只需要关注业务。</p>
 <a id="more"></a>
-<h3 id="Substrate介绍"><a href="#Substrate介绍" class="headerlink" title="Substrate介绍"></a>Substrate介绍</h3><p><code>Substrate</code>是一个可扩展，模块化，开源的区块链框架，它实现了区块链开发中遇到大部分常用功能，比如p2p网络，共识算法，常用加密算法，数据存储，交易管理等，同时substrate将区块链相关的业务逻辑进行了抽象，开发人员可以只需要关心业务逻辑相关的实现，专注于区块链业务。</p>
-<p><img src="/assets/2020-07-23/27590.png" alt=""></p>
+<h3 id="substrate介绍">Substrate介绍</h3>
+<p><code>Substrate</code>是一个可扩展，模块化，开源的区块链框架，它实现了区块链开发中遇到大部分常用功能，比如p2p网络，共识算法，常用加密算法，数据存储，交易管理等，同时substrate将区块链相关的业务逻辑进行了抽象，开发人员可以只需要关心业务逻辑相关的实现，专注于区块链业务。</p>
+<p><img src="/assets/2020-07-23/27590.png" /></p>
 <p>为什么<code>substrate</code>是一个框架而不是一个库，对于框架与库的区别请看上面这张图，我们开发的代码时如果需要调用其他代码，那么被调用的代码可以称为库，库只是一些功能的集合，并且需要其他人主动调用，框架的定义特征是控制反转，框架会主动调用我们的代码，程序执行的控制流与数据流都处在框架的控制下。所以我们在使用<code>substrate</code>的时候，<code>substrate</code>框架会控制在什么时候建立<code>p2p</code>网络，什么时候将交易加入到交易池，什么时候产生区块，什么时候对区块进行共识，我们需要做的就是实现具体的功能等待框架来调用。</p>
-<p><img src="/assets/2020-07-23/27592.png" alt=""></p>
+<p><img src="/assets/2020-07-23/27592.png" /></p>
 <p>以下是<code>Substrate</code>为我们提供构建区块链所需要的所有组件</p>
 <ul>
 <li>Database</li>
@@ -380,44 +376,45 @@
 <li>Consensus</li>
 <li>Runtime</li>
 </ul>
-<p><img src="/assets/2020-07-23/27569.png" alt=""></p>
-<h3 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h3><p>区块链的本质是共享账本，所以需要对数据做持久化处理。<code>substrate</code>不会对上层区块链业务中使用那种区块结构，具体存储什么内容内容做任何假设，<code>substrate</code>在数据层使用最简单的键值对存储，实现方式是<code>MPT</code>。<code>MPT</code>存储结构可以校验一个键是否在树中，这对于轻客户端非常重要，在与区块链网络进行交互时，轻客户端需要依赖这种<code>merkle proof</code>来确认某个交易或状态是否存在主链上。</p>
-<p><img src="/assets/2020-07-23/27636.png" alt=""></p>
-<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h3><p>区块链中的节点分布在全球各地，需要有一种点对点网络协议将这些节点连接起来组成网络，所有节点可以在网络上共享交易，区块以及其他信息。<code>substrate</code>采用的<code>libp2p</code>模块化的<code>p2p</code>网络堆栈，<code>libp2p</code>不会限制我们使用那种网络协议，我们可以在<code>libp2p</code>上自定义自己的网络协议</p>
+<p><img src="/assets/2020-07-23/27569.png" /></p>
+<h3 id="database">Database</h3>
+<p>区块链的本质是共享账本，所以需要对数据做持久化处理。<code>substrate</code>不会对上层区块链业务中使用那种区块结构，具体存储什么内容内容做任何假设，<code>substrate</code>在数据层使用最简单的键值对存储，实现方式是<code>MPT</code>。<code>MPT</code>存储结构可以校验一个键是否在树中，这对于轻客户端非常重要，在与区块链网络进行交互时，轻客户端需要依赖这种<code>merkle proof</code>来确认某个交易或状态是否存在主链上。</p>
+<p><img src="/assets/2020-07-23/27636.png" /></p>
+<h3 id="networking">Networking</h3>
+<p>区块链中的节点分布在全球各地，需要有一种点对点网络协议将这些节点连接起来组成网络，所有节点可以在网络上共享交易，区块以及其他信息。<code>substrate</code>采用的<code>libp2p</code>模块化的<code>p2p</code>网络堆栈，<code>libp2p</code>不会限制我们使用那种网络协议，我们可以在<code>libp2p</code>上自定义自己的网络协议</p>
 <blockquote>
 <p><code>libp2p</code>是一个模块化的网络栈，通过将各种传输和<code>p2p</code>协议结合在一起，使得开发人员很容易构建大型、健壮的<code>p2p</code>网络。</p>
 </blockquote>
-<p><img src="/assets/2020-07-23/27638.png" alt=""></p>
-<h3 id="Transaction-Queue"><a href="#Transaction-Queue" class="headerlink" title="Transaction Queue"></a>Transaction Queue</h3><p>网络上的交易被矿工收起起来并打包到区块中，然后矿工会顺序执行区块中的交易生成下一个状态，这里区块中的交易顺序会影响账本的最终状态。</p>
-<p><img src="/assets/2020-07-23/27700.png" alt=""></p>
+<p><img src="/assets/2020-07-23/27638.png" /></p>
+<h3 id="transaction-queue">Transaction Queue</h3>
+<p>网络上的交易被矿工收起起来并打包到区块中，然后矿工会顺序执行区块中的交易生成下一个状态，这里区块中的交易顺序会影响账本的最终状态。</p>
+<p><img src="/assets/2020-07-23/27700.png" /></p>
 <p><code>substrate</code>提供了一个方法，让我们自定义交易池中的交易顺序。<code>substrate</code>会假设交易有一个用于决定交易打包优先级的权重<code>weight</code>属性和一个用于创建交易依赖关系的标签<code>tag</code>属性。最简单的交易依赖关系是线性的，但也有复杂的依赖关系，<code>substrate</code>会自动处理这些复杂性。</p>
-<p><img src="/assets/2020-07-23/27637.png" alt=""></p>
-<h3 id="Consensus"><a href="#Consensus" class="headerlink" title="Consensus"></a>Consensus</h3><p>共识是对一种共同的状态达成一致的方法。为了使区块链的状态继续创建并向前推进，网络中的所有节点都必须一致并达成共识。这是去中心化网络中的节点能够保持彼此同步的方式。如果一个去中心化的区块链中节点没有共识，就无法确保一个节点相信的真实状态被其他节点所共享。共识的目的是在参与者都有自己「主观观点」的网络中，提供关于状态的「客观观点」。它是这些节点进行通信并达成一致的过程，并且能够生产出新的块。</p>
+<p><img src="/assets/2020-07-23/27637.png" /></p>
+<h3 id="consensus">Consensus</h3>
+<p>共识是对一种共同的状态达成一致的方法。为了使区块链的状态继续创建并向前推进，网络中的所有节点都必须一致并达成共识。这是去中心化网络中的节点能够保持彼此同步的方式。如果一个去中心化的区块链中节点没有共识，就无法确保一个节点相信的真实状态被其他节点所共享。共识的目的是在参与者都有自己「主观观点」的网络中，提供关于状态的「客观观点」。它是这些节点进行通信并达成一致的过程，并且能够生产出新的块。</p>
 <p>共识算法是让分布式网络中的节点对某个状态达成一致的方法，在以太坊等区块链上，共识引擎与其他区块链组件紧密耦合，想要替换一个新的共识算法难度很大。<code>substrate</code>设计了一个抽象的共识层，在实际开发过程中可以很容易地替换共识算法，即便在区块链运行的过程中也可以做到共识算法的热插拔。<code>substrate</code>内置了多种共识算法模板：如工作量证明<code>POW</code>，<code>Aura</code>等。<code>substrate</code>共识算法的特别之处在与将区块的生产（<code>BABE</code>）与区块的最终确认（<code>Grandpa</code>）分开。</p>
 <p>BABE/Grandpa 混合共识机制</p>
 <ul>
 <li>BABE出块，高效率的出块，最快2秒一个块</li>
 <li>Grandpa大量高效率确认区块，一次可以确认多个</li>
 </ul>
-<p><img src="/assets/2020-07-23/27584.png" alt=""></p>
-<h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p>区块链中的状态变化是通过在上一个区块的基础上执行一系列交易完成的，每个交易的执行规则是通过状态转移函数（<code>state transition function</code>）决定的。状态转移函数可以很简单比如在加密货币系统中状态转移函数可以简单定义为：“只有货币所有权的用户可以消费某个货币”，也可以很复杂比如我们可以将状态转移函数定义为具有图灵完备性质的虚拟机。</p>
-<p><img src="/assets/2020-07-23/27764.png" alt=""></p>
+<p><img src="/assets/2020-07-23/27584.png" /></p>
+<h3 id="runtime">Runtime</h3>
+<p>区块链中的状态变化是通过在上一个区块的基础上执行一系列交易完成的，每个交易的执行规则是通过状态转移函数（<code>state transition function</code>）决定的。状态转移函数可以很简单比如在加密货币系统中状态转移函数可以简单定义为：“只有货币所有权的用户可以消费某个货币”，也可以很复杂比如我们可以将状态转移函数定义为具有图灵完备性质的虚拟机。</p>
+<p><img src="/assets/2020-07-23/27764.png" /></p>
 <p>在<code>substrate</code>中通过<code>runtime</code>让开发人员自定义自己的状态转移函数，在区块链中状态转移函数就是开发人员最需要关注的业务逻辑。<code>substrate</code>为了让<code>runtime</code>的开发尽可能灵活简单，<code>substrate</code>提供了一系列内置模块，这些模块称为<code>pallets</code>，开发人员可以自由组合这些模块到<code>runtime</code>中。比如：需要在区块链中有智能合约功能只需要将<code>contract</code>模块加入到<code>runtime</code>中即可，</p>
-<p><img src="/assets/2020-07-23/27786.png" alt=""></p>
+<p><img src="/assets/2020-07-23/27786.png" /></p>
 <p>除了内置的<code>pallets</code>开发人员也可以自定义<code>pallet</code>，<code>pallet</code>有以下五个部分构成，自定义<code>pallet</code>可以对每个部分进行实现。</p>
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. Imports and Dependencies</span></span><br><span class="line"><span class="comment">// The pallet supports the use of any Rust library which compiles</span></span><br><span class="line"><span class="comment">// with the `no_std` flag.</span></span><br><span class="line"><span class="keyword">use</span> support::&#123;decl_module, decl_event, decl_storage, ...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. Runtime Configuration Trait</span></span><br><span class="line"><span class="comment">// All of the runtime types and consts go in here. If the pallet</span></span><br><span class="line"><span class="comment">// is dependent on specific other pallets, then their configuration traits</span></span><br><span class="line"><span class="comment">// should be added to the inherited traits list.</span></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">trait</span> <span class="title">Trait</span></span>: system::Trait &#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. Runtime Events</span></span><br><span class="line"><span class="comment">// Events are a simple means of reporting specific conditions and circumstances</span></span><br><span class="line"><span class="comment">// that have happened that users, Dapps and/or chain explorers would find</span></span><br><span class="line"><span class="comment">// interesting and otherwise difficult to detect.</span></span><br><span class="line">decl_event!&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. Runtime Storage</span></span><br><span class="line"><span class="comment">// This allows for type-safe usage of the Substrate storage database, so you can</span></span><br><span class="line"><span class="comment">// keep things around between blocks.</span></span><br><span class="line">decl_storage! &#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. The Pallet Declaration</span></span><br><span class="line"><span class="comment">// This defines the `Module` struct that is ultimately exported from this pallet.</span></span><br><span class="line"><span class="comment">// It defines the callable functions that this pallet exposes and orchestrates</span></span><br><span class="line"><span class="comment">// actions this pallet takes throughout block execution.</span></span><br><span class="line">decl_module! &#123; ... &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="Runtime-无分叉升级"><a href="#Runtime-无分叉升级" class="headerlink" title="Runtime 无分叉升级"></a>Runtime 无分叉升级</h4><p>任何代码都会涉及到升级现有功能，<code>bug</code>修复，添加新的功能的问题，然而<code>runtime</code>是属于链上状态转移函数，对链上的状态转移函数进行修改会影响全网的共识，甚至会造成链的分叉。现在网络上一个节点运行<code>STF V1</code>版本的状态转移函数，而另一个节点上的运行升级后的版本<code>STF V2</code>，这时他们执行<code>区块#3</code>里面的交易后会得到两个不同的状态，导致链发生分叉。</p>
-<p><img src="/assets/2020-07-23/27859.png" alt=""></p>
+<h4 id="runtime-无分叉升级">Runtime 无分叉升级</h4>
+<p>任何代码都会涉及到升级现有功能，<code>bug</code>修复，添加新的功能的问题，然而<code>runtime</code>是属于链上状态转移函数，对链上的状态转移函数进行修改会影响全网的共识，甚至会造成链的分叉。现在网络上一个节点运行<code>STF V1</code>版本的状态转移函数，而另一个节点上的运行升级后的版本<code>STF V2</code>，这时他们执行<code>区块#3</code>里面的交易后会得到两个不同的状态，导致链发生分叉。</p>
+<p><img src="/assets/2020-07-23/27859.png" /></p>
 <p><code>substrate</code>是通过让全网的节点对要升级的<code>runtime</code>代码达成共识后再执行<code>runtime</code>代码的方式来解决分叉的问题。首先主链上的数据都是经过全网的节点共识的，所以<code>substrate</code>将<code>runtime</code>的代码编译成<code>wasm</code>二进制格式，然后将<code>runtime</code>的二进制代码存储到主链上。任何运行中的节点都可以校验链上的<code>runtime</code>代码是不是最新的，如果链上有最新的<code>runtime</code>代码，则执行链上的代码，如果没有最新的代码，则执行本地的<code>runtime</code>代码</p>
-<p><img src="/assets/2020-07-23/27895.png" alt=""></p>
+<p><img src="/assets/2020-07-23/27895.png" /></p>
 <p>通过这种方法<code>substrate</code>可以实现链是逻辑的升级，而且不会发生分叉。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>substrate</code>是一个可扩展，模块化，开源的区块链框架，具有以下几个优点：</p>
-<ul>
-<li>可无分叉升级，通过将<code>runtime</code>代码编译成<code>wasm</code>代码存储在链上，代码经过网络上的节点共识后就完成了升级</li>
-<li>高效率，<code>substrate</code>是用<code>rust</code>开发，<code>rust</code>具有内存安全，没有垃圾回收避免了性能问题，强类型系统编译时避免了错误</li>
-<li>模块化设计，开发人员可以根据需要对存储，共识，p2p网络进行定制</li>
-<li>polkadot生态圈，可无缝对接 Polkadot，融入更大的生态，不必从头开始构建自己的社区。</li>
-</ul>
+<h3 id="总结">总结</h3>
+<p><code>substrate</code>是一个可扩展，模块化，开源的区块链框架，具有以下几个优点： - 可无分叉升级，通过将<code>runtime</code>代码编译成<code>wasm</code>代码存储在链上，代码经过网络上的节点共识后就完成了升级 - 高效率，<code>substrate</code>是用<code>rust</code>开发，<code>rust</code>具有内存安全，没有垃圾回收避免了性能问题，强类型系统编译时避免了错误 - 模块化设计，开发人员可以根据需要对存储，共识，p2p网络进行定制 - polkadot生态圈，可无缝对接 Polkadot，融入更大的生态，不必从头开始构建自己的社区。</p>
 
     </div>
 
@@ -528,14 +525,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">122k</span>
+    <span title="站点总字数">123k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:51</span>
+    <span title="站点阅读时长">1:52</span>
   </span>
 </div>
 <div class="busuanzi-count">
