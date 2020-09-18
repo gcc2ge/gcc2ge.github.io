@@ -222,7 +222,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E7%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">合约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#roulette-%E5%90%88%E7%BA%A6"><span class="nav-number">1.1.</span> <span class="nav-text">Roulette 合约</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A1%E5%90%8E"><span class="nav-number">1.1.1.</span> <span class="nav-text">1000 次后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A1%E5%90%8E-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">10000 次后</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#roscoin-%E5%90%88%E7%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">Roscoin 合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E7%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">合约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Roulette-%E5%90%88%E7%BA%A6"><span class="nav-number">1.1.</span> <span class="nav-text">Roulette 合约</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1000-%E6%AC%A1%E5%90%8E"><span class="nav-number">1.1.1.</span> <span class="nav-text">1000 次后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10000-%E6%AC%A1%E5%90%8E"><span class="nav-number">1.1.2.</span> <span class="nav-text">10000 次后</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Roscoin-%E5%90%88%E7%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">Roscoin 合约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -365,166 +365,168 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>今天介绍一个位于以太坊上的完全分散和自治的赌场Dapps <code>Eth Roulette</code>。</p>
-<p>在一般的赌场里，只有一个老板经营赌场并获取所有利润。<code>Eth Roulette</code>允许任何人参与投资运作赌场合约，同时玩家也可以使用这个赌场合同玩轮盘赌。 <a id="more"></a></p>
-<h2 id="合约">合约</h2>
-<p><img src="/assets/2020-07-24/24791.png" alt="img" /></p>
-<p>Roulette Dapps一个分为两个合约： - Roulette - Roscoin</p>
-<h3 id="roulette-合约">Roulette 合约</h3>
-<p>如上图所示<code>Roulette</code>合约是轮盘赌合约，是用于给玩家提供的娱乐合约，先介绍一下轮盘赌的游戏规则：轮盘赌合约允许玩家在0到36之间的数字上押注一定数量的ETH，如果中奖了，那么奖金是投注金额的36倍。轮盘赌的随机数生成是通过与Oraclize完成的，Oraclize是在以太坊上提供预言机的服务。</p>
-<p>关于oraclize的详细介绍可以参考这个链接：https://provable.xyz/</p>
+<p>在一般的赌场里，只有一个老板经营赌场并获取所有利润。<code>Eth Roulette</code>允许任何人参与投资运作赌场合约，同时玩家也可以使用这个赌场合同玩轮盘赌。<br><a id="more"></a></p>
+<h2 id="合约"><a href="#合约" class="headerlink" title="合约"></a>合约</h2><p><img src="/assets/2020-07-24/24791.png" alt="img"></p>
+<p>Roulette Dapps一个分为两个合约：</p>
+<ul>
+<li>Roulette</li>
+<li>Roscoin</li>
+</ul>
+<h3 id="Roulette-合约"><a href="#Roulette-合约" class="headerlink" title="Roulette 合约"></a>Roulette 合约</h3><p>如上图所示<code>Roulette</code>合约是轮盘赌合约，是用于给玩家提供的娱乐合约，先介绍一下轮盘赌的游戏规则：轮盘赌合约允许玩家在0到36之间的数字上押注一定数量的ETH，如果中奖了，那么奖金是投注金额的36倍。轮盘赌的随机数生成是通过与Oraclize完成的，Oraclize是在以太坊上提供预言机的服务。</p>
+<p>关于oraclize的详细介绍可以参考这个链接：<a target="_blank" rel="noopener" href="https://provable.xyz/">https://provable.xyz/</a></p>
 <p>Roulette 中有一个players变量保存了player的押注信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct PlayerInfo &#123;</span><br><span class="line">        address payable player; &#x2F;&#x2F; 玩家地址</span><br><span class="line">        uint256 betSize; &#x2F;&#x2F; 押注金额</span><br><span class="line">        uint8 betNumber; &#x2F;&#x2F; 押的点数 0~36</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mapping(bytes32&#x3D;&gt;PlayerInfo) players;</span><br></pre></td></tr></table></figure>
 <p>同时Roulette中还有三个事件，用于对外通知Roulette合约中发生的状况</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 玩家投注完成后触发</span><br><span class="line">event Bet(address indexed player, bytes32 qid, uint256 betSize, uint8 betNumber);</span><br><span class="line">&#x2F;&#x2F; 预言机 返回随机数</span><br><span class="line">event Play(address indexed player, bytes32 qid, uint256 betSize, uint8 betNumber, uint8 winningNumber);</span><br><span class="line">&#x2F;&#x2F; 玩家押注赢了 通知</span><br><span class="line">event Payout(address indexed winner, bytes32 qid, uint256 payout);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>在上图中还有一个<code>maxBet</code>返回当前可下注的最大金额，为了保障赌场的利润，需要限制玩家下注的的最大金额，为了确定最优的最大赌注大小是什么，以及平衡利润、存活率和可用性。为此，我模拟了轮盘赌游戏中的1000/10000次赌注，并重复此10000次。平均生存率和期末利润如下。</p>
-<h4 id="次后">1000 次后</h4>
+<h4 id="1000-次后"><a href="#1000-次后" class="headerlink" title="1000 次后"></a>1000 次后</h4><div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Bet size percentage</th>
-<th style="text-align: right;">Survival rate</th>
-<th style="text-align: right;">Average ending profit</th>
+<th style="text-align:right">Survival rate</th>
+<th style="text-align:right">Average ending profit</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>0.1%</td>
-<td style="text-align: right;">100.00%</td>
-<td style="text-align: right;">2.73%</td>
+<td style="text-align:right">100.00%</td>
+<td style="text-align:right">2.73%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.2%</td>
-<td style="text-align: right;">100.00%</td>
-<td style="text-align: right;">5.35%</td>
+<td style="text-align:right">100.00%</td>
+<td style="text-align:right">5.35%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.3%</td>
-<td style="text-align: right;">100.00%</td>
-<td style="text-align: right;">7.12%</td>
+<td style="text-align:right">100.00%</td>
+<td style="text-align:right">7.12%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.4%</td>
-<td style="text-align: right;">99.99%</td>
-<td style="text-align: right;">11.46%</td>
+<td style="text-align:right">99.99%</td>
+<td style="text-align:right">11.46%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.5%</td>
-<td style="text-align: right;">98.81%</td>
-<td style="text-align: right;">14.44%</td>
+<td style="text-align:right">98.81%</td>
+<td style="text-align:right">14.44%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.6%</td>
-<td style="text-align: right;">95.49%</td>
-<td style="text-align: right;">19.65%</td>
+<td style="text-align:right">95.49%</td>
+<td style="text-align:right">19.65%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.7%</td>
-<td style="text-align: right;">87.82%</td>
-<td style="text-align: right;">21.10%</td>
+<td style="text-align:right">87.82%</td>
+<td style="text-align:right">21.10%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.8%</td>
-<td style="text-align: right;">79.68%</td>
-<td style="text-align: right;">29.54%</td>
+<td style="text-align:right">79.68%</td>
+<td style="text-align:right">29.54%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.9%</td>
-<td style="text-align: right;">68.16%</td>
-<td style="text-align: right;">33.32%</td>
+<td style="text-align:right">68.16%</td>
+<td style="text-align:right">33.32%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1.0%</td>
-<td style="text-align: right;">56.18%</td>
-<td style="text-align: right;">30.30%</td>
+<td style="text-align:right">56.18%</td>
+<td style="text-align:right">30.30%</td>
 </tr>
 </tbody>
 </table>
-<h4 id="次后-1">10000 次后</h4>
+</div>
+<h4 id="10000-次后"><a href="#10000-次后" class="headerlink" title="10000 次后"></a>10000 次后</h4><div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Bet size percentage</th>
-<th style="text-align: right;">Survival rate</th>
-<th style="text-align: right;">Average ending profit</th>
+<th style="text-align:right">Survival rate</th>
+<th style="text-align:right">Average ending profit</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>0.1%</td>
-<td style="text-align: right;">100.00%</td>
-<td style="text-align: right;">32.27%</td>
+<td style="text-align:right">100.00%</td>
+<td style="text-align:right">32.27%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.2%</td>
-<td style="text-align: right;">98.01%</td>
-<td style="text-align: right;">72.74%</td>
+<td style="text-align:right">98.01%</td>
+<td style="text-align:right">72.74%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.3%</td>
-<td style="text-align: right;">80.06%</td>
-<td style="text-align: right;">120.22%</td>
+<td style="text-align:right">80.06%</td>
+<td style="text-align:right">120.22%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.4%</td>
-<td style="text-align: right;">51.91%</td>
-<td style="text-align: right;">151.74%</td>
+<td style="text-align:right">51.91%</td>
+<td style="text-align:right">151.74%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.5%</td>
-<td style="text-align: right;">29.04%</td>
-<td style="text-align: right;">306.58%</td>
+<td style="text-align:right">29.04%</td>
+<td style="text-align:right">306.58%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.6%</td>
-<td style="text-align: right;">13.74%</td>
-<td style="text-align: right;">153.93%</td>
+<td style="text-align:right">13.74%</td>
+<td style="text-align:right">153.93%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.7%</td>
-<td style="text-align: right;">5.93%</td>
-<td style="text-align: right;">121.54%</td>
+<td style="text-align:right">5.93%</td>
+<td style="text-align:right">121.54%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0.8%</td>
-<td style="text-align: right;">2.11%</td>
-<td style="text-align: right;">-28.23%</td>
+<td style="text-align:right">2.11%</td>
+<td style="text-align:right">-28.23%</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>0.9%</td>
-<td style="text-align: right;">0.71%</td>
-<td style="text-align: right;">-48.60%</td>
+<td style="text-align:right">0.71%</td>
+<td style="text-align:right">-48.60%</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1.0%</td>
-<td style="text-align: right;">0.27%</td>
-<td style="text-align: right;">-92.31%</td>
+<td style="text-align:right">0.27%</td>
+<td style="text-align:right">-92.31%</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Bet size percentage 表示赌注的比例，以赌场中的资金总额为参考</p>
 <p>Survival rate： 表示实验过程中，赌场未破产次数除以总实验次数，表示赌场的生存率</p>
 <p>Average ending profit： 表示实验过程中，赌场盈利情况</p>
 <p>对于轮盘赌合同，我们把最大赌注设置为赌场总余额的0.5%，因为这可以在保持长期利润较高的情况下，同时也可以保证较高的生存率，也就是赌场破产率较低。当然也可以选择0.1% ，这样可以保证赌场具有最高生存率，但长期利润不高。</p>
-<h3 id="roscoin-合约">Roscoin 合约</h3>
-<p>Roscoin是一个ERC20 Token，玩家可以自由买卖，Roscoin是作为投资连接轮盘赌智能合约的一种手段。Roscoin的价值是根据轮盘赌合约的余额和Roscoins的总供应量计算的。</p>
+<h3 id="Roscoin-合约"><a href="#Roscoin-合约" class="headerlink" title="Roscoin 合约"></a>Roscoin 合约</h3><p>Roscoin是一个ERC20 Token，玩家可以自由买卖，Roscoin是作为投资连接轮盘赌智能合约的一种手段。Roscoin的价值是根据轮盘赌合约的余额和Roscoins的总供应量计算的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; token价格计算方法</span><br><span class="line"> function tokenPrice() public view onlyWhenBacked returns (uint256) &#123;</span><br><span class="line">        if (totalSupply() &#x3D;&#x3D; 0 || backingContract.balanceForBacking() &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            return 1 ether;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; 赌场总余额 除以 token供应量</span><br><span class="line">        return backingContract.balanceForBacking().mul(1 ether).div(totalSupply());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>由于token的价格来自轮盘赌合约的余额，所以这是一种跟踪赌场业绩并对其进行投资的方法。</p>
-<h2 id="实战">实战</h2>
-<p>使用Dapps之前需要先安装网页钱包MetaMask，安装完MetaMask钱包后，在网页中打开<a target="_blank" rel="noopener" href="https://ethroulette.kalis.me/">Roulette Dapps</a>，页面会弹出以下界面，Dapps会与安装好的Metamask钱包连接以便于通过MetaMask钱包与以太坊交互，比如：通过Metamask钱包签名交易，向以太坊网络发送交易，查询当前Dapps事件等。</p>
-<p><img src="/assets/2020-07-24//24855.png" /></p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>使用Dapps之前需要先安装网页钱包MetaMask，安装完MetaMask钱包后，在网页中打开<a target="_blank" rel="noopener" href="https://ethroulette.kalis.me/">Roulette Dapps</a>，页面会弹出以下界面，Dapps会与安装好的Metamask钱包连接以便于通过MetaMask钱包与以太坊交互，比如：通过Metamask钱包签名交易，向以太坊网络发送交易，查询当前Dapps事件等。</p>
+<p><img src="/assets/2020-07-24//24855.png" alt=""></p>
 <p>点击连接后就可以使用Dapps了，在主界面中包含两个模块：1. 轮盘赌界面，2. 投资赌场界面。</p>
-<p><img src="/assets/2020-07-24//24888.png" /></p>
+<p><img src="/assets/2020-07-24//24888.png" alt=""></p>
 <p>现在我们看一下轮盘赌游戏怎么玩，首先在页面中填写BetNumber（押注数字），BetAmount（押注金额），填写完毕后点击Bet按钮。</p>
-<p><img src="/assets/2020-07-24//24859.png" /></p>
+<p><img src="/assets/2020-07-24//24859.png" alt=""></p>
 <p>点击Bet后Dapps会调用MetaMask钱包开始签名，Metamask会弹出页面展示Dapps请求签名的信息，用户确认没有问题后，点击确认，之后Metamask会向以太坊发送签名后的交易。</p>
-<p><img src="/assets/2020-07-24//24861.png" /></p>
+<p><img src="/assets/2020-07-24//24861.png" alt=""></p>
 <p>交易发送后，会等待以太坊网络处理，可以在Metamask中看到交易处理状态。</p>
-<p><img src="/assets/2020-07-24//24863.png" /></p>
+<p><img src="/assets/2020-07-24//24863.png" alt=""></p>
 <p>同时也可以在以太坊浏览器Etherscan中查看交易的状态</p>
-<p><img src="/assets/2020-07-24//24904.png" /></p>
+<p><img src="/assets/2020-07-24//24904.png" alt=""></p>
 <p>正如前文所说，Dapps中的随机数是通过oraclize服务提供的，当Dapps中发出一个交易后，oraclize会调用合约中的callback函数，在callback函数中，oraclize会将随机数提供给Dapps</p>
-<p><img src="/assets/2020-07-24//24912.png" /></p>
-<p>当oraclize返回随机数后，就可以判断这局游戏的结果了，可以通过交易中的事件可以看到，我们押注的数字是18，oraclize返回的数字是0。从事件可以看到这局游戏我们输了。 <img src="/assets/2020-07-24//24925.png" /></p>
+<p><img src="/assets/2020-07-24//24912.png" alt=""></p>
+<p>当oraclize返回随机数后，就可以判断这局游戏的结果了，可以通过交易中的事件可以看到，我们押注的数字是18，oraclize返回的数字是0。从事件可以看到这局游戏我们输了。<br><img src="/assets/2020-07-24//24925.png" alt=""></p>
 
     </div>
 
@@ -541,10 +543,10 @@
       <div class="popular-posts-title"><a href="/posts/c052872a.html" rel="bookmark">理解以太坊中智能合约中的存储</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/318c223a.html" rel="bookmark">zkRollup介绍 原理篇 </a></div>
+      <div class="popular-posts-title"><a href="/posts/3e17fcd9.html" rel="bookmark">科普：什么是以太坊</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/3e17fcd9.html" rel="bookmark">科普：什么是以太坊</a></div>
+      <div class="popular-posts-title"><a href="/posts/318c223a.html" rel="bookmark">zkRollup介绍 原理篇 </a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/posts/58cf1c1b.html" rel="bookmark">零知识证明介绍 </a></div>
@@ -645,14 +647,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">122k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:51</span>
   </span>
 </div>
 <div class="busuanzi-count">
