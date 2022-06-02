@@ -23,14 +23,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/e9b4c4d6.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/d126a292.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/d126a292.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/e9b4c4d6.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -44,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/58cf1c1b.html</loc>
-    
-    <lastmod>2022-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.whatsblockchain.com/posts/e5605cc7.html</loc>
     
     <lastmod>2022-06-02</lastmod>
@@ -58,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/ce363f86.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/58cf1c1b.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -73,6 +66,13 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/posts/dfe53fb.html</loc>
+    
+    <lastmod>2022-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.whatsblockchain.com/posts/ce363f86.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/7664e5f1.html</loc>
-    
-    <lastmod>2022-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.whatsblockchain.com/posts/126665fc.html</loc>
     
     <lastmod>2022-06-02</lastmod>
@@ -136,6 +129,13 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/posts/bdff6814.html</loc>
+    
+    <lastmod>2022-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.whatsblockchain.com/posts/7664e5f1.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -198,13 +198,6 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/about/index.html</loc>
-    
-    <lastmod>2020-09-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.whatsblockchain.com/categories/index.html</loc>
     
     <lastmod>2020-09-16</lastmod>
@@ -218,6 +211,13 @@
     
   </url>
   
+  <url>
+    <loc>https://www.whatsblockchain.com/about/index.html</loc>
+    
+    <lastmod>2020-09-16</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>https://www.whatsblockchain.com/</loc>
@@ -226,20 +226,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://www.whatsblockchain.com/tags/GitHub/</loc>
-    <lastmod>2022-06-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.whatsblockchain.com/tags/Git/</loc>
-    <lastmod>2022-06-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>https://www.whatsblockchain.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</loc>
@@ -256,7 +242,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</loc>
+    <loc>https://www.whatsblockchain.com/tags/GitHub/</loc>
+    <lastmod>2022-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.whatsblockchain.com/tags/Git/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -264,6 +257,13 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/</loc>
+    <lastmod>2022-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.whatsblockchain.com/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -321,14 +321,14 @@
 
   
   <url>
-    <loc>https://www.whatsblockchain.com/categories/GitHub/</loc>
+    <loc>https://www.whatsblockchain.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86/</loc>
+    <loc>https://www.whatsblockchain.com/categories/GitHub/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
