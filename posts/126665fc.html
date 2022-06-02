@@ -32,7 +32,7 @@
 <meta property="og:description" content="选型思路 本文介绍的共识算法是ionchain中是用的POS算法，即IPOS，这里先简单描述一下我们当初为ionchain选择共识算法的一些考量。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-16T08:59:52.957Z">
+<meta property="article:modified_time" content="2022-06-02T12:50:58.078Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="分布式共识">
 <meta property="article:tag" content="区块链共识算法">
@@ -221,20 +221,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -304,7 +304,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-16 16:59:52" itemprop="dateModified" datetime="2020-09-16T16:59:52+08:00">2020-09-16</time>
+        <time title="修改时间：2022-06-02 20:50:58" itemprop="dateModified" datetime="2022-06-02T20:50:58+08:00">2022-06-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -359,23 +359,30 @@
 <li>矿池带来的中心化问题</li>
 </ul>
 <p>基于以上这些考虑，我们在选择算法时就忽略了POW，因为一旦我们的项目中使用POW作为共识算法还会带来一些我们无法控制的问题，例如：一些矿场将他们的算力切换到我们链上，挖取大量的货币并将货币在二级市场上抛售，这样我们的货币就有归零的风险。</p>
-<p>那么还有没有一种共识算法同时兼具POW的有点，同时也减少POW的缺点呢？有，这个算法就是权益证明（POS），在POW中矿工通过部署大量的矿机来争夺区块的打包权，那么在POS中，矿工是如何来竞争打包权？POS中矿工的算力是用权益来表示的，权益即矿工将所持有的加密货币一部分以保证金的形式存储在系统中，并处于锁定状态（不可以取出），如果以后不想挖矿了可以从系统中取出相应的保证金。在ionchain中是以合约的形式实现保证金的存储与赎回，矿工可以通过调用系统保证金合约来获取相关账户的权益，具体的实现方式可以参考github上开源的项目<a target="_blank" rel="noopener" href="http://github.com/ionchain/IPOSContract">IPOSContract</a>。</p>
+<p>那么还有没有一种共识算法同时兼具POW的有点，同时也减少POW的缺点呢？有，这个算法就是权益证明（POS），在POW中矿工通过部署大量的矿机来争夺区块的打包权，那么在POS中，矿工是如何来竞争打包权？POS中矿工的算力是用权益来表示的，权益即矿工将所持有的加密货币一部分以保证金的形式存储在系统中，并处于锁定状态（不可以取出），如果以后不想挖矿了可以从系统中取出相应的保证金。在ionchain中是以合约的形式实现保证金的存储与赎回，矿工可以通过调用系统保证金合约来获取相关账户的权益，具体的实现方式可以参考github上开源的项目<a
+target="_blank" rel="noopener" href="http://github.com/ionchain/IPOSContract">IPOSContract</a>。</p>
 <p>权益的问题解决了，接下来要考虑如何选择合适的矿工打包区块，对于选择算法我们会有以下几个目标：</p>
 <ul>
 <li>用户拥有的保证金越多，那么该用户被选中的概率就越大</li>
 <li>算法选择过程中包含一定程度的概率，以避免出现富有的用户总是被选中生成区块，持续获得的奖励，富人越来越富</li>
-<li>目前POS中常用的选择算法有两种：1. 独立同分布随机算法，2. 币龄选择。如果采用币龄选择算法，会导致用户离线攒币龄，等币龄满足条件后才上线打包区块，这样会导致我们的链上的节点在线率不高，所有在IPOS中我们选择独立同分布随机作为选择节点的算法</li>
+<li>目前POS中常用的选择算法有两种：1. 独立同分布随机算法，2.
+币龄选择。如果采用币龄选择算法，会导致用户离线攒币龄，等币龄满足条件后才上线打包区块，这样会导致我们的链上的节点在线率不高，所有在IPOS中我们选择独立同分布随机作为选择节点的算法</li>
 </ul>
-<p>如何选择节点打包区块的问题解决了，具体的算法将会在下一章节中做详细的介绍，接下来我们应该考虑的是激励的问题了，激励是区块链中一个非常重要的组成部分，在POW算法中对矿工的激励分成两部分：1. 打包生成区块的奖励。 2. 区块中的所有交易费用的奖励。 由于我们使用的是POS算法，在POS中是以权益作为算力的，所以在整个生态中我们需要确保货币不能超发即不能增发货币，所以在POS算法中我们对矿工的奖励只有交易费用这部分。</p>
+<p>如何选择节点打包区块的问题解决了，具体的算法将会在下一章节中做详细的介绍，接下来我们应该考虑的是激励的问题了，激励是区块链中一个非常重要的组成部分，在POW算法中对矿工的激励分成两部分：1.
+打包生成区块的奖励。 2. 区块中的所有交易费用的奖励。
+由于我们使用的是POS算法，在POS中是以权益作为算力的，所以在整个生态中我们需要确保货币不能超发即不能增发货币，所以在POS算法中我们对矿工的奖励只有交易费用这部分。</p>
 <h2 id="算法介绍">算法介绍</h2>
-<p>在POW算法中是通过hash算力来获取区块的打包权的，POS是通过权益来获取打包权的，其实POS是对POW的一种改进，为了便于大家理解POS是如何工作的，在这里我们先介绍POW的工作原理，为了便于阐述，使用hash(...)表示所有的哈希函数，在不同的共识算法中的整数范围是不一样的，例如比特币中整数的范围是<span class="math inline">\([0,2^{256}-1]\)</span>，为了便于描述我们使用<span class="math inline">\([0,M]\)</span>表示整数范围。</p>
+<p>在POW算法中是通过hash算力来获取区块的打包权的，POS是通过权益来获取打包权的，其实POS是对POW的一种改进，为了便于大家理解POS是如何工作的，在这里我们先介绍POW的工作原理，为了便于阐述，使用hash(...)表示所有的哈希函数，在不同的共识算法中的整数范围是不一样的，例如比特币中整数的范围是<span
+class="math inline">\([0,2^{256}-1]\)</span>，为了便于描述我们使用<span
+class="math inline">\([0,M]\)</span>表示整数范围。</p>
 <p>POW公式：</p>
 <p><span class="math display">\[
 hash(B) \leq M \div D   \qquad\qquad\qquad\qquad\qquad (1)
 \]</span></p>
 <p>其中：</p>
 <ul>
-<li><p><span class="math inline">\(D \in [1,M]\)</span>表示目标难度，难度越高需要查找的次数也就越多</p></li>
+<li><p><span class="math inline">\(D \in
+[1,M]\)</span>表示目标难度，难度越高需要查找的次数也就越多</p></li>
 <li><p><code>B</code>表示nonce，这只能通过暴力搜索的方式来寻找合适的值</p></li>
 </ul>
 <p>在POW算法中，所有矿工看到的<code>D</code>都是相同的，矿工唯一能改变的就是<code>B</code>值，所有矿工通过不断的寻找合适的<code>nonce</code>来满足上面的不等式。</p>
@@ -386,21 +393,27 @@ hash(B_{prev},K) \leq S \ast Bal(K) \ast M \div D  \qquad (2)
 \]</span></p>
 <p>其中：</p>
 <ul>
-<li><p><span class="math inline">\(B_{prev}\)</span> 区块中的一个字段（生成签名），矿工使用生成签名字段与矿工的地址做hash运算生成一个随机数，具体过程在下文中有详细解释。</p></li>
+<li><p><span class="math inline">\(B_{prev}\)</span>
+区块中的一个字段（生成签名），矿工使用生成签名字段与矿工的地址做hash运算生成一个随机数，具体过程在下文中有详细解释。</p></li>
 <li><p><code>S</code> 父区块到当前区块之间的时间差</p></li>
 <li><p><code>Bal(K)</code> 矿工K拥有的保证金余额</p></li>
 </ul>
 <p>与(1)不同，矿工唯一可以改变的变量是不等式(2)右侧的时间戳S，因为矿工地址中的保证金被系统锁定。随着时间的流失不等式的右边的值会越来越大，不等式右边的增长幅度与矿工的保证金大小成正比，所以在未来的某一刻一定会到达满足不等式(2)成立的条件。从这个过程中可以看出，在POS中没有涉及到昂贵的计算，矿工的出块速度与其拥有的保证金大小成正相关。</p>
-<h3 id="b_prev-作用与生成方法"><span class="math inline">\(B_{prev}\)</span> 作用与生成方法</h3>
+<h3 id="b_prev-作用与生成方法"><span
+class="math inline">\(B_{prev}\)</span> 作用与生成方法</h3>
 <p>在POW算法中所有矿工都解的是同一道题目，即如何使不等式(1)成立，在POS算法中我们需要满足之前所说的两个条件：</p>
 <ol type="1">
 <li>矿工被选中的概率，与矿工所持有的保证金数额成正比</li>
 <li>在算法选择过程中包含一定程度的概率，以避免出现富有的矿工总是被选中生成区块，持续获得的奖励，富人越来越富</li>
 </ol>
-<p>第一个条件好满足，从不等式(2)中就可以看出，矿工持有的保证金额度越高不等式右边的增长幅度就越快。为了满足第二个条件，我们引入了<span class="math inline">\(B_{prev}\)</span>生成签名，生成签名可以看作是一个不可预测的随机数，它为了不等式(2)的左边，这意味着每一个矿工所需要解决的题目是不相同的，这样就可以避免富有的矿工总是被选中。下面是<span class="math inline">\(B_{prev}\)</span>的生成过程：</p>
+<p>第一个条件好满足，从不等式(2)中就可以看出，矿工持有的保证金额度越高不等式右边的增长幅度就越快。为了满足第二个条件，我们引入了<span
+class="math inline">\(B_{prev}\)</span>生成签名，生成签名可以看作是一个不可预测的随机数，它为了不等式(2)的左边，这意味着每一个矿工所需要解决的题目是不相同的，这样就可以避免富有的矿工总是被选中。下面是<span
+class="math inline">\(B_{prev}\)</span>的生成过程：</p>
 <ol type="1">
-<li>在区块头中有一个生成签名的字段<span class="math inline">\(B_{prev}\)</span></li>
-<li>将当前矿工的地址与父区块的<span class="math inline">\(B_{prev}\)</span>做hash运算，可以看出每一个矿工得到的值都是不一样的。</li>
+<li>在区块头中有一个生成签名的字段<span
+class="math inline">\(B_{prev}\)</span></li>
+<li>将当前矿工的地址与父区块的<span
+class="math inline">\(B_{prev}\)</span>做hash运算，可以看出每一个矿工得到的值都是不一样的。</li>
 <li>将运算后的结果取前八个字节作为不等式(2)左边的值</li>
 </ol>
 <h3 id="公式简化">公式简化</h3>
@@ -416,9 +429,12 @@ T_b=M \div D
 \]</span></p>
 <p>其中：</p>
 <ul>
-<li><span class="math inline">\(T_k\)</span>是当前矿工计算后的值，这个值会随着时间增加而增长</li>
+<li><span
+class="math inline">\(T_k\)</span>是当前矿工计算后的值，这个值会随着时间增加而增长</li>
 </ul>
-<p>在上文中解释了IPOS中的随机数生成规则，同样这里使用<span class="math inline">\(H_k\)</span>来替代不等式(2)左边的部分，不等式(2) 左边</p>
+<p>在上文中解释了IPOS中的随机数生成规则，同样这里使用<span
+class="math inline">\(H_k\)</span>来替代不等式(2)左边的部分，不等式(2)
+左边</p>
 <p><span class="math display">\[
 H_k = hash(B_{prev},K)[0:8]
 \]</span></p>
@@ -431,18 +447,25 @@ H_k \leq T_b \times S \times B_k \qquad\qquad\qquad (3)
 <p><span class="math display">\[
 T_b=
 \begin{cases}
-T_p \ast \frac {min(S,R_{max})}{15}                        &amp;  {S &gt; 15} \\
-T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
+T_p \ast \frac {min(S,R_{max})}{15}                        &amp;  {S
+&gt; 15} \\
+T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S
+\leq 15}
 \end{cases}
 \]</span></p>
 <p>其中：</p>
 <ul>
-<li><p><span class="math inline">\(R_{max}\)</span>=22 当区块时间大于15秒时，目标降低的最大比率</p></li>
-<li><p><span class="math inline">\(R_{min}\)</span>=8 当块时间小于15秒时，目标增加的最小比率</p></li>
+<li><p><span class="math inline">\(R_{max}\)</span>=22
+当区块时间大于15秒时，目标降低的最大比率</p></li>
+<li><p><span class="math inline">\(R_{min}\)</span>=8
+当块时间小于15秒时，目标增加的最小比率</p></li>
 <li><p><span class="math inline">\(\gamma\)</span>=0.64</p></li>
-<li><p><code>S</code> 是最近3个区块的平均时间，目前保证出块时间稳定在15秒左右</p></li>
-<li><p><span class="math inline">\(T_p\)</span> 父区块的baseTarget</p></li>
-<li><p><span class="math inline">\(T_b\)</span> 当前账户计算出的baseTarget</p></li>
+<li><p><code>S</code>
+是最近3个区块的平均时间，目前保证出块时间稳定在15秒左右</p></li>
+<li><p><span class="math inline">\(T_p\)</span>
+父区块的baseTarget</p></li>
+<li><p><span class="math inline">\(T_b\)</span>
+当前账户计算出的baseTarget</p></li>
 </ul>
 <h2 id="攻击">攻击</h2>
 <h3 id="零成本攻击nothing-at-stake">零成本攻击(Nothing at Stake)</h3>
@@ -453,7 +476,8 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
 <p>在一个历史攻击中，某个人获得了一大笔货币，并出售，然后试图从交易前创建一个成功的分支替换区块链数据；如果失败了，对攻击者不会有任何损失，因为货币已经成功出售了；如果攻击成功，那么攻击者又拿回了他们已经出售的货币。这种攻击的一个极端例子就是攻击者需要获取账户的私钥，然后从创世块开始构建一个成功分支；</p>
 <p>在ionchain中，一般的历史攻击都会失败，因为所有可以用来挖矿的权益都需要停留区块达到5769个（一天的时间），这就限制了攻击者，从时间框架上无法实现成功的攻击。</p>
 <h2 id="实现">实现</h2>
-<p>算法的具体实现可以参考github上的开源项目<a target="_blank" rel="noopener" href="http://github.com/ionchain/ionchain-core">ionchain-core</a></p>
+<p>算法的具体实现可以参考github上的开源项目<a
+target="_blank" rel="noopener" href="http://github.com/ionchain/ionchain-core">ionchain-core</a></p>
 
     </div>
 
@@ -464,10 +488,10 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
   <div class="popular-posts-header">相关文章推荐</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/ec5b8a8d.html" rel="bookmark">【分布式共识一】分布系统及共识介绍</a></div>
+      <div class="popular-posts-title"><a href="/posts/fe0496d6.html" rel="bookmark">【分布式共识二】拜占庭将军问题——口头协议</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/posts/fe0496d6.html" rel="bookmark">【分布式共识二】拜占庭将军问题——口头协议</a></div>
+      <div class="popular-posts-title"><a href="/posts/ec5b8a8d.html" rel="bookmark">【分布式共识一】分布系统及共识介绍</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/posts/ef92d986.html" rel="bookmark">【分布式共识三】拜占庭将军问题——书面协议</a></div>
@@ -562,7 +586,7 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -574,14 +598,14 @@ T_p - T_p \ast \gamma \ast \frac {10 - max(S,R_{min})}{15} &amp;  {S \leq 15}
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">128k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:56</span>
   </span>
 </div>
 <div class="busuanzi-count">

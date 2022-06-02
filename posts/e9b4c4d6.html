@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28528.png">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-07-25/28526.png">
 <meta property="article:published_time" content="2020-07-25T08:26:54.000Z">
-<meta property="article:modified_time" content="2020-09-16T08:59:53.262Z">
+<meta property="article:modified_time" content="2022-06-02T12:50:58.082Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="substrate">
 <meta name="twitter:card" content="summary">
@@ -229,20 +229,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -312,7 +312,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-16 16:59:53" itemprop="dateModified" datetime="2020-09-16T16:59:53+08:00">2020-09-16</time>
+        <time title="修改时间：2022-06-02 20:50:58" itemprop="dateModified" datetime="2022-06-02T20:50:58+08:00">2022-06-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -377,14 +377,17 @@
 <h2 id="安装依赖">安装依赖</h2>
 <p>编译安装<code>substrate</code>需要一些预装依赖。<code>substrate</code>提供了快速安装和完全安装两种形式，都是傻瓜式一键安装</p>
 <h3 id="快速安装">快速安装</h3>
-<p>快速安装仅安装依赖项，而不编译<code>substrate</code>。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash -s -- --fast</span><br></pre></td></tr></table></figure> 从<code>https://getsubstrate.io</code>脚本中可以看出，脚本安装了以下三个依赖库：</p>
+<p>快速安装仅安装依赖项，而不编译<code>substrate</code>。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash -s -- --fast</span><br></pre></td></tr></table></figure>
+从<code>https://getsubstrate.io</code>脚本中可以看出，脚本安装了以下三个依赖库：</p>
 <ul>
-<li>OpenSSL 包含了一系列的软件包来实现安全通信，还是一个通用的加密库</li>
+<li>OpenSSL
+包含了一系列的软件包来实现安全通信，还是一个通用的加密库</li>
 <li>CMake 是一个跨平台的编译打包工具</li>
 <li>LLVM 是一个编译器框架，用来生成虚拟机字节码或者二进制机器码</li>
 </ul>
 <h3 id="完全安装">完全安装</h3>
-<p>完全安装花费的时间很长，需要大概几分钟到十几分钟，具体时间取决于运行脚本的硬件，因为它还会编译<code>substrate</code>框架所需的所有<code>rust</code>库 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash</span><br></pre></td></tr></table></figure></p>
+<p>完全安装花费的时间很长，需要大概几分钟到十几分钟，具体时间取决于运行脚本的硬件，因为它还会编译<code>substrate</code>框架所需的所有<code>rust</code>库
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;getsubstrate.io -sSf | bash</span><br></pre></td></tr></table></figure></p>
 <p>完整安装除了包含上面的内容，还将安装以下两个工具：</p>
 <ul>
 <li><code>subKey</code>：用于创建<code>substrate</code>私钥的命令行工具</li>
@@ -417,7 +420,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template purge-chain --dev -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>然后通过以下命令运行节点，<code>--dev</code>表示启动一个本地开发链：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># Run your actual node in &quot;development&quot; mode</span><br><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template --dev</span><br><span class="line"></span><br><span class="line">2020-07-20 08:17:59 Running in --dev mode, RPC CORS has been disabled.</span><br><span class="line">2020-07-20 08:17:59 Substrate Node</span><br><span class="line">2020-07-20 08:17:59 ✌️  version 2.0.0-rc4-ff0fa24-x86_64-macos</span><br><span class="line">2020-07-20 08:17:59 ❤️  by Substrate DevHub &lt;https:&#x2F;&#x2F;github.com&#x2F;substrate-developer-hub&gt;, 2017-2020</span><br><span class="line">2020-07-20 08:17:59 📋 Chain specification: Development</span><br><span class="line">2020-07-20 08:17:59 🏷  Node name: absorbing-rub-5487</span><br><span class="line">2020-07-20 08:17:59 👤 Role: AUTHORITY</span><br><span class="line">2020-07-20 08:17:59 💾 Database: RocksDb at &#x2F;Users&#x2F;shouhewu&#x2F;Library&#x2F;Application Support&#x2F;node-template&#x2F;chains&#x2F;dev&#x2F;db</span><br><span class="line">2020-07-20 08:17:59 ⛓  Native runtime: node-template-1 (node-template-1.tx1.au1)</span><br><span class="line">2020-07-20 08:18:00 🔨 Initializing Genesis block&#x2F;state (state: 0x4873…6b70, header-hash: 0x6507…6b1c)</span><br><span class="line">2020-07-20 08:18:00 👴 Loading GRANDPA authority set from genesis on what appears to be first startup.</span><br><span class="line">2020-07-20 08:18:00 ⏱  Loaded block-time &#x3D; 6000 milliseconds from genesis on first-launch</span><br><span class="line">2020-07-20 08:18:00 📦 Highest known block at #0</span><br><span class="line">2020-07-20 08:18:00 Using default protocol ID &quot;sup&quot; because none is configured in the chain specs</span><br><span class="line">2020-07-20 08:18:00 🏷  Local node identity is: 12D3KooWNQcY6Nok89pZA8beSJYxud9tXmaa4njmg5tYVHfqu6Fu (legacy representation: QmQvaKQMAasAAXa1ePzanvVWyjMx2dvB3Pa9UDZM2swvr7)</span><br><span class="line">2020-07-20 08:18:00 〽️ Prometheus server started at 127.0.0.1:9615</span><br><span class="line">2020-07-20 08:18:05 💤 Idle (0 peers), best: #0 (0x6507…6b1c), finalized #0 (0x6507…6b1c), ⬇ 0 ⬆ 0</span><br><span class="line">2020-07-20 08:18:06 🙌 Starting consensus session on top of parent 0x6507cc935d4965698302c6c4a30a19a2bbe4b4fe4657734d08d122139bde6b1c</span><br><span class="line">2020-07-20 08:18:06 🎁 Prepared block for proposing at 1 [hash: 0x4b17dcfa7844be12bf6510e71f5e223c14d0d049ed6043adf67dfcc64f5a6fca; parent_hash: 0x6507…6b1c; extrinsics (1): [0x6f75…2375]]</span><br><span class="line">2020-07-20 08:18:06 🔖 Pre-sealed block for proposal at 1. Hash now 0xb486e13b481222879df3f1de669c8ffc92bb0ef5d50fdf68924b4ca4ed8630f0, previously 0x4b17dcfa7844be12bf6510e71f5e223c14d0d049ed6043adf67dfcc64f5a6fca.</span><br><span class="line">2020-07-20 08:18:06 ✨ Imported #1 (0xb486…30f0)</span><br></pre></td></tr></table></figure>
-<p>看到高度一直在增加，说明链已经在生产新的区块了，启动成功。从浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，其中<code>rpc=ws://127.0.0.1:9944</code>表示通过<code>websocket</code>方式连接你本地节点</p>
+<p>看到高度一直在增加，说明链已经在生产新的区块了，启动成功。从浏览器中打开<a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，其中<code>rpc=ws://127.0.0.1:9944</code>表示通过<code>websocket</code>方式连接你本地节点</p>
 <p><img src="/assets/2020-07-25/28473.png" /></p>
 <p>打开Accounts选项卡，你会看到已经有几个内置账号，并且账号有<code>Token</code>：</p>
 <p><img src="/assets/2020-07-25/28456.png" /></p>
@@ -456,7 +460,17 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template purge-chain --base-path &#x2F;tmp&#x2F;bob --chain local -y</span><br></pre></td></tr></table></figure>
 <p>启动<code>Bob</code>节点：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">./target/release/node-template \</span><br><span class="line">  --base-path /tmp/bob \</span><br><span class="line">  --chain local \</span><br><span class="line">  --bob \</span><br><span class="line">  --port 30334 \</span><br><span class="line">  --ws-port 9945 \</span><br><span class="line">  --rpc-port 9934 \</span><br><span class="line">  --telemetry-url &#x27;ws://telemetry.polkadot.io:1024 0&#x27; \</span><br><span class="line">  --validator \</span><br><span class="line">  --bootnodes /ip4/&lt;Alices IP Address&gt;/tcp/&lt;Alices Port&gt;/p2p/&lt;Alices Peer ID&gt;</span><br></pre></td></tr></table></figure>
-<p><code>Bob</code>的启动参数中大多数与<code>Alice</code>是相同的，下面对一些不同点做解释： - 由于<code>Alice</code>与<code>Bob</code>运行在同一台机器上，所以为Bob节点指定了不同的数据存储路径、p2p端口等。 - <code>--bootnodes</code>指明了依赖的启动节点信息，这里使用了<code>Alice</code>节点作为启动节点 - <code>&lt;Alices IP Address&gt;</code>：<code>Alice</code>的<code>IP</code>地址，127.0.0.1 - <code>&lt;Alices Port&gt;</code>：<code>Alice</code>的端口<code>30333</code> - <code>&lt;Alices Peer ID&gt;</code>：<code>Alice</code>的节点<code>ID</code>为<code>12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W</code></p>
+<p><code>Bob</code>的启动参数中大多数与<code>Alice</code>是相同的，下面对一些不同点做解释：
+-
+由于<code>Alice</code>与<code>Bob</code>运行在同一台机器上，所以为Bob节点指定了不同的数据存储路径、p2p端口等。
+-
+<code>--bootnodes</code>指明了依赖的启动节点信息，这里使用了<code>Alice</code>节点作为启动节点
+-
+<code>&lt;Alices IP Address&gt;</code>：<code>Alice</code>的<code>IP</code>地址，127.0.0.1
+-
+<code>&lt;Alices Port&gt;</code>：<code>Alice</code>的端口<code>30333</code>
+-
+<code>&lt;Alices Peer ID&gt;</code>：<code>Alice</code>的节点<code>ID</code>为<code>12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W</code></p>
 <p><code>Bob</code>完整的启动命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;target&#x2F;release&#x2F;node-template \</span><br><span class="line">  --base-path &#x2F;tmp&#x2F;bob \</span><br><span class="line">  --chain local \</span><br><span class="line">  --bob \</span><br><span class="line">  --port 30334 \</span><br><span class="line">  --ws-port 9945 \</span><br><span class="line">  --rpc-port 9934 \</span><br><span class="line">  --telemetry-url &#39;ws:&#x2F;&#x2F;telemetry.polkadot.io:1024 0&#39; \</span><br><span class="line">  --validator \</span><br><span class="line">  --bootnodes &#x2F;ip4&#x2F;127.0.0.1&#x2F;tcp&#x2F;30333&#x2F;p2p&#x2F;12D3KooWSXvKQoxGzG7vwpuLNTP4uf7Z2aLroqEf2VJGZA5dXc8W</span><br></pre></td></tr></table></figure>
 <p>如果一切正常，你应该能够看到：</p>
@@ -465,7 +479,8 @@
 <p><code>2020-07-20 12:03:08 🔍 Discovered new external address for our node: /ip4/127.0.0.1/tcp/30334/p2p/12D3KooWFXtZhw1D1Abx7kEPwcMKopKg47VgbvLCv6PaRr8zd98d</code>表示<code>Bob</code>已经连接上了<code>Alice</code>的节点</p>
 <p><code>2020-07-20 12:03:11 💤 Idle (1 peers), best: #0 (0x2d08…1087), finalized #0 (0x2d08…1087), ⬇ 1.3kiB/s ⬆ 1.3kiB/s</code>表示<code>Bob</code>已经同步了<code>Alice</code>的创世块，可以与上面<code>Alice</code>的创世块信息做对比看是否两个创世块的信息是否一致。</p>
 </blockquote>
-<p>同样可以在浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，查看区块状态。</p>
+<p>同样可以在浏览器中打开<a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，查看区块状态。</p>
 <h2 id="私钥生成">私钥生成</h2>
 <p>目前我们使用的是内置的账户作为区块生产者，现在我们将生成自己的账户，并且将账户作为区块生产者加入到区块链网络中。</p>
 <h3 id="方法一subkey">方法一：subkey</h3>
@@ -473,14 +488,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install --force subkey --git https:&#x2F;&#x2F;github.com&#x2F;paritytech&#x2F;substrate --tag v2.0.0-rc4</span><br></pre></td></tr></table></figure>
 <p>接下来将生成两种类型地址，分别用于区块生产，区块最终确认。</p>
 <h4 id="sr25519">sr25519</h4>
-<p><code>sr25519</code>用于<code>Aura</code>共识算法区块生成，执行下面命令将生产一个助记符，并且生成<code>sr25519</code>相关的公钥以及地址 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ subkey --sr25519 generate</span><br><span class="line"></span><br><span class="line">Secret phrase &#96;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&#96; is account:</span><br><span class="line">  Network ID&#x2F;version: substrate</span><br><span class="line">  Secret seed:        0xa2b0200f9666b743402289ca4f7e79c9a4a52ce129365578521b0b75396bd242</span><br><span class="line">  Public key (hex):   0x0a11c9bcc81f8bd314e80bc51cbfacf30eaeb57e863196a79cccdc8bf4750d21</span><br><span class="line">  Account ID:         0x0a11c9bcc81f8bd314e80bc51cbfacf30eaeb57e863196a79cccdc8bf4750d21</span><br><span class="line">  SS58 Address:       5CHucvTwrPg8L2tjneVoemApqXcUaEdUDsCEPyE7aDwrtR8D</span><br></pre></td></tr></table></figure> #### Ed25519</p>
+<p><code>sr25519</code>用于<code>Aura</code>共识算法区块生成，执行下面命令将生产一个助记符，并且生成<code>sr25519</code>相关的公钥以及地址
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ subkey --sr25519 generate</span><br><span class="line"></span><br><span class="line">Secret phrase &#96;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&#96; is account:</span><br><span class="line">  Network ID&#x2F;version: substrate</span><br><span class="line">  Secret seed:        0xa2b0200f9666b743402289ca4f7e79c9a4a52ce129365578521b0b75396bd242</span><br><span class="line">  Public key (hex):   0x0a11c9bcc81f8bd314e80bc51cbfacf30eaeb57e863196a79cccdc8bf4750d21</span><br><span class="line">  Account ID:         0x0a11c9bcc81f8bd314e80bc51cbfacf30eaeb57e863196a79cccdc8bf4750d21</span><br><span class="line">  SS58 Address:       5CHucvTwrPg8L2tjneVoemApqXcUaEdUDsCEPyE7aDwrtR8D</span><br></pre></td></tr></table></figure> #### Ed25519</p>
 <p><code>ed25519</code>用于<code>GRANDPA</code>算法做区块最终确认，使用上面的助记符生成<code>ed25519</code>相关的公钥以及地址。</p>
 <blockquote>
 <p>sr25519与ed25519使用的都是同一条椭圆曲线curve25519。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ subkey --ed25519 inspect &quot;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&quot;</span><br><span class="line"></span><br><span class="line">Secret phrase &#96;infant salmon buzz patrol maple subject turtle cute legend song vital leisure&#96; is account:</span><br><span class="line">  Network ID&#x2F;version: substrate</span><br><span class="line">  Secret seed:        0xa2b0200f9666b743402289ca4f7e79c9a4a52ce129365578521b0b75396bd242</span><br><span class="line">  Public key (hex):   0x1a0e2bf1e0195a1f5396c5fd209a620a48fe90f6f336d89c89405a0183a857a3</span><br><span class="line">  Account ID:         0x1a0e2bf1e0195a1f5396c5fd209a620a48fe90f6f336d89c89405a0183a857a3</span><br><span class="line">  SS58 Address:       5CesK3uTmn4NGfD3oyGBd1jrp4EfRyYdtqL3ERe9SXv8jUHb</span><br></pre></td></tr></table></figure>
 <h3 id="方法二polkadot-js-页面">方法二：Polkadot-JS 页面</h3>
-<p>由于<code>subkey</code>编译生成时间较长，为了快速生成相关私钥可以在浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接。点击左侧账户，生成相关私钥。</p>
+<p>由于<code>subkey</code>编译生成时间较长，为了快速生成相关私钥可以在浏览器中打开<a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接。点击左侧账户，生成相关私钥。</p>
 <p><img src="/assets/2020-07-25/28521.png" /></p>
 <h3 id="方法三预生成地址">方法三：预生成地址</h3>
 <p>如果以上两种方法生成地址失败，可以暂时使用下面预生成的地址，用于继续学习下面的内容</p>
@@ -595,7 +612,8 @@
 <h2 id="keystore">Keystore</h2>
 <p>由于<code>substrate</code>共识算法的特性，在生成区块的时候<code>aura</code>需要节点的私钥来签名区块，在对区块做最终确认的时候<code>GRANDPA</code>也需要节点的私钥对区块进行签名，所以我们需要将两个私钥分别上传到<code>keystore</code>目录中。</p>
 <h3 id="方法一polkadot-js-apps-ui">方法一：Polkadot-JS Apps UI</h3>
-<p>同样在浏览器中打开<a target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，点击左侧“工具箱”，在右侧页面中分别选择<code>auther</code>与<code>insertkey</code>，在表格中分别填写相关信息，首先填写<code>sr25519</code></p>
+<p>同样在浏览器中打开<a
+target="_blank" rel="noopener" href="https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944">https://polkadot.js.org/apps/#/settings?rpc=ws://127.0.0.1:9944</a>链接，点击左侧“工具箱”，在右侧页面中分别选择<code>auther</code>与<code>insertkey</code>，在表格中分别填写相关信息，首先填写<code>sr25519</code></p>
 <p><img src="/assets/2020-07-25/28528.png" /></p>
 <p>接下来用同样的方法填写<code>ed25519</code></p>
 <p><img src="/assets/2020-07-25/28526.png" /></p>
@@ -705,7 +723,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -717,14 +735,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">128k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:56</span>
   </span>
 </div>
 <div class="busuanzi-count">

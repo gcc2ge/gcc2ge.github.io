@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-09-11/9.jpg">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2020-09-11/10.jpg">
 <meta property="article:published_time" content="2020-09-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-18T13:12:41.240Z">
+<meta property="article:modified_time" content="2022-06-02T12:50:58.083Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="以太坊">
 <meta property="article:tag" content="区块链">
@@ -232,20 +232,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -315,7 +315,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-18 21:12:41" itemprop="dateModified" datetime="2020-09-18T21:12:41+08:00">2020-09-18</time>
+        <time title="修改时间：2022-06-02 20:50:58" itemprop="dateModified" datetime="2022-06-02T20:50:58+08:00">2022-06-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -360,28 +360,43 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><code>Uniswap</code>是<code>DeFi</code>中最著名的协议之一，<code>Uniswap</code>本质是一个自动化做市商（<code>AMM</code>），它舍弃了传统订单薄的撮合方式，采用流动池加恒定乘积公式算法(<span class="math inline">\(x \times y=k\)</span>)为不同加密资产提供即时报价和兑换服务。</p>
+        <p><code>Uniswap</code>是<code>DeFi</code>中最著名的协议之一，<code>Uniswap</code>本质是一个自动化做市商（<code>AMM</code>），它舍弃了传统订单薄的撮合方式，采用流动池加恒定乘积公式算法(<span
+class="math inline">\(x \times
+y=k\)</span>)为不同加密资产提供即时报价和兑换服务。</p>
 <a id="more"></a>
 <h2 id="什么是uniswap">什么是Uniswap</h2>
 <p>关于什么是<code>Uniswap</code>，先看一下<code>Uniswap</code>白皮书中的定义：</p>
 <blockquote>
-<p>Uniswap is a protocol for automated token exchange on Ethereum. It is designed around ease-of-use, gas efficiency, censorship resistance, and zero rent extraction.</p>
+<p>Uniswap is a protocol for automated token exchange on Ethereum. It is
+designed around ease-of-use, gas efficiency, censorship resistance, and
+zero rent extraction.</p>
 </blockquote>
 <p><code>Uniswap</code>是一个基于以太坊的自动代币交换协议，它的设计目标是：易用性、<code>gas</code>高利用率、抗审查性和零抽租。</p>
 <ul>
-<li>ease-of-use（易用性）：<code>Token A</code>换<code>Token B</code>，在<code>Uniswap</code>也只要发出一笔交易就能完成兑换，在其它交易所中可能需要发两笔交易：第一笔将<code>Token A</code>换成某种媒介货币，如<code>ETH</code>, <code>DAI</code> 等，然后再发第二笔交易换成<code>Token B</code>。</li>
-<li><code>gas efficiency</code>（<code>gas</code>高利用率）：在<code>Uniswap</code>上消耗的<code>gas</code>量是以太坊上的几家主流去中化交易所中最低的，也就代表在Uniswap交易要付的矿工费最少。 <img src="/assets/2020-09-11/2.jpg" alt="img" /></li>
+<li>ease-of-use（易用性）：<code>Token A</code>换<code>Token B</code>，在<code>Uniswap</code>也只要发出一笔交易就能完成兑换，在其它交易所中可能需要发两笔交易：第一笔将<code>Token A</code>换成某种媒介货币，如<code>ETH</code>,
+<code>DAI</code> 等，然后再发第二笔交易换成<code>Token B</code>。</li>
+<li><code>gas efficiency</code>（<code>gas</code>高利用率）：在<code>Uniswap</code>上消耗的<code>gas</code>量是以太坊上的几家主流去中化交易所中最低的，也就代表在Uniswap交易要付的矿工费最少。
+<img src="/assets/2020-09-11/2.jpg" alt="img" /></li>
 <li><code>censorship resistance</code>（抗审查性）：抗审查性体现在<code>Uniswap</code>上架新<code>Token</code>没有门槛，任何人都能在<code>Uniswap</code>上架任何<code>Token</code>。这在去中心交易所中很少见，虽然大多数的去中心化交易所不会像中心化交易所那样向你收取上币费，但还是需要提交上币申请，通过审查后运营团队才会让你的<code>Token</code>可以在他们的交易所上交易。下面是各去中心化交易所上币规则的详情：
 <ul>
-<li><code>KyberSwap</code>上币规则：<a target="_blank" rel="noopener" href="https://developer.kyber.network/docs/Reserves-ListingProcess/">https://developer.kyber.network/docs/Reserves-ListingProcess/</a></li>
-<li><code>EtherDelta</code>上币规则：<span class="citation" data-cites="mindseye69/new-etherdelta-coin-listing-rules">[https://steemit.com/cryptocurrency/@mindseye69/new-etherdelta-coin-listing-rules]</span>(https://steemit.com/cryptocurrency/<span class="citation" data-cites="mindseye69/new-etherdelta-coin-listing-rules">@mindseye69/new-etherdelta-coin-listing-rules</span>)</li>
-<li><code>IDEX</code>上币规则：<span class="citation" data-cites="forrestwhaling/idex-token-listing-guidelines-eae00785fdd2">[https://medium.com/@forrestwhaling/idex-token-listing-guidelines-eae00785fdd2]</span>(https://medium.com/<span class="citation" data-cites="forrestwhaling/idex-token-listing-guidelines-eae00785fdd2">@forrestwhaling/idex-token-listing-guidelines-eae00785fdd2</span>)</li>
-<li><code>Uniswap</code>上币规则：<a target="_blank" rel="noopener" href="https://uniswap.org/docs/v1/frontend-integration/token-listing/">https://uniswap.org/docs/v1/frontend-integration/token-listing/</a></li>
+<li><code>KyberSwap</code>上币规则：<a
+target="_blank" rel="noopener" href="https://developer.kyber.network/docs/Reserves-ListingProcess/">https://developer.kyber.network/docs/Reserves-ListingProcess/</a></li>
+<li><code>EtherDelta</code>上币规则：<a
+target="_blank" rel="noopener" href="https://steemit.com/cryptocurrency/@mindseye69/new-etherdelta-coin-listing-rules">https://steemit.com/cryptocurrency/<span
+class="citation"
+data-cites="mindseye69/new-etherdelta-coin-listing-rules">@mindseye69/new-etherdelta-coin-listing-rules</span></a></li>
+<li><code>IDEX</code>上币规则：<a
+target="_blank" rel="noopener" href="https://medium.com/@forrestwhaling/idex-token-listing-guidelines-eae00785fdd2">https://medium.com/<span
+class="citation"
+data-cites="forrestwhaling/idex-token-listing-guidelines-eae00785fdd2">@forrestwhaling/idex-token-listing-guidelines-eae00785fdd2</span></a></li>
+<li><code>Uniswap</code>上币规则：<a
+target="_blank" rel="noopener" href="https://uniswap.org/docs/v1/frontend-integration/token-listing/">https://uniswap.org/docs/v1/frontend-integration/token-listing/</a></li>
 </ul></li>
 <li><code>zero rent extraction</code>（零抽租）:在<code>Uniswap</code>协议设计中，开发团队不会从交易中抽取费用，交易中的所有费用都归还给流动性提供者。</li>
 </ul>
 <h2 id="自动化做市商amm">自动化做市商（AMM）</h2>
-<p>传统的交易所有一个订单薄(Order Book)，订单薄上记录着买卖方向，数量和出价，交易所负责对买卖双方进行配对，一旦订单薄中最高价格低于或等于最低价格，就会促成交易，同时会产生一个新的成交价，传统交易所有以下特点：</p>
+<p>传统的交易所有一个订单薄(Order
+Book)，订单薄上记录着买卖方向，数量和出价，交易所负责对买卖双方进行配对，一旦订单薄中最高价格低于或等于最低价格，就会促成交易，同时会产生一个新的成交价，传统交易所有以下特点：</p>
 <ul>
 <li>市场上必须要有用户进行挂单，要有一定量的订单（市场流动）。</li>
 <li>订单必须重叠才能成交，即买价高于或等于卖价。</li>
@@ -399,15 +414,22 @@
 <h3 id="流动池">流动池</h3>
 <p>流动池就是锁定在智能合约中所有的代币以及资金的总称，流动是资金转为代币，或代币转为资金的意思。</p>
 <p>一个完整的流动池分为2个部份，分别表示不同的货币，成为一个交易对，在<code>Uniswap V1</code>中就是<code>ETH</code>及<code>ERC20</code>代币，在<code>Uniswap V2</code>中是支持不同<code>ERC20</code>代币直接交换，所以在<code>Uniswap V2</code>中的流动池可以允许两边是不相同的<code>ERC20</code>代币，其中<code>ETH</code>会自动转换成以<code>WETH</code>代币。为了简化，直接以<code>ETH-ERC20</code>交易对作为例子。</p>
-<p>如下图所示，<code>Uniswap</code>将所有做市商的<code>ETH</code>集合在一起放在流动池左边， 将所有<code>ERC20</code>集合在一起放在流动池的右边。如果有用户要买<code>ERC20</code>代币，就从流动池的右边将<code>ERC20</code>代币转给用户，同时将用户支付的<code>ETH</code>添加的流动池的左边，然后重新计算流动池中的价格，等待下次交易。</p>
+<p>如下图所示，<code>Uniswap</code>将所有做市商的<code>ETH</code>集合在一起放在流动池左边，
+将所有<code>ERC20</code>集合在一起放在流动池的右边。如果有用户要买<code>ERC20</code>代币，就从流动池的右边将<code>ERC20</code>代币转给用户，同时将用户支付的<code>ETH</code>添加的流动池的左边，然后重新计算流动池中的价格，等待下次交易。</p>
 <p><img src="/assets/2020-09-11/4.jpg" alt="img" /></p>
 <p><code>Uniswap</code>是无法自己变出钱来，因此需要依赖外部资金向合约中提供流动性，向<code>Uniswap</code>流动池中提供流动性的用户被称为流动性提供者，当流动性提供者向<code>Uniswap</code>中注入流动性的时候，<code>Uniswap</code>会铸造出一个流动性代币(<code>LP</code>)，铸出<code>LP</code>代币数量是与用户注入的资金所占流动池中的资金比例相关,动性提供者可以选择在任何时间销毁自己持有的流动性代币。为了鼓励用于向<code>Uniswap</code>的流动池中提供更多的流动性，<code>Uniswap</code>会从每笔交易总额中抽取<code>0.3%</code>当成交易手续费，并将手续费全额交给那些将注资金到<code>Uniswap</code>资金池提供流动性的流动性提供者。</p>
 <h3 id="恒定乘积公式">恒定乘积公式</h3>
 <p>假设在<code>Uniswap</code>中存在一个<code>ETH-DAI</code>交易对的流动池，用户在使用<code>DAI</code>与<code>ETH</code>兑换时需要一个方法来决定交易价格。</p>
-<p><code>Uniswap</code>定价模型非常简洁，它的核心思想是一个恒定乘积公式<span class="math inline">\(x \times y = k\)</span> 。其中<code>x</code>和 <code>y</code>分别代表流动池中两种资产的数量，<code>k</code>是两种资产数量的乘积。</p>
-<p><span class="math inline">\(x \times y = k\)</span>的函数图像如下：</p>
+<p><code>Uniswap</code>定价模型非常简洁，它的核心思想是一个恒定乘积公式<span
+class="math inline">\(x \times y = k\)</span> 。其中<code>x</code>和
+<code>y</code>分别代表流动池中两种资产的数量，<code>k</code>是两种资产数量的乘积。</p>
+<p><span class="math inline">\(x \times y =
+k\)</span>的函数图像如下：</p>
 <p><img src="/assets/2020-09-11/5.jpg" alt="img" /></p>
-<p>假设乘积<code>k</code>是一个固定不变的常量，当用户使用<code>x</code>资产从流动池中兑换<code>y</code>资产时，流动池中<code>x</code>资产的数量会增加，<code>y</code>资产的数量会减少。由于<code>k</code>是恒定的，所以当<code>x</code>增长<span class="math inline">\(\Delta X\)</span> 时，需要将<code>y</code>减少<span class="math inline">\(\Delta Y\)</span>才能保持等式的恒定。</p>
+<p>假设乘积<code>k</code>是一个固定不变的常量，当用户使用<code>x</code>资产从流动池中兑换<code>y</code>资产时，流动池中<code>x</code>资产的数量会增加，<code>y</code>资产的数量会减少。由于<code>k</code>是恒定的，所以当<code>x</code>增长<span
+class="math inline">\(\Delta X\)</span>
+时，需要将<code>y</code>减少<span class="math inline">\(\Delta
+Y\)</span>才能保持等式的恒定。</p>
 <p><span class="math display">\[
 (x+\Delta X ) \times (y - \Delta Y) =k
 \]</span></p>
@@ -418,16 +440,20 @@
 <p><span class="math display">\[
 k&#39; \gt k
 \]</span></p>
-<p>其中：<span class="math inline">\(\rho = 0.3\%\)</span>，<span class="math inline">\(\gamma = 1- \rho\)</span></p>
-<p><span class="math inline">\(\Delta X \gamma\)</span>表示扣除手续费后加入到流动池中的资产。由于在流动池中增加了手续费所以计算出来的<code>k'</code>会大于<code>k</code>，详细过程会在后面推导。</p>
+<p>其中：<span class="math inline">\(\rho = 0.3\%\)</span>，<span
+class="math inline">\(\gamma = 1- \rho\)</span></p>
+<p><span class="math inline">\(\Delta X
+\gamma\)</span>表示扣除手续费后加入到流动池中的资产。由于在流动池中增加了手续费所以计算出来的<code>k'</code>会大于<code>k</code>，详细过程会在后面推导。</p>
 <p>接下来会有一些数学公式的推导，为了方便理解，我们先对不含手续费的情况进行推导，包含手续费的推导过程放在最后。</p>
 <h4 id="不含手续费">不含手续费</h4>
 <h5 id="交易价格计算">交易价格计算</h5>
-<p>交易价格的计算分成两种：</p>
-<ul>
-<li>InputPrice：向流动池中放入<span class="math inline">\(\Delta X\)</span>个<code>Token</code>可以兑换出多少个<span class="math inline">\(\Delta Y\)</span><code>Token</code></li>
-<li>OutputPrice：从流动池中取出<span class="math inline">\(\Delta Y\)</span>个<code>Token</code>，需要向流动池中放入多少个<span class="math inline">\(\Delta X\)</span><code>Token</code></li>
-</ul>
+<p>交易价格的计算分成两种： - InputPrice：向流动池中放入<span
+class="math inline">\(\Delta
+X\)</span>个<code>Token</code>可以兑换出多少个<span
+class="math inline">\(\Delta Y\)</span><code>Token</code> -
+OutputPrice：从流动池中取出<span class="math inline">\(\Delta
+Y\)</span>个<code>Token</code>，需要向流动池中放入多少个<span
+class="math inline">\(\Delta X\)</span><code>Token</code></p>
 <p><span class="math display">\[
 x^{&#39;}=x+ \Delta x =(1+ \alpha)x= \frac {1} {1 - \beta} x
 \]</span></p>
@@ -437,7 +463,9 @@ y^{&#39;}=y- \Delta y = \frac {1} {1+\alpha} y = (1 - \beta)y
 <p><span class="math display">\[
 xy=x&#39;y&#39;=k
 \]</span></p>
-<p>其中：<span class="math inline">\(\alpha = \frac {\Delta x} {x}\)</span>，<span class="math inline">\(\beta = \frac {\Delta y} {y}\)</span></p>
+<p>其中：<span class="math inline">\(\alpha = \frac {\Delta x}
+{x}\)</span>，<span class="math inline">\(\beta = \frac {\Delta y}
+{y}\)</span></p>
 <p><span class="math display">\[
 \Delta x= \alpha x
 \]</span></p>
@@ -458,12 +486,22 @@ xy=x&#39;y&#39;=k
 \]</span></p>
 <p>下面是<code>Input price</code>的函数图像：</p>
 <p><img src="/assets/2020-09-11/6.jpg" alt="img" /></p>
-<p>从上图可以看出向流动池中注入的<span class="math inline">\(\Delta X\)</span>越多，可以从流动池中取出的<span class="math inline">\(\Delta Y\)</span>也会越多，但是<span class="math inline">\(\Delta Y\)</span>只会不断地逼近流动池中现有的<span class="math inline">\(y\)</span>代币数量，并不会超过，也就是说你永远无法一次性买断流动池中所有的<span class="math inline">\(y\)</span>。可以看出，恒等乘积公式可以提供无限的流动性，只要你想买就一定可以买到。</p>
+<p>从上图可以看出向流动池中注入的<span class="math inline">\(\Delta
+X\)</span>越多，可以从流动池中取出的<span class="math inline">\(\Delta
+Y\)</span>也会越多，但是<span class="math inline">\(\Delta
+Y\)</span>只会不断地逼近流动池中现有的<span
+class="math inline">\(y\)</span>代币数量，并不会超过，也就是说你永远无法一次性买断流动池中所有的<span
+class="math inline">\(y\)</span>。可以看出，恒等乘积公式可以提供无限的流动性，只要你想买就一定可以买到。</p>
 <h5 id="交易滑点">交易滑点</h5>
-<p>交易滑点是指：“在买卖<span class="math inline">\(Token\)</span>时，实际支付的价格和期望的交易价格之间的差别，称为交易滑点”。</p>
-<p>从流动池中购买<span class="math inline">\(\Delta Y\)</span><code>Token</code>需要支付<span class="math inline">\(\Delta X\)</span>，所以本次购买的价格为：<span class="math inline">\(P=\frac {\Delta X} {\Delta Y}\)</span></p>
+<p>交易滑点是指：“在买卖<span
+class="math inline">\(Token\)</span>时，实际支付的价格和期望的交易价格之间的差别，称为交易滑点”。</p>
+<p>从流动池中购买<span class="math inline">\(\Delta
+Y\)</span><code>Token</code>需要支付<span class="math inline">\(\Delta
+X\)</span>，所以本次购买的价格为：<span class="math inline">\(P=\frac
+{\Delta X} {\Delta Y}\)</span></p>
 <p><span class="math display">\[
-P=\frac {\Delta X} {\Delta Y} = \frac {\alpha x} {\frac {\alpha} {1 + \alpha} y}= ({1 + \alpha}){\frac x y}
+P=\frac {\Delta X} {\Delta Y} = \frac {\alpha x} {\frac {\alpha} {1 +
+\alpha} y}= ({1 + \alpha}){\frac x y}
 \]</span></p>
 <p><span class="math display">\[
 {P&#39;}=\frac x y
@@ -471,29 +509,39 @@ P=\frac {\Delta X} {\Delta Y} = \frac {\alpha x} {\frac {\alpha} {1 + \alpha} y}
 <p><span class="math display">\[
 滑点=P-P&#39;=(1+\alpha){P&#39;} -{P&#39;}=\alpha {P&#39;}
 \]</span></p>
-<p>其中：<span class="math inline">\({P&#39;}=\frac x y\)</span>表示当前流动池中的价格</p>
-<p>从公式可以看出交易的滑点是与<span class="math inline">\(\alpha = \frac {\Delta X} x\)</span>成线性关系。</p>
+<p>其中：<span class="math inline">\({P&#39;}=\frac x
+y\)</span>表示当前流动池中的价格</p>
+<p>从公式可以看出交易的滑点是与<span class="math inline">\(\alpha =
+\frac {\Delta X} x\)</span>成线性关系。</p>
 <p>下图是滑点的函数图像：</p>
 <p><img src="/assets/2020-09-11/7.jpg" alt="img" /></p>
-<p>滑点(偏离幅度)取决于<span class="math inline">\(\frac {\Delta X} {x}\)</span>, 当资金池中<span class="math inline">\(x\)</span>足够大时，滑点越小，资金池固定时，一个区块时间内净交易量越小，滑点越小，一个区块时间内的净交易量又与两个因素相关，一个是区块确认速度，一个是市场价格波动率，因此<code>Uniswap</code>恒定乘积做市的滑点与下面三个因素高度相关：</p>
+<p>滑点(偏离幅度)取决于<span class="math inline">\(\frac {\Delta X}
+{x}\)</span>, 当资金池中<span
+class="math inline">\(x\)</span>足够大时，滑点越小，资金池固定时，一个区块时间内净交易量越小，滑点越小，一个区块时间内的净交易量又与两个因素相关，一个是区块确认速度，一个是市场价格波动率，因此<code>Uniswap</code>恒定乘积做市的滑点与下面三个因素高度相关：</p>
 <ul>
 <li>资金池的大小</li>
 <li>区块确认速度</li>
 <li>市场波动率</li>
 </ul>
 <h5 id="流动池币价">流动池币价</h5>
-<p>当从流动池中购买<span class="math inline">\(\Delta Y\)</span>代币后一定会引起当前流动池中的价格波动：</p>
+<p>当从流动池中购买<span class="math inline">\(\Delta
+Y\)</span>代币后一定会引起当前流动池中的价格波动：</p>
 <p><span class="math display">\[
-P=\frac {x&#39;} {y&#39;} = \frac {(1+\alpha)x} {\frac {1} {1+\alpha} y}= {(1+\alpha)(1+\alpha)} \frac x y
+P=\frac {x&#39;} {y&#39;} = \frac {(1+\alpha)x} {\frac {1} {1+\alpha}
+y}= {(1+\alpha)(1+\alpha)} \frac x y
 \]</span></p>
-<p>其中：<span class="math inline">\(P\)</span>是购买<span class="math inline">\(\Delta\)</span>代币后流动池中的币价</p>
-<p>从公式可以看出流动池中的币价与<span class="math inline">\(\alpha\)</span>成二次函数关系</p>
+<p>其中：<span class="math inline">\(P\)</span>是购买<span
+class="math inline">\(\Delta\)</span>代币后流动池中的币价</p>
+<p>从公式可以看出流动池中的币价与<span
+class="math inline">\(\alpha\)</span>成二次函数关系</p>
 <p>下图是价格的函数图像：</p>
 <p><img src="/assets/2020-09-11/8.jpg" alt="img" /></p>
 <p>当流动池中的价格与外部市场价格不一致时就会有套利者出现，套利者监控全球各家交易所的价格，一旦发现两家交易所存在价差，就会同时在两边低买高卖赚取中间差价。由于套利者的存在，才使得<code>Uniswap</code>币价不会与全球市场脱节。</p>
 <ul>
-<li><code>Uniswap</code>中的价格高于外部市场时，套利者从外部市场低价买入<span class="math inline">\(Y\)</span> ，然后高价卖给<code>Uniswap</code></li>
-<li><code>Uniswap</code>中的价格低于外部市场时，套利者从<code>Uniswap</code>低价买入<span class="math inline">\(Y\)</span>，然后高价卖给外部市场</li>
+<li><code>Uniswap</code>中的价格高于外部市场时，套利者从外部市场低价买入<span
+class="math inline">\(Y\)</span> ，然后高价卖给<code>Uniswap</code></li>
+<li><code>Uniswap</code>中的价格低于外部市场时，套利者从<code>Uniswap</code>低价买入<span
+class="math inline">\(Y\)</span>，然后高价卖给外部市场</li>
 </ul>
 <h5 id="表格">表格</h5>
 <p>对于不理解上面公式的同学，可以参考以下表格中的数据自己在<code>excel</code>中手动演算一遍，可以更直观的理解<code>Uniswap</code>的工作原理。</p>
@@ -639,18 +687,26 @@ P=\frac {x&#39;} {y&#39;} = \frac {(1+\alpha)x} {\frac {1} {1+\alpha} y}= {(1+\a
 <p>以下过程是在计算手续费的情况下，将上面的公式重新推导了一遍。</p>
 <h5 id="计算交易价格">计算交易价格</h5>
 <p><span class="math display">\[
-x_{\rho}^{&#39;}=x + \Delta x=(1+\alpha)x=\frac {1 + \beta(\frac 1 \gamma -1)} {1-\beta} x
+x_{\rho}^{&#39;}=x + \Delta x=(1+\alpha)x=\frac {1 + \beta(\frac 1
+\gamma -1)} {1-\beta} x
 \]</span></p>
 <p><span class="math display">\[
-y_{\rho} ^{&#39;} = y - \Delta y = \frac {1} {1+\alpha \gamma} y =(1 - \beta) y
+y_{\rho} ^{&#39;} = y - \Delta y = \frac {1} {1+\alpha \gamma} y =(1 -
+\beta) y
 \]</span></p>
 <p><span class="math display">\[
-{k&#39;} \gt x^{&#39;} _{\rho} y^{&#39;} _{\rho}=(1+\beta(\frac {1} {\gamma} -1))xy \gt k  \tag{加入手续费后计算出的k&#39;&gt;k}
+{k&#39;} \gt x^{&#39;} _{\rho} y^{&#39;} _{\rho}=(1+\beta(\frac {1}
+{\gamma} -1))xy \gt k  \tag{加入手续费后计算出的k&#39;&gt;k}
 \]</span></p>
 <blockquote>
 <p><code>k</code>除了在有交易手续费的情况会变大，还有一个情况也会使<code>k</code>值产生变化，当向流动池中增加流动性的时候<code>k</code>会变大，当从流动池中取回流动资金时<code>k</code>会变小。具体变化比例可以参考<code>Uniswap</code>白皮书，这里就不做推导了。</p>
 </blockquote>
-<p>其中：<span class="math inline">\(\alpha=\frac {\Delta x} {x}\)</span>，<span class="math inline">\(\beta = \frac {\Delta y} {y}\)</span>，<span class="math inline">\(0 \le \rho \lt 1\)</span>，<span class="math inline">\(\gamma = 1 - \rho\)</span>，目前交易费为：<span class="math inline">\(\rho= 0.3\%\)</span></p>
+<p>其中：<span class="math inline">\(\alpha=\frac {\Delta x}
+{x}\)</span>，<span class="math inline">\(\beta = \frac {\Delta y}
+{y}\)</span>，<span class="math inline">\(0 \le \rho \lt
+1\)</span>，<span class="math inline">\(\gamma = 1 -
+\rho\)</span>，目前交易费为：<span class="math inline">\(\rho=
+0.3\%\)</span></p>
 <p><span class="math display">\[
 \Delta x= \frac {\beta} {1-\beta} \cdot \frac {1} {\gamma} \cdot x
 \]</span></p>
@@ -659,22 +715,27 @@ y_{\rho} ^{&#39;} = y - \Delta y = \frac {1} {1+\alpha \gamma} y =(1 - \beta) y
 \]</span></p>
 <h5 id="交易滑点-1">交易滑点</h5>
 <p><span class="math display">\[
-P=\frac {\Delta x} {\Delta y} = \frac {\alpha x} {\frac {\alpha \gamma} {1+\alpha \gamma} \cdot y }= \frac {1+\alpha \gamma} {\gamma} \frac x y
+P=\frac {\Delta x} {\Delta y} = \frac {\alpha x} {\frac {\alpha \gamma}
+{1+\alpha \gamma} \cdot y }= \frac {1+\alpha \gamma} {\gamma} \frac x y
 \]</span></p>
 <p><span class="math display">\[
 {P&#39;}=\frac x y
 \]</span></p>
 <p><span class="math display">\[
-滑点=P-{P&#39;}={ \frac {1+\alpha \gamma} {\gamma} \frac x y} - {\frac x y}= {\frac {1+(\alpha - 1)\gamma} {\gamma}}{\frac x y}
+滑点=P-{P&#39;}={ \frac {1+\alpha \gamma} {\gamma} \frac x y} - {\frac x
+y}= {\frac {1+(\alpha - 1)\gamma} {\gamma}}{\frac x y}
 \]</span></p>
 <h5 id="流动池的币价">流动池的币价</h5>
 <p><span class="math display">\[
-\frac {x^{&#39;} _{\rho}} {y^{&#39;} _ {\rho}} = \frac {(1+\alpha)x } {\frac 1 {1+\alpha \gamma} y} = (1+\alpha)(1+\alpha \gamma) \frac x y
+\frac {x^{&#39;} _{\rho}} {y^{&#39;} _ {\rho}} = \frac {(1+\alpha)x }
+{\frac 1 {1+\alpha \gamma} y} = (1+\alpha)(1+\alpha \gamma) \frac x y
 \]</span></p>
 <h2 id="流动池收益与风险">流动池收益与风险</h2>
 <p>在<code>Uniswap</code>中流动性提供者的收益主要来自于交易抽成，<code>Uniswap</code>会从每笔交易中抽取<code>0.3%</code>的手续费，并将手续费按流动性提供者所占流动池的比例分配给流动性提供者。</p>
 <h3 id="impermanent-loss">impermanent loss</h3>
-<p>向<code>Uniswap</code>中提供流动性的人会发现一个现象：“目前在流动池中资金的价值比放入流动池之前的资金价值少了，也就是资金缩水了”，这种现象被称为“impermanent loss”，<code>impermanent loss</code>中文翻译成“无常损失”，简单来说<code>impermanent loss</code>是指你将加密货币放入<code>uniswap</code>中赚取的收益与你将加密货币放入钱包中的收益之间的差，公式为：<span class="math inline">\(L={profit}_{lp}- {profit}_{hodl}\)</span></p>
+<p>向<code>Uniswap</code>中提供流动性的人会发现一个现象：“目前在流动池中资金的价值比放入流动池之前的资金价值少了，也就是资金缩水了”，这种现象被称为“impermanent
+loss”，<code>impermanent loss</code>中文翻译成“无常损失”，简单来说<code>impermanent loss</code>是指你将加密货币放入<code>uniswap</code>中赚取的收益与你将加密货币放入钱包中的收益之间的差，公式为：<span
+class="math inline">\(L={profit}_{lp}- {profit}_{hodl}\)</span></p>
 <blockquote>
 <p>hodl指不看币价涨跌长期持有某种加密货币（hold on for dear life）</p>
 </blockquote>
@@ -687,20 +748,36 @@ e=\sqrt{\frac k p} \\
 t=\sqrt{k \times p} \\
 \end{aligned}
 \]</span></p>
-<p>其中：<span class="math inline">\(e\)</span>表示流动池中<code>ETH</code>数量，<span class="math inline">\(T\)</span>表示流动池中<code>DAI</code>数量，<span class="math inline">\(p\)</span>表示流动池中的价格</p>
-<p>开始用户向流动池中注入<span class="math inline">\(e=100\)</span>，<span class="math inline">\(t=10000\)</span>，当前市场的价格：<span class="math inline">\(p=\frac t e=100\)</span></p>
+<p>其中：<span
+class="math inline">\(e\)</span>表示流动池中<code>ETH</code>数量，<span
+class="math inline">\(T\)</span>表示流动池中<code>DAI</code>数量，<span
+class="math inline">\(p\)</span>表示流动池中的价格</p>
+<p>开始用户向流动池中注入<span
+class="math inline">\(e=100\)</span>，<span
+class="math inline">\(t=10000\)</span>，当前市场的价格：<span
+class="math inline">\(p=\frac t e=100\)</span></p>
 <p><span class="math display">\[
 k=et=100 * 10000=1000000
 \]</span></p>
-<p>假设现在外部市场价格发生了变化，价格变成：<span class="math inline">\(p&#39;=120\)</span>，由于发生价格差，这时套利者开始工作，套利者通过搬砖将流动池中的价格维持与外部是市场一致。这时流动池中最新的<span class="math inline">\(e\)</span>，<span class="math inline">\(t\)</span>数量为：</p>
-<p><span class="math inline">\(e’=\sqrt{\frac k p}=\sqrt{\frac {1000000} {120}}=91.28709291752769\)</span></p>
-<p><span class="math inline">\(t&#39;=\sqrt{k \times p}=\sqrt{ 1000000 \times 120}=10954.451150103323\)</span></p>
+<p>假设现在外部市场价格发生了变化，价格变成：<span
+class="math inline">\(p&#39;=120\)</span>，由于发生价格差，这时套利者开始工作，套利者通过搬砖将流动池中的价格维持与外部是市场一致。这时流动池中最新的<span
+class="math inline">\(e\)</span>，<span
+class="math inline">\(t\)</span>数量为：</p>
+<p><span class="math inline">\(e’=\sqrt{\frac k p}=\sqrt{\frac {1000000}
+{120}}=91.28709291752769\)</span></p>
+<p><span class="math inline">\(t&#39;=\sqrt{k \times p}=\sqrt{ 1000000
+\times 120}=10954.451150103323\)</span></p>
 <p>计算<code>HODL</code>时的资金 :</p>
-<p><span class="math inline">\(v0=e \times p&#39; + t=100 \times 120 + 10000=22000\)</span></p>
+<p><span class="math inline">\(v0=e \times p&#39; + t=100 \times 120 +
+10000=22000\)</span></p>
 <p>计算放入流动池后的资金:</p>
-<p><span class="math inline">\(v1=e&#39; \times p&#39; + t&#39;= 91.28709291752769 * 120 + 10954.451150103323 = 21908.902300206646\)</span></p>
+<p><span class="math inline">\(v1=e&#39; \times p&#39; + t&#39;=
+91.28709291752769 * 120 + 10954.451150103323 =
+21908.902300206646\)</span></p>
 <p>计算<code>impermanent loss</code>:</p>
-<p><span class="math inline">\(L=\frac {v1} {v0}=\frac {21908.902300206646} {22000} =0.9958591954639384 \approx 99.59 \%\)</span></p>
+<p><span class="math inline">\(L=\frac {v1} {v0}=\frac
+{21908.902300206646} {22000} =0.9958591954639384 \approx 99.59
+\%\)</span></p>
 <p>可以看出价格从<code>100</code>变成<code>120</code>后我们的资金只有之前的<code>99.59%</code>，损失了<code>4%</code>左右。只要这时候我们不将资金从流动池中取出，一旦流动池中的币价回到<code>100</code>时，我们是没有损失的，这是为什么叫<code>impermanent loss</code>无常损失的原因。</p>
 <p>下图演示<code>impermanant loss</code>的比率与当前价格变化的关系，<code>O</code>列表示资金刚放入流动池的情况，<code>O-&gt;H</code>表示价格上涨时<code>impermanent loss</code>的变化，<code>A&lt;-O</code>表示价格下跌时<code>impermanent loss</code>的变化。</p>
 <table>
@@ -853,12 +930,18 @@ k=et=100 * 10000=1000000
 </ul>
 <p>下面是计算<code>impermanent loss</code>的公式</p>
 <p><span class="math display">\[
-impermanent\_loss=\frac {2 \times \sqrt {price\_ratio}} {1+price\_ratio} -1
+impermanent\_loss=\frac {2 \times \sqrt {price\_ratio}} {1+price\_ratio}
+-1
 \]</span></p>
-<p>其中：<span class="math inline">\(price\_ratio\)</span>是价格变化比例</p>
+<p>其中：<span
+class="math inline">\(price\_ratio\)</span>是价格变化比例</p>
 <p>以下是不计算手续费情况下推导过程：</p>
 <p><span class="math inline">\(et={e&#39;}{t&#39;}=k\)</span></p>
-<p><span class="math inline">\(\frac e t= P\)</span>，<span class="math inline">\(\frac {e&#39;} {t&#39;}=P&#39;\)</span>，<span class="math inline">\(\frac {e&#39;} e = \sqrt{\frac {P&#39;} P}\)</span>，<span class="math inline">\(\frac {t&#39;} {t}=\sqrt{\frac {P} {P&#39;}}\)</span>，$price_ratio =  {P} $</p>
+<p><span class="math inline">\(\frac e t= P\)</span>，<span
+class="math inline">\(\frac {e&#39;} {t&#39;}=P&#39;\)</span>，<span
+class="math inline">\(\frac {e&#39;} e = \sqrt{\frac {P&#39;}
+P}\)</span>，<span class="math inline">\(\frac {t&#39;} {t}=\sqrt{\frac
+{P} {P&#39;}}\)</span>，$price_ratio = {P} $</p>
 <p><span class="math display">\[
 \begin{aligned}
 V_0 &amp;=e {P&#39;} + t \\
@@ -879,7 +962,8 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
 &amp;=\frac {V_1} {V_0} -1 \\
 &amp;=\frac {2{t&#39;}} {\frac {e{t&#39;} + {e&#39;}t} {e&#39;}} -1 \\
 &amp;=\frac {2{e&#39;}{t&#39;}} {e{t&#39;}+{e&#39;}t} -1 \\
-&amp;=\frac {\frac {2{e&#39;}{t&#39;}} {et&#39;}} {\frac {et&#39;} {et&#39;}+ \frac {e&#39;t} {et&#39;}} -1 \\
+&amp;=\frac {\frac {2{e&#39;}{t&#39;}} {et&#39;}} {\frac {et&#39;}
+{et&#39;}+ \frac {e&#39;t} {et&#39;}} -1 \\
 &amp;=\frac {\frac {2e&#39;} {e}} {1 + \frac {e&#39;t} {et&#39;}} -1 \\
 &amp;=\frac {2 \sqrt{\frac {P&#39;} {p}}} {1 + \frac {P&#39;} {P}} -1 \\
 &amp;=\frac {2 \sqrt{price\_ratio }} {1 + {price\_ratio }}-1
@@ -958,6 +1042,9 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/71359e3e.html" rel="next" title="IBC协议介绍">
+                  IBC协议介绍 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -1004,7 +1091,7 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1016,14 +1103,14 @@ L &amp;=\frac {V_1 - V_0} {V_0} \\
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">128k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:56</span>
   </span>
 </div>
 <div class="busuanzi-count">

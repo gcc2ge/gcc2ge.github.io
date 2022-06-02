@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-08-11/architecture.jpg">
 <meta property="og:image" content="https://www.whatsblockchain.com/assets/2019-08-11/network_deploy.png">
 <meta property="article:published_time" content="2019-08-11T01:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-16T08:59:52.958Z">
+<meta property="article:modified_time" content="2022-06-02T12:50:58.078Z">
 <meta property="article:author" content="吴寿鹤">
 <meta property="article:tag" content="Tendermint">
 <meta name="twitter:card" content="summary">
@@ -223,20 +223,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,7 +306,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-16 16:59:52" itemprop="dateModified" datetime="2020-09-16T16:59:52+08:00">2020-09-16</time>
+        <time title="修改时间：2022-06-02 20:50:58" itemprop="dateModified" datetime="2022-06-02T20:50:58+08:00">2022-06-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -351,17 +351,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。 <a id="more"></a></p>
+        <p>现在跨链相关技术很火热，也有很多人听说cosmos这个项目，cosmos的底层使用的技术是Tendermint，对于Tendermint是什么，我们能用Tendermint做什么估计有很多人不是很了解，如果你对Tendermint有兴趣，并想进一步了解Tendermint，那么这篇文章是一个不错的参考。
+<a id="more"></a></p>
 <h2 id="tendermint-发展史">Tendermint 发展史</h2>
 <p>在介绍Tendermint之前我们先回顾一下Tendermint的发展史：</p>
 <ul>
-<li>2014年，Jae Kwon与Ethan Buchman、Zarko Milosevic联合创建了Tendermint。</li>
-<li>2014年，Jae Kwon 发表了《Tendermint：无挖矿的共识》白皮书。Tendermint 的基本思想是允许大量分布式节点就共识达成一致，而无需中本聪共识依赖的PoW 工作量证明挖矿。</li>
+<li>2014年，Jae Kwon与Ethan Buchman、Zarko
+Milosevic联合创建了Tendermint。</li>
+<li>2014年，Jae Kwon
+发表了《Tendermint：无挖矿的共识》白皮书。Tendermint
+的基本思想是允许大量分布式节点就共识达成一致，而无需中本聪共识依赖的PoW
+工作量证明挖矿。</li>
 <li>2014年，成立的跨链项目Cosmos。</li>
 <li>2016年6月，为解决跨链问题而发起的Cosmos项目发布第一版白皮书。</li>
-<li>2017年 4月6日 ，Tendermint团队，在不到半个小时的时间筹集了 1600 多万美元，完成募资不到两个星期，Tendermint 团队就开始建立COSMOS中国社区。</li>
+<li>2017年 4月6日 ，Tendermint团队，在不到半个小时的时间筹集了 1600
+多万美元，完成募资不到两个星期，Tendermint
+团队就开始建立COSMOS中国社区。</li>
 <li>2018年 2 月，上线 Cosmos 软件开发工具包（SDK）。</li>
-<li>2018年3月，币安公链 Binance Chain 宣布将构建在 Cosmos 的 Tendermint 协议之上，采用 DPoS 和 BFT 共识，其去中心化交易所 DEX 也将基于 Cosmos 的跨链协议。</li>
+<li>2018年3月，币安公链 Binance Chain 宣布将构建在 Cosmos 的 Tendermint
+协议之上，采用 DPoS 和 BFT 共识，其去中心化交易所 DEX 也将基于 Cosmos
+的跨链协议。</li>
 <li>2019年3 月14 日 7 时 08 分（UTC+8），Cosmos 主网成功上线。</li>
 </ul>
 <p>从Tendermint的发展史中我们可以得到以下几点信息：</p>
@@ -374,19 +383,34 @@
 </ul>
 <h2 id="分层开发模式">分层开发模式</h2>
 <p>如果我们现在决定用Tendermint开发自己的链，那么在我们链的架构中Tendermint应该处于那一层呢？为了回答这个问题，我们先看一张图</p>
-<p><img src="/assets/2019-08-11/architecture.jpg" alt="architecture" /></p>
-<p>在图片的左边是我们web开发常用的分层模式，上层是应用层（spring），底层是数据库（MySQL，Oracle），在web开发中数据层需要实现以下三个功能：1. 数据持久化，保证我们的业务数据能够保存在硬盘中。2. 事务性，保证我们业务数据满足ACID这四个要求。3. 数据复制一致性，当我们的对做主从复制或读写分离时，需要保证数据在不同机器之间做一致性复制。</p>
-<p>在使用Tendermint开发链的时候，与web开发类似，在架构上可以把Tendermint当作是底层数据层，基于数据层之上可以实现自己链相关的业务（交易结构，账号模型，智能合约，合约虚拟机），在右边的数据层中，比左边的数据层多处三个功能，除了常见的数据持久化，事务性，数据复制一致性外，还多了三个功能：1. p2p网络，由于区块链节点是分布式在这个地方的，所以必须通过P2P网络协议将这些分散在各地的节点连接起来。2. 拜占庭容错，区块链与其他应用最大的区别就在于区块链是可以容忍拜占庭作恶节点存在的，如果不能容忍拜占庭，那么我们的应用就与常见的分布式系统没啥区别。3. 出块节点选举，在区块链上的区块有谁来产生是通过出块节点选举决定的，产生的区块需要通过共识算法在做一致性共识。</p>
+<p><img src="/assets/2019-08-11/architecture.jpg"
+alt="architecture" /></p>
+<p>在图片的左边是我们web开发常用的分层模式，上层是应用层（spring），底层是数据库（MySQL，Oracle），在web开发中数据层需要实现以下三个功能：1.
+数据持久化，保证我们的业务数据能够保存在硬盘中。2.
+事务性，保证我们业务数据满足ACID这四个要求。3.
+数据复制一致性，当我们的对做主从复制或读写分离时，需要保证数据在不同机器之间做一致性复制。</p>
+<p>在使用Tendermint开发链的时候，与web开发类似，在架构上可以把Tendermint当作是底层数据层，基于数据层之上可以实现自己链相关的业务（交易结构，账号模型，智能合约，合约虚拟机），在右边的数据层中，比左边的数据层多处三个功能，除了常见的数据持久化，事务性，数据复制一致性外，还多了三个功能：1.
+p2p网络，由于区块链节点是分布式在这个地方的，所以必须通过P2P网络协议将这些分散在各地的节点连接起来。2.
+拜占庭容错，区块链与其他应用最大的区别就在于区块链是可以容忍拜占庭作恶节点存在的，如果不能容忍拜占庭，那么我们的应用就与常见的分布式系统没啥区别。3.
+出块节点选举，在区块链上的区块有谁来产生是通过出块节点选举决定的，产生的区块需要通过共识算法在做一致性共识。</p>
 <p>Tendermint帮我们实现所有在区块链开发中通用的模块，让我们只需专注于自己的链上业务开发。当我们的链上业务开发完成后，该怎么与Tendermint整合呢，Tendermint提供了一套ABCI接口，通过ABCI接口就可以将应用层与Tendermint数据层整合起来了，关于ABCI接口将在接下来的篇幅中有详细的介绍。</p>
-<p>一定需要用Tendermint开发区块链吗？不一定，但是用Tendermint分层开发模式可以给我们带来以下几点好处： - 使软件具有结构性，便于开发，维护和管理 - 将不同的功能模块独立开来，在改动一个层模块的时候，另一层不改变不需要作出相应的改动，这样可以方便代码的复用、替换 - 可以专注于链上业务开发，不需要关注链的底层 - 在开发语言上可以有更多的选择，应用层可以用golang，java，nodejs等作为开发语言</p>
+<p>一定需要用Tendermint开发区块链吗？不一定，但是用Tendermint分层开发模式可以给我们带来以下几点好处：
+- 使软件具有结构性，便于开发，维护和管理 -
+将不同的功能模块独立开来，在改动一个层模块的时候，另一层不改变不需要作出相应的改动，这样可以方便代码的复用、替换
+- 可以专注于链上业务开发，不需要关注链的底层 -
+在开发语言上可以有更多的选择，应用层可以用golang，java，nodejs等作为开发语言</p>
 <p>为了更直观的来阐述使用Tendermint开发的好处，现在以以太坊作为二次开发来说明一下，以太坊是将所有功能全部放在一个进程中实现的，所以在使用以太坊做开发时，经常会出现牵一发而动全身的情况，比如我们想在以太坊上新增一个交易结构（投票交易），那么我们来看一下将会影响到哪些模块，首先肯定是交易模块，交易需要被打包到区块中，所以区块模块也需要跟着做修改，区块需要在本地做共识（POW证明），所以共识模块也需要做相应的修改，共识后的区块需要进行全网广播，所以p2p区块同步这块也要做相应的修改。仅仅新增一个交易，就需要做这么多的连带修改，这将给对我们的开发代码巨大的不必要的工作量，但是如果是使用Tendermint作为开发那么完全可以避免这些繁琐的工作量，因为我们只要关注与应用层开发就好了。</p>
 <h2 id="tendermint部署结构">Tendermint部署结构</h2>
 <p>如果我们的Tendermint的链开发好了，那么我们应该怎么去部署呢，下面这张图是我们cosmos官网上找到的，这张图是cosmos的网络部署图，由于cosmos也是基于Tendermint作为开发的，所以可以借鉴cosmos来部署我们的链。</p>
-<p><img src="/assets/2019-08-11/network_deploy.png" alt="network_deployment" /></p>
+<p><img src="/assets/2019-08-11/network_deploy.png"
+alt="network_deployment" /></p>
 <p>上图右侧一共部署了5个节点（五个绿块），这5个节点就是我们链节点，每个节点之间通过p2p协议进行互连，在图中左侧有一个轻节点与链进行连接，轻节点用来向区块链网络中发送交易请求。</p>
-<p>先对图右侧的这5个节点做一个详细说明，从图中可以看出我们的链节点有三个方块组成，这三个方块分别是： - 最大的绿色方块是Tendermint节点 - 蓝色的方块是我们的开发的链应用层 - 粉红色的方块是签名节点，用来对区块进行签名，单独部署签名签名的目的是从安全方面考虑的，这个在之后的篇幅中会做说明</p>
+<p>先对图右侧的这5个节点做一个详细说明，从图中可以看出我们的链节点有三个方块组成，这三个方块分别是：
+- 最大的绿色方块是Tendermint节点 - 蓝色的方块是我们的开发的链应用层 -
+粉红色的方块是签名节点，用来对区块进行签名，单独部署签名签名的目的是从安全方面考虑的，这个在之后的篇幅中会做说明</p>
 <p>在这个三个模块中需要我们开发的就是蓝色方块（链业务层），链业务层开发完成后与Tendermint程序通过ABCI节点相连。</p>
-<p>接下来看一下图的左侧，这个节点就是我们比较熟悉的轻节点应用，轻节点就是我们比较熟悉的钱包节点，通过轻节点我们可以向区块链网络中发送交易，也可以通过查询网络区块，交易等信息。从图中可以看出，我们开发轻节点也不是从头开发的，可以节点cosmos SDK来开发我们的轻节点应用，开发完成的轻节点通过RPC方式与Tendermint网络通信。</p>
+<p>接下来看一下图的左侧，这个节点就是我们比较熟悉的轻节点应用，轻节点就是我们比较熟悉的钱包节点，通过轻节点我们可以向区块链网络中发送交易，也可以通过查询网络区块，交易等信息。从图中可以看出，我们开发轻节点也不是从头开发的，可以节点cosmos
+SDK来开发我们的轻节点应用，开发完成的轻节点通过RPC方式与Tendermint网络通信。</p>
 <h2 id="tendermint总结">Tendermint总结</h2>
 <p>现在对上面的内容做一个总结，Tendermint帮我们实现区块链应用中最基础的几个模块，使我们可以专注与链业务代码的开发。</p>
 <ul>
@@ -531,7 +555,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -543,14 +567,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">123k</span>
+    <span title="站点总字数">128k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:52</span>
+    <span title="站点阅读时长">1:56</span>
   </span>
 </div>
 <div class="busuanzi-count">

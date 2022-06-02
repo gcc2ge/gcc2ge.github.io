@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="ujZIyJ1X7Fv3c7CfbZs3RxRi-EFgIV4L7vldTYt5rTA">
+  <meta name="baidu-site-verification" content="code-86L5xW0tJy">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.whatsblockchain.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="IBC可以认为是连接cosmos生态中各个链之间的高速公路，那么，什么是IBC？IBC是如何实现区块链之间的互操作性的？我将介绍IBC的架构和主要组成部分，包括IBC&#x2F;TAO和IBC&#x2F;APP。在IBC协议的基础是可以建立跨链应用例如：跨链转账，链间账户等。最后，我将举例说明如何实现跨链代币转移。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IBC协议介绍">
+<meta property="og:url" content="https://www.whatsblockchain.com/posts/71359e3e.html">
+<meta property="og:site_name" content="区块链大杂烩">
+<meta property="og:description" content="IBC可以认为是连接cosmos生态中各个链之间的高速公路，那么，什么是IBC？IBC是如何实现区块链之间的互操作性的？我将介绍IBC的架构和主要组成部分，包括IBC&#x2F;TAO和IBC&#x2F;APP。在IBC协议的基础是可以建立跨链应用例如：跨链转账，链间账户等。最后，我将举例说明如何实现跨链代币转移。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16538828725861.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16538818321691.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16540017966461.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16540019847761.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16541410108309.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16541411040043.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16541434072190.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/23.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/24.png">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16541562167906.jpg">
+<meta property="og:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16541579881241.jpg">
+<meta property="article:published_time" content="2022-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-02T13:56:35.883Z">
+<meta property="article:author" content="吴寿鹤">
+<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="IBC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.whatsblockchain.com/assets/2022-06-01/16538828725861.jpg">
+
+
+<link rel="canonical" href="https://www.whatsblockchain.com/posts/71359e3e.html">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>IBC协议介绍 | 区块链大杂烩</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145440251-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145440251-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9af0452214522472f44968f5a652e2f0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">区块链大杂烩</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">你想要的这里都有</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFibc"><span class="nav-number">1.</span> <span class="nav-text">什么是IBC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ibctao-%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">IBC&#x2F;TAO 网络传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#light-client"><span class="nav-number">2.1.</span> <span class="nav-text">Light Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#connection"><span class="nav-number">2.2.</span> <span class="nav-text">Connection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ibcapp-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">IBC&#x2F;APP 应用层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E9%93%BE%E8%BD%AC%E8%B4%A6"><span class="nav-number">3.1.</span> <span class="nav-text">跨链转账</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">3.1.1.</span> <span class="nav-text">案例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#iris-cosmos-kava"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">IRIS-&gt;COSMOS-KAVA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kava-cosmos-iris"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">KAVA-&gt;COSMOS-&gt;IRIS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interchain-account"><span class="nav-number">3.2.</span> <span class="nav-text">interchain account</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴寿鹤</p>
+  <div class="site-description" itemprop="description">代码之美，在于架构，架构之美，在于抽象</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.whatsblockchain.com/posts/71359e3e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴寿鹤">
+      <meta itemprop="description" content="代码之美，在于架构，架构之美，在于抽象">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="区块链大杂烩">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IBC协议介绍
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-06-01T00:00:00+08:00">2022-06-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-06-02 21:56:35" itemprop="dateModified" datetime="2022-06-02T21:56:35+08:00">2022-06-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/IBC/" itemprop="url" rel="index"><span itemprop="name">IBC</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><code>IBC</code>可以认为是连接<code>cosmos</code>生态中各个链之间的高速公路，那么，什么是<code>IBC</code>？<code>IBC</code>是如何实现区块链之间的互操作性的？我将介绍<code>IBC</code>的架构和主要组成部分，包括<code>IBC/TAO</code>和<code>IBC/APP</code>。在IBC协议的基础是可以建立跨链应用例如：跨链转账，链间账户等。最后，我将举例说明如何实现跨链代币转移。</p>
+<a id="more"></a>
+<h2 id="什么是ibc">什么是IBC</h2>
+<p><code>IBC</code>是<code>Inter-Blockchain Communication</code>（跨链通信）的缩写。<code>IBC</code>是一个端到端的、面向连接的、有状态的协议，用于可靠、有序和认证的分布式账本上的模块之间的通信。</p>
+<p><code>IBC</code>协议采用分层设计，主要分为2层： -
+<code>IBC/TAO</code>：<code>TAO</code>指的是：<code>transport</code>,
+<code>authorization</code>,
+<code>organization</code>，该协议处理分布式账本之间的数据之间的传输，认证，排序。
+-
+<code>IBC/APP</code>：基于<code>TAO</code>构建的上层应用层，定义了从传输层发送过来的数据的处理方式，如可分割代币转移(<code>ICS-20</code>),<code>NFT</code>代币转移(<code>ICS-721</code>)，<code>interchain accounts</code>（链间账户
+<code>ICS-27</code>)</p>
+<p>实现<code>IBC</code>协议的大多数工作集中在<code>TAO</code>层，一旦<code>TAO</code>层实现，则很容易在<code>TAO</code>层之上实现不同的<code>APP</code>层协议。</p>
+<p>和<code>TCP/IP</code>协议类似，<code>IBC</code>的特殊性在于它可以将应用层（<code>application layer</code>）从传输层和网络层（<code>TAO</code>,
+<code>transport</code>, <code>authorization</code>,
+<code>organization</code>）中剥离出来。这意味着<code>IBC</code>定义了数据是如何跨链被发送和接受的。不过它并没有明确具体的数据以及这些数据是如何组织结构的。这使得<code>IBC</code>从其他一些需要在应用层实现大量标准化的互联互通解决方案中脱引而出。</p>
+<p>下图展示了<code>IBC</code>工作流程：</p>
+<p><img src="/assets/2022-06-01/16538828725861.jpg" /></p>
+<p>上图中有三个关键点需要注意: -
+链之间依赖<code>relayer</code>通信，<code>relayer</code>相当于IBC协议中的物理层连接，<code>relayer</code>会扫描运行IBC协议的链，并负责向其他链报告最新的状态。
+- 多个<code>relayer</code>可以为多个<code>channel</code>传输数据 -
+<code>relayer</code>使用每个链上的<code>light client</code>来交易发送过来的消息</p>
+<h2 id="ibctao-网络传输层">IBC/TAO 网络传输层</h2>
+<p><code>IBC/TAO</code>层的主要作用为：在两链之间以<code>reliable</code>，<code>ordered and authenticated</code>方式传递数据包。</p>
+<ul>
+<li><code>reliable</code>：是指源链仅发送一个<code>packet</code>，目标链仅接收一次，二者无需信任任何第三方。</li>
+<li><code>ordered</code>：是指目标链接收packet的顺序与源链发送packet的顺序一致。</li>
+<li><code>authenticated</code>：每个<code>channel</code>分配给特定这智能合约，只有分配到<code>channel</code>的智能合约可以通过这个<code>channel</code>发送packet，任何其他智能合约无法使用该<code>channel</code>发送packet。</li>
+</ul>
+<p><code>IBC/TAO</code>主要包含以下三个模块： -
+链上轻客户端（<code>on-chain light client</code>） -
+连接（<code>connection</code>） - 通道（<code>channel</code>）</p>
+<h3 id="light-client">Light Client</h3>
+<p>轻客户端是 <code>IBC/TAO</code>的基础，轻客户端有一个为一个client ID
+作为标识，轻客户端会追踪其他区块链的共识状态，并且会基于共识状态交易对方区块链发送过来数据的合法性。<code>relayer</code>只负责消息的传递，消息的合法性是依赖于轻客户端做验证，所以IBC的安全性并不依赖于第三方服务比如<code>relayer</code>。</p>
+<p><img src="/assets/2022-06-01/16538818321691.png" alt="img" /></p>
+<h3 id="connection">Connection</h3>
+<p>有了<code>light client</code>
+就可以在<code>light client</code>是建立<code>connection</code>，<code>connection</code>算是一个连接两个分布式账本的通道，一个<code>light client</code>可以接受任意数量的<code>connection</code>。</p>
+<p><code>connection</code>通过四次握手完成，所有操作都是由<code>relayer</code>发起交易来触发，A链发起连接到B链过程如下：
+-
+<code>connOpenInit</code>：在<code>A</code>链上会创建并存储<code>INIT</code>状态。
+-
+<code>connOpenTry</code>：<code>B</code>链若验证A链上该<code>connection</code>状态为<code>INIT</code>，则在<code>B</code>链上创建并存储<code>TRYOPEN</code>状态。
+-
+<code>connOpenAck</code>：<code>A</code>链若验证<code>B</code>链上该<code>connection</code>状态为<code>TRYOPEN</code>，则将<code>A</code>链上该<code>connection</code>的状态由<code>INIT</code>更新为<code>OPEN</code>。
+-
+<code>connOpenConfirm</code>：<code>B</code>链若验证<code>A</code>链上该<code>connection</code>状态已由<code>INIT</code>更新为<code>OPEN</code>，则将B链上该<code>connection</code>状态由<code>TRYOPEN</code>更新为<code>OPEN</code>。</p>
+<p><img src="/assets/2022-06-01/16540017966461.jpg" /></p>
+<p>· ### Channel</p>
+<p><code>connection</code>和<code>light client</code>构成了<code>IBC</code>中传输层的主要组件。但是，<code>IBC</code>中的应用程序之间的通信是通过<code>channel</code>进行的，<code>channel</code>在应用程序模块与另一条链上的相应应用程序模块之间进行路由。这些应用程序由端口标识符命名，例如
+<code>ICS-20 token</code>传输的<code>transfer</code>。</p>
+<p><code>channel</code>通过四次握手完成，所有操作都是由<code>relayer</code>发起交易来触发，A链发起连接到B链过程如下：</p>
+<ul>
+<li><code>chanOpenInit</code>：在<code>A</code>链上会创建并存储<code>INIT</code>状态。</li>
+<li><code>chanOpenTry</code>：B链若验证A链上该<code>channel</code>为<code>INIT</code>状态，则在<code>B</code>链上创建并存储<code>TRYOPEN</code>状态。</li>
+<li><code>chanOpenAck</code>：<code>A</code>链若验证<code>B</code>链上该<code>channel</code>为<code>TRYOPEN</code>状态，则将<code>A</code>链上该<code>channel</code>的状态由INIT更新为<code>OPEN</code>。</li>
+<li><code>chanOpenConfirm</code>：<code>B</code>链若验证<code>A</code>链上该<code>channel</code>状态已由<code>INIT</code>更新为<code>OPEN</code>，则将<code>B</code>链上该<code>channel</code>状态由<code>TRYOPEN</code>更新为<code>OPEN</code>。</li>
+</ul>
+<p><img src="/assets/2022-06-01/16540019847761.jpg" /></p>
+<h2 id="ibcapp-应用层">IBC/APP 应用层</h2>
+<h3 id="跨链转账">跨链转账</h3>
+<p>在<code>IBC</code>的技术上可以构建跨链<code>token</code>转移的应用，在<code>token</code>进行转移的时候最重要的是确定要转移的<code>token</code>是不是属于当前链，下面流程图展示了如何区分<code>token</code>是是否是属于当前链：
+-
+如果<code>token</code>是当前链的<code>native token</code>那么，当前链是<code>token</code>的源链
+-
+如果<code>token</code>是当前链通过<code>channel</code>从其他链接受的token，那么当前链不是<code>token</code>的源链，否者当前链是<code>token</code>的源链</p>
+<p><img src="/assets/2022-06-01/16541410108309.jpg" /></p>
+<p>区分当前链是否为<code>token</code>的源链就可以进行<code>token</code>转移了，因为<code>token</code>从源链到目标链，和<code>token</code>从目标链到源链的逻辑是不相同的。下图展示了两者的区别：
+- <code>token</code>从目标链转移到目标链 - 托管<code>token</code> -
+目标链mint新的<code>token</code> - <code>token</code>从目标链转移回源链
+- 目标链burn <code>token</code> - 源链释放托管的<code>token</code></p>
+<p><img src="/assets/2022-06-01/16541411040043.jpg" /></p>
+<p>当<code>token</code>从一个链转到另一个链后，它的denom会产生变化，比如在Ethereum的跨链桥方案中，eth从Ethereum跨到bsc链上时就会变成eth.e或者其他的名称（和你使用的跨链桥有关，不同的桥跨链后的资产名称是不一样的）。那么在IBC方案中并没有中心化的桥提供服务，那么跨链后的资产名称如何命名？</p>
+<p><img src="/assets/2022-06-01/16541434072190.jpg" /></p>
+<p>链A（channel-2）与链B（channel-40）之间的已经建好了<code>channel</code>，当<code>token</code>从A链转到B链时，<code>token</code>在B链的denom为<code>&#123;Port&#125;/&#123;Channel&#125;/&#123;denom&#125;</code>，<code>channel</code>建立好后，会绑定<code>port</code>，<code>transfer</code>
+模块将绑定到一个名为 <code>transfer</code> 的端口。如果链 A 发送 100 个
+ATOM <code>token</code>，则链 B 将收到 <code>100</code> 个
+<code>ATOM token</code>
+并附加链B的<code>channel</code>前缀<code>port/channel-id</code>。所以链
+<code>B</code> 会将这 <code>100</code> 个 <code>ATOM</code>
+代币铸造为<code>transfer/channel-40/atom</code>。</p>
+<h4 id="案例">案例</h4>
+<p>接下来演示<code>IRIS</code>的<code>native token uiris</code>经过cosmos
+hub转移到KAVA链的过程。 <strong>Native Token On
+<code>IRIS</code></strong></p>
+<ul>
+<li>denom: <code>uiris</code></li>
+</ul>
+<p><strong>IBC Token On <code>COSMOS</code></strong></p>
+<ul>
+<li>Denom: <code>ibc/hash(transfer/channel-20/uiris)</code></li>
+<li>DenomTrace
+<ul>
+<li>BaseDenom: <code>uiris</code></li>
+<li>Path: <code>transfer/channel-20</code></li>
+</ul></li>
+</ul>
+<p><strong>IBC Token On <code>KAVA</code></strong></p>
+<ul>
+<li>Denom:
+<code>ibc/hash(transfer/channel-30/transfer/channel-20/uiris)</code></li>
+<li>DenomTrace
+<ul>
+<li>BaseDenom: <code>uiris</code></li>
+<li>Path: <code>transfer/channel-30/transfer/channel-20</code></li>
+</ul></li>
+</ul>
+<h5 id="iris-cosmos-kava">IRIS-&gt;COSMOS-KAVA</h5>
+<p><img src="/assets/2022-06-01/23.png" alt="未命名23" /></p>
+<p>上图流程如下：</p>
+<ul>
+<li><code>uiris</code>是<code>IRIS</code>的<code>native token</code>所以直接将<code>uiris</code>托管在<code>IRIS</code>链中</li>
+<li><code>cosmos</code>链在<code>channel-20</code>通道中<code>mint ibc token</code>
+<code>transfer/channel-20/uiris</code>，并将<code>ibc token</code>从<code>channel-21</code>通道发送给<code>KAVA</code></li>
+<li><code>cosmos</code>检查<code>transfer/channel-20/uris</code>并不是通过<code>channel-21</code>通道接受的<code>token</code>，所以在<code>channel-21</code>中托管<code>ibc token</code></li>
+<li><code>Kava</code>收到<code>cosmos</code>的消息，在<code>channel-30</code>中<code>mint ibc token</code></li>
+</ul>
+<h5 id="kava-cosmos-iris">KAVA-&gt;COSMOS-&gt;IRIS</h5>
+<p><img src="/assets/2022-06-01/24.png" alt="未命名24" /></p>
+<p>上述过程的逆操作，可看上图中的注释。</p>
+<h3 id="interchain-account">interchain account</h3>
+<p>跨链账户允许区块链使用<code>IBC</code>安全地控制另一个区块链上的账户。</p>
+<p>跨链账户最重要的两个特点如下： -
+通过<code>IBC</code>确定性地创建一个新的跨链账户 -
+将交易中继到跨链账户并提交到目标区块链。</p>
+<p><img src="/assets/2022-06-01/16541562167906.jpg" /></p>
+<p><code>Host Chain</code>：跨链账户在<code>Host Chain</code>上注册生成。<code>Host Chain</code>监听来自<code>controller chain</code>的
+IBC 数据包（创建interchain account的数据包）。</p>
+<p><code>controller chain</code>：该链可以在<code>Host Chain</code>上注册跨链账户，完成后可以控制跨链账户（通过发送IBC
+packet给<code>Host Chain</code>来控制）。<code>controller chain</code>必须具有至少一个跨链帐户身份验证模块（<code>Authentication Module</code>）才能充当<code>controller chain</code>。</p>
+<p><code>Authentication Module</code>（身份验证模块）：<code>controller chain</code>上的自定义
+IBC 应用程序模块，使用跨链账户模块 API
+构建自定义逻辑，用于创建和管理跨链账户。<code>controller chain</code>需要身份验证模块才能利用链间帐户模块功能。</p>
+<p>跨链账户（ICA）：<code>Host Chain</code>上的账户。跨链账户具有普通账户的所有功能。但是，<code>controller chain</code>的身份验证模块不会使用私钥对交易进行签名，而是将
+<code>IBC</code>
+数据包发送到<code>Host Chain</code>，以指示跨链帐户应该执行哪些交易。</p>
+<h2 id="总结">总结</h2>
+<p><img src="/assets/2022-06-01/16541579881241.jpg" /></p>
+<p><code>IBC</code>协议一共分为四层分别是：应用层，<code>channel</code>，<code>connection</code>，<code>light client</code>。
+应用层处理来自<code>channel</code>的数据报，并将处理完成后的数据交给<code>channel</code>发送给对方链。目前用的比较多的应用就是跨链token转移和链间账户。</p>
+<p><code>channel</code>建立在<code>connection</code>上，一个<code>connection</code>上可以拥有多个<code>channel</code>，每个<code>channel</code>的id是自增的，<code>channel</code>和模块进行绑定。</p>
+<p><code>connection</code>建立在<code>light client</code>的基础上，一个
+<code>light client</code>上可以有多个<code>connection</code>，<code>connection</code>的id也是自增的。</p>
+<p>每个链都会拥有另一条链的<code>light client</code>，<code>light client</code>跟踪其他链的共识状态，以及根据对方链的<code>light client</code>的共识状态验证对方的数据包的合法性。</p>
+<p><code>relayer</code>不对数据包进行任何验证，因此不需要被信任，但<code>relayer</code>在
+<code>IBC</code>
+中具有特别重要的作用，除了通过提交数据包以保持<code>IBC</code>网络的活跃性。他们负责提交init消息以创建新<code>light client</code>，并在每个链上保持<code>light client</code>状态的更新，以确保<code>light client</code>可以验证传递过来的数据包的合法性。<code>relayer</code>还负责发送<code>connection</code>和<code>channel</code>握手数据包，在链之间建立<code>connection</code>和<code>channel</code>。此外，如果连接另一端的链尝试分叉或尝试其他类型的恶意行为，<code>relayer</code>可以提交不当行为的证据。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章推荐</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/3e17fcd9.html" rel="bookmark">科普：什么是以太坊</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/318c223a.html" rel="bookmark">zkRollup介绍 原理篇 </a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/58cf1c1b.html" rel="bookmark">零知识证明介绍 </a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/posts/2e1e9deb.html" rel="bookmark">精通 Uniswap</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>吴寿鹤
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://www.whatsblockchain.com/posts/71359e3e.html" title="IBC协议介绍">https://www.whatsblockchain.com/posts/71359e3e.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag"># 区块链</a>
+              <a href="/tags/IBC/" rel="tag"># IBC</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2e1e9deb.html" rel="prev" title="精通 Uniswap">
+                  <i class="fa fa-chevron-left"></i> 精通 Uniswap
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴寿鹤</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">128k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:56</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
