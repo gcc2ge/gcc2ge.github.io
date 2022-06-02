@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/28e870bb.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/e9b4c4d6.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/e9b4c4d6.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/28e870bb.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -44,14 +44,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/58cf1c1b.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/e5605cc7.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/e5605cc7.html</loc>
+    <loc>https://www.whatsblockchain.com/posts/58cf1c1b.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -86,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/posts/f609c40f.html</loc>
-    
-    <lastmod>2022-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.whatsblockchain.com/posts/2b442f1b.html</loc>
     
     <lastmod>2022-06-02</lastmod>
@@ -101,6 +94,13 @@
   
   <url>
     <loc>https://www.whatsblockchain.com/posts/8ab37d7a.html</loc>
+    
+    <lastmod>2022-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.whatsblockchain.com/posts/f609c40f.html</loc>
     
     <lastmod>2022-06-02</lastmod>
     
@@ -198,7 +198,7 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/about/index.html</loc>
+    <loc>https://www.whatsblockchain.com/categories/index.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -212,7 +212,7 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/categories/index.html</loc>
+    <loc>https://www.whatsblockchain.com/about/index.html</loc>
     
     <lastmod>2020-09-16</lastmod>
     
@@ -305,14 +305,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/DeFi/</loc>
+    <loc>https://www.whatsblockchain.com/tags/IBC/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/tags/IBC/</loc>
+    <loc>https://www.whatsblockchain.com/tags/DeFi/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -370,14 +370,14 @@
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/categories/DeFi/</loc>
+    <loc>https://www.whatsblockchain.com/categories/IBC/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.whatsblockchain.com/categories/IBC/</loc>
+    <loc>https://www.whatsblockchain.com/categories/DeFi/</loc>
     <lastmod>2022-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
